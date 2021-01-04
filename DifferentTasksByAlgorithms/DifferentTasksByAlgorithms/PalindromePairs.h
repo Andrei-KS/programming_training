@@ -11,28 +11,6 @@ output:     all the pairs of the distinct indices (i, j) in the given list, so t
 using namespace std;
 
 class Solution {
-    struct NodeInt {
-        unordered_map<int, NodeInt*> child = {};
-    };
-
-    class TrieInt {
-        NodeInt* root;
-    public:
-        /** Initialization the data structure */
-        TrieInt():root(new NodeInt){}
-
-        /** Destroy the data structure */
-        ~TrieInt();
-
-        void clear();
-
-        /** Insert new a sequence ints to data structure */
-        void insert(vector<int>& seq);
-
-        /** Get sequence ints from data structure */
-        vector<vector<int>> getSequnces();
-    };
-
 	struct Node {
 		int val = -1;
         unordered_map<char, Node*> child = {};

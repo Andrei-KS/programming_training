@@ -1,81 +1,6 @@
 #include "PalindromePairs.h"
 #include <iostream>
-
-Solution::TrieInt::~TrieInt()
-{
-	clear();
-	delete root;
-	root = nullptr;
-}
-
-void Solution::TrieInt::clear()
-{
-	if (!root)
-	{
-		return;
-	}
-	vector<NodeInt*> level;
-	for (auto it = root->child.begin(); it != root->child.end(); it++)
-	{
-		level.push_back(it->second);
-	}
-	while (!level.empty())
-	{
-		vector<NodeInt*> nextLevel;
-		for (int i = 0; i < level.size(); i++)
-		{
-			auto it = level[i]->child.begin();
-			while (it != level[i]->child.end())
-			{
-				nextLevel.push_back(it->second);
-				it++;
-			}
-			delete level[i];
-			level[i] = nullptr;
-		}
-		level = nextLevel;
-	}
-}
-
-void Solution::TrieInt::insert(vector<int>& seq)
-{
-	NodeInt* curNode = root;
-	for (int index = 0; index < seq.size(); index++)
-	{
-		if (curNode->child.find(seq[index]) == curNode->child.end())
-		{
-			curNode->child[seq[index]] = new NodeInt;
-		}
-		curNode = curNode->child[seq[index]];
-	}
-}
-
-vector<vector<int>> Solution::TrieInt::getSequnces()
-{
-	vector<vector<int>> ans;
-	
-	stack<pair<NodeInt*,vector<int>>> st;
-	st.push({ root, vector<int>()});
-	while (!st.empty())
-	{
-		NodeInt* cur = st.top().first;
-		vector<int> v = st.top().second;
-		st.pop();
-		if (cur->child.empty() && cur != root) {
-			ans.push_back(v);
-		}
-		else
-		{
-			for (auto it = cur->child.begin(); it != cur->child.end(); it++)
-			{
-				v.push_back(it->first);
-				st.push({it->second,v});
-				v.pop_back();
-			}
-		}
-	}
-	return ans;
-}
+#include <algorithm>
 
 Solution::WordDictionary::~WordDictionary()
 {
@@ -196,68 +121,60 @@ bool Solution::isPalindrome(const string& str)
 
 vector<vector<int>> Solution::palindromePairs(vector<string>& words)
 {
-	//vector<vector<int>> ans;
-	TrieInt ti;
+	vector<vector<int>> ans;
 
-	WordDictionary wd;
+	WordDictionary reverseWordDictionary;
 	for (int index = 0; index < words.size(); index++)
 	{
-		wd.insert(words[index], index);
+		string reversWord = words[index];
+		reverse(reversWord.begin(), reversWord.end());
+		reverseWordDictionary.insert(reversWord, index);
 	}
 
 	for (int index = 0; index < words.size(); index++)
 	{
-		/*
-		left
-		word: aabc
-		0 aabc
-		1 aab
-		2 aa
-		..
-		lenght ""
-
-		right
-		word: aabc
-		0 aabc
-		1  abc
-		2   bc
-		..
-		lenght ""
-		*/
-		string condidate = words[index];
-		reverse(condidate.begin(), condidate.end());
-
+		//cout << "current word : " << words[index] << "\n";
 		for (int j = 0; j <= words[index].size(); j++)
 		{
-			int secondIndex = -1;
-			string rightStr = condidate.substr(j);
-			if (isPalindrome(words[index] + rightStr))
-			{
-				secondIndex = wd.searchWord(rightStr);
-				if (secondIndex != -1 && secondIndex != index)
-				{
-					ti.insert(vector<int>{ index,secondIndex });
-					//ans.push_back({ index,secondIndex });
-				}
-			}
-			//cout << "w+c :: "<< words[index] << "|" << rightStr <<  " [" << index << ", " << secondIndex << "]\n";
+			/*
+					word
+			   left-^----right
+					word
+				   --^---
+				...
+					word
+				   ----^--
 
-			secondIndex = -1;
-			string leftStr = condidate.substr(0, j);
-			if (isPalindrome(leftStr + words[index]))
+				if left part is polindrom, need find right path in Dictionary
+				we get such a palindrome: right + left + right
+
+				if right part is polindrom, need find left path in Dictionary
+				we get such a palindrome: left + right + left
+			*/
+			if (j && isPalindrome(words[index].substr(0, j)))
 			{
-				secondIndex = wd.searchWord(leftStr);
+				//cout << " left -> " << words[index].substr(0, j) << "\n";
+				int secondIndex = reverseWordDictionary.searchWord(words[index].substr(j, words[index].size() - j));
 				if (secondIndex != -1 && secondIndex != index)
 				{
-					ti.insert(vector<int>{ secondIndex, index });
-					//ans.push_back({ secondIndex, index});
+					ans.push_back({ secondIndex, index });
 				}
 			}
-			//cout << "c+w :: " << leftStr << "|" << words[index] << " [" << secondIndex << ", " << index << "]\n";
+			//cout << " " << words[index].substr(j, words[index].size() - j) << words[index] << "\n";
+			
+			if (isPalindrome(words[index].substr(j, words[index].size() - j)))
+			{
+				//cout << " right -> " << words[index].substr(0, words[index].size() - j) << "\n";
+				int secondIndex = reverseWordDictionary.searchWord(words[index].substr(0, j));
+				if (secondIndex != -1 && secondIndex != index)
+				{
+					ans.push_back({ index, secondIndex });
+				}
+			}
 		}
 	}
 
-	return ti.getSequnces();
+	return ans;
 }
 
 void test(vector<string>& words)
