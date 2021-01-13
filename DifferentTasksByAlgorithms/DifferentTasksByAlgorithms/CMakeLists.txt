@@ -11,5 +11,6 @@ cmake_minimum_required (VERSION 3.8)
 # add_executable (DifferentTasksByAlgorithms "WordSearch_v2.cpp")
 # add_executable (DifferentTasksByAlgorithms "PalindromePairs.cpp")
 # add_executable (DifferentTasksByAlgorithms "SimpleBST.cpp" "SimpleBST.h")
-add_executable (DifferentTasksByAlgorithms "ContainsNearbyAlmostDuplicate.h" "ContainsNearbyAlmostDuplicate.cpp")
+# add_executable (DifferentTasksByAlgorithms "ContainsNearbyAlmostDuplicate.h" "ContainsNearbyAlmostDuplicate.cpp")
+add_executable ("SearchRange.h" "SearchRange.cpp")
 # TODO: Add tests and install targets if needed.
