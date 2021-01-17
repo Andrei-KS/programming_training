@@ -14,5 +14,6 @@ cmake_minimum_required (VERSION 3.8)
 # add_executable (DifferentTasksByAlgorithms "ContainsNearbyAlmostDuplicate.h" "ContainsNearbyAlmostDuplicate.cpp")
 # add_executable (DifferentTasksByAlgorithms "SearchRange.h" "SearchRange.cpp")
 # add_executable (DifferentTasksByAlgorithms "FindClosestElements.h" "FindClosestElements.cpp" )
-add_executable (DifferentTasksByAlgorithms "SmallestDistancePair.cpp")
+# add_executable (DifferentTasksByAlgorithms "SmallestDistancePair.cpp" )
+add_executable (DifferentTasksByAlgorithms "HashSet.h" "HashSet.cpp")
 # TODO: Add tests and install targets if needed.
