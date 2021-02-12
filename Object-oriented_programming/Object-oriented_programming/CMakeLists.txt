@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-set(NUMBER_EXAMPLE 2)
+set(NUMBER_EXAMPLE 3)
 
 # Configuration file to do correct compilation of example
 set(CONFIGURATE_FILE "ConfigurationFile.h")
@@ -26,7 +26,7 @@ if(${NUMBER_EXAMPLE} EQUAL 1)
 		)
 	file(WRITE
 		${CONFIGURATE_FILE}
-		"#define __COMMAND_PRINT__"
+		"#define __EXAMPLE_COMMAND_PRINT__"
 		)
 
 elseif(${NUMBER_EXAMPLE} EQUAL 2)
@@ -43,7 +43,22 @@ elseif(${NUMBER_EXAMPLE} EQUAL 2)
 		)
 	file(WRITE
 		${CONFIGURATE_FILE}
-		"#define __ACTIVE_OBJECT_SLEEPCOMMAND__"
+		"#define __EXAMPLE_ACTIVE_OBJECT_SLEEPCOMMAND__"
+		)
+		
+elseif(${NUMBER_EXAMPLE} EQUAL 3)
+	set(TARGET_H
+		${TARGET_H}
+		"TemplateMethod/TemplateMethodQuickSort.h"
+		"TemplateMethod/TestTemplateMethodQuickSort.h"
+		)
+	SET(TARGET_SRC
+		"TemplateMethod/TemplateMethodQuickSort.cpp"
+		"TemplateMethod/TestTemplateMethodQuickSort.cpp"
+		)
+	file(WRITE
+		${CONFIGURATE_FILE}
+		"#define __EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__"
 		)
 endif()
 
