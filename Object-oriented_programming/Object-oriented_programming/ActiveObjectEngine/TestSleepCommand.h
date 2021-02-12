@@ -5,7 +5,6 @@
 #include "ActiveObjectEngine.h"
 #include <string>
 #include <exception>
-#include <iostream>
 
 class CommandWeakup;
 

@@ -4,7 +4,6 @@
 #include "SleepCommand.h"
 #include <cassert>
 #include <ctime>
-#include <memory>
 
 #include <iostream>
 
