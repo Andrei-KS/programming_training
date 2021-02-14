@@ -11,7 +11,11 @@
 #ifdef __EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__
 #include "TemplateMethod/TestTemplateMethodQuickSort.h"
 #include <vector>
-#endif
+#endif // __EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__
+
+#ifdef __EXAMPLE_STRATEGY_QUICK_SORT__
+#include "Strategy/TestStrategyQuickSort.h"
+#endif // __EXAMPLE_STRATEGY_QUICK_SORT__
 
 int main()
 {
@@ -38,7 +42,16 @@ int main()
 	ttmqs.testQuickSortDoubles(std::vector<double>{ 1});
 	ttmqs.testQuickSortDoubles(std::vector<double>{ 1, 1});
 	ttmqs.testQuickSortDoubles(std::vector<double>{ 2, 1});
-#endif
+#endif // __EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__
 
+#ifdef __EXAMPLE_STRATEGY_QUICK_SORT__
+	TestStrategyQuickSort ttmqs;
+	ttmqs.testQuickSortInts(std::vector<int>{ 1, 3, 4, 2, 3, 1, 4 });
+	ttmqs.testQuickSortInts(std::vector<int>{});
+	ttmqs.testQuickSortInts(std::vector<int>{ 1});
+	ttmqs.testQuickSortInts(std::vector<int>{ 1, 1});
+	ttmqs.testQuickSortInts(std::vector<int>{ 2, 1});
+	ttmqs.testQuickSortInts(std::vector<int>{ 0, 1,5,9,23,4,1,356,768,4,24,898,2,2435,8,0});
+#endif // __EXAMPLE_STRATEGY_QUICK_SORT__
 	return 0;
 }

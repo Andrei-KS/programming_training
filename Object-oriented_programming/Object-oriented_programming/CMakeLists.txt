@@ -3,26 +3,23 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-set(NUMBER_EXAMPLE 3)
+set(NUMBER_EXAMPLE 4)
 
 # Configuration file to do correct compilation of example
 set(CONFIGURATE_FILE "ConfigurationFile.h")
 
 # Local header files here ONLY
-SET(TARGET_H
-	${CONFIGURATE_FILE}
-	)
+SET(TARGET_H)
 
 # Local source files here
 SET(TARGET_SRC)
 
+# Local Path to header and src
+set(PATH_H_SRC)
+
 if(${NUMBER_EXAMPLE} EQUAL 1)
-	set(TARGET_H
-		${TARGET_H}
-		"Command/CommandPrint.h"
-		)
-	SET(TARGET_SRC
-		"Command/CommandPrint.cpp"
+	set(PATH_H_SRC
+		"Command"
 		)
 	file(WRITE
 		${CONFIGURATE_FILE}
@@ -30,16 +27,8 @@ if(${NUMBER_EXAMPLE} EQUAL 1)
 		)
 
 elseif(${NUMBER_EXAMPLE} EQUAL 2)
-	set(TARGET_H
-		${TARGET_H}
-		"ActiveObjectEngine/ActiveObjectEngine.h"
-		"ActiveObjectEngine/TestSleepCommand.h"
-		"ActiveObjectEngine/SleepCommand.h"
-		)
-	SET(TARGET_SRC
-		"ActiveObjectEngine/ActiveObjectEngine.cpp"
-		"ActiveObjectEngine/TestSleepCommand.cpp"
-		"ActiveObjectEngine/SleepCommand.cpp"
+	set(PATH_H_SRC
+		"ActiveObjectEngine"
 		)
 	file(WRITE
 		${CONFIGURATE_FILE}
@@ -47,20 +36,35 @@ elseif(${NUMBER_EXAMPLE} EQUAL 2)
 		)
 		
 elseif(${NUMBER_EXAMPLE} EQUAL 3)
-	set(TARGET_H
-		${TARGET_H}
-		"TemplateMethod/TemplateMethodQuickSort.h"
-		"TemplateMethod/TestTemplateMethodQuickSort.h"
-		)
-	SET(TARGET_SRC
-		"TemplateMethod/TemplateMethodQuickSort.cpp"
-		"TemplateMethod/TestTemplateMethodQuickSort.cpp"
+	set(PATH_H_SRC
+		"TemplateMethod"
 		)
 	file(WRITE
 		${CONFIGURATE_FILE}
 		"#define __EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__"
 		)
+
+elseif(${NUMBER_EXAMPLE} EQUAL 4)
+	set(PATH_H_SRC
+		"Strategy"
+		)
+	file(WRITE
+		${CONFIGURATE_FILE}
+		"#define __EXAMPLE_STRATEGY_QUICK_SORT__"
+		)
 endif()
+
+
+file(GLOB TARGET_SRC "${PATH_H_SRC}/*.cpp")
+file(GLOB TARGET_H "${PATH_H_SRC}/*.cpp")
+
+SET(TARGET_H
+	${CONFIGURATE_FILE}
+	${TARGET_H}
+)
+
+message(${TARGET_H})
+message(${TARGET_SRC})
 
 # Add source to this project's executable.
 add_executable (Object-oriented_programming "main.cpp" ${TARGET_H} ${TARGET_SRC})
