@@ -13,4 +13,4 @@ public:
 	void testQuickSortDoubles(std::vector<double>& array) throw(std::exception);
 };
 
-#endif
+#endif // __TEST_TEMPLATE_METHOD_QUICK_SORT__
