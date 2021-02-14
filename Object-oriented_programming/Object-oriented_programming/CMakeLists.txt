@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-set(NUMBER_EXAMPLE 4)
+set(NUMBER_EXAMPLE 5)
 
 # Configuration file to do correct compilation of example
 set(CONFIGURATE_FILE "ConfigurationFile.h")
@@ -51,6 +51,15 @@ elseif(${NUMBER_EXAMPLE} EQUAL 4)
 	file(WRITE
 		${CONFIGURATE_FILE}
 		"#define __EXAMPLE_STRATEGY_QUICK_SORT__"
+		)
+
+elseif(${NUMBER_EXAMPLE} EQUAL 5)
+	set(PATH_H_SRC
+		"Singleton"
+		)
+	file(WRITE
+		${CONFIGURATE_FILE}
+		"#define __EXAMPLE_SIMPEL_SINGLETON__"
 		)
 endif()
 

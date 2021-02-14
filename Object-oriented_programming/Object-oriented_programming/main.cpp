@@ -17,6 +17,10 @@
 #include "Strategy/TestStrategyQuickSort.h"
 #endif // __EXAMPLE_STRATEGY_QUICK_SORT__
 
+#ifdef __EXAMPLE_SIMPEL_SINGLETON__
+#include "Singleton/TestSimpleSingleton.h"
+#endif // __EXAMPLE_SIMPEL_SINGLETON__
+
 int main()
 {
 #ifdef __EXAMPLE_COMMAND_PRINT__
@@ -53,5 +57,10 @@ int main()
 	ttmqs.testQuickSortInts(std::vector<int>{ 2, 1});
 	ttmqs.testQuickSortInts(std::vector<int>{ 0, 1,5,9,23,4,1,356,768,4,24,898,2,2435,8,0});
 #endif // __EXAMPLE_STRATEGY_QUICK_SORT__
+
+#ifdef __EXAMPLE_SIMPEL_SINGLETON__
+	TestSimpleSingleton tss;
+	tss.TestCreatSimpleSingleton();
+#endif // __EXAMPLE_SIMPEL_SINGLETON__
 	return 0;
 }
