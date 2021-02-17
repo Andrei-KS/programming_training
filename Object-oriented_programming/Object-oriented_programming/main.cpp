@@ -21,6 +21,10 @@
 #include "Singleton/TestSimpleSingleton.h"
 #endif // __EXAMPLE_SIMPEL_SINGLETON__
 
+#ifdef __EXAMPLE_MONOSTATE_TURNSTILE__
+#include "Monostate/TestTurnstile.h"
+#endif // __EXAMPLE_MONOSTATE_TURNSTILE__
+
 int main()
 {
 #ifdef __EXAMPLE_COMMAND_PRINT__
@@ -62,5 +66,24 @@ int main()
 	TestSimpleSingleton tss;
 	tss.TestCreatSimpleSingleton();
 #endif // __EXAMPLE_SIMPEL_SINGLETON__
+
+#ifdef __EXAMPLE_MONOSTATE_TURNSTILE__
+	TestTurnstile* t = nullptr;
+	t = &TestTurnstile_Init();
+	t->test();
+	t = &TestTurnstile_Coin();
+	t->test();
+	t = &TestTurnstile_CoinAndPass();
+	t->test();
+	t = &TestTurnstile_TwoCoins();
+	t->test();
+	t = &TestTurnstile_Pass();
+	t->test();
+	t = &TestTurnstile_CancelAlarm();
+	t->test();
+	t = &TestTurnstile_TwoOperations();
+	t->test();
+#endif // __EXAMPLE_MONOSTATE_TURNSTILE__
+
 	return 0;
 }

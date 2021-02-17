@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-set(NUMBER_EXAMPLE 5)
+set(NUMBER_EXAMPLE 6)
 
 # Configuration file to do correct compilation of example
 set(CONFIGURATE_FILE "ConfigurationFile.h")
@@ -61,11 +61,20 @@ elseif(${NUMBER_EXAMPLE} EQUAL 5)
 		${CONFIGURATE_FILE}
 		"#define __EXAMPLE_SIMPEL_SINGLETON__"
 		)
+elseif(${NUMBER_EXAMPLE} EQUAL 6)
+	set(PATH_H_SRC
+		"Monostate"
+		)
+	file(WRITE
+		${CONFIGURATE_FILE}
+		"#define __EXAMPLE_MONOSTATE_TURNSTILE__"
+		)
+		
 endif()
 
 
 file(GLOB TARGET_SRC "${PATH_H_SRC}/*.cpp")
-file(GLOB TARGET_H "${PATH_H_SRC}/*.cpp")
+file(GLOB TARGET_H "${PATH_H_SRC}/*.h")
 
 SET(TARGET_H
 	${CONFIGURATE_FILE}
