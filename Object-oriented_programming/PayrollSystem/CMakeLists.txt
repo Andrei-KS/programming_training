@@ -15,8 +15,8 @@ set(PATH_H "header")
 # Local Path to src
 set(PATH_SRC "source")
 
-file(GLOB TARGET_SRC "${PATH_H}/*.cpp")
-file(GLOB TARGET_H "${PATH_SRC}/*.h")
+file(GLOB_RECURSE TARGET_SRC ${PATH_H} *.cpp)
+file(GLOB_RECURSE TARGET_H ${PATH_SRC} *.h)
 
 # Add source to this project's executable.
 add_executable (Object-oriented_programming "main.cpp" ${TARGET_H} ${TARGET_SRC})
