@@ -17,18 +17,7 @@ _CRT_BEGIN_C_HEADER
 
 #else
 
-    /*_ACRTIMP void __cdecl _wassert5(
-        _In_z_ wchar_t const* _Message1,
-        _In_z_ wchar_t const* _Message2,
-        _In_z_ wchar_t const* _Message3,
-        _In_z_ wchar_t const* _File,
-        _In_   unsigned       _Line
-        );*/
-
-#define assertEquals(TargetNumber, CheckedNumber, Accuracy) (void)(                                                       \
-            (!!((TargetNumber)-(CheckedNumber)<(Accuracy) && (TargetNumber)-(CheckedNumber)>(-(Accuracy)))) ||                                                              \
-            (_wassert(_CRT_WIDE(#TargetNumber), _CRT_WIDE(__FILE__), (unsigned)(__LINE__)), 0) \
-        )
+#define assertEquals(TargetNumber, CheckedNumber, Accuracy) assert( (TargetNumber) - (CheckedNumber) < (Accuracy) && (TargetNumber) - (CheckedNumber) > (-(Accuracy)) )
 
 #endif
 _CRT_END_C_HEADER
