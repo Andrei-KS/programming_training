@@ -10,7 +10,7 @@ BiweeklySchedule::BiweeklySchedule()
 {
 }
 
-bool BiweeklySchedule::IsPayday(long date) const
+bool BiweeklySchedule::IsPayday(const Date& date) const
 {
 	return false;
 }

@@ -1,16 +1,18 @@
 #ifndef __SERVICECHARGE_H__
 #define __SERVICECHARGE_H__
 
+#include "../Date.h"
+
 class ServiceCharge
 {
 public:
 	virtual ~ServiceCharge();
-	ServiceCharge(long date, double amount);
-	long GetDate() { return itsDate; }
-	double GetAmount() { return itsAmount; }
+	ServiceCharge(const Date& date, double amount);
+	Date GetDate() const { return itsDate; }
+	double GetAmount() const { return itsAmount; }
 
 private:
-	long itsDate;
+	Date itsDate;
 	double itsAmount;
 };
 

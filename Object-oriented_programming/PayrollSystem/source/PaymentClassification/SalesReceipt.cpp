@@ -6,7 +6,7 @@ SalesReceipt::~SalesReceipt()
 {
 }
 
-SalesReceipt::SalesReceipt(long date, double amount)
+SalesReceipt::SalesReceipt(const Date& date, double amount)
 	: itsDate(date)
 	, itsAmount(amount)
 {

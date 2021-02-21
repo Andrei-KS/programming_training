@@ -13,7 +13,7 @@ ServiceChargeTransaction::~ServiceChargeTransaction()
 }
 
 ServiceChargeTransaction::
-ServiceChargeTransaction(int memberId, long date, double charge)
+ServiceChargeTransaction(int memberId, const Date& date, double charge)
 	: itsMemberId(memberId)
 	, itsDate(date)
 	, itsCharge(charge)

@@ -1,16 +1,18 @@
 #ifndef __SALESRECEIPT_H__
 #define __SALESRECEIPT_H__
 
+#include "../Date.h"
+
 class SalesReceipt
 {
 public:
 	virtual ~SalesReceipt();
-	SalesReceipt(long date, double amount);
-	long GetDate() { return itsDate; }
-	double GetAmount() { return itsAmount; }
+	SalesReceipt(const Date& date, double amount);
+	Date GetDate() const { return itsDate; }
+	double GetAmount() const { return itsAmount; }
 
 private:
-	long itsDate;
+	Date itsDate;
 	double itsAmount;
 };
 

@@ -8,7 +8,7 @@ class WeeklySchedule : public PaymentSchedule
 public:
 	virtual ~WeeklySchedule();
 	WeeklySchedule();
-	virtual bool IsPayday(long date) const override;
+	virtual bool IsPayday(const Date& date) const override;
 };
 
 #endif // !__WEEKLYSCHEDULE_H__

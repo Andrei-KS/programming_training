@@ -10,7 +10,7 @@ WeeklySchedule::WeeklySchedule()
 {
 }
 
-bool WeeklySchedule::IsPayday(long date) const
+bool WeeklySchedule::IsPayday(const Date& date) const
 {
 	return false;
 }

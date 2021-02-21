@@ -1,16 +1,18 @@
 #ifndef __TIMECARD_H__
 #define __TIMECARD_H__
 
+#include "../Date.h"
+
 class TimeCard
 {
 public:
 	virtual ~TimeCard();
-	TimeCard(long date, double hours);
-	long GetDate() { return itsDate; }
-	double GetHours() { return itsHours; }
+	TimeCard(const Date& date, double hours);
+	Date GetDate() const { return itsDate; }
+	double GetHours() const { return itsHours; }
 
 private:
-	long itsDate;
+	Date itsDate;
 	double itsHours;
 
 };

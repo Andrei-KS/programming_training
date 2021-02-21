@@ -4,6 +4,8 @@
 #include "PaymentClassification.h"
 #include <map>
 
+class Date;
+
 class SalesReceipt;
 
 class CommissionedClassification : public PaymentClassification
@@ -14,12 +16,12 @@ public:
 	void AddSalesReceipt(SalesReceipt*sr);
 	double GetGetSalary() const { return itsSalary; }
 	double GetCommissionRate() const { return itsCommissionRate; }
-	SalesReceipt* GetSalesReceipt(long date) const;
+	SalesReceipt* GetSalesReceipt(const Date& date) const;
 
 private:
 	double itsSalary;
 	double itsCommissionRate;
-	std::map<long, SalesReceipt*> itsSalesReceipts;
+	std::map<Date, SalesReceipt*> itsSalesReceipts;
 };
 
 #endif // !__COMMISSIONEDCLASSIFICATION_H__

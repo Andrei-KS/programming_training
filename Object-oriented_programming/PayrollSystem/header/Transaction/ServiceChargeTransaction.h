@@ -2,17 +2,18 @@
 #define __SERVICECHARGETRANSACTION_H__
 
 #include "Transaction.h"
+#include "../Date.h"
 
 class ServiceChargeTransaction : public Transaction
 {
 public:
 	virtual ~ServiceChargeTransaction();
-	ServiceChargeTransaction(int memberId, long date, double charge);
+	ServiceChargeTransaction(int memberId, const Date& date, double charge);
 	virtual void Execute() override;
 
 private:
 	int itsMemberId;
-	long itsDate;
+	Date itsDate;
 	double itsCharge;
 
 };

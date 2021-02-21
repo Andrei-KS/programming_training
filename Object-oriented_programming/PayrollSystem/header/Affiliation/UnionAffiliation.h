@@ -3,7 +3,9 @@
 
 #include "Affiliation.h"
 #include <map>
+
 class ServiceCharge;
+class Date;
 
 class UnionAffiliation : public Affiliation
 {
@@ -12,14 +14,14 @@ public:
 	UnionAffiliation(int memberId, double dues);
 	void SetDues(double dues);
 	void AddServiceCharge(ServiceCharge* sc);
-	ServiceCharge* GetServiceCharge(long date) const;
+	ServiceCharge* GetServiceCharge(const Date& date) const;
 	int GetMemberId() const { return itsMemberId; }
 	double GetDues() const { return itsDues; }
 
 private:
 	int itsMemberId;
 	double itsDues;
-	std::map<long,ServiceCharge*> itsServiceCharges;
+	std::map<Date,ServiceCharge*> itsServiceCharges;
 };
 
 #endif // !__UNIONAFFILIATION_H__

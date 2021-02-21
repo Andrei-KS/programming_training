@@ -10,7 +10,7 @@ MonthlySchedule::MonthlySchedule()
 {
 }
 
-bool MonthlySchedule::IsPayday(long date) const
+bool MonthlySchedule::IsPayday(const Date& date) const
 {
 	return false;
 }

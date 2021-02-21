@@ -2,10 +2,11 @@
 
 #include "../../header/PaymentClassification/HourlyClassification.h"
 #include "../../header/PaymentClassification/TimeCard.h"
+#include "../../header/Date.h"
 
 HourlyClassification::~HourlyClassification()
 {
-	std::map<long, TimeCard*>::iterator it = itsTimeCards.begin();
+	std::map<Date, TimeCard*>::iterator it = itsTimeCards.begin();
 	while (it != itsTimeCards.end())
 	{
 		delete it->second;
@@ -16,13 +17,13 @@ HourlyClassification::~HourlyClassification()
 
 HourlyClassification::HourlyClassification(double hourlyRate)
 	: itsHourlyRate(hourlyRate)
-	, itsTimeCards(std::map<long,TimeCard*>())
+	, itsTimeCards(std::map<Date,TimeCard*>())
 {
 }
 
-TimeCard* HourlyClassification::GetTimeCard(long date) const
+TimeCard* HourlyClassification::GetTimeCard(const Date& date) const
 {
-	std::map<long, TimeCard*>::const_iterator it = itsTimeCards.find(date);
+	std::map<Date, TimeCard*>::const_iterator it = itsTimeCards.find(date);
 	if (it != itsTimeCards.end())
 	{
 		return it->second;
@@ -32,7 +33,7 @@ TimeCard* HourlyClassification::GetTimeCard(long date) const
 
 void HourlyClassification::AddTimeCard(TimeCard* tc)
 {
-	std::map<long, TimeCard*>::const_iterator it = itsTimeCards.find(tc->GetDate());
+	std::map<Date, TimeCard*>::const_iterator it = itsTimeCards.find(tc->GetDate());
 	if (it != itsTimeCards.end())
 	{
 		delete it->second;

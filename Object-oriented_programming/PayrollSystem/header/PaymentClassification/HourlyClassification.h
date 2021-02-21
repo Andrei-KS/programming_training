@@ -5,6 +5,7 @@
 #include <map>
 
 class TimeCard;
+class Date;
 
 class HourlyClassification : public PaymentClassification
 {
@@ -12,13 +13,13 @@ public:
 	virtual ~HourlyClassification();
 	HourlyClassification(double hourlyRate);
 	virtual void AddTimeCard(TimeCard* tc);
-	TimeCard* GetTimeCard(long date) const;
+	TimeCard* GetTimeCard(const Date& date) const;
 	double GetHourlyRate() const { return itsHourlyRate; }
 	
 
 private:
 	double itsHourlyRate;
-	std::map<long,TimeCard*> itsTimeCards;
+	std::map<Date,TimeCard*> itsTimeCards;
 };
 
 #endif // !__HOURLYCLASSIFICATION_H__

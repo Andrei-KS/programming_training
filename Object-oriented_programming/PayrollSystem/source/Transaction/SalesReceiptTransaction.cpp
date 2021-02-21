@@ -12,7 +12,7 @@ SalesReceiptTransaction::~SalesReceiptTransaction()
 {
 }
 
-SalesReceiptTransaction::SalesReceiptTransaction(long date, double amount, int empId)
+SalesReceiptTransaction::SalesReceiptTransaction(const Date& date, double amount, int empId)
 	: itsDate(date)
 	, itsAmount(amount)
 	, itsEmpId(empId)

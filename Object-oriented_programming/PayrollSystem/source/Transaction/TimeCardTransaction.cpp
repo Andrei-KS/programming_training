@@ -12,7 +12,7 @@ TimeCardTransaction::~TimeCardTransaction()
 {
 }
 
-TimeCardTransaction::TimeCardTransaction(long date, double hours, int empId)
+TimeCardTransaction::TimeCardTransaction(const Date& date, double hours, int empId)
 	: itsDate(date)
 	, itsHours(hours)
 	, itsEmpId(empId)

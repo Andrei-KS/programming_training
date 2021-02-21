@@ -2,17 +2,18 @@
 #define __SALESRECEIPTTRANSACTION_H__
 
 #include "Transaction.h"
+#include "../Date.h"
 
 class SalesReceiptTransaction : public Transaction
 {
 public:
 	virtual ~SalesReceiptTransaction();
-	SalesReceiptTransaction(long date, double amount, int empId);
+	SalesReceiptTransaction(const Date& date, double amount, int empId);
 	virtual void Execute() override;
 
 private:
 	int itsEmpId;
-	long itsDate;
+	Date itsDate;
 	double itsAmount;
 };
 

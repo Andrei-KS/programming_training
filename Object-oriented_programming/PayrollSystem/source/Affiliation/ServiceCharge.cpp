@@ -6,7 +6,7 @@ ServiceCharge::~ServiceCharge()
 {
 }
 
-ServiceCharge::ServiceCharge(long date, double amount)
+ServiceCharge::ServiceCharge(const Date& date, double amount)
 	: itsDate(date)
 	, itsAmount(amount)
 {
