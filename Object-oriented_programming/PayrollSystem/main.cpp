@@ -1,4 +1,5 @@
 #include "Test/PayrollTest.h"
+#include "Test/DateTest.h"
 
 int main()
 {
@@ -21,6 +22,12 @@ int main()
 	PayrollTest::TestChangeHoldTransaction();
 	PayrollTest::TestChangeMemberTransaction();
 	PayrollTest::TestChangeUnaffiliatedTransaction();
+
+	DateTest::TestAmountOfDaysMonth();
+	DateTest::TestAmountOfDaysYear();
+	DateTest::TestOrderOfDate();
+	DateTest::TestAddDays();
+	DateTest::TestGetDate();
 
 	return 0;
 }
