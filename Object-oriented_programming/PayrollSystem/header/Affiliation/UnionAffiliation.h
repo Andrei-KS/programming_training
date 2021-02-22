@@ -17,6 +17,7 @@ public:
 	ServiceCharge* GetServiceCharge(const Date& date) const;
 	int GetMemberId() const { return itsMemberId; }
 	double GetDues() const { return itsDues; }
+	virtual double CalculateDeductions(const Paycheck& pc) const override;
 
 private:
 	int itsMemberId;

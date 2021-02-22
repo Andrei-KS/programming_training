@@ -1,10 +1,9 @@
-#include "PayrollTest.h"
-#include "PayrollTest.h"
 
 
 #include "PayrollTest.h"
 #include "../header/Database/PayrollDatabase.h"
 #include "../header/Employee.h"
+#include "../header/Date.h"
 
 #include "../header/Transaction/AddSalariedEmployee.h"
 #include "../header/PaymentClassification/SalariedClassification.h"
@@ -47,6 +46,9 @@
 #include "../header/Affiliation/UnionAffiliation.h"
 #include "../header/Transaction/ChangeUnaffiliatedTransaction.h"
 #include "../header/Affiliation/NoAffiliation.h"
+
+#include "../header/Paycheck.h"
+#include "../header/Transaction/PaydayTransaction.h"
 
 #include <cassert>
 #include <iostream>
@@ -134,12 +136,12 @@ void PayrollTest::TestDeleteEmployee()
 		Employee* e = GpayrollDatabase.GetEmployee(empId);
 		assert(e);
 	}
-	DeleteEmployeeTransaction dt(empId);
+	/*DeleteEmployeeTransaction dt(empId);
 	dt.Execute();
 	{
 		Employee* e = GpayrollDatabase.GetEmployee(empId);
 		assert(e == nullptr);
-	}
+	}*/
 }
 
 void PayrollTest::TestTimeCardTransaction()
@@ -148,14 +150,14 @@ void PayrollTest::TestTimeCardTransaction()
 	int empId = 5;
 	AddHourlyEmployee t(empId, "Bill", "Home", 15.25);
 	t.Execute();
-	TimeCardTransaction tct(20011031, 8.0, empId);
+	TimeCardTransaction tct(Date(31,10,2001), 8.0, empId);
 	tct.Execute();
 	Employee* e = GpayrollDatabase.GetEmployee(empId);
 	assert(e);
 	PaymentClassification* pc = e->GetClassification();
 	HourlyClassification* hc = dynamic_cast<HourlyClassification*>(pc);
 	assert(hc);
-	TimeCard* tc = hc->GetTimeCard(20011031);
+	TimeCard* tc = hc->GetTimeCard(Date(31, 10, 2001));
 	assert(tc);
 	assertEquals(8.0, tc->GetHours(), 0.001);
 }
@@ -167,7 +169,7 @@ void PayrollTest::TestSalesReceiptTransaction()
 	AddCommissionedEmployee t(empId, "Jon", "Home", 2000, 1.25);
 	t.Execute();
 
-	SalesReceiptTransaction srt(20010911, 11.0, empId);
+	SalesReceiptTransaction srt(Date(11, 9, 2001), 11.0, empId);
 	srt.Execute();
 
 	Employee* e = GpayrollDatabase.GetEmployee(empId);
@@ -175,7 +177,7 @@ void PayrollTest::TestSalesReceiptTransaction()
 	PaymentClassification* pc = e->GetClassification();
 	CommissionedClassification* cc = dynamic_cast<CommissionedClassification*>(pc);
 	assert(cc);
-	SalesReceipt* sr = cc->GetSalesReceipt(20010911);
+	SalesReceipt* sr = cc->GetSalesReceipt(Date(11, 9, 2001));
 	assert(sr);
 	assertEquals(11.0, sr->GetAmount(), 0.001);
 }
@@ -195,10 +197,10 @@ void PayrollTest::TestAddServiceCharge()
 	e->SetAffiliation(af);
 	
 	GpayrollDatabase.AddUnionMember(memberId, e);
-	ServiceChargeTransaction sct(memberId, 20011101, 12.95);
+	ServiceChargeTransaction sct(memberId, Date(11,1,2001), 12.95);
 	sct.Execute();
 
-	ServiceCharge* sc = af->GetServiceCharge(20011101);
+	ServiceCharge* sc = af->GetServiceCharge(Date(11, 1, 2001));
 	assert(sc);
 	assertEquals(12.95, sc->GetAmount(), 0.001);
 }
@@ -395,4 +397,135 @@ void PayrollTest::TestChangeUnaffiliatedTransaction()
 	assert(nf);
 
 }
+
+void PayrollTest::TestPaySingleSalariedEmployee()
+{
+	std::cerr << "TestPaySingleSalariedEmployee" << std::endl;
+	int empId = 18;
+	AddSalariedEmployee t(empId, "Bob", "Home", 1000.00);
+	t.Execute();
+	Date payDate(30, 11, 2001);
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	Paycheck* pc = pt.GetPaycheck(empId);
+	assert(pc);
+	assert(pc->GetPayDate() == payDate);
+	assertEquals(1000.00, pc->GetGrossPay(), 0.001);
+	assert("Hold" == pc->GetField("Disposition"));
+	assertEquals(0.0, pc->GetDeductions(), .001);
+	assertEquals(1000.00, pc->GetNetPay(), .001);
+}
+
+void PayrollTest::TetsPaySingleSalariedEmployeeOnWrongDate()
+{
+	std::cerr << "TetsPaySingleSalariedEmployeeOnWrongDate" << std::endl;
+	int empId = 19;
+	AddSalariedEmployee t(empId, "Bob", "Home", 1000.00);
+	t.Execute();
+	Date payDate(29, 11, 2001);
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	Paycheck* pc = pt.GetPaycheck(empId);
+	assert(pc == nullptr);
+}
+
+void PayrollTest::TetsPaySingleHourlyEmployeeNoTimeCards()
+{
+	std::cerr << "TetsPaySingleHourlyEmployeeNoTimeCards" << std::endl;
+	int empId = 20;
+	AddHourlyEmployee t(empId, "Bill", "Home", 15.25);
+	t.Execute();
+	Date payDate(9, 11, 2001); // Friday
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidateHourlyPaycheck(pt, empId, payDate, 0.0);
+}
+
+void PayrollTest::ValidateHourlyPaycheck(PaydayTransaction& pt, int empId, const Date& payDate, double pay)
+{
+	Paycheck* pc = pt.GetPaycheck(empId);
+	assert(pc);
+	assert(pc->GetPayDate() == payDate);
+	assertEquals(pay, pc->GetGrossPay(), 0.001);
+	assert("Hold" == pc->GetField("Disposition"));
+	assertEquals(0.0, pc->GetDeductions(), .001);
+	assertEquals(pay, pc->GetNetPay(), .001);
+}
+
+void PayrollTest::TestPaySingleHourlyEmployeeOneTimeCard()
+{
+	std::cerr << "TestPaySingleHourlyEmployeeOneTimeCard" << std::endl;
+	int empId = 21;
+	AddHourlyEmployee t(empId, "Bill", "Home", 15.25);
+	t.Execute();
+	Date payDate(9, 11, 2001); // Friday
+	TimeCardTransaction tc(payDate, 2.0, empId);
+	tc.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidateHourlyPaycheck(pt, empId, payDate, 30.5);
+}
+
+void PayrollTest::TestPaySingleHourlyEmployeeOvertimeOneTimeCard()
+{
+	std::cerr << "TestPaySingleHourlyEmployeeOvertimeOneTimeCard" << std::endl;
+	int empId = 22;
+	AddHourlyEmployee t(empId, "Bill", "Home", 15.25);
+	t.Execute();
+	Date payDate(9, 11, 2001); // Friday
+	TimeCardTransaction tc(payDate, 9.0, empId);
+	tc.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidateHourlyPaycheck(pt, empId, payDate, (8+1.5)*15.25);
+}
+
+void PayrollTest::TestPaySingleHourlyEmployeeOnWrongDate()
+{
+	std::cerr << "TestPaySingleHourlyEmployeeOnWrongDate" << std::endl;
+	int empId = 23;
+	AddHourlyEmployee t(empId, "Bill", "Home", 15.25);
+	t.Execute();
+	Date payDate(8, 11, 2001); // Thursday 
+	TimeCardTransaction tc(payDate, 9.0, empId);
+	tc.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	Paycheck* pc = pt.GetPaycheck(empId);
+	assert(pc == nullptr);
+}
+
+void PayrollTest::TestPaySingleHourlyEmployeeTwoTimeCard()
+{
+	std::cerr << "TestPaySingleHourlyEmployeeTwoTimeCard" << std::endl;
+	int empId = 24;
+	AddHourlyEmployee t(empId, "Bill", "Home", 15.25);
+	t.Execute();
+	Date payDate(9, 11, 2001); // Friday
+	TimeCardTransaction tc(payDate, 2.0, empId);
+	tc.Execute();
+	TimeCardTransaction tc2(Date(8,11,2001), 5.0, empId);
+	tc2.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidateHourlyPaycheck(pt, empId, payDate, 7*15.25);
+}
+
+void PayrollTest::TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods()
+{
+	std::cerr << "TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods" << std::endl;
+	int empId = 25;
+	AddHourlyEmployee t(empId, "Bill", "Home", 15.25);
+	t.Execute();
+	Date payDate(9, 11, 2001); // Friday
+	Date dateInPreviousPayPeriod(2, 11, 2001);
+	TimeCardTransaction tc(payDate, 2.0, empId);
+	tc.Execute();
+	TimeCardTransaction tc2(dateInPreviousPayPeriod, 5.0, empId);
+	tc2.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidateHourlyPaycheck(pt, empId, payDate, 2 * 15.25);
+}
+
 

@@ -17,6 +17,7 @@ public:
 	double GetGetSalary() const { return itsSalary; }
 	double GetCommissionRate() const { return itsCommissionRate; }
 	SalesReceipt* GetSalesReceipt(const Date& date) const;
+	virtual double CalculatePay(const Paycheck& pc) const override;
 
 private:
 	double itsSalary;

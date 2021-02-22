@@ -13,6 +13,7 @@ public:
 	void SetAccount(const std::string& account);
 	std::string GetBank() const { return itsBank; }
 	std::string GetAccount() const { return itsAccount; }
+	virtual void Pay(Paycheck& pc) const override;
 
 private:
 	std::string itsBank;

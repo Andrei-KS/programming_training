@@ -1,8 +1,7 @@
-#include "..\..\header\PaymentMethod\DirectMethod.h"
-#include "..\..\header\PaymentMethod\DirectMethod.h"
 
 
 #include "../../header/PaymentMethod/DirectMethod.h"
+#include "../../header/Paycheck.h"
 
 DirectMethod::~DirectMethod()
 {
@@ -22,4 +21,9 @@ void DirectMethod::SetBank(const std::string& bank)
 void DirectMethod::SetAccount(const std::string& account)
 {
 	itsAccount = account;
+}
+
+void DirectMethod::Pay(Paycheck& pc) const
+{
+	pc.AddField("Disposition", "Direct");
 }

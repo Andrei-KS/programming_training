@@ -3,6 +3,10 @@
 #include "../../header/PaymentClassification/HourlyClassification.h"
 #include "../../header/PaymentClassification/TimeCard.h"
 #include "../../header/Date.h"
+#include "../../header/Paycheck.h"
+
+#include <map>
+#include <algorithm>
 
 HourlyClassification::~HourlyClassification()
 {
@@ -10,9 +14,9 @@ HourlyClassification::~HourlyClassification()
 	while (it != itsTimeCards.end())
 	{
 		delete it->second;
-		itsTimeCards.erase(it);
-		it = itsTimeCards.begin();
+		it++;
 	}
+	itsTimeCards.clear();
 }
 
 HourlyClassification::HourlyClassification(double hourlyRate)
@@ -40,4 +44,38 @@ void HourlyClassification::AddTimeCard(TimeCard* tc)
 		itsTimeCards.erase(it);
 	}
 	itsTimeCards[tc->GetDate()] = tc;
+}
+
+double HourlyClassification::CalculatePay(const Paycheck& pc) const
+{
+	double totalPay = 0;
+	Date payPeriod = pc.GetPayDate();
+	std::map<Date, TimeCard*>::const_iterator cit = itsTimeCards.begin();
+	for (; cit != itsTimeCards.end(); cit++)
+	{
+		TimeCard* tc = (*cit).second;
+		if (IsInPayPeriod(tc, payPeriod))
+		{
+			totalPay += CalculatePayForTimeCard(tc);
+		}
+	}
+	return totalPay;
+}
+
+bool HourlyClassification::IsInPayPeriod(TimeCard* tc, const Date& payPeriod) const
+{
+	Date payPeriodEndDate = payPeriod;
+	Date payPeriodStartDate = payPeriod - 5;
+	Date timeCardDate = tc->GetDate();
+	return (timeCardDate >= payPeriodStartDate) &&
+		(timeCardDate <= payPeriodEndDate);
+}
+
+double HourlyClassification::CalculatePayForTimeCard(TimeCard* tc) const
+{
+	double hours = tc->GetHours();
+	double overtime = std::max(0.0, hours - 8.0);
+	double startingTime = hours - overtime;
+	const double multiplierOvertime = 1.5;
+	return startingTime * itsHourlyRate + overtime * multiplierOvertime * itsHourlyRate;
 }

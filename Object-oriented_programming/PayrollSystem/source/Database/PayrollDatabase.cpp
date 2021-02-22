@@ -7,6 +7,15 @@ PayrollDatabase GpayrollDatabase;
 
 PayrollDatabase::~PayrollDatabase()
 {
+	std::unordered_map<int, Employee*>::iterator it = itsEmployees.begin();
+	while (it != itsEmployees.end())
+	{
+		delete it->second;
+		it++;
+	}
+	itsEmployees.clear();
+	itsUnionMembers.clear();
+	itsEmployeeToUnionMember.clear();
 }
 
 Employee* PayrollDatabase::GetEmployee(int empId)
@@ -48,5 +57,16 @@ void PayrollDatabase::DeleteEmployee(int empId)
 	{
 		itsUnionMembers.erase(it->second);
 		itsEmployeeToUnionMember.erase(it);
+	}
+}
+
+void PayrollDatabase::GetAllEmployeeIds(std::list<int>& empIds) const
+{
+	empIds.clear();
+	std::unordered_map<int, Employee*>::const_iterator it = itsEmployees.begin();
+	while (it != itsEmployees.end())
+	{
+		empIds.push_back(it->second->GetEmpId());
+		it++;
 	}
 }

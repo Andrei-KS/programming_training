@@ -5,7 +5,7 @@
 #include "../header/PaymentClassification/PaymentClassification.h"
 #include "../header/PaymentSchedule/PaymentSchedule.h"
 #include "../header/PaymentMethod/PaymentMethod.h"
-//#include "../header/Paycheck"
+#include "../header/Paycheck.h"
 
 Employee::~Employee()
 {
@@ -58,4 +58,26 @@ void Employee::SetAffiliation(Affiliation* af)
 {
 	delete itsAffiliation;
 	itsAffiliation = af;
+}
+
+void Employee::Payday(Paycheck& pc) const
+{
+	double grossPay = itsClassification->CalculatePay(pc);
+	double deductions = itsAffiliation->CalculateDeductions(pc);
+	double netPay = grossPay - deductions;
+	pc.SetGrossPay(grossPay);
+	pc.SetDeductions(deductions);
+	pc.SetNetPay(netPay);
+	itsPaymentMethod->Pay(pc);
+}
+
+bool Employee::IsPayDay(const Date& payDate) const
+{
+	return itsSchedule->IsPayday(payDate);
+}
+
+Date Employee::GetPayPeriodStartDate(const Date& payPeriodEndDate) const
+{
+	throw("Need to do");
+	return Date(1,1,1);
 }

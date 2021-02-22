@@ -3,8 +3,10 @@
 #include "../header/Date.h"
 
 // last value equal amount days in year plus 1
-const short Date::StartDaysYear[] = { 1,32,60,91,121,152,182,213,244,274,305,335, 366 };
-const short Date::StartDaysLeapYear[] = { 1,32,61,92,122,153,183,214,245,275,306,336, 367 };
+static const short const StartDaysYear[] = { 1,32,60,91,121,152,182,213,244,274,305,335, 366 };
+static const short const StartDaysLeapYear[] = { 1,32,61,92,122,153,183,214,245,275,306,336, 367 };
+
+static const short YearFirstDayMonday = 2001;
 
 Date::~Date()
 {
@@ -56,6 +58,25 @@ char Date::GetMonth() const
 	return month;
 }
 
+char Date::GetDayOfWeek() const
+{
+	short year = YearFirstDayMonday;
+	short directYearStep = year > itsYear ? -1 : 1;
+	char shift = 0;
+	
+	const char shiftInLeapYear = 2;
+	const char shiftInCommonYear = 1;
+
+	while (year != itsYear)
+	{
+		shift = (shift + (IsYearleap((directYearStep > 0 ? (year) : (year-1))) ? shiftInLeapYear : shiftInCommonYear)) % AmountDaysPerWeek;
+		year += directYearStep;
+	}
+
+	char dayOfWeek = (itsDays % AmountDaysPerWeek) + (directYearStep * shift + AmountDaysPerWeek) % AmountDaysPerWeek;
+	return dayOfWeek;
+}
+
 short Date::AmountOfDaysMonth(int month, int year)
 {
 	if (month > 12 && month < 1)
@@ -76,6 +97,7 @@ short Date::AmountOfDayYear(int year)
 
 bool Date::IsYearleap(int year)
 {
+	year = year < 0 ? -year : year;
 	return !(year % 400) || (!(year % 4) && (year % 100));
 }
 
@@ -123,13 +145,23 @@ const Date operator+(const Date& left, const int& right)
 		days -= Date::AmountOfDayYear(year);
 		year++;
 	}
-	Date date(0, 0, 0);
+	Date date(1, 1, 1);
 	date.itsYear = year;
 	date.itsDays = days;
 	return date;
 }
 
-const Date operator+(const int& left, const Date& right)
+const Date operator-(const Date& left, const int& right)
 {
-	return right+left;
+	short year = left.itsYear;
+	int days = left.itsDays - right;
+	while (days < 0) 
+	{
+		days += Date::AmountOfDayYear(year - 1);
+		year--;
+	}
+	Date date(1, 1, 1);
+	date.itsYear = year;
+	date.itsDays = days;
+	return date;
 }

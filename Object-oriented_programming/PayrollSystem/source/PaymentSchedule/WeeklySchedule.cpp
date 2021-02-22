@@ -12,5 +12,5 @@ WeeklySchedule::WeeklySchedule()
 
 bool WeeklySchedule::IsPayday(const Date& date) const
 {
-	return false;
+	return date.GetDayOfWeek() == Date::Friday;
 }

@@ -3,6 +3,13 @@
 
 int main()
 {
+	DateTest::TestAmountOfDaysMonth();
+	DateTest::TestAmountOfDaysYear();
+	DateTest::TestOrderOfDate();
+	DateTest::TestAddDays();
+	DateTest::TestGetDate();
+	DateTest::TestSubtractionDays();
+
 	PayrollTest::TestAddSalariedEmployee();
 	PayrollTest::TestAddHourlyEmployee();
 	PayrollTest::TestAddCommissionedEmployee();
@@ -23,11 +30,15 @@ int main()
 	PayrollTest::TestChangeMemberTransaction();
 	PayrollTest::TestChangeUnaffiliatedTransaction();
 
-	DateTest::TestAmountOfDaysMonth();
-	DateTest::TestAmountOfDaysYear();
-	DateTest::TestOrderOfDate();
-	DateTest::TestAddDays();
-	DateTest::TestGetDate();
+	PayrollTest::TestPaySingleSalariedEmployee();
+	PayrollTest::TetsPaySingleSalariedEmployeeOnWrongDate();
+
+	PayrollTest::TetsPaySingleHourlyEmployeeNoTimeCards();
+	PayrollTest::TestPaySingleHourlyEmployeeOneTimeCard();
+	PayrollTest::TestPaySingleHourlyEmployeeOvertimeOneTimeCard();
+	PayrollTest::TestPaySingleHourlyEmployeeOnWrongDate();
+	PayrollTest::TestPaySingleHourlyEmployeeTwoTimeCard();
+	PayrollTest::TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods();
 
 	return 0;
 }

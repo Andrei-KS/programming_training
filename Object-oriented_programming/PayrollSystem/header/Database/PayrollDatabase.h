@@ -3,6 +3,7 @@
 
 #include <map>
 #include <unordered_map>
+#include <list>
 
 class Employee;
 
@@ -17,6 +18,7 @@ public:
 	void RemoveUnionMember(int memberId);
 	void clear() { itsEmployees.clear(); }
 	void DeleteEmployee(int empId);
+	void GetAllEmployeeIds(std::list<int>& empIds) const;
 
 private:
 	std::unordered_map<int, Employee*> itsEmployees;

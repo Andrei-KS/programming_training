@@ -10,9 +10,9 @@ CommissionedClassification::~CommissionedClassification()
 	while (it != itsSalesReceipts.end())
 	{
 		delete it->second;
-		itsSalesReceipts.erase(it);
-		it = itsSalesReceipts.begin();
+		it++;
 	}
+	itsSalesReceipts.clear();
 }
 
 CommissionedClassification::CommissionedClassification(double salary, double commissionRate)
@@ -41,4 +41,9 @@ SalesReceipt* CommissionedClassification::GetSalesReceipt(const Date& date) cons
 		return it->second;
 	}
 	return nullptr;
+}
+
+double CommissionedClassification::CalculatePay(const Paycheck& pc) const
+{
+	return 0.0;
 }

@@ -11,6 +11,7 @@ public:
 	MailMethod(std::string address);
 	void SetAddress(std::string address);
 	std::string GetAddress() const { return itsAddress; }
+	virtual void Pay(Paycheck& pc) const override;
 
 private:
 	std::string itsAddress;

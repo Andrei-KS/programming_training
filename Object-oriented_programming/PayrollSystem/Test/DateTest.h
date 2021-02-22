@@ -8,6 +8,8 @@ namespace DateTest
 	void TestOrderOfDate();
 	void TestAddDays();
 	void TestGetDate();
+	void TestSubtractionDays();
+	void TestGetDayOfWeek();
 }
 
 #endif // !__DATETEST_H__

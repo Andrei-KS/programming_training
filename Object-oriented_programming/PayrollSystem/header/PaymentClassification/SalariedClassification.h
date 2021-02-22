@@ -9,6 +9,7 @@ public:
 	virtual ~SalariedClassification();
 	SalariedClassification(double salary);
 	double GetSalary() { return itsSalary; }
+	virtual double CalculatePay(const Paycheck& pc) const;
 
 private:
 	double itsSalary;

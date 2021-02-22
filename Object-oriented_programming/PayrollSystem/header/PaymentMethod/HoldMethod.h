@@ -8,6 +8,7 @@ class HoldMethod : public PaymentMethod
 public:
 	virtual ~HoldMethod();
 	HoldMethod();
+	virtual void Pay(Paycheck& pc) const override;
 };
 
 #endif // !__HOLDMETHOD_H__

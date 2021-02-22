@@ -10,9 +10,9 @@ UnionAffiliation::~UnionAffiliation()
 	while (it != itsServiceCharges.end())
 	{
 		delete it->second;
-		itsServiceCharges.erase(it);
-		it = itsServiceCharges.begin();
+		it++;
 	}
+	itsServiceCharges.clear();
 }
 
 UnionAffiliation::UnionAffiliation(int memberId, double dues)
@@ -49,4 +49,9 @@ ServiceCharge* UnionAffiliation::GetServiceCharge(const Date& date) const
 	{
 		return nullptr;
 	}
+}
+
+double UnionAffiliation::CalculateDeductions(const Paycheck& pc) const
+{
+	return 0.0;
 }
