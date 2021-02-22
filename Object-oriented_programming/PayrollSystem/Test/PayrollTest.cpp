@@ -136,12 +136,12 @@ void PayrollTest::TestDeleteEmployee()
 		Employee* e = GpayrollDatabase.GetEmployee(empId);
 		assert(e);
 	}
-	/*DeleteEmployeeTransaction dt(empId);
+	DeleteEmployeeTransaction dt(empId);
 	dt.Execute();
 	{
 		Employee* e = GpayrollDatabase.GetEmployee(empId);
 		assert(e == nullptr);
-	}*/
+	}
 }
 
 void PayrollTest::TestTimeCardTransaction()

@@ -18,14 +18,24 @@ PayrollDatabase::~PayrollDatabase()
 	itsEmployeeToUnionMember.clear();
 }
 
-Employee* PayrollDatabase::GetEmployee(int empId)
+Employee* PayrollDatabase::GetEmployee(int empId) const
 {
-	return itsEmployees[empId];
+	std::unordered_map<int, Employee*>::const_iterator it = itsEmployees.find(empId);
+	if (it != itsEmployees.end())
+	{
+		return it->second;
+	}
+	return nullptr;
 }
 
-Employee* PayrollDatabase::GetUnionMember(int memberId)
+Employee* PayrollDatabase::GetUnionMember(int memberId) const
 {
-	return itsEmployees[itsUnionMembers[memberId]];
+	std::unordered_map<int, int>::const_iterator it = itsUnionMembers.find(memberId);
+	if (it != itsUnionMembers.end())
+	{
+		return itsEmployees.at(it->second);
+	}
+	return nullptr;
 }
 
 void PayrollDatabase::AddEmployee(int empId, Employee* e)
@@ -51,7 +61,8 @@ void PayrollDatabase::RemoveUnionMember(int memberId)
 
 void PayrollDatabase::DeleteEmployee(int empId)
 {
-	itsEmployees.erase(empId);
+	itsEmployees.erase(itsEmployees.find(empId));
+	//itsEmployees.erase(empId);
 	std::unordered_map<int, int>::iterator it = itsEmployeeToUnionMember.find(empId);
 	if (it != itsEmployeeToUnionMember.end())
 	{

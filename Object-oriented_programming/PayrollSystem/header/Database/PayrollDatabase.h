@@ -11,8 +11,8 @@ class PayrollDatabase
 {
 public:
 	virtual ~PayrollDatabase();
-	Employee* GetEmployee(int empId);
-	Employee* GetUnionMember(int memberId);
+	Employee* GetEmployee(int empId) const;
+	Employee* GetUnionMember(int memberId) const;
 	void AddEmployee(int empId, Employee* e);
 	void AddUnionMember(int memberId, Employee* e);
 	void RemoveUnionMember(int memberId);
