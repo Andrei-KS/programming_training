@@ -26,11 +26,12 @@ namespace PayrollTest
 	void TestChangeMemberTransaction();
 	void TestChangeUnaffiliatedTransaction();
 
+	void ValidatePaycheck(PaydayTransaction& pt, int empId, const Date& payDate, double grossPay, double deductions, double netPay);
+
 	void TestPaySingleSalariedEmployee();
 	void TetsPaySingleSalariedEmployeeOnWrongDate();
 	
 	void TetsPaySingleHourlyEmployeeNoTimeCards();
-	void ValidateHourlyPaycheck(PaydayTransaction& pt, int empId, const Date& payDate, double pay);
 	void TestPaySingleHourlyEmployeeOneTimeCard();
 	void TestPaySingleHourlyEmployeeOvertimeOneTimeCard();
 	void TestPaySingleHourlyEmployeeOnWrongDate();

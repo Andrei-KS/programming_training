@@ -398,6 +398,22 @@ void PayrollTest::TestChangeUnaffiliatedTransaction()
 
 }
 
+void PayrollTest::ValidatePaycheck(PaydayTransaction& pt
+	, int empId
+	, const Date& payDate
+	, double grossPay
+	, double deductions
+	, double netPay)
+{
+	Paycheck* pc = pt.GetPaycheck(empId);
+	assert(pc);
+	assert(pc->GetPayDate() == payDate);
+	assertEquals(grossPay, pc->GetGrossPay(), 0.001);
+	assert("Hold" == pc->GetField("Disposition"));
+	assertEquals(0.0, pc->GetDeductions(), .001);
+	assertEquals(netPay, pc->GetNetPay(), .001);
+}
+
 void PayrollTest::TestPaySingleSalariedEmployee()
 {
 	std::cerr << "TestPaySingleSalariedEmployee" << std::endl;
@@ -407,13 +423,14 @@ void PayrollTest::TestPaySingleSalariedEmployee()
 	Date payDate(30, 11, 2001);
 	PaydayTransaction pt(payDate);
 	pt.Execute();
-	Paycheck* pc = pt.GetPaycheck(empId);
+	ValidatePaycheck(pt, empId, payDate, 1000.00, 0.0, 1000.00);
+	/*Paycheck* pc = pt.GetPaycheck(empId);
 	assert(pc);
 	assert(pc->GetPayDate() == payDate);
 	assertEquals(1000.00, pc->GetGrossPay(), 0.001);
 	assert("Hold" == pc->GetField("Disposition"));
 	assertEquals(0.0, pc->GetDeductions(), .001);
-	assertEquals(1000.00, pc->GetNetPay(), .001);
+	assertEquals(1000.00, pc->GetNetPay(), .001);*/
 }
 
 void PayrollTest::TetsPaySingleSalariedEmployeeOnWrongDate()
@@ -438,18 +455,7 @@ void PayrollTest::TetsPaySingleHourlyEmployeeNoTimeCards()
 	Date payDate(9, 11, 2001); // Friday
 	PaydayTransaction pt(payDate);
 	pt.Execute();
-	ValidateHourlyPaycheck(pt, empId, payDate, 0.0);
-}
-
-void PayrollTest::ValidateHourlyPaycheck(PaydayTransaction& pt, int empId, const Date& payDate, double pay)
-{
-	Paycheck* pc = pt.GetPaycheck(empId);
-	assert(pc);
-	assert(pc->GetPayDate() == payDate);
-	assertEquals(pay, pc->GetGrossPay(), 0.001);
-	assert("Hold" == pc->GetField("Disposition"));
-	assertEquals(0.0, pc->GetDeductions(), .001);
-	assertEquals(pay, pc->GetNetPay(), .001);
+	ValidatePaycheck(pt, empId, payDate, 0.0, 0.0, 0.0);
 }
 
 void PayrollTest::TestPaySingleHourlyEmployeeOneTimeCard()
@@ -463,7 +469,7 @@ void PayrollTest::TestPaySingleHourlyEmployeeOneTimeCard()
 	tc.Execute();
 	PaydayTransaction pt(payDate);
 	pt.Execute();
-	ValidateHourlyPaycheck(pt, empId, payDate, 30.5);
+	ValidatePaycheck(pt, empId, payDate, 30.5, 0.0, 30.5);
 }
 
 void PayrollTest::TestPaySingleHourlyEmployeeOvertimeOneTimeCard()
@@ -477,7 +483,7 @@ void PayrollTest::TestPaySingleHourlyEmployeeOvertimeOneTimeCard()
 	tc.Execute();
 	PaydayTransaction pt(payDate);
 	pt.Execute();
-	ValidateHourlyPaycheck(pt, empId, payDate, (8+1.5)*15.25);
+	ValidatePaycheck(pt, empId, payDate, (8+1.5)*15.25, 0.0, (8 + 1.5) * 15.25);
 }
 
 void PayrollTest::TestPaySingleHourlyEmployeeOnWrongDate()
@@ -508,7 +514,7 @@ void PayrollTest::TestPaySingleHourlyEmployeeTwoTimeCard()
 	tc2.Execute();
 	PaydayTransaction pt(payDate);
 	pt.Execute();
-	ValidateHourlyPaycheck(pt, empId, payDate, 7*15.25);
+	ValidatePaycheck(pt, empId, payDate, 7*15.25, 0.0, 7 * 15.25);
 }
 
 void PayrollTest::TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods()
@@ -525,7 +531,7 @@ void PayrollTest::TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods()
 	tc2.Execute();
 	PaydayTransaction pt(payDate);
 	pt.Execute();
-	ValidateHourlyPaycheck(pt, empId, payDate, 2 * 15.25);
+	ValidatePaycheck(pt, empId, payDate, 2 * 15.25, 0.0, 2 * 15.25);
 }
 
 
