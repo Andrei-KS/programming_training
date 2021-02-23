@@ -37,6 +37,12 @@ namespace PayrollTest
 	void TestPaySingleHourlyEmployeeOnWrongDate();
 	void TestPaySingleHourlyEmployeeTwoTimeCard();
 	void TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods();
+
+	void TetsPaySingleCommissionedEmployeeNoSalesReceipt();
+	void TestPaySingleCommissionedEmployeeOneSalesReceipt();
+	void TestPaySingleCommissionedEmployeeOnWrongDate();
+	void TestPaySingleCommissionedEmployeeTwoSalesReceipt();
+	void TestPaySingleCommissionedEmployeeWithSalesReceiptSpanningTwoPayPeriods();
 }
 
 #endif // !__PAYROLLTEST_H__

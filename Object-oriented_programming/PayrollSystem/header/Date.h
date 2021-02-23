@@ -13,6 +13,7 @@ public:
 	char GetMonth() const;
 	short GetYear() const { return itsYear; }
 	char GetDayOfWeek() const;
+	short GetAmountOfDaysPassedInCurrentYear() const { return itsDays; }
 
 	friend bool operator<(const Date& left, const Date& right);
 	friend bool operator==(const Date& left, const Date& right);

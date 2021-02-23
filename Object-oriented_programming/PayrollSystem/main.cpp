@@ -40,5 +40,11 @@ int main()
 	PayrollTest::TestPaySingleHourlyEmployeeTwoTimeCard();
 	PayrollTest::TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods();
 
+	PayrollTest::TetsPaySingleCommissionedEmployeeNoSalesReceipt();
+	PayrollTest::TestPaySingleCommissionedEmployeeOneSalesReceipt();
+	PayrollTest::TestPaySingleCommissionedEmployeeOnWrongDate();
+	PayrollTest::TestPaySingleCommissionedEmployeeTwoSalesReceipt();
+	PayrollTest::TestPaySingleCommissionedEmployeeWithSalesReceiptSpanningTwoPayPeriods();
+
 	return 0;
 }

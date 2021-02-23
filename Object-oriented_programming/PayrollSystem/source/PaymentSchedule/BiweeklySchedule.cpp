@@ -10,7 +10,9 @@ BiweeklySchedule::BiweeklySchedule()
 {
 }
 
-bool BiweeklySchedule::IsPayday(const Date& date) const
+bool BiweeklySchedule::IsPayday(const Date& theDate) const
 {
-	return false;
+	char shiftWeek = Date(1, 1, theDate.GetYear()).GetDayOfWeek() > Date::Friday ? 0 : 1;
+	return theDate.GetDayOfWeek() == Date::Friday 
+		&& ((theDate.GetAmountOfDaysPassedInCurrentYear()/7 + shiftWeek) % 2) == 0;
 }

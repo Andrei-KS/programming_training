@@ -3,6 +3,7 @@
 #include "../../header/PaymentClassification/CommissionedClassification.h"
 #include "../../header/PaymentClassification/SalesReceipt.h"
 #include "../../header/Date.h"
+#include "../../header/Paycheck.h"
 
 CommissionedClassification::~CommissionedClassification()
 {
@@ -45,5 +46,30 @@ SalesReceipt* CommissionedClassification::GetSalesReceipt(const Date& date) cons
 
 double CommissionedClassification::CalculatePay(const Paycheck& pc) const
 {
-	return 0.0;
+	double totalPay = GetSalary();
+	Date payPeriod = pc.GetPayDate();
+	std::map<Date, SalesReceipt*>::const_iterator it = itsSalesReceipts.begin();
+	for (; it != itsSalesReceipts.end(); it++)
+	{
+		SalesReceipt* sr = (*it).second;
+		if (IsInPayPeriod(sr, payPeriod))
+		{
+			totalPay += CalculatePayForSalesReceipt(sr);
+		}
+	}
+	return totalPay;
+}
+
+bool CommissionedClassification::IsInPayPeriod(SalesReceipt* sr, const Date& payPeriod) const
+{
+	Date payPeriodEndDate = payPeriod;
+	Date payPeriodStartDate = payPeriod - 12;
+	Date SalesReceiptDate = sr->GetDate();
+	return (SalesReceiptDate >= payPeriodStartDate)
+		&& (SalesReceiptDate <= payPeriodEndDate);
+}
+
+double CommissionedClassification::CalculatePayForSalesReceipt(SalesReceipt* sr) const
+{
+	return sr->GetAmount()*GetCommissionRate();
 }

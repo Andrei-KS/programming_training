@@ -114,7 +114,7 @@ void PayrollTest::TestAddCommissionedEmployee()
 	PaymentClassification* pc = e->GetClassification();
 	CommissionedClassification* cc = dynamic_cast<CommissionedClassification*>(pc);
 	assert(cc);
-	assertEquals(700.00, cc->GetGetSalary(), .001);
+	assertEquals(700.00, cc->GetSalary(), .001);
 	assertEquals(13.01, cc->GetCommissionRate(), .001);
 
 	PaymentSchedule* ps = e->GetSchedule();
@@ -292,7 +292,7 @@ void PayrollTest::TestChangeCommissionedTransaction()
 
 	CommissionedClassification* cc = dynamic_cast<CommissionedClassification*>(pc);
 	assert(cc);
-	assertEquals(2000, cc->GetGetSalary(), .001);
+	assertEquals(2000, cc->GetSalary(), .001);
 	assertEquals(2.1, cc->GetCommissionRate(), .001);
 
 	PaymentSchedule* ps = e->GetSchedule();
@@ -424,13 +424,6 @@ void PayrollTest::TestPaySingleSalariedEmployee()
 	PaydayTransaction pt(payDate);
 	pt.Execute();
 	ValidatePaycheck(pt, empId, payDate, 1000.00, 0.0, 1000.00);
-	/*Paycheck* pc = pt.GetPaycheck(empId);
-	assert(pc);
-	assert(pc->GetPayDate() == payDate);
-	assertEquals(1000.00, pc->GetGrossPay(), 0.001);
-	assert("Hold" == pc->GetField("Disposition"));
-	assertEquals(0.0, pc->GetDeductions(), .001);
-	assertEquals(1000.00, pc->GetNetPay(), .001);*/
 }
 
 void PayrollTest::TetsPaySingleSalariedEmployeeOnWrongDate()
@@ -532,6 +525,80 @@ void PayrollTest::TestPaySingleHourlyEmployeeWithTimeCardSpanningTwoPayPeriods()
 	PaydayTransaction pt(payDate);
 	pt.Execute();
 	ValidatePaycheck(pt, empId, payDate, 2 * 15.25, 0.0, 2 * 15.25);
+}
+
+void PayrollTest::TetsPaySingleCommissionedEmployeeNoSalesReceipt()
+{
+	std::cerr << "TetsPaySingleCommissionedEmployeeNoSalesReceipt" << std::endl;
+	int empId = 26;
+	AddCommissionedEmployee t(empId, "Bob", "Home", 1000, 2.2);
+	t.Execute();
+	Date payDate(24, 1, 2020); // second friday
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidatePaycheck(pt, empId, payDate, 1000.0, 0.0, 1000 - 0.0);
+}
+
+void PayrollTest::TestPaySingleCommissionedEmployeeOneSalesReceipt()
+{
+	std::cerr << "TestPaySingleCommissionedEmployeeOneSalesReceipt" << std::endl;
+	int empId = 27;
+	AddCommissionedEmployee t(empId, "Bob", "Home", 1000, 2.2);
+	t.Execute();
+	Date payDate(24, 1, 2020); // second friday
+	SalesReceiptTransaction srt(payDate,500,empId);
+	srt.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidatePaycheck(pt, empId, payDate, 1000.0 + 500 * 2.2, 0.0, 1000 + 500 * 2.2);
+}
+
+void PayrollTest::TestPaySingleCommissionedEmployeeOnWrongDate()
+{
+	std::cerr << "TestPaySingleCommissionedEmployeeOnWrongDate" << std::endl;
+	int empId = 28;
+	AddCommissionedEmployee t(empId, "Bob", "Home", 1000, 2.2);
+	t.Execute();
+	Date payDate(23, 1, 2020); // second friday
+	SalesReceiptTransaction srt(payDate, 500, empId);
+	srt.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	Paycheck* pc = pt.GetPaycheck(empId);
+	assert(pc == nullptr);
+}
+
+void PayrollTest::TestPaySingleCommissionedEmployeeTwoSalesReceipt()
+{
+	std::cerr << "TestPaySingleCommissionedEmployeeTwoSalesReceipt" << std::endl;
+	int empId = 27;
+	AddCommissionedEmployee t(empId, "Bob", "Home", 1000, 2.2);
+	t.Execute();
+	Date payDate(24, 1, 2020); // second friday
+	SalesReceiptTransaction srt(payDate, 500, empId);
+	srt.Execute();
+	SalesReceiptTransaction srt2(Date(13, 01, 2020), 100, empId);
+	srt2.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidatePaycheck(pt, empId, payDate, 1000.0 + (100.0 + 500.0) * 2.2, 0.0, 1000 + (100.0 + 500.0) * 2.2);
+}
+
+void PayrollTest::TestPaySingleCommissionedEmployeeWithSalesReceiptSpanningTwoPayPeriods()
+{
+	std::cerr << "TestPaySingleCommissionedEmployeeWithSalesReceiptSpanningTwoPayPeriods" << std::endl;
+	int empId = 27;
+	AddCommissionedEmployee t(empId, "Bob", "Home", 1000, 2.2);
+	t.Execute();
+	Date payDate(24, 1, 2020); // second friday
+	Date dateInPreviousPayPeriod(2, 1, 2020);
+	SalesReceiptTransaction srt(payDate, 500, empId);
+	srt.Execute();
+	SalesReceiptTransaction srt2(dateInPreviousPayPeriod, 100, empId);
+	srt2.Execute();
+	PaydayTransaction pt(payDate);
+	pt.Execute();
+	ValidatePaycheck(pt, empId, payDate, 1000.0 + 500 * 2.2, 0.0, 1000 + 500 * 2.2);
 }
 
 
