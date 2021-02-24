@@ -25,3 +25,8 @@ bool MonthlySchedule::IsPayday(const Date& date) const
 {
 	return IsLastDayOfMonth(date);
 }
+
+Date MonthlySchedule::GetPayPeriodStartDate(const Date& payPeriodEndDate) const
+{
+	return Date(1, payPeriodEndDate.GetMonth(), payPeriodEndDate.GetYear());
+}

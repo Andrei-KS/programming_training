@@ -9,6 +9,7 @@ int main()
 	DateTest::TestAddDays();
 	DateTest::TestGetDate();
 	DateTest::TestSubtractionDays();
+	DateTest::TestGetDayOfWeek();
 
 	PayrollTest::TestAddSalariedEmployee();
 	PayrollTest::TestAddHourlyEmployee();
@@ -46,5 +47,8 @@ int main()
 	PayrollTest::TestPaySingleCommissionedEmployeeTwoSalesReceipt();
 	PayrollTest::TestPaySingleCommissionedEmployeeWithSalesReceiptSpanningTwoPayPeriods();
 
+	PayrollTest::TestSalariedUnionMemberDues();
+	PayrollTest::TestHourlyUnionMemberServiceCharge();
+	PayrollTest::TestServiceChargesSpanningMultiplePayPeriods();
 	return 0;
 }

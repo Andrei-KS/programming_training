@@ -47,26 +47,19 @@ SalesReceipt* CommissionedClassification::GetSalesReceipt(const Date& date) cons
 double CommissionedClassification::CalculatePay(const Paycheck& pc) const
 {
 	double totalPay = GetSalary();
-	Date payPeriod = pc.GetPayDate();
+	Date payPeriodStartDate = pc.GetPayPeriodStartDate();
+	Date payPeriodEndDate = pc.GetPayPeriodEndDate();
+
 	std::map<Date, SalesReceipt*>::const_iterator it = itsSalesReceipts.begin();
 	for (; it != itsSalesReceipts.end(); it++)
 	{
 		SalesReceipt* sr = (*it).second;
-		if (IsInPayPeriod(sr, payPeriod))
+		if(Date::IsBetween(sr->GetDate(),payPeriodStartDate,payPeriodEndDate))
 		{
 			totalPay += CalculatePayForSalesReceipt(sr);
 		}
 	}
 	return totalPay;
-}
-
-bool CommissionedClassification::IsInPayPeriod(SalesReceipt* sr, const Date& payPeriod) const
-{
-	Date payPeriodEndDate = payPeriod;
-	Date payPeriodStartDate = payPeriod - 12;
-	Date SalesReceiptDate = sr->GetDate();
-	return (SalesReceiptDate >= payPeriodStartDate)
-		&& (SalesReceiptDate <= payPeriodEndDate);
 }
 
 double CommissionedClassification::CalculatePayForSalesReceipt(SalesReceipt* sr) const

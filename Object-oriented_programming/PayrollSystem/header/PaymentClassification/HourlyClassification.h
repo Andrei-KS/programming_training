@@ -16,7 +16,6 @@ public:
 	TimeCard* GetTimeCard(const Date& date) const;
 	double GetHourlyRate() const { return itsHourlyRate; }
 	virtual double CalculatePay(const Paycheck& pc) const override;
-	bool IsInPayPeriod(TimeCard* tc, const Date& payPeriod) const;
 	double CalculatePayForTimeCard(TimeCard* tc) const;
 
 private:

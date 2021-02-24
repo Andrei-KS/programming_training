@@ -18,6 +18,7 @@ public:
 	int GetMemberId() const { return itsMemberId; }
 	double GetDues() const { return itsDues; }
 	virtual double CalculateDeductions(const Paycheck& pc) const override;
+	double CalculatePayForServiceCharges(ServiceCharge* sc) const;
 
 private:
 	int itsMemberId;

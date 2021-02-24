@@ -9,6 +9,7 @@ public:
 	virtual ~MonthlySchedule();
 	MonthlySchedule();
 	virtual bool IsPayday(const Date& date) const override;
+	virtual Date GetPayPeriodStartDate(const Date& payPeriodEndDate) const override;
 };
 
 #endif // !__MONTHLYSCHEDULE_H__

@@ -9,20 +9,22 @@ class Paycheck
 {
 public:
 	virtual ~Paycheck();
-	Paycheck(const Date& date);
+	Paycheck(const Date& payPeriodStartDate, const Date& payPeriodEndDate);
 	void SetGrossPay(double grossPay);
 	void SetDeductions(double deductions);
 	void SetNetPay(double netPay);
 	void AddField(const std::string& nameFiled,const std::string& value);
 
-	Date GetPayDate() const { return itsPayDate; }
+	Date GetPayPeriodStartDate() const { return itsPayPeriodStartDate; }
+	Date GetPayPeriodEndDate() const { return itsPayPeriodEndDate; }
 	double GetGrossPay() const { return itsGrossPay; }
 	double GetDeductions() const { return itsDeductions; }
 	double GetNetPay() const { return itsNetPay; }
 	std::string GetField(const std::string& nameField) const;
 
 private:
-	Date itsPayDate;
+	Date itsPayPeriodStartDate;
+	Date itsPayPeriodEndDate;
 	double itsGrossPay;
 	double itsDeductions;
 	double itsNetPay;

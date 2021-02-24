@@ -40,7 +40,7 @@ void PaydayTransaction::Execute()
 		{
 			if (e->IsPayDay(itsPayDate))
 			{
-				Paycheck* pc = new Paycheck(itsPayDate);
+				Paycheck* pc = new Paycheck(e->GetPayPeriodStartDate(itsPayDate),itsPayDate);
 				itsPaychecks[empId] = pc;
 				e->Payday(*pc);
 			}

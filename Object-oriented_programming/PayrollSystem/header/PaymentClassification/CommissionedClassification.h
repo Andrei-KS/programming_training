@@ -18,7 +18,6 @@ public:
 	double GetCommissionRate() const { return itsCommissionRate; }
 	SalesReceipt* GetSalesReceipt(const Date& date) const;
 	virtual double CalculatePay(const Paycheck& pc) const override;
-	bool IsInPayPeriod(SalesReceipt* sr, const Date& payPeriod) const;
 	double CalculatePayForSalesReceipt(SalesReceipt* sr) const;
 
 private:

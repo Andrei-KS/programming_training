@@ -3,6 +3,7 @@
 #include "../../header/Affiliation/UnionAffiliation.h"
 #include "../../header/Affiliation/ServiceCharge.h"
 #include "../../header/Date.h"
+#include "../../header/Paycheck.h"
 
 UnionAffiliation::~UnionAffiliation()
 {
@@ -51,7 +52,43 @@ ServiceCharge* UnionAffiliation::GetServiceCharge(const Date& date) const
 	}
 }
 
+namespace
+{
+	int NumberOfFridaysInPayPeriod(const Date& payPeriodStart, const Date& payPeriodEnd)
+	{
+		int fridays = 0;
+		for (Date day = payPeriodStart; day <= payPeriodEnd; ++day)
+		{
+			if (day.GetDayOfWeek() == Date::Friday)
+			{
+				fridays++;
+			}
+		}
+		return fridays;
+	}
+}
+
 double UnionAffiliation::CalculateDeductions(const Paycheck& pc) const
 {
-	return 0.0;
+	double totalDues = 0;
+	Date payPeriodStartDate = pc.GetPayPeriodStartDate();
+	Date payPeriodEndDate = pc.GetPayPeriodEndDate();
+	
+	std::map<Date, ServiceCharge*>::const_iterator cit = itsServiceCharges.begin();
+	for (; cit != itsServiceCharges.end(); cit++)
+	{
+		ServiceCharge* sc = (*cit).second;
+		if (Date::IsBetween(sc->GetDate(), payPeriodStartDate, payPeriodEndDate))
+		{
+			totalDues += CalculatePayForServiceCharges(sc);
+		}
+	}
+	int fridays = NumberOfFridaysInPayPeriod(payPeriodStartDate, payPeriodEndDate);
+	totalDues += itsDues * fridays;
+	return totalDues;
+}
+
+double UnionAffiliation::CalculatePayForServiceCharges(ServiceCharge* sc) const
+{
+	return sc->GetAmount();
 }

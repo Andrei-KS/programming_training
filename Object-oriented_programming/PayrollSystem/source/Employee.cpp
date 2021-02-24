@@ -78,6 +78,5 @@ bool Employee::IsPayDay(const Date& payDate) const
 
 Date Employee::GetPayPeriodStartDate(const Date& payPeriodEndDate) const
 {
-	throw("Need to do");
-	return Date(1,1,1);
+	return itsSchedule->GetPayPeriodStartDate(payPeriodEndDate);
 }

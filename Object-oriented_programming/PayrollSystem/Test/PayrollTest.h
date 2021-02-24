@@ -43,6 +43,10 @@ namespace PayrollTest
 	void TestPaySingleCommissionedEmployeeOnWrongDate();
 	void TestPaySingleCommissionedEmployeeTwoSalesReceipt();
 	void TestPaySingleCommissionedEmployeeWithSalesReceiptSpanningTwoPayPeriods();
+
+	void TestSalariedUnionMemberDues();
+	void TestHourlyUnionMemberServiceCharge();
+	void TestServiceChargesSpanningMultiplePayPeriods();
 }
 
 #endif // !__PAYROLLTEST_H__

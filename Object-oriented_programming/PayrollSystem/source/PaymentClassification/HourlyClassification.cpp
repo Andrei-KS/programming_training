@@ -49,26 +49,19 @@ void HourlyClassification::AddTimeCard(TimeCard* tc)
 double HourlyClassification::CalculatePay(const Paycheck& pc) const
 {
 	double totalPay = 0;
-	Date payPeriod = pc.GetPayDate();
+	Date payPeriodStartDate = pc.GetPayPeriodStartDate();
+	Date payPeriodEndDate = pc.GetPayPeriodEndDate();
+
 	std::map<Date, TimeCard*>::const_iterator cit = itsTimeCards.begin();
 	for (; cit != itsTimeCards.end(); cit++)
 	{
 		TimeCard* tc = (*cit).second;
-		if (IsInPayPeriod(tc, payPeriod))
+		if (Date::IsBetween(tc->GetDate(), payPeriodStartDate, payPeriodEndDate))
 		{
 			totalPay += CalculatePayForTimeCard(tc);
 		}
 	}
 	return totalPay;
-}
-
-bool HourlyClassification::IsInPayPeriod(TimeCard* tc, const Date& payPeriod) const
-{
-	Date payPeriodEndDate = payPeriod;
-	Date payPeriodStartDate = payPeriod - 5;
-	Date timeCardDate = tc->GetDate();
-	return (timeCardDate >= payPeriodStartDate) &&
-		(timeCardDate <= payPeriodEndDate);
 }
 
 double HourlyClassification::CalculatePayForTimeCard(TimeCard* tc) const

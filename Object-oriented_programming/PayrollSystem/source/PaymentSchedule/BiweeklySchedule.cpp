@@ -16,3 +16,9 @@ bool BiweeklySchedule::IsPayday(const Date& theDate) const
 	return theDate.GetDayOfWeek() == Date::Friday 
 		&& ((theDate.GetAmountOfDaysPassedInCurrentYear()/7 + shiftWeek) % 2) == 0;
 }
+
+Date BiweeklySchedule::GetPayPeriodStartDate(const Date& payPeriodEndDate) const
+{
+	const char AmountOfDaysBeforeThePrePreviousMonday = 12;
+	return payPeriodEndDate - AmountOfDaysBeforeThePrePreviousMonday;
+}
