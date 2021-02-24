@@ -16,11 +16,11 @@ Date::Date(char day, char month, short year)
 	: itsDays(0)
 	, itsYear(year)
 {
-	if (month > 12 && month < 1)
+	if (month > 12 || month < 1)
 	{
 		throw("No valid value to month");
 	}
-	if (day < 1 && day > AmountOfDaysMonth(month, year))
+	if (day < 1 || day > AmountOfDaysMonth(month, year))
 	{
 		throw("No valid value to day");
 	}
@@ -101,6 +101,12 @@ bool Date::IsYearleap(int year)
 	return !(year % 400) || (!(year % 4) && (year % 100));
 }
 
+bool Date::IsBetween(const Date& theDate, const Date& startDate, const Date& endDate)
+{
+	return (theDate >= startDate)
+		&& (theDate <= endDate);
+}
+
 bool operator<(const Date& left, const Date& right)
 {
 	if (left.itsYear < right.itsYear)
@@ -136,7 +142,7 @@ bool operator>=(const Date& left, const Date& right)
 	return (left == right) || (left > right);
 }
 
-const Date operator+(const Date& left, const int& right)
+Date operator+(const Date& left, const int& right)
 {
 	short year = left.itsYear;
 	int days = left.itsDays + right;
@@ -151,7 +157,7 @@ const Date operator+(const Date& left, const int& right)
 	return date;
 }
 
-const Date operator-(const Date& left, const int& right)
+Date operator-(const Date& left, const int& right)
 {
 	short year = left.itsYear;
 	int days = left.itsDays - right;
@@ -164,4 +170,42 @@ const Date operator-(const Date& left, const int& right)
 	date.itsYear = year;
 	date.itsDays = days;
 	return date;
+}
+
+Date& Date::operator+=(const int& right)
+{
+	(*this) = (*this) + right;
+	return (*this);
+}
+
+Date& Date::operator-=(const int& right)
+{
+	(*this) = (*this) - right;
+	return (*this);
+}
+
+Date& Date::operator++() //preincrement
+{
+	(*this) += 1;
+	return (*this);
+}
+
+Date Date::operator++(int) //postincrement
+{
+	Date oldValue = (*this);
+	++(*this);
+	return oldValue;
+}
+
+Date& Date::operator--() //predecrement
+{
+	(*this) -= 1;
+	return (*this);
+}
+
+Date Date::operator--(int) //postdecrement
+{
+	Date oldValue = (*this);
+	--(*this);
+	return oldValue;
 }

@@ -15,19 +15,27 @@ public:
 	char GetDayOfWeek() const;
 	short GetAmountOfDaysPassedInCurrentYear() const { return itsDays; }
 
+	static short AmountOfDaysMonth(int monthNumber, int year);
+	static short AmountOfDayYear(int year);
+	static bool IsYearleap(int year);
+	static bool IsBetween(const Date& theDate, const Date& startDate, const Date& endDate);
+
 	friend bool operator<(const Date& left, const Date& right);
 	friend bool operator==(const Date& left, const Date& right);
 	friend bool operator>(const Date& left, const Date& right);
 	friend bool operator<=(const Date& left, const Date& right);
 	friend bool operator>=(const Date& left, const Date& right);
 
-	friend const Date operator+(const Date& left, const int& right);
-	friend const Date operator-(const Date& left, const int& right);
-
-	static short AmountOfDaysMonth(int monthNumber, int year);
-	static short AmountOfDayYear(int year);
-	static bool IsYearleap(int year);
+	friend Date operator+(const Date& left, const int& right);
+	friend Date operator-(const Date& left, const int& right);
 	
+	Date& operator+=(const int& right);
+	Date& operator-=(const int& right);
+	Date& operator++();
+	Date operator++(int);
+	Date& operator--();
+	Date operator--(int);
+
 	enum
 	{
 		Monday = 1,
