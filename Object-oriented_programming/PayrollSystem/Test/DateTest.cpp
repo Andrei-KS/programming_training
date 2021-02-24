@@ -98,6 +98,13 @@ void DateTest::TestSubtractionDays()
 
 void DateTest::TestGetDayOfWeek()
 {
+	assert(Date(1, 1, 0).GetDayOfWeek() == Date::Saturday);
+	assert(Date(1, 1, 1).GetDayOfWeek() == Date::Monday);
+	assert(Date(1, 1, 2).GetDayOfWeek() == Date::Tuesday);
+	assert(Date(1, 1, 3).GetDayOfWeek() == Date::Wednesday);
+	assert(Date(1, 1, 4).GetDayOfWeek() == Date::Thursday);
+	assert(Date(1, 1, 5).GetDayOfWeek() == Date::Saturday);
+	assert(Date(1, 1, 6).GetDayOfWeek() == Date::Sunday);
 	assert(Date(1, 1, 2001).GetDayOfWeek() == Date::Monday);
 	assert(Date(2, 1, 2001).GetDayOfWeek() == Date::Tuesday);
 	assert(Date(3, 1, 2001).GetDayOfWeek() == Date::Wednesday);
@@ -106,7 +113,7 @@ void DateTest::TestGetDayOfWeek()
 	assert(Date(6, 1, 2001).GetDayOfWeek() == Date::Saturday);
 	assert(Date(7, 1, 2001).GetDayOfWeek() == Date::Sunday);
 	assert(Date(8, 1, 2001).GetDayOfWeek() == Date::Monday);
-	assert(Date(1, 1, 2000).GetDayOfWeek() == Date::Thursday);
+	assert(Date(1, 1, 2000).GetDayOfWeek() == Date::Saturday);
 	assert(Date(1, 1, 2002).GetDayOfWeek() == Date::Tuesday);
 	assert(Date(28, 2, 1987).GetDayOfWeek() == Date::Saturday);
 	assert(Date(5, 11, 1930).GetDayOfWeek() == Date::Wednesday);

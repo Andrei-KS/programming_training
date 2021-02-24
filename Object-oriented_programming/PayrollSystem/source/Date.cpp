@@ -2,11 +2,15 @@
 
 #include "../header/Date.h"
 
-// last value equal amount days in year plus 1
-static const short const StartDaysYear[] = { 1,32,60,91,121,152,182,213,244,274,305,335, 366 };
-static const short const StartDaysLeapYear[] = { 1,32,61,92,122,153,183,214,245,275,306,336, 367 };
+namespace
+{
+	// last value equal amount days in year plus 1
+	static const short const StartDaysYear[] = { 1,32,60,91,121,152,182,213,244,274,305,335, 366 };
+	static const short const StartDaysLeapYear[] = { 1,32,61,92,122,153,183,214,245,275,306,336, 367 };
 
-static const short YearFirstDayMonday = 2001;
+	static const char FirstDayZeroYear = Date::Saturday;
+}
+
 
 Date::~Date()
 {
@@ -24,7 +28,10 @@ Date::Date(char day, char month, short year)
 	{
 		throw("No valid value to day");
 	}
-
+	if (itsYear < 0)
+	{
+		throw("undefined behavior, year less zero");
+	}
 	month--;
 	while (month > 0)
 	{
@@ -60,21 +67,17 @@ char Date::GetMonth() const
 
 char Date::GetDayOfWeek() const
 {
-	short year = YearFirstDayMonday;
-	short directYearStep = year > itsYear ? -1 : 1;
-	char shift = 0;
-	
-	const char shiftInLeapYear = 2;
-	const char shiftInCommonYear = 1;
+	short AmountYearsMultipleOfFour = (itsYear - 1) / 4;
+	short AmountYearsMultipleOfOneHundred = (itsYear - 1) / 100;
+	short AmountYearsMultipleOfFourHundred = (itsYear - 1) / 400;
 
-	while (year != itsYear)
-	{
-		shift = (shift + (IsYearleap((directYearStep > 0 ? (year) : (year-1))) ? shiftInLeapYear : shiftInCommonYear)) % AmountDaysPerWeek;
-		year += directYearStep;
-	}
+	short shift =  itsYear + (AmountYearsMultipleOfFour - AmountYearsMultipleOfOneHundred + AmountYearsMultipleOfFourHundred);
+	shift += itsYear?1:0; // Zero year Multiple Of Four Hundred
+	shift %= AmountDaysPerWeek;
 
-	char dayOfWeek = (itsDays % AmountDaysPerWeek) + (directYearStep * shift + AmountDaysPerWeek) % AmountDaysPerWeek;
-	return dayOfWeek;
+	char dayOfWeek = (FirstDayZeroYear + itsDays - 1) % AmountDaysPerWeek;
+	dayOfWeek = (dayOfWeek + shift) % AmountDaysPerWeek;
+	return dayOfWeek ? dayOfWeek : Date::Sunday;
 }
 
 short Date::AmountOfDaysMonth(int month, int year)
