@@ -50,5 +50,7 @@ int main()
 	PayrollTest::TestSalariedUnionMemberDues();
 	PayrollTest::TestHourlyUnionMemberServiceCharge();
 	PayrollTest::TestServiceChargesSpanningMultiplePayPeriods();
+	PayrollTest::TestClearPayrollDatebase();
+
 	return 0;
 }

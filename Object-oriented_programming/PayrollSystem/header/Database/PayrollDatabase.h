@@ -16,7 +16,7 @@ public:
 	void AddEmployee(int empId, Employee* e);
 	void AddUnionMember(int memberId, Employee* e);
 	void RemoveUnionMember(int memberId);
-	void clear() { itsEmployees.clear(); }
+	void clear();
 	void DeleteEmployee(int empId);
 	void GetAllEmployeeIds(std::list<int>& empIds) const;
 

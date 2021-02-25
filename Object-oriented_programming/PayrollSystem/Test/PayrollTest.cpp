@@ -663,4 +663,9 @@ void PayrollTest::TestServiceChargesSpanningMultiplePayPeriods()
 	ValidatePaycheck(pt, empId, payDate, 15.24 * 8, 9.42, 15.24 * 8 - 9.42);
 }
 
+void PayrollTest::TestClearPayrollDatebase()
+{
+	GpayrollDatabase.clear();
+}
+
 

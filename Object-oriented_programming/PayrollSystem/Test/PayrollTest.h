@@ -47,6 +47,7 @@ namespace PayrollTest
 	void TestSalariedUnionMemberDues();
 	void TestHourlyUnionMemberServiceCharge();
 	void TestServiceChargesSpanningMultiplePayPeriods();
+	void TestClearPayrollDatebase();
 }
 
 #endif // !__PAYROLLTEST_H__
