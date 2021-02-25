@@ -4,12 +4,28 @@
 #include "Circle.h"
 #include "Square.h"
 
-Shape* ShapeFactory::makeCircle()
+Shape* ShapeFactory::make(std::string shapeName) throw(std::exception)
 {
-	return new Circle();
+	if (shapeName == "Circle")
+	{
+		return new Circle();
+	}
+	else if(shapeName == "Square")
+	{
+		return new Square();
+	}
+	else
+	{
+		throw ShapeFactoryException("ShapeFactory cannot creat " + shapeName);
+	}
 }
 
-Shape* ShapeFactory::makeSquare()
+const char* ShapeFactoryException::what() const throw()
 {
-	return new Square();
+	return itsMessage.c_str();
+}
+
+ShapeFactoryException::ShapeFactoryException(std::string message)
+	: itsMessage(message)
+{
 }

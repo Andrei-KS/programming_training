@@ -14,14 +14,14 @@
 void TestShapeFactory::TestShapeFactory()
 {
 	TestMakeCircle();
-
+	TestMakeSquare();
 }
 
 void TestShapeFactory::TestMakeCircle()
 {
 	std::cerr << "TestMakeCircle" << std::endl;
 	ShapeFactory sf;
-	Shape* s = sf.makeCircle();
+	Shape* s = sf.make("Circle");
 	assert(s);
 	Circle* c = dynamic_cast<Circle*>(s);
 	assert(c);
@@ -33,7 +33,7 @@ void TestShapeFactory::TestMakeSquare()
 {
 	std::cerr << "TestMakeSquare" << std::endl;
 	ShapeFactory sf;
-	Shape* s = sf.makeSquare();
+	Shape* s = sf.make("Square");
 	assert(s);
 	Square* sq = dynamic_cast<Square*>(s);
 	assert(sq);
