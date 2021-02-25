@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-set(NUMBER_EXAMPLE 6)
+set(NUMBER_EXAMPLE 7)
 
 # Configuration file to do correct compilation of example
 set(CONFIGURATE_FILE "ConfigurationFile.h")
@@ -68,6 +68,14 @@ elseif(${NUMBER_EXAMPLE} EQUAL 6)
 	file(WRITE
 		${CONFIGURATE_FILE}
 		"#define __EXAMPLE_MONOSTATE_TURNSTILE__"
+		)
+elseif(${NUMBER_EXAMPLE} EQUAL 7)
+	set(PATH_H_SRC
+		"Factory"
+		)
+	file(WRITE
+		${CONFIGURATE_FILE}
+		"#define __EXAMPLE_SHAPE_FACTORY__"
 		)
 		
 endif()
