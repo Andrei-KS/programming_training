@@ -1,7 +1,7 @@
 
 
 #include "DateTest.h"
-#include "../header/Date.h"
+#include "Date.h"
 #include <cassert>
 
 void DateTest::TestAmountOfDaysMonth()

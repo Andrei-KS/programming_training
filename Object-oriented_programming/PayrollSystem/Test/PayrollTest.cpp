@@ -1,54 +1,54 @@
 
 
 #include "PayrollTest.h"
-#include "../header/Database/PayrollDatabase.h"
-#include "../header/Employee.h"
-#include "../header/Date.h"
+#include "Database/PayrollDatabase.h"
+#include "Employee.h"
+#include "Date.h"
 
-#include "../header/Transaction/AddSalariedEmployee.h"
-#include "../header/PaymentClassification/SalariedClassification.h"
-#include "../header/PaymentSchedule/MonthlySchedule.h"
+#include "Transaction/AddSalariedEmployee.h"
+#include "PaymentClassification/SalariedClassification.h"
+#include "PaymentSchedule/MonthlySchedule.h"
 
-#include "../header/Transaction/AddHourlyEmployee.h"
-#include "../header/PaymentClassification/HourlyClassification.h"
-#include "../header/PaymentSchedule/WeeklySchedule.h"
+#include "Transaction/AddHourlyEmployee.h"
+#include "PaymentClassification/HourlyClassification.h"
+#include "PaymentSchedule/WeeklySchedule.h"
 
-#include "../header/Transaction/AddCommissionedEmployee.h" 
-#include "../header/PaymentClassification/CommissionedClassification.h"
-#include "../header/PaymentSchedule/BiweeklySchedule.h"
+#include "Transaction/AddCommissionedEmployee.h" 
+#include "PaymentClassification/CommissionedClassification.h"
+#include "PaymentSchedule/BiweeklySchedule.h"
 
-#include "../header/Transaction/DeleteEmployeeTransaction.h"
+#include "Transaction/DeleteEmployeeTransaction.h"
 
-#include "../header/Transaction/TimeCardTransaction.h"
-#include "../header/PaymentClassification/TimeCard.h"
+#include "Transaction/TimeCardTransaction.h"
+#include "PaymentClassification/TimeCard.h"
 
-#include "../header/Transaction/SalesReceiptTransaction.h"
-#include "../header/PaymentClassification/SalesReceipt.h"
+#include "Transaction/SalesReceiptTransaction.h"
+#include "PaymentClassification/SalesReceipt.h"
 
-#include "../header/Affiliation/ServiceCharge.h"
-#include "../header/Transaction/ServiceChargeTransaction.h"
+#include "Affiliation/ServiceCharge.h"
+#include "Transaction/ServiceChargeTransaction.h"
 
-#include "../header/Transaction/ChangeNameTransaction.h"
-#include "../header/Transaction/ChangeAddressTransaction.h"
+#include "Transaction/ChangeNameTransaction.h"
+#include "Transaction/ChangeAddressTransaction.h"
 
-#include "../header/Transaction/ChangeHourlyTransaction.h"
-#include "../header/Transaction/ChangeSalariedTransaction.h"
-#include "../header/Transaction/ChangeCommissionedTransaction.h"
+#include "Transaction/ChangeHourlyTransaction.h"
+#include "Transaction/ChangeSalariedTransaction.h"
+#include "Transaction/ChangeCommissionedTransaction.h"
 
-#include "../header/Transaction/ChangeMailTransaction.h"
-#include "../header/PaymentMethod/MailMethod.h"
-#include "../header/Transaction/ChangeDirectTransaction.h"
-#include "../header/PaymentMethod/DirectMethod.h"
-#include "../header/Transaction/ChangeHoldTransaction.h"
-#include "../header/PaymentMethod/HoldMethod.h"
+#include "Transaction/ChangeMailTransaction.h"
+#include "PaymentMethod/MailMethod.h"
+#include "Transaction/ChangeDirectTransaction.h"
+#include "PaymentMethod/DirectMethod.h"
+#include "Transaction/ChangeHoldTransaction.h"
+#include "PaymentMethod/HoldMethod.h"
 
-#include "../header/Transaction/ChangeMemberTransaction.h"
-#include "../header/Affiliation/UnionAffiliation.h"
-#include "../header/Transaction/ChangeUnaffiliatedTransaction.h"
-#include "../header/Affiliation/NoAffiliation.h"
+#include "Transaction/ChangeMemberTransaction.h"
+#include "Affiliation/UnionAffiliation.h"
+#include "Transaction/ChangeUnaffiliatedTransaction.h"
+#include "Affiliation/NoAffiliation.h"
 
-#include "../header/Paycheck.h"
-#include "../header/Transaction/PaydayTransaction.h"
+#include "Paycheck.h"
+#include "Transaction/PaydayTransaction.h"
 
 #include <cassert>
 #include <iostream>
