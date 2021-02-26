@@ -35,15 +35,15 @@ TimeCard* HourlyClassification::GetTimeCard(const Date& date) const
 	return nullptr;
 }
 
-void HourlyClassification::AddTimeCard(TimeCard* tc)
+void HourlyClassification::AddTimeCard(const Date& date, double hours)
 {
-	std::map<Date, TimeCard*>::const_iterator it = itsTimeCards.find(tc->GetDate());
+	std::map<Date, TimeCard*>::const_iterator it = itsTimeCards.find(date);
 	if (it != itsTimeCards.end())
 	{
 		delete it->second;
 		itsTimeCards.erase(it);
 	}
-	itsTimeCards[tc->GetDate()] = tc;
+	itsTimeCards[date] = new TimeCard(date,hours);
 }
 
 double HourlyClassification::CalculatePay(const Paycheck& pc) const

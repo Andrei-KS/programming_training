@@ -4,7 +4,6 @@
 #include "Employee.h"
 #include "Database/PayrollDatabase.h"
 #include "PaymentClassification/HourlyClassification.h"
-#include "PaymentClassification/TimeCard.h"
 
 extern PayrollDatabase GpayrollDatabase;
 
@@ -27,7 +26,7 @@ void TimeCardTransaction::Execute()
 		PaymentClassification* pc = e->GetClassification();
 		if (HourlyClassification* hc = dynamic_cast<HourlyClassification*>(pc))
 		{
-			hc->AddTimeCard(new TimeCard(itsDate, itsHours));
+			hc->AddTimeCard(itsDate,itsHours);
 		}
 		else
 		{

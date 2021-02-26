@@ -13,7 +13,7 @@ class CommissionedClassification : public PaymentClassification
 public:
 	virtual ~CommissionedClassification();
 	CommissionedClassification(double salary, double commissionRate);
-	void AddSalesReceipt(SalesReceipt*sr);
+	void AddSalesReceipt(const Date& date, double amount);
 	double GetSalary() const { return itsSalary; }
 	double GetCommissionRate() const { return itsCommissionRate; }
 	SalesReceipt* GetSalesReceipt(const Date& date) const;

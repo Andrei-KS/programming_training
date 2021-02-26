@@ -23,15 +23,15 @@ CommissionedClassification::CommissionedClassification(double salary, double com
 {
 }
 
-void CommissionedClassification::AddSalesReceipt(SalesReceipt*sr)
+void CommissionedClassification::AddSalesReceipt(const Date& date, double amount)
 {
-	std::map<Date, SalesReceipt*>::const_iterator it = itsSalesReceipts.find(sr->GetDate());
+	std::map<Date, SalesReceipt*>::const_iterator it = itsSalesReceipts.find(date);
 	if (it != itsSalesReceipts.end())
 	{
 		delete it->second;
 		itsSalesReceipts.erase(it);
 	}
-	itsSalesReceipts[sr->GetDate()] = sr;
+	itsSalesReceipts[date] = new SalesReceipt(date,amount);
 }
 
 SalesReceipt* CommissionedClassification::GetSalesReceipt(const Date& date) const

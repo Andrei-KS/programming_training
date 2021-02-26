@@ -4,7 +4,6 @@
 #include "Employee.h"
 #include "Database/PayrollDatabase.h"
 #include "PaymentClassification/CommissionedClassification.h"
-#include "PaymentClassification/SalesReceipt.h"
 
 extern PayrollDatabase GpayrollDatabase;
 
@@ -27,7 +26,7 @@ void SalesReceiptTransaction::Execute()
 		PaymentClassification* pc = e->GetClassification();
 		if (CommissionedClassification* cc = dynamic_cast<CommissionedClassification*>(pc))
 		{
-			cc->AddSalesReceipt(new SalesReceipt(itsDate, itsAmount));
+			cc->AddSalesReceipt(itsDate, itsAmount);
 		}
 		else
 		{
