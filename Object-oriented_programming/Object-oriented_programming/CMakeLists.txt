@@ -3,10 +3,12 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-set(NUMBER_EXAMPLE 7)
+project(ExampelsOOP)
 
-# Configuration file to do correct compilation of example
-set(CONFIGURATE_FILE "ConfigurationFile.h")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+
+set(NUMBER_EXAMPLE 7)
 
 # Local header files here ONLY
 SET(TARGET_H)
@@ -14,69 +16,64 @@ SET(TARGET_H)
 # Local source files here
 SET(TARGET_SRC)
 
-# Local Path to header and src
-set(PATH_H_SRC)
+# Name exampel
+set(NAME_EXAMPEL)
 
 if(${NUMBER_EXAMPLE} EQUAL 1)
 	set(PATH_H_SRC
 		"Command"
 		)
-	file(WRITE
-		${CONFIGURATE_FILE}
-		"#define __EXAMPLE_COMMAND_PRINT__"
-		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_COMMAND_PRINT__
+	)
 
 elseif(${NUMBER_EXAMPLE} EQUAL 2)
 	set(PATH_H_SRC
 		"ActiveObjectEngine"
 		)
-	file(WRITE
-		${CONFIGURATE_FILE}
-		"#define __EXAMPLE_ACTIVE_OBJECT_SLEEPCOMMAND__"
-		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_ACTIVE_OBJECT_SLEEPCOMMAND__
+	)
 		
 elseif(${NUMBER_EXAMPLE} EQUAL 3)
 	set(PATH_H_SRC
 		"TemplateMethod"
 		)
-	file(WRITE
-		${CONFIGURATE_FILE}
-		"#define __EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__"
-		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__
+	)
 
 elseif(${NUMBER_EXAMPLE} EQUAL 4)
 	set(PATH_H_SRC
 		"Strategy"
 		)
-	file(WRITE
-		${CONFIGURATE_FILE}
-		"#define __EXAMPLE_STRATEGY_QUICK_SORT__"
-		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_STRATEGY_QUICK_SORT__
+	)
 
 elseif(${NUMBER_EXAMPLE} EQUAL 5)
 	set(PATH_H_SRC
 		"Singleton"
 		)
-	file(WRITE
-		${CONFIGURATE_FILE}
-		"#define __EXAMPLE_SIMPEL_SINGLETON__"
-		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_SIMPEL_SINGLETON__
+	)
+
 elseif(${NUMBER_EXAMPLE} EQUAL 6)
 	set(PATH_H_SRC
 		"Monostate"
 		)
-	file(WRITE
-		${CONFIGURATE_FILE}
-		"#define __EXAMPLE_MONOSTATE_TURNSTILE__"
-		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_MONOSTATE_TURNSTILE__
+	)
+
 elseif(${NUMBER_EXAMPLE} EQUAL 7)
 	set(PATH_H_SRC
 		"Factory"
 		)
-	file(WRITE
-		${CONFIGURATE_FILE}
-		"#define __EXAMPLE_SHAPE_FACTORY__"
-		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_SHAPE_FACTORY__
+	)
 		
 endif()
 
@@ -89,8 +86,11 @@ SET(TARGET_H
 	${TARGET_H}
 )
 
-message(${TARGET_H})
-message(${TARGET_SRC})
+# Configuration file to do correct compilation of example
+configure_file(
+	"${PROJECT_SOURCE_DIR}/Config.h.in"
+	"${PROJECT_SOURCE_DIR}/Config.h"
+)
 
 # Add source to this project's executable.
 add_executable (Object-oriented_programming "main.cpp" ${TARGET_H} ${TARGET_SRC})

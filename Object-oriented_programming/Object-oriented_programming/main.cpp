@@ -1,4 +1,4 @@
-#include "ConfigurationFile.h"
+#include "Config.h"
 
 #ifdef __EXAMPLE_COMMAND_PRINT__
 #include "Command/CommandPrint.h"
