@@ -8,7 +8,7 @@ project(ExampelsOOP)
 set(CMAKE_CXX_STANDARD 11)
 
 
-set(NUMBER_EXAMPLE 7)
+set(NUMBER_EXAMPLE 8)
 
 # Local header files here ONLY
 SET(TARGET_H)
@@ -74,7 +74,14 @@ elseif(${NUMBER_EXAMPLE} EQUAL 7)
 	set(NAME_EXAMPEL
 		__EXAMPLE_SHAPE_FACTORY__
 	)
-		
+
+elseif(${NUMBER_EXAMPLE} EQUAL 8)
+	set(PATH_H_SRC
+		"Composite/CompositeShape"
+		)
+	set(NAME_EXAMPEL
+		__EXAMPLE_COMPOSITE_SHAPE__
+	)
 endif()
 
 
@@ -91,6 +98,7 @@ configure_file(
 	"${PROJECT_SOURCE_DIR}/Config.h.in"
 	"${PROJECT_SOURCE_DIR}/Config.h"
 )
+message(${NAME_EXAMPEL})
 
 # Add source to this project's executable.
 add_executable (Object-oriented_programming "main.cpp" ${TARGET_H} ${TARGET_SRC})

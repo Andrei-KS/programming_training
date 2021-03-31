@@ -29,6 +29,10 @@
 #include "Factory/TestShapeFactory.h"
 #endif // !__EXAMPLE_SHAPE_FACTORY__
 
+#ifdef __EXAMPLE_COMPOSITE_SHAPE__
+#include "Composite/CompositeShape/TestCompositeShape.h"
+#endif // !__EXAMPLE_COMPOSITE_SHAPE__
+
 int main()
 {
 #ifdef __EXAMPLE_COMMAND_PRINT__
@@ -92,5 +96,9 @@ int main()
 #ifdef __EXAMPLE_SHAPE_FACTORY__
 	TestShapeFactory::TestShapeFactory();
 #endif // !__EXAMPLE_SHAPE_FACTORY__
+
+#ifdef __EXAMPLE_COMPOSITE_SHAPE__
+	TestCompositeShape::TestCompositeShape();
+#endif // !__EXAMPLE_COMPOSITE_SHAPE__
 	return 0;
 }
