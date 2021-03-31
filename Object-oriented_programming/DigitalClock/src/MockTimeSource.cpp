@@ -5,10 +5,10 @@
 
 void MockTimeSource::setTime(int hours, int minutes, int seconds)
 {
-	itsDriver->update(hours, minutes, seconds);
+	itsObserver->update(hours, minutes, seconds);
 }
 
-void MockTimeSource::setDriver(ClockDriver* driver)
+void MockTimeSource::setObserver(interfaceClockObserver* observer)
 {
-	itsDriver = driver;
+	itsObserver = observer;
 }

@@ -3,12 +3,13 @@
 
 #include "interfaceTimeSink.h"
 #include "interfaceTimeSource.h"
+#include "interfaceClockObserver.h"
 
-class ClockDriver
+class ClockDriver : public interfaceClockObserver
 {
 public:
 	ClockDriver(interfaceTimeSource* source, interfaceTimeSink* sink);
-	void update(int hours, int minutes, int seconds);
+	virtual void update(int hours, int minutes, int seconds) override;
 private:
 	interfaceTimeSink* itsSink;
 };

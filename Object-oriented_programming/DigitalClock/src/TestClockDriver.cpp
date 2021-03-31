@@ -18,6 +18,6 @@ void TestClockDriver::testTimeChange()
 
 	source->setTime(7, 8, 9);
 	assert(7 == sink->getHours());
-	assert(9 == sink->getMinutes());
+	assert(8 == sink->getMinutes());
 	assert(9 == sink->getSeconds());
 }

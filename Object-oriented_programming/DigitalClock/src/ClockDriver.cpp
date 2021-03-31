@@ -6,7 +6,7 @@
 ClockDriver::ClockDriver(interfaceTimeSource* source, interfaceTimeSink* sink)
 	: itsSink(sink)
 {
-	source->setDriver(this);
+	source->setObserver(this);
 }
 
 void ClockDriver::update(int hours, int minutes, int seconds)

@@ -7,10 +7,10 @@ class MockTimeSource : public interfaceTimeSource
 {
 public:
 	void setTime(int hours, int minutes, int seconds);
-	virtual void setDriver(ClockDriver* driver) override;
+	virtual void setObserver(interfaceClockObserver* observer) override;
 
 private:
-	ClockDriver* itsDriver;
+	interfaceClockObserver* itsObserver;
 };
 
 #endif // !__MOCKTIMESOURCE_H__
