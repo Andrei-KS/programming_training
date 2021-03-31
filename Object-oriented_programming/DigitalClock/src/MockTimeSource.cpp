@@ -4,16 +4,24 @@
 #include "interfaceClockObserver.h"
 
 MockTimeSource::MockTimeSource()
-	: itsObserver(nullptr)
+	: itsObservers(std::vector<interfaceClockObserver*>())
 {
+}
+
+MockTimeSource::~MockTimeSource()
+{
+	itsObservers.clear();
 }
 
 void MockTimeSource::setTime(int hours, int minutes, int seconds)
 {
-	itsObserver->update(hours, minutes, seconds);
+	for (std::vector<interfaceClockObserver*>::iterator it = itsObservers.begin(); it != itsObservers.end(); it++)
+	{
+		(*it)->update(hours, minutes, seconds);
+	}
 }
 
-void MockTimeSource::setObserver(interfaceClockObserver* observer)
+void MockTimeSource::registerObserver(interfaceClockObserver* observer)
 {
-	itsObserver = observer;
+	itsObservers.push_back(observer);
 }

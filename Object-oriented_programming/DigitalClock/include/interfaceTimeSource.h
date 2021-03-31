@@ -6,7 +6,7 @@
 class interfaceTimeSource
 {
 public:
-	virtual void setObserver(interfaceClockObserver* observer) = 0;
+	virtual void registerObserver(interfaceClockObserver* observer) = 0;
 };
 
 #endif // !__INTERFACETIMESOURCE_H__

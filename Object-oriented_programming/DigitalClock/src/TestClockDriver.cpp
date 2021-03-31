@@ -5,19 +5,42 @@
 #include "MockTimeSource.h"
 #include "MyAssert.h"
 
+void TestClockDriver::assertSinksEquals(MockTimeSink* sink, int hours, int minutes, int seconds)
+{
+	assert(hours == sink->getHours());
+	assert(minutes == sink->getMinutes());
+	assert(seconds == sink->getSeconds());
+}
+
 void TestClockDriver::testTimeChange()
 {
 	MockTimeSource* source = new MockTimeSource();
 	MockTimeSink* sink = new MockTimeSink();
-	source->setObserver(sink);
+	source->registerObserver(sink);
 
 	source->setTime(3, 4, 5);
-	assert(3 == sink->getHours());
-	assert(4 == sink->getMinutes());
-	assert(5 == sink->getSeconds());
+	assertSinksEquals(sink, 3, 4, 5);
 
 	source->setTime(7, 8, 9);
-	assert(7 == sink->getHours());
-	assert(8 == sink->getMinutes());
-	assert(9 == sink->getSeconds());
+	assertSinksEquals(sink, 7, 8, 9);
+
+	delete source;
+	delete sink;
+}
+
+void TestClockDriver::testMultiplesSinks()
+{
+	MockTimeSource* source = new MockTimeSource();
+	MockTimeSink* sink = new MockTimeSink();
+	MockTimeSink* sink2 = new MockTimeSink();
+	source->registerObserver(sink);
+	source->registerObserver(sink2);
+
+	source->setTime(12, 13, 14);
+	assertSinksEquals(sink, 12, 13, 14);
+	assertSinksEquals(sink2, 12, 13, 14);
+
+	delete source;
+	delete sink;
+	delete sink2;
 }

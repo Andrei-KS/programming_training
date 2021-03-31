@@ -2,16 +2,18 @@
 #define __MOCKTIMESOURCE_H__
 
 #include "interfaceTimeSource.h"
+#include <vector>
 
 class MockTimeSource : public interfaceTimeSource
 {
 public:
 	MockTimeSource();
+	~MockTimeSource();
 	void setTime(int hours, int minutes, int seconds);
-	virtual void setObserver(interfaceClockObserver* observer) override;
+	virtual void registerObserver(interfaceClockObserver* observer) override;
 
 private:
-	interfaceClockObserver* itsObserver;
+	std::vector<interfaceClockObserver*> itsObservers;
 };
 
 #endif // !__MOCKTIMESOURCE_H__
