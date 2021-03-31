@@ -6,6 +6,7 @@
 class MockTimeSource : public interfaceTimeSource
 {
 public:
+	MockTimeSource();
 	void setTime(int hours, int minutes, int seconds);
 	virtual void setObserver(interfaceClockObserver* observer) override;
 

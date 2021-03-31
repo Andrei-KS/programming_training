@@ -1,7 +1,12 @@
 
 
 #include "MockTimeSource.h"
-#include "ClockDriver.h"
+#include "interfaceClockObserver.h"
+
+MockTimeSource::MockTimeSource()
+	: itsObserver(nullptr)
+{
+}
 
 void MockTimeSource::setTime(int hours, int minutes, int seconds)
 {
