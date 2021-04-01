@@ -15,7 +15,7 @@ void TestClockDriver::assertSinksEquals(MockTimeSink* sink, int hours, int minut
 void TestClockDriver::testTimeChange()
 {
 	MockTimeSource* source = new MockTimeSource();
-	MockTimeSink* sink = new MockTimeSink();
+	MockTimeSink* sink = new MockTimeSink(source);
 	source->registerObserver(sink);
 
 	source->setTime(3, 4, 5);
@@ -31,8 +31,8 @@ void TestClockDriver::testTimeChange()
 void TestClockDriver::testMultiplesSinks()
 {
 	MockTimeSource* source = new MockTimeSource();
-	MockTimeSink* sink = new MockTimeSink();
-	MockTimeSink* sink2 = new MockTimeSink();
+	MockTimeSink* sink = new MockTimeSink(source);
+	MockTimeSink* sink2 = new MockTimeSink(source);
 	source->registerObserver(sink);
 	source->registerObserver(sink2);
 

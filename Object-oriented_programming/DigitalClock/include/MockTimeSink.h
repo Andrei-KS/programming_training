@@ -1,21 +1,24 @@
 #ifndef __MOCKTIMESINK_H__
 #define __MOCKTIMESINK_H__
 
-#include "interfaceClockObserver.h"
+#include "Observer.h"
+#include "TimeSource.h"
 
-class MockTimeSink : public interfaceClockObserver
+class MockTimeSink : public Observer, public TimeSource
 {
 public:
-	MockTimeSink();
-	int getSeconds();
-	int getMinutes();
-	int getHours();
-	virtual void update(int hours, int minutes, int seconds) override;
+	MockTimeSink(TimeSource* source);
+	~MockTimeSink();
+	virtual int getHours() override;
+	virtual int getMinutes() override;
+	virtual int getSeconds() override;
+	virtual void update() override;
 
 private:
 	int itsHours;
 	int itsMinutes;
 	int itsSeconds;
+	TimeSource* itsSource;
 };
 
 #endif // !__MOCKTIMESINK_H__

@@ -1,24 +1,37 @@
 
 
 #include "MockTimeSource.h"
-#include "interfaceClockObserver.h"
 
 MockTimeSource::MockTimeSource()
-	: tsImp(new TimeSourceImplimentation())
+	: itsHours(0)
+	, itsMinutes(0)
+	, itsSeconds(0)
 {
 }
 
 MockTimeSource::~MockTimeSource()
 {
-	delete tsImp;
 }
 
 void MockTimeSource::setTime(int hours, int minutes, int seconds)
 {
-	tsImp->notify(hours, minutes, seconds);
+	itsHours = hours;
+	itsMinutes = minutes;
+	itsSeconds = seconds;
+	notifyObservers();
 }
 
-void MockTimeSource::registerObserver(interfaceClockObserver* observer)
+int MockTimeSource::getHours()
 {
-	tsImp->registerObserver(observer);
+	return itsHours;
+}
+
+int MockTimeSource::getMinutes()
+{
+	return itsMinutes;
+}
+
+int MockTimeSource::getSeconds()
+{
+	return itsSeconds;
 }

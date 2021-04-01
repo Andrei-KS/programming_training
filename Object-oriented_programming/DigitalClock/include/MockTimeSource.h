@@ -2,18 +2,22 @@
 #define __MOCKTIMESOURCE_H__
 
 #include "TimeSource.h"
-#include "TimeSourceImplimentation.h"
+#include "Subject.h"
 
-class MockTimeSource : public TimeSource
+class MockTimeSource : public TimeSource, public Subject
 {
 public:
 	MockTimeSource();
 	virtual ~MockTimeSource();
 	void setTime(int hours, int minutes, int seconds);
-	virtual void registerObserver(interfaceClockObserver* observer) override;
+	virtual int getHours();
+	virtual int getMinutes();
+	virtual int getSeconds();
 
 private:
-	TimeSourceImplimentation* tsImp;
+	int itsHours;
+	int itsMinutes;
+	int itsSeconds;
 };
 
 #endif // !__MOCKTIMESOURCE_H__

@@ -2,10 +2,15 @@
 
 #include "MockTimeSink.h"
 
-MockTimeSink::MockTimeSink()
+MockTimeSink::MockTimeSink(TimeSource* source)
 	: itsHours(0)
 	, itsMinutes(0)
 	, itsSeconds(0)
+	, itsSource(source)
+{
+}
+
+MockTimeSink::~MockTimeSink()
 {
 }
 
@@ -24,9 +29,9 @@ int MockTimeSink::getHours()
 	return itsHours;
 }
 
-void MockTimeSink::update(int hours, int minutes, int seconds)
+void MockTimeSink::update()
 {
-	itsHours = hours;
-	itsMinutes = minutes;
-	itsSeconds = seconds;
+	itsHours = itsSource->getHours();
+	itsMinutes = itsSource->getMinutes();
+	itsSeconds = itsSource->getSeconds();
 }
