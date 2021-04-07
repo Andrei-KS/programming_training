@@ -15,7 +15,7 @@ TestTemperatureSensor::TestTemperatureSensor(const std::vector<double>& temperat
 	: itsTypeReadTest(TypeReadTestTemperatureSensor::PresetValues)
 	, itsValues(temperatureValues)
 {
-	if(temperatureValues.size() < 0)
+	if(temperatureValues.size() <= 0)
 	{
 		throw("Error: TestTemperatureSensor(const std::vector<double>& temperatureValues): size of temperature values vector cannot be empty");
 	}

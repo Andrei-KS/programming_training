@@ -19,6 +19,7 @@ void TestTemperatureSensorTest::excute()
 	readRandomValue(-4, -4, 5);
 	readPresetValue(std::vector<double>({ 1, 2, 3, 4}), 8);
 	readPresetValue(std::vector<double>({ 1, 2, 1, 4, 5, -5, -7, 1, 9}), 8);
+	creatTestTemperatureSensorWithZeroVector();
 }
 
 void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int numberOfCallOfFunction)
@@ -44,4 +45,18 @@ void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& tempe
 		assert(EqualDouble(ReadingTemperature,temperatureValues.at(i%temperatureValues.size()),0.01));
 	}
 	delete ts;
+}
+
+void TestTemperatureSensorTest::creatTestTemperatureSensorWithZeroVector()
+{
+	bool isGetThowCase = false;
+	try
+	{
+		TemperatureSensor* ts = new TestTemperatureSensor(std::vector<double>());
+	}
+	catch (...)
+	{
+		isGetThowCase = true;
+	}
+	assert(isGetThowCase == true);
 }
