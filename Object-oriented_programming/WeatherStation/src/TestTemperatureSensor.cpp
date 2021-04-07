@@ -5,6 +5,7 @@
 
 TestTemperatureSensor::TestTemperatureSensor(int minValue, int maxValue)
 	: itsValues(std::vector<double>(2,0))
+	, itsIndex(0)
 {
 	itsTypeReadTest = TypeReadTestTemperatureSensor::Random;
 	itsValues.at(0) = minValue;
@@ -14,6 +15,7 @@ TestTemperatureSensor::TestTemperatureSensor(int minValue, int maxValue)
 TestTemperatureSensor::TestTemperatureSensor(const std::vector<double>& temperatureValues)
 	: itsTypeReadTest(TypeReadTestTemperatureSensor::PresetValues)
 	, itsValues(temperatureValues)
+	, itsIndex(0)
 {
 	if(temperatureValues.size() <= 0)
 	{
@@ -36,9 +38,8 @@ double TestTemperatureSensor::read()
 	}
 	else
 	{
-		static int index = 0;
-		readedValue = itsValues.at(index);
-		index = (index + 1) % itsValues.size();
+		readedValue = itsValues.at(itsIndex);
+		itsIndex = (itsIndex + 1) % itsValues.size();
 	}
 	return readedValue; 
 }

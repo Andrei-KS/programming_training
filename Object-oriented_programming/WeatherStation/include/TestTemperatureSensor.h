@@ -58,6 +58,12 @@ private:
 	* field of given values in the process of creating an object
 	*/
 	std::vector<double> itsValues;
+
+	/**
+	* Service variable for the preset
+	* @see TestTemperatureSensor.read()
+	*/
+	int itsIndex;
 };
 
 #endif // !__TESTTEMPERATURESENSOR_H__
