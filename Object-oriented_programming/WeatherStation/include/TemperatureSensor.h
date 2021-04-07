@@ -1,13 +1,15 @@
 #ifndef __TEMPERATURESENSOR_H__
 #define __TEMPERATURESENSOR_H__
 
+#include "Observable.h"
+
 /**
 * Description of abstract class TemperatureSensor
 * 
 * TemperatureSensors is base class contained polymorph function of read.
 * 
 */
-class TemperatureSensor
+class TemperatureSensor : public Observable
 {
 
 public:

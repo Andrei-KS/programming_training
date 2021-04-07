@@ -23,6 +23,12 @@ List(APPEND srcPath
 List(APPEND namesSrcFiles
 	"TemperatureSensor"
 	"TestTemperatureSensor"
+	"Observable"
+	"Observer"
+	"MonitoringScreen"
+	"MonitoringScreenImplementation"
+	"TemperatureObserver"
+	"ObserverMScreen"
 	)
 
 List(APPEND nameslib
@@ -38,7 +44,7 @@ List(APPEND namesTestFiles
 	)
 
 include(CreatPackageFromFiles.cmake)
-CreatPackageFromFiles(TestT
+CreatPackageFromFiles(LWeatherStation
 	NESINCLUDE ${includePath}
 	NESSRCPATH ${srcPath}
 	NESSRC ${namesSrcFiles}
@@ -52,18 +58,12 @@ CreatPackageFromFiles(TestT
 ###
 
 
-###
-# block of tests
-###
-
-#add_executable (TestTemperatureSensorTest ${TestFiles})
-
-###
-# end block of tests
-###
-
 # include header to main function
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
 # Add source to this project's executable.
 add_executable (${PROJECT_NAME} "main.cpp")
+
+target_link_libraries(${PROJECT_NAME} 
+	PRIVATE "${PROJECT_BINARY_DIR}/LWeatherStation.lib"
+	)

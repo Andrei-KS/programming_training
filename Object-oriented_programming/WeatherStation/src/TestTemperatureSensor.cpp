@@ -41,5 +41,6 @@ double TestTemperatureSensor::read()
 		readedValue = itsValues.at(itsIndex);
 		itsIndex = (itsIndex + 1) % itsValues.size();
 	}
+	notifyObservers(readedValue);
 	return readedValue; 
 }
