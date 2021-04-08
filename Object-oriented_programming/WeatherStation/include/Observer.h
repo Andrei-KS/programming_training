@@ -14,7 +14,7 @@ public:
 	/**
 	* Destructor for created the TemperatureSensor
 	*/
-	virtual ~Observer() {}
+	virtual ~Observer();
 	
 	/**
 	* This function is activated when Observable is changed

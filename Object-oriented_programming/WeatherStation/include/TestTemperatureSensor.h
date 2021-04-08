@@ -32,7 +32,7 @@ public:
 	TestTemperatureSensor(int minValue, int maxValue);
 
 	/**
-	* Ñonstructor for creating a new TestTemperatureSensor with preset temperature value
+	* Ñonstructor for creating a new TestTemperatureSensor with preset temperature values
 	* @param temperatureValues - array(vector) temperature values that will cycle return from calling function read
 	*/
 	TestTemperatureSensor(const std::vector<double>& temperatureValues);

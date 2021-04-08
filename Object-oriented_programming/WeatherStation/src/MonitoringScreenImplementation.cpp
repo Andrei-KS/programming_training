@@ -3,8 +3,8 @@
 #include "MonitoringScreenImplementation.h"
 #include <iostream>
 
-MonitoringScreenImplementation::MonitoringScreenImplementation(Observable* temperatureSensorObservable)
-	: MonitoringScreen(temperatureSensorObservable)
+MonitoringScreenImplementation::MonitoringScreenImplementation(Observable* temperatureSensorObservable, Observable* barometricPressureSensorObservable)
+	: MonitoringScreen(temperatureSensorObservable, barometricPressureSensorObservable)
 {
 }
 

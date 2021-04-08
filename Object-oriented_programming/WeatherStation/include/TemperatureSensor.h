@@ -6,8 +6,10 @@
 /**
 * Description of abstract class TemperatureSensor
 * 
-* TemperatureSensors is base class contained polymorph function of read.
+* TemperatureSensors is base class giving an interface to work with a temperature sensor.
+* For this class, it is possible to register observers to track temperature changes
 * 
+* @see Observable
 */
 class TemperatureSensor : public Observable
 {

@@ -22,7 +22,7 @@ public:
 	/**
 	* Destructor for created the TemperatureSensor
 	*/
-	~Observable();
+	virtual ~Observable();
 
 	/**
 	* Observer registration function

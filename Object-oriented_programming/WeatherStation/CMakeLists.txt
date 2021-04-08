@@ -29,6 +29,10 @@ List(APPEND namesSrcFiles
 	"MonitoringScreenImplementation"
 	"TemperatureObserver"
 	"ObserverMScreen"
+	"BarometricPressureSensor"
+	"TestBarometricPressureSensor"
+	"TestBarometricPressureSensorTest"
+	"BarometricPressureObserver"
 	)
 
 List(APPEND nameslib
@@ -39,8 +43,9 @@ List(APPEND testPath
 	)
 
 List(APPEND namesTestFiles
-	"mainTestTemperatureSensorTest"
+	"mainTest"
 	"TestTemperatureSensorTest"
+	"TestBarometricPressureSensorTest"
 	)
 
 include(CreatPackageFromFiles.cmake)

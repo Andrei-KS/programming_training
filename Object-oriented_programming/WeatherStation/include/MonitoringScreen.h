@@ -2,13 +2,11 @@
 #define __MONITORINGSCREEN_H__
 
 #include "Observable.h"
-#include "TemperatureObserver.h"
-
 
 /**
 * Description of class MonitoringScreen
 *
-* MonitoringScreen contained polymorph function for display instrument readings.
+* Monitoring Screen contained polymorph function for display sensors readings.
 * @see Scheduler
 */
 class MonitoringScreen
@@ -19,9 +17,10 @@ public:
 	* 
 	* While creating Monitor Screen it create Observers and register they to correspondent Observable objects
 	* @param temperatureSensorObservable - Observable objects correspond temperature sensor
-	* @see Observable, Observer, TemperatureObserver
+	* @param barometricPressureSensorObservable - Observable objects correspond barometric pressure sensor
+	* @see Observable, Observer, TemperatureObserver, BarometricPressureObserver
 	*/
-	MonitoringScreen(Observable* temperatureSensorObservable);
+	MonitoringScreen(Observable* temperatureSensorObservable, Observable* barometricPressureSensorObservable);
 	
 	/**
 	* Function display temperature reading from temperature sensor
