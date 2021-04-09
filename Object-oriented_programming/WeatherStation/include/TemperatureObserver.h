@@ -17,6 +17,7 @@ class TemperatureObserver : public ObserverMScreen
 public:
 	/**
 	* When creating an observer, it binds to the MonitoringScreen object
+	* @param monitoringScreen - a monitoring screen that will be notified when the observed object changes 
 	* @see MonitoringScreen
 	*/
 	TemperatureObserver(MonitoringScreen* monitoringScreen);

@@ -16,7 +16,7 @@ set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 # create LmyLibMath lib
 set(NamePackege LmyLibMath)
 if(NOT EXISTS "${PROJECT_BINARY_DIR}/${NamePackege}.lib")
-	file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "")
+	file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "IS EMPTY")
 endif()
 
 set(includePath)
@@ -92,6 +92,8 @@ List(APPEND namesSrcFiles
 	"TestBarometricPressureSensor"
 	"TestBarometricPressureSensorTest"
 	"BarometricPressureObserver"
+	"BarometricPressureTrendSensor"
+	"BarometricPressureTrendObserver"
 	)
 
 List(APPEND nameslib
@@ -131,4 +133,5 @@ add_executable (${PROJECT_NAME} "main.cpp")
 
 target_link_libraries(${PROJECT_NAME} 
 	PRIVATE "${PROJECT_BINARY_DIR}/LWeatherStation.lib"
+	PRIVATE "${PROJECT_BINARY_DIR}/LmyLibMath.lib"
 	)

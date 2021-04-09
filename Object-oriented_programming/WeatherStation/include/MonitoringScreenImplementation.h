@@ -20,7 +20,7 @@ public:
 	* @param barometricPressureSensorObservable - Observable objects correspond barometric pressure sensor
 	* @see Observable, Observer, TemperatureObserver, BarometricPressureObserver
 	*/
-	MonitoringScreenImplementation(Observable* temperatureSensorObservable, Observable* barometricPressureSensorObservable);
+	MonitoringScreenImplementation(Observable* temperatureSensorObservable, Observable* barometricPressureSensorObservable, Observable* barometricPressureTrendSensorObservable);
 
 	/**
 	* Function display temperature reading from temperature sensor
@@ -33,5 +33,11 @@ public:
 	* @param value - this pressure value will display
 	*/
 	virtual void displayPressure(double value) override;
+
+	/**
+	* Function display pressure trend reading from pressure sensor
+	* @param value - this pressure trend value will display
+	*/
+	virtual void displayPressureTrend(double value) override;
 };
 #endif // !__MONITORINGSCREENIMPLEMENTATION_H__
