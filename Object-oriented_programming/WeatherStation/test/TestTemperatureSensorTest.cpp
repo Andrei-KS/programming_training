@@ -4,11 +4,7 @@
 #include "TestTemperatureSensor.h"
 #include "TemperatureSensor.h"
 #include <cassert>
-
-namespace {
-	double abs(double value) { return value > 0 ? value : -value; }
-	bool EqualDouble(double lhs, double rhs, double accurate) { return abs(lhs - rhs) < accurate; }
-}
+#include "myLibMath.h"
 
 void TestTemperatureSensorTest::excute()
 {
@@ -24,25 +20,25 @@ void TestTemperatureSensorTest::excute()
 
 void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int numberOfCallOfFunction)
 {
-	const double deltaEqual = 0.01;
+	const double accuracy = 0.001;
 	TemperatureSensor* ts = new TestTemperatureSensor(minValue, maxValue);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
-		assert(ReadingTemperature > minValue - deltaEqual
-			&& ReadingTemperature < maxValue + deltaEqual);
+		assert(myLibMath::GreaterOrEqualDouble(ReadingTemperature,minValue, accuracy)
+			&& myLibMath::LessOrEqualDouble(ReadingTemperature,maxValue, accuracy));
 	}
 	delete ts;
 }
 
 void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& temperatureValues, int numberOfCallOfFunction)
 {
-	const double deltaEqual = 0.01;
+	const double accuracy = 0.001;
 	TemperatureSensor* ts = new TestTemperatureSensor(temperatureValues);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
-		assert(EqualDouble(ReadingTemperature,temperatureValues.at(i%temperatureValues.size()),0.01));
+		assert(myLibMath::EqualDouble(ReadingTemperature,temperatureValues.at(i%temperatureValues.size()), accuracy));
 	}
 	delete ts;
 }

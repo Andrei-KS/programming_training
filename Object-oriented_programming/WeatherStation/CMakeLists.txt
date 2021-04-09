@@ -12,6 +12,65 @@ set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 ###
 # block of create libs
 ###
+
+# create LmyLibMath lib
+set(NamePackege LmyLibMath)
+if(NOT EXISTS "${PROJECT_BINARY_DIR}/${NamePackege}.lib")
+	file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "")
+endif()
+
+set(includePath)
+set(srcPath)
+set(namesSrcFiles)
+set(nameslib)
+set(testPath)
+set(namesTestFiles)
+
+List(APPEND includePath 
+	"include"
+	)
+
+List(APPEND srcPath 
+	"src"
+	)
+
+List(APPEND namesSrcFiles
+	"myLibMath"
+	)
+
+List(APPEND nameslib
+	)
+
+List(APPEND testPath
+	"test"
+	)
+
+List(APPEND namesTestFiles
+	"mainTestMath"
+	)
+
+include(CreatPackageFromFiles.cmake)
+CreatPackageFromFiles(LmyLibMath
+	NESINCLUDE ${includePath}
+	NESSRCPATH ${srcPath}
+	NESSRC ${namesSrcFiles}
+	NESLIB ${nameslib}
+	NESTEST ${namesTestFiles}
+	NESTESTPATH ${testPath}
+	)
+
+# create LWeatherStation lib
+set(NamePackege LWeatherStation)
+if(NOT EXISTS "${PROJECT_BINARY_DIR}/${NamePackege}.lib")
+	file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "IS EMPTY")
+endif()
+set(includePath)
+set(srcPath)
+set(namesSrcFiles)
+set(nameslib)
+set(testPath)
+set(namesTestFiles)
+
 List(APPEND includePath 
 	"include"
 	)
@@ -36,6 +95,7 @@ List(APPEND namesSrcFiles
 	)
 
 List(APPEND nameslib
+	"${PROJECT_BINARY_DIR}/LmyLibMath"
 	)
 
 List(APPEND testPath

@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
 	TestBarometricPressureSensor tbps(350, 360), tbps2(340,350);
 	MonitoringScreenImplementation msi(&tts, &tbps);
 	MonitoringScreenImplementation msi2(&tts, &tbps2);
+	MonitoringScreenImplementation msi3(&tbps, &tbps2);
 	tts.read();
 	tbps.read();
 	tbps2.read();

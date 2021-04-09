@@ -4,11 +4,7 @@
 #include "TestBarometricPressureSensor.h"
 #include "BarometricPressureSensor.h"
 #include <cassert>
-
-namespace {
-	double abs(double value) { return value > 0 ? value : -value; }
-	bool EqualDouble(double lhs, double rhs, double accurate) { return abs(lhs - rhs) < accurate; }
-}
+#include "myLibMath.h"
 
 void TestBarometricPressureSensorTest::excute()
 {
@@ -24,25 +20,25 @@ void TestBarometricPressureSensorTest::excute()
 
 void TestBarometricPressureSensorTest::readRandomValue(int minValue, int maxValue, int numberOfCallOfFunction)
 {
-	const double deltaEqual = 0.01;
+	const double accuracy = 0.001;
 	BarometricPressureSensor* bps = new TestBarometricPressureSensor(minValue, maxValue);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingPressure = bps->read();
-		assert(ReadingPressure > minValue - deltaEqual
-			&& ReadingPressure < maxValue + deltaEqual);
+		assert(myLibMath::GreaterOrEqualDouble(ReadingPressure, minValue, accuracy)
+			&& myLibMath::LessOrEqualDouble(ReadingPressure, maxValue, accuracy));
 	}
 	delete bps;
 }
 
 void TestBarometricPressureSensorTest::readPresetValue(const std::vector<double>& pressureValues, int numberOfCallOfFunction)
 {
-	const double deltaEqual = 0.01;
+	const double accuracy = 0.001;
 	BarometricPressureSensor* bps = new TestBarometricPressureSensor(pressureValues);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingPressure = bps->read();
-		assert(EqualDouble(ReadingPressure, pressureValues.at(i % pressureValues.size()), 0.01));
+		assert(myLibMath::EqualDouble(ReadingPressure, pressureValues.at(i % pressureValues.size()), accuracy));
 	}
 	delete bps;
 }
