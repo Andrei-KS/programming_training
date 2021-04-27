@@ -10,7 +10,6 @@
 
 MonitoringScreen::MonitoringScreen(Observable* temperatureSensorObservable,	Observable* barometricPressureSensorObservable, Observable* barometricPressureTrendSensorObservable)
 {
-	//MonitoringScreen* ms = this;
 	if (TemperatureSensor* ts = dynamic_cast<TemperatureSensor*>(temperatureSensorObservable))
 	{
 		ts->registerObserver(new TemperatureObserver(this));
