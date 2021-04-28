@@ -41,6 +41,14 @@ protected:
 	* @see TestTemperatureSensor
 	*/
 	void creatTestTemperatureSensorWithZeroVector();
+
+	/**
+	* Function check correct work AlramClock and AlramListener into TemperatureSensorce
+	* @param temperatureValues - array(vector) temperature values that will cycle return from calling function read
+	* @param numberOfCallOfFunction - number of readings from the sensor
+	* @see TestTemperatureSensor, TemperatureSensor, AlarmClock, AlramListener
+	*/
+	void AlarmClockTemperatureSensor(const std::vector<double>& temperatureValues, int numberOfCallOfFunction);
 };
 
 #endif // !__TESTTEMPERATURESENSORTEST_H__

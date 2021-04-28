@@ -3,8 +3,9 @@
 #include "TestTemperatureSensor.h"
 #include <random>
 
-TestTemperatureSensor::TestTemperatureSensor(int minValue, int maxValue)
-	: itsValues(std::vector<double>(2,0))
+TestTemperatureSensor::TestTemperatureSensor(AlarmClock* AClock, int minValue, int maxValue)
+	: TemperatureSensor(AClock)
+	, itsValues(std::vector<double>(2,0))
 	, itsIndex(0)
 {
 	itsTypeReadTest = TypeReadTestTemperatureSensor::Random;
@@ -12,8 +13,9 @@ TestTemperatureSensor::TestTemperatureSensor(int minValue, int maxValue)
 	itsValues.at(1) = maxValue;
 }
 
-TestTemperatureSensor::TestTemperatureSensor(const std::vector<double>& temperatureValues)
-	: itsTypeReadTest(TypeReadTestTemperatureSensor::PresetValues)
+TestTemperatureSensor::TestTemperatureSensor(AlarmClock* AClock, const std::vector<double>& temperatureValues)
+	: TemperatureSensor(AClock)
+	, itsTypeReadTest(TypeReadTestTemperatureSensor::PresetValues)
 	, itsValues(temperatureValues)
 	, itsIndex(0)
 {
@@ -41,6 +43,5 @@ double TestTemperatureSensor::read()
 		readedValue = itsValues.at(itsIndex);
 		itsIndex = (itsIndex + 1) % itsValues.size();
 	}
-	notifyObservers(readedValue);
 	return readedValue; 
 }

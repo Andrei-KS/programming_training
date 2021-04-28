@@ -81,6 +81,7 @@ List(APPEND srcPath
 
 List(APPEND namesSrcFiles
 	"TemperatureSensor"
+	"TemperatureType"
 	"TestTemperatureSensor"
 	"Observable"
 	"Observer"
@@ -94,6 +95,8 @@ List(APPEND namesSrcFiles
 	"BarometricPressureObserver"
 	"BarometricPressureTrendSensor"
 	"BarometricPressureTrendObserver"
+	"AlarmListener"
+	"AlarmClock"
 	)
 
 List(APPEND nameslib
@@ -108,6 +111,7 @@ List(APPEND namesTestFiles
 	"mainTest"
 	"TestTemperatureSensorTest"
 	"TestBarometricPressureSensorTest"
+	"TestMonitoringScreenImplementation"
 	)
 
 include(CreatPackageFromFiles.cmake)

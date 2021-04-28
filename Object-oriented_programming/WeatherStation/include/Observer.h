@@ -12,7 +12,7 @@ class Observer
 {
 public:
 	/**
-	* Destructor for created the TemperatureSensor
+	* Destructor for created the Observer
 	*/
 	virtual ~Observer();
 	

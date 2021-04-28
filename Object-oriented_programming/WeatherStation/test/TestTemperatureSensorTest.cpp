@@ -5,6 +5,8 @@
 #include "TemperatureSensor.h"
 #include <cassert>
 #include "myLibMath.h"
+#include "AlarmClock.h"
+#include "TestMonitoringScreenImplementation.h"
 
 void TestTemperatureSensorTest::excute()
 {
@@ -21,7 +23,8 @@ void TestTemperatureSensorTest::excute()
 void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int numberOfCallOfFunction)
 {
 	const double accuracy = 0.001;
-	TemperatureSensor* ts = new TestTemperatureSensor(minValue, maxValue);
+	AlarmClock ac;
+	TemperatureSensor* ts = new TestTemperatureSensor(&ac, minValue, maxValue);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
@@ -34,7 +37,8 @@ void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int 
 void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& temperatureValues, int numberOfCallOfFunction)
 {
 	const double accuracy = 0.001;
-	TemperatureSensor* ts = new TestTemperatureSensor(temperatureValues);
+	AlarmClock ac;
+	TemperatureSensor* ts = new TestTemperatureSensor(&ac,temperatureValues);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
@@ -46,13 +50,29 @@ void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& tempe
 void TestTemperatureSensorTest::creatTestTemperatureSensorWithZeroVector()
 {
 	bool isGetThowCase = false;
+	AlarmClock ac;
 	try
 	{
-		TemperatureSensor* ts = new TestTemperatureSensor(std::vector<double>());
+		TemperatureSensor* ts = new TestTemperatureSensor(&ac,std::vector<double>());
 	}
 	catch (...)
 	{
 		isGetThowCase = true;
 	}
 	assert(isGetThowCase == true);
+}
+
+void TestTemperatureSensorTest::AlarmClockTemperatureSensor(const std::vector<double>& temperatureValues, int numberOfCallOfFunction)
+{
+	const double accuracy = 0.001;
+	AlarmClock* ac = new AlarmClock();
+	TemperatureSensor* ts = new TestTemperatureSensor(ac, temperatureValues);
+	TestMonitoringScreenImplementation msi(ts,nullptr,nullptr);
+	for (int i = 0; i < numberOfCallOfFunction; i++)
+	{
+		ac->wakeupAll();
+		assert(myLibMath::EqualDouble(msi.getTemp(), temperatureValues.at(i % temperatureValues.size()), accuracy));
+	}
+	delete ac;
+	delete ts;
 }

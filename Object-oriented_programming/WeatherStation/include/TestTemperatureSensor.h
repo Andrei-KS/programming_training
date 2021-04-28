@@ -26,16 +26,20 @@ public:
 
 	/**
 	* Ñonstructor for creating a new Test Temperature Sensor with generator random temperature value from minValue to maxValue
+	* @param AClock - pointer to the alarm clocker are associated with this temperature sensor
 	* @param minValue - minimum available value temperature that will return from calling function read
 	* @param maxValue - maximum available value temperature that will return from calling function read
+	* @see TemperatureSensor, AlarmClock
 	*/
-	TestTemperatureSensor(int minValue, int maxValue);
+	TestTemperatureSensor(AlarmClock* AClock, int minValue, int maxValue);
 
 	/**
 	* Ñonstructor for creating a new TestTemperatureSensor with preset temperature values
+	* @param AClock - pointer to the alarm clocker are associated with this temperature sensor
 	* @param temperatureValues - array(vector) temperature values that will cycle return from calling function read
+	* @see TemperatureSensor, AlarmClock
 	*/
-	TestTemperatureSensor(const std::vector<double>& temperatureValues);
+	TestTemperatureSensor(AlarmClock* AClock, const std::vector<double>& temperatureValues);
 
 	/**
 	* Destructor for created the TestTemperatureSensor
