@@ -5,13 +5,15 @@
 #include "AlarmClock.h"
 #include "AlarmListener.h"
 
+class TemperatureSensorImp;
+
 /**
 * Description of abstract class TemperatureSensor
 * 
 * TemperatureSensors is base class giving an interface to work with a temperature sensor.
-* For this class, it is possible to register observers to track temperature changes
+* For this class, it is possible to register observers to track temperature changes and bind class implementation
 * 
-* @see Observable
+* @see Observable, pattern Bridge, TemperatureSensorImp
 */
 class TemperatureSensor : public Observable
 {
@@ -20,9 +22,10 @@ public:
 	/**
 	* Ñonstructor for creating a new TemperatureSensor
 	* @param AClock - pointer to the alarm clocker are associated with this temperature sensor
+	* @param TSImp - pointed implementation will bonding  to this object
 	* @see AlarmClock
 	*/
-	TemperatureSensor(AlarmClock* AClock);
+	TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp);
 	
 	/**
 	* Destructor for created the TemperatureSensor
@@ -30,10 +33,10 @@ public:
 	virtual ~TemperatureSensor();
 	
 	/**
-	* Function takes temperature readings from the sensor
+	* Function takes temperature readings from the temperature sensor implementation
 	* @return temperature values
 	*/
-	virtual double read() = 0;
+	double read();
 
 protected:
 	/**
@@ -68,6 +71,12 @@ protected:
 		*/
 		TemperatureSensor* itsTemperatureSensor = nullptr;
 	} itsListener;
+
+private:
+	/**
+	* Field contains implementation of temperature sensor bonded to this object
+	*/
+	TemperatureSensorImp* itsTemperatureSensorImp;
 };
 
 #endif // !__TEMPERATURESENSOR_H__

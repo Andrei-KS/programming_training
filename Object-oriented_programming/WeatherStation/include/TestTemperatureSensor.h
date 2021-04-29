@@ -1,7 +1,7 @@
 #ifndef __TESTTEMPERATURESENSOR_H__
 #define __TESTTEMPERATURESENSOR_H__
 
-#include "TemperatureSensor.h"
+#include "TemperatureSensorImp.h"
 #include <vector>
 
 /**
@@ -12,7 +12,7 @@
 * 
 * @see TemperatureSensor
 */
-class TestTemperatureSensor : public TemperatureSensor
+class TestTemperatureSensor : public TemperatureSensorImp
 {
 public:
 	/**
@@ -31,7 +31,7 @@ public:
 	* @param maxValue - maximum available value temperature that will return from calling function read
 	* @see TemperatureSensor, AlarmClock
 	*/
-	TestTemperatureSensor(AlarmClock* AClock, int minValue, int maxValue);
+	TestTemperatureSensor(int minValue, int maxValue);
 
 	/**
 	* Ñonstructor for creating a new TestTemperatureSensor with preset temperature values
@@ -39,7 +39,7 @@ public:
 	* @param temperatureValues - array(vector) temperature values that will cycle return from calling function read
 	* @see TemperatureSensor, AlarmClock
 	*/
-	TestTemperatureSensor(AlarmClock* AClock, const std::vector<double>& temperatureValues);
+	TestTemperatureSensor(const std::vector<double>& temperatureValues);
 
 	/**
 	* Destructor for created the TestTemperatureSensor

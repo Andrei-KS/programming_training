@@ -10,6 +10,10 @@
 
 void TestTemperatureSensorTest::excute()
 {
+	creatTestTemperatureSensorWithZeroVector();
+	creatTestTemperatureSensorWithNullTemperatureSensorImp();
+	creatTestTemperatureSensorWithNullAlramClock();
+
 	readRandomValue(-10,10,10);
 	readRandomValue(-1, 0, 3);
 	readRandomValue(0, 1, 3);
@@ -17,14 +21,14 @@ void TestTemperatureSensorTest::excute()
 	readRandomValue(-4, -4, 5);
 	readPresetValue(std::vector<double>({ 1, 2, 3, 4}), 8);
 	readPresetValue(std::vector<double>({ 1, 2, 1, 4, 5, -5, -7, 1, 9}), 8);
-	creatTestTemperatureSensorWithZeroVector();
+	AlarmClockTemperatureSensor(std::vector<double>({ 1, 2, 1, 4, 5, -5, -7, 1, 9 }), 8);
 }
 
 void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int numberOfCallOfFunction)
 {
 	const double accuracy = 0.001;
 	AlarmClock ac;
-	TemperatureSensor* ts = new TestTemperatureSensor(&ac, minValue, maxValue);
+	TemperatureSensor* ts = new TemperatureSensor(&ac, new TestTemperatureSensor(minValue, maxValue));
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
@@ -38,7 +42,7 @@ void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& tempe
 {
 	const double accuracy = 0.001;
 	AlarmClock ac;
-	TemperatureSensor* ts = new TestTemperatureSensor(&ac,temperatureValues);
+	TemperatureSensor* ts = new TemperatureSensor(&ac, new TestTemperatureSensor(temperatureValues));
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
@@ -53,7 +57,7 @@ void TestTemperatureSensorTest::creatTestTemperatureSensorWithZeroVector()
 	AlarmClock ac;
 	try
 	{
-		TemperatureSensor* ts = new TestTemperatureSensor(&ac,std::vector<double>());
+		TestTemperatureSensor* tts = new TestTemperatureSensor(std::vector<double>());
 	}
 	catch (...)
 	{
@@ -66,7 +70,7 @@ void TestTemperatureSensorTest::AlarmClockTemperatureSensor(const std::vector<do
 {
 	const double accuracy = 0.001;
 	AlarmClock* ac = new AlarmClock();
-	TemperatureSensor* ts = new TestTemperatureSensor(ac, temperatureValues);
+	TemperatureSensor* ts = new TemperatureSensor(ac, new TestTemperatureSensor(temperatureValues));
 	TestMonitoringScreenImplementation msi(ts,nullptr,nullptr);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
@@ -75,4 +79,33 @@ void TestTemperatureSensorTest::AlarmClockTemperatureSensor(const std::vector<do
 	}
 	delete ac;
 	delete ts;
+}
+
+void TestTemperatureSensorTest::creatTestTemperatureSensorWithNullAlramClock()
+{
+	bool isGetThowCase = false;
+	try
+	{
+		TemperatureSensor* ts = new TemperatureSensor(nullptr, new TestTemperatureSensor(std::vector<double>({ 1, 2, 3, 4 })));
+	}
+	catch (...)
+	{
+		isGetThowCase = true;
+	}
+	assert(isGetThowCase == true);
+}
+
+void TestTemperatureSensorTest::creatTestTemperatureSensorWithNullTemperatureSensorImp()
+{
+	bool isGetThowCase = false;
+	AlarmClock ac;
+	try
+	{
+		TemperatureSensor* ts = new TemperatureSensor(&ac, nullptr);
+	}
+	catch (...)
+	{
+		isGetThowCase = true;
+	}
+	assert(isGetThowCase == true);
 }

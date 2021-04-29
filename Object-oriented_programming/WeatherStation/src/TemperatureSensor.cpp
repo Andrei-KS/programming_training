@@ -2,10 +2,17 @@
 
 #include "TemperatureSensor.h"
 #include "TemperatureType.h"
+#include "TemperatureSensorImp.h"
 
-TemperatureSensor::TemperatureSensor(AlarmClock* AClock)
+TemperatureSensor::TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp)
 	: itsLastReading(MinTemperature)
+	, itsTemperatureSensorImp(TSImp)
 {
+	if (itsTemperatureSensorImp == nullptr)
+	{
+		throw("Error: TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp): TSImp is nullptr");
+	}
+
 	if (AClock != nullptr)
 	{
 		const int TimeIntervalForTemperatureSensote = 1000;
@@ -14,12 +21,17 @@ TemperatureSensor::TemperatureSensor(AlarmClock* AClock)
 	}
 	else
 	{
-		throw("Error: TemperatureSensor(AlarmClock* AClock): AClock is nullptr");
+		throw("Error: TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp): AClock is nullptr");
 	}
 }
 
 TemperatureSensor::~TemperatureSensor()
 {
+}
+
+double TemperatureSensor::read()
+{
+	return itsTemperatureSensorImp->read();
 }
 
 void TemperatureSensor::check()

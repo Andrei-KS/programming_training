@@ -81,6 +81,7 @@ List(APPEND srcPath
 
 List(APPEND namesSrcFiles
 	"TemperatureSensor"
+	"TemperatureSensorImp"
 	"TemperatureType"
 	"TestTemperatureSensor"
 	"Observable"

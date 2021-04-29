@@ -49,6 +49,17 @@ protected:
 	* @see TestTemperatureSensor, TemperatureSensor, AlarmClock, AlramListener
 	*/
 	void AlarmClockTemperatureSensor(const std::vector<double>& temperatureValues, int numberOfCallOfFunction);
+
+	/**
+	* Function check correct work constructor with not set AlramClock (AlramClock is nullptr)
+	*/
+	void creatTestTemperatureSensorWithNullAlramClock();
+
+	/**
+	* Function check correct work constructor with not set TemperatureSensorImp (TemperatureSensorImp is nullptr)
+	*/
+	void creatTestTemperatureSensorWithNullTemperatureSensorImp();
+
 };
 
 #endif // !__TESTTEMPERATURESENSORTEST_H__
