@@ -103,6 +103,13 @@ function(CreatPackageFromFiles)
         endif()
         #message(STATUS "Flag_GetNamePackage_: ${Flag_GetNamePackage_}\tFlag_NeedGetInclude_: ${Flag_NeedGetInclude_}\tFlag_NeedGetSrcPath_: ${Flag_NeedGetSrcPath_}\tFlag_NeedGetSrc_: ${Flag_NeedGetSrc_}\tFlag_NeedGetLib_ : ${Flag_NeedGetLib_}\tFlag_NeedGetTestPath_: ${Flag_NeedGetTestPath_}\tFlag_NeedGetTest_: ${Flag_NeedGetTest_}")
     endforeach()
+
+    #Since the library will be built after the build process has started, a stub file will be created in the absence of this library file. 
+    if(NOT EXISTS "${PROJECT_BINARY_DIR}/${NamePackege}.lib")
+	    file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "IS EMPTY")
+    endif()
+
+
     message("\n")
     message(STATUS "Name package is ${NamePackege}")
     message(STATUS "ListInclude: ${ListInclude}")

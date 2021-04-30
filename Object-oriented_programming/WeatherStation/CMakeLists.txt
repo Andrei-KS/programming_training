@@ -14,11 +14,8 @@ set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 ###
 
 # create LmyLibMath lib
-set(NamePackege LmyLibMath)
-if(NOT EXISTS "${PROJECT_BINARY_DIR}/${NamePackege}.lib")
-	file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "IS EMPTY")
-endif()
-
+# setting arguments for a function  CreatPackageFromFiles
+set(NamePackege "LmyLibMath")
 set(includePath)
 set(srcPath)
 set(namesSrcFiles)
@@ -50,7 +47,7 @@ List(APPEND namesTestFiles
 	)
 
 include(CreatPackageFromFiles.cmake)
-CreatPackageFromFiles(LmyLibMath
+CreatPackageFromFiles(${NamePackege}
 	NESINCLUDE ${includePath}
 	NESSRCPATH ${srcPath}
 	NESSRC ${namesSrcFiles}
@@ -60,10 +57,8 @@ CreatPackageFromFiles(LmyLibMath
 	)
 
 # create LWeatherStation lib
-set(NamePackege LWeatherStation)
-if(NOT EXISTS "${PROJECT_BINARY_DIR}/${NamePackege}.lib")
-	file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "IS EMPTY")
-endif()
+# setting arguments for a function  CreatPackageFromFiles
+set(NamePackege "LWeatherStation")
 set(includePath)
 set(srcPath)
 set(namesSrcFiles)
@@ -117,7 +112,7 @@ List(APPEND namesTestFiles
 	)
 
 include(CreatPackageFromFiles.cmake)
-CreatPackageFromFiles(LWeatherStation
+CreatPackageFromFiles(${NamePackege}
 	NESINCLUDE ${includePath}
 	NESSRCPATH ${srcPath}
 	NESSRC ${namesSrcFiles}
