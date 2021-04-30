@@ -41,6 +41,24 @@ protected:
 	* @see TestBarometricPressureSensor
 	*/
 	void creatTestBarometricPressureSensorWithZeroVector();
+
+	/**
+	* function check correct work function of read preset pressure values
+	* @param temperatureValues - array(vector) pressure values that will cycle return from calling function read
+	* @param numberOfCallOfFunction - number of readings from the sensor
+	* @see BarometricPressureSensor, TestBarometricPressureSensor, AlarmClock, AlramListener
+	*/
+	void AlarmClockReadPresetValueBarometricPressureSensor(const std::vector<double>& pressureValues, int numberOfCallOfFunction);
+
+	/**
+	* Function check correct work constructor with not set AlramClock (AlramClock is nullptr)
+	*/
+	void creatTestBarometricPressureSensorWithNullAlramClock();
+
+	/**
+	* Function check correct work constructor with not set TemperatureSensorImp (TemperatureSensorImp is nullptr)
+	*/
+	void creatTestTemperatureSensorWithNullTemperatureSensorImp();
 };
 
 #endif // !_TESTBAROMETRICPRESSURESENSORTEST_H__

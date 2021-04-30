@@ -91,6 +91,7 @@ List(APPEND namesSrcFiles
 	"TemperatureObserver"
 	"ObserverMScreen"
 	"BarometricPressureSensor"
+	"BarometricPressureSensorImp"
 	"TestBarometricPressureSensor"
 	"TestBarometricPressureSensorTest"
 	"BarometricPressureObserver"

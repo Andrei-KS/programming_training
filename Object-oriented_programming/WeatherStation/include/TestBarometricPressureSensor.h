@@ -1,7 +1,7 @@
 #ifndef __TESTBAROMETRICPRESSURESENSOR_H__
 #define __TESTBAROMETRICPRESSURESENSOR_H__
 
-#include "BarometricPressureSensor.h"
+#include "BarometricPressureSensorImp.h"
 #include <vector>
 
 /**
@@ -12,7 +12,7 @@
 *
 * @see BarometricPressureSensor
 */
-class TestBarometricPressureSensor : public BarometricPressureSensor
+class TestBarometricPressureSensor : public BarometricPressureSensorImp
 {
 public:
 	/**

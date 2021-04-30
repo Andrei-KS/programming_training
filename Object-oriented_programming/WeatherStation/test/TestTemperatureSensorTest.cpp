@@ -21,7 +21,7 @@ void TestTemperatureSensorTest::excute()
 	readRandomValue(-4, -4, 5);
 	readPresetValue(std::vector<double>({ 1, 2, 3, 4}), 8);
 	readPresetValue(std::vector<double>({ 1, 2, 1, 4, 5, -5, -7, 1, 9}), 8);
-	AlarmClockTemperatureSensor(std::vector<double>({ 1, 2, 1, 4, 5, -5, -7, 1, 9 }), 8);
+	AlarmClockReadTemperatureSensor(std::vector<double>({ 1, 2, 1, 4, 5, -5, -7, 1, 9 }), 8);
 }
 
 void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int numberOfCallOfFunction)
@@ -66,7 +66,7 @@ void TestTemperatureSensorTest::creatTestTemperatureSensorWithZeroVector()
 	assert(isGetThowCase == true);
 }
 
-void TestTemperatureSensorTest::AlarmClockTemperatureSensor(const std::vector<double>& temperatureValues, int numberOfCallOfFunction)
+void TestTemperatureSensorTest::AlarmClockReadTemperatureSensor(const std::vector<double>& temperatureValues, int numberOfCallOfFunction)
 {
 	const double accuracy = 0.001;
 	AlarmClock* ac = new AlarmClock();
