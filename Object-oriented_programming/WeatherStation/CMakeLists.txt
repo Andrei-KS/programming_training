@@ -12,69 +12,64 @@ set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 ###
 # block of create libs
 ###
+include(CreatLibFromFiles.cmake)
+include(CreatTestForLib.cmake)
 
 # create LmyLibMath lib
 # setting arguments for a function  CreatPackageFromFiles
-set(NamePackege "LmyLibMath")
-set(includePath)
-set(srcPath)
-set(namesSrcFiles)
-set(nameslib)
-set(testPath)
-set(namesTestFiles)
-
-List(APPEND includePath 
+set(NameLib "LmyLibMath")
+set(ListPathToInclude)
+set(ListPathToSrc)
+set(ListNamesSRCfiles)
+set(ListPathToLibs)
+List(APPEND ListPathToInclude 
 	"include"
 	)
 
-List(APPEND srcPath 
+List(APPEND ListPathToSrc 
 	"src"
 	)
 
-List(APPEND namesSrcFiles
+List(APPEND ListNamesSRCfiles
 	"myLibMath"
 	)
 
-List(APPEND nameslib
+List(APPEND ListPathToLibs
 	)
-
-List(APPEND testPath
+CreatLibFromFiles(${NameLib})
+# add test
+set(NameTest UTestMath)
+set(ListPathToTestSrc)
+set(ListNamesTestSRCfiles)
+List(APPEND ListPathToTestSrc
 	"test"
 	)
-
-List(APPEND namesTestFiles
-	"mainTestMath"
+List(APPEND ListNamesTestSRCfiles
+	"UTestMath"
 	)
 
-include(CreatPackageFromFiles.cmake)
-CreatPackageFromFiles(${NamePackege}
-	NESINCLUDE ${includePath}
-	NESSRCPATH ${srcPath}
-	NESSRC ${namesSrcFiles}
-	NESLIB ${nameslib}
-	NESTEST ${namesTestFiles}
-	NESTESTPATH ${testPath}
+List(APPEND ListPathToLibs
+	"${PROJECT_BINARY_DIR}/${NameLib}"
 	)
+CreatTestForLib(${NameTest})
 
 # create LWeatherStation lib
 # setting arguments for a function  CreatPackageFromFiles
-set(NamePackege "LWeatherStation")
-set(includePath)
-set(srcPath)
-set(namesSrcFiles)
-set(nameslib)
-set(testPath)
-set(namesTestFiles)
+set(NameLib "LWeatherStation")
+set(ListPathToInclude)
+set(ListPathToSrc)
+set(ListNamesSRCfiles)
+set(ListPathToLibs)
 
-List(APPEND includePath 
+List(APPEND ListPathToInclude 
 	"include"
 	)
 
-List(APPEND srcPath 
+List(APPEND ListPathToSrc 
 	"src"
 	)
 
-List(APPEND namesSrcFiles
+List(APPEND ListNamesSRCfiles
 	"TemperatureSensor"
 	"TemperatureSensorImp"
 	"TemperatureType"
@@ -96,30 +91,37 @@ List(APPEND namesSrcFiles
 	"AlarmClock"
 	)
 
-List(APPEND nameslib
+List(APPEND ListPathToLibs
 	"${PROJECT_BINARY_DIR}/LmyLibMath"
 	)
-
-List(APPEND testPath
+CreatLibFromFiles(${NameLib})
+# add test BarometricPressureSensor
+set(NameTest LWS_UTest_BarometricPressureSensor)
+set(ListPathToTestSrc)
+set(ListNamesTestSRCfiles)
+List(APPEND ListPathToTestSrc
 	"test"
 	)
-
-List(APPEND namesTestFiles
-	"mainTest"
-	"TestTemperatureSensorTest"
+List(APPEND ListNamesTestSRCfiles
+	"mainUTest"
 	"TestBarometricPressureSensorTest"
 	"TestMonitoringScreenImplementation"
 	)
 
-include(CreatPackageFromFiles.cmake)
-CreatPackageFromFiles(${NamePackege}
-	NESINCLUDE ${includePath}
-	NESSRCPATH ${srcPath}
-	NESSRC ${namesSrcFiles}
-	NESLIB ${nameslib}
-	NESTEST ${namesTestFiles}
-	NESTESTPATH ${testPath}
+List(APPEND ListPathToLibs
+	"${PROJECT_BINARY_DIR}/${NameLib}"
 	)
+CreatTestForLib(${NameTest})
+
+# add test TemperatureSensorTest
+set(NameTest LWS_UTest_TemperatureSensor)
+set(ListNamesTestSRCfiles)
+List(APPEND ListNamesTestSRCfiles
+	"mainUTest"
+	"TestTemperatureSensorTest"
+	"TestMonitoringScreenImplementation"
+	)
+CreatTestForLib(${NameTest})
 
 ###
 # end block of create libs

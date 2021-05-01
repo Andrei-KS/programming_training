@@ -2,6 +2,7 @@
 #define _TESTBAROMETRICPRESSURESENSORTEST_H__
 
 #include <vector>
+#include "myUTest.h"
 
 /**
 * Description of class TestBarometricPressureSensorTest
@@ -10,13 +11,13 @@
 *
 * @see BarometricPressureSensor, TestBarometricPressureSensor
 */
-class TestBarometricPressureSensorTest
+class TestBarometricPressureSensorTest : public myUTest
 {
 public:
 	/**
 	* function to run all tests
 	*/
-	void excute();
+	virtual void excute() override;
 
 protected:
 	/**

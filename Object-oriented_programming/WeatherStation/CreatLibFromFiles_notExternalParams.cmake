@@ -1,3 +1,7 @@
+
+
+include(CreatListSRC.cmake)
+
 ## This function creat a lib from files. 
 ## Name : CreatPackageFromFiles
 ## Params:
@@ -21,7 +25,7 @@
 ## arg1 - first path(if set path, this is only name cpp file) to necessary file.cpp for test
 ## ..
 ## Output: none
-function(CreatPackageFromFiles)
+function(CreatLibFromFiles_notExternalParams)
     #we read the received arguments and distribute them according to the corresponding lists
     set(function_args_ ${ARGV})
     set(Flag_GetNamePackage_ OFF)
@@ -121,35 +125,10 @@ function(CreatPackageFromFiles)
 
     # Local Paths to sources files of package
     set(PathsToSRC)
-
+    set(SearchDirectory ${ListSrcPath})
+    set(SearchSourceFilenames ${ListSRCfiles})
     # Get all paths of files for source of packege
-    if(ListSrcPath AND ListSRCfiles)
-        foreach(SrcPath IN LISTS ListSrcPath)
-            foreach(nameSrc IN LISTS ListSRCfiles)
-                file(GLOB TARGET_SRC "${SrcPath}/${nameSrc}.cpp")
-                if(NOT TARGET_SRC)
-                    message(WARNING "Warrning: Not found ${SrcPath}/${nameSrc}.cpp")
-                endif()
-                list(APPEND PathsToSRC ${TARGET_SRC})
-            endforeach()
-        endforeach()
-    elseif(ListSrcPath)
-        foreach(SrcPath IN LISTS ListSrcPath)
-            file(GLOB TARGET_SRC "${SrcPath}/*.cpp")
-            if(NOT TARGET_SRC)
-                message(WARNING "Warrning: Directory [${SrcPath}] is not contained cpp file")
-            endif()
-            list(APPEND PathsToSRC ${TARGET_SRC})
-        endforeach()
-    else()
-        foreach(nameSrc IN LISTS ListSRCfiles)
-            file(GLOB TARGET_SRC "${nameSrc}.cpp")
-            if(NOT TARGET_SRC)
-                message(WARNING "Warrning: Not found ${nameSrc}.cpp")
-            endif()
-            list(APPEND PathsToSRC ${TARGET_SRC})
-        endforeach()
-    endif()
+    CreatListPathToSRC(PathsToSRC)
     message(STATUS "PathsToSRC: ${PathsToSRC}")
     
     #Creat lib
@@ -175,37 +154,13 @@ function(CreatPackageFromFiles)
     #Add test for this lib
     # Local Paths to test sources files of package
     set(PathsToTestSRC)
-
+    set(SearchDirectory ${ListTestPath})
+    set(SearchSourceFilenames ${ListTestfiles})
     # Get all paths of files for source of packege
-    if(ListTestPath AND ListTestfiles)
-        foreach(SrcPath IN LISTS ListTestPath)
-            foreach(nameSrc IN LISTS ListTestfiles)
-                file(GLOB TARGET_SRC "${SrcPath}/${nameSrc}.cpp")
-                if(NOT TARGET_SRC)
-                    message(WARNING "Warrning: Not found ${SrcPath}/${nameSrc}.cpp")
-                endif()
-                list(APPEND PathsToTestSRC ${TARGET_SRC})
-            endforeach()
-        endforeach()
-    elseif(ListTestPath)
-        foreach(SrcPath IN LISTS ListTestPath)
-            file(GLOB TARGET_SRC "${SrcPath}/*.cpp")
-            if(NOT TARGET_SRC)
-                message(WARNING "Warrning: Directory [${SrcPath}] is not contained cpp file")
-            endif()
-            list(APPEND PathsToTestSRC ${TARGET_SRC})
-        endforeach()
-    else()
-        foreach(nameSrc IN LISTS ListTestfiles)
-            file(GLOB TARGET_SRC "${nameSrc}.cpp")
-            if(NOT TARGET_SRC)
-                message(WARNING "Warrning: Not found ${nameSrc}.cpp")
-            endif()
-            list(APPEND PathsToTestSRC ${TARGET_SRC})
-        endforeach()
-    endif()
+    CreatListPathToSRC(PathsToTestSRC)
     message(STATUS "PathsToTestSRC: ${PathsToTestSRC}")
 
+    #Creat Test
     if(PathsToTestSRC)
         add_executable (${NamePackege}_test ${PathsToTestSRC})
         

@@ -8,6 +8,8 @@
 #include "AlarmClock.h"
 #include "TestMonitoringScreenImplementation.h"
 
+myUTest* myUTest::Utest = new TestTemperatureSensorTest();
+
 void TestTemperatureSensorTest::excute()
 {
 	creatTestTemperatureSensorWithZeroVector();

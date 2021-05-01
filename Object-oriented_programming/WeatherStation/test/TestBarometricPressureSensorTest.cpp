@@ -8,6 +8,8 @@
 #include "AlarmClock.h"
 #include "TestMonitoringScreenImplementation.h"
 
+myUTest* myUTest::Utest = new TestBarometricPressureSensorTest();
+
 void TestBarometricPressureSensorTest::excute()
 {
 	creatTestBarometricPressureSensorWithZeroVector();

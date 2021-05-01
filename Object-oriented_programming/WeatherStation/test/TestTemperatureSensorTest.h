@@ -2,6 +2,7 @@
 #define __TESTTEMPERATURESENSORTEST_H__
 
 #include <vector>
+#include "myUTest.h"
 
 /**
 * Description of class TestTemperatureSensorTest
@@ -10,13 +11,13 @@
 *
 * @see TemperatureSensor, TestTemperatureSensor
 */
-class TestTemperatureSensorTest
+class TestTemperatureSensorTest : public myUTest
 {
 public:
 	/**
 	* function to run all tests
 	*/
-	void excute();
+	virtual void excute() override;
 
 protected:
 	/**
