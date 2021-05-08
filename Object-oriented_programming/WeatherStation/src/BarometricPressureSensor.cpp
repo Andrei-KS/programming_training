@@ -3,12 +3,18 @@
 #include "BarometricPressureSensor.h"
 #include "BarometricPressureSensorImp.h"
 
-BarometricPressureSensor::BarometricPressureSensor(AlarmClock* AClock, BarometricPressureSensorImp* BPSImp)
-	: itsBarometricPressureSensorImp(BPSImp)
+BarometricPressureSensor::BarometricPressureSensor(AlarmClock* AClock, StationToolkit* st)
+	: itsBarometricPressureSensorImp(nullptr)
 {
+	if (st == nullptr)
+	{
+		throw("Error: BarometricPressureSensor(AlarmClock* AClock, StationToolkit* st): st is nullptr");
+	}
+
+	itsBarometricPressureSensorImp = st->makeBarometricPressure();
 	if (itsBarometricPressureSensorImp == nullptr)
 	{
-		throw("Error: BarometricPressureSensor(AlarmClock* AClock, BarometricPressureSensorImp* BPSImp): BPSImp is nullptr");
+		throw("Error: BarometricPressureSensor(AlarmClock* AClock, StationToolkit* st): st creat nullptr");
 	}
 
 	if (AClock != nullptr)
@@ -19,7 +25,7 @@ BarometricPressureSensor::BarometricPressureSensor(AlarmClock* AClock, Barometri
 	}
 	else
 	{
-		throw("Error: BarometricPressureSensor(AlarmClock* AClock, BarometricPressureSensorImp* BPSImp): AClock is nullptr");
+		throw("Error: BarometricPressureSensor(AlarmClock* AClock, StationToolkit* st): AClock is nullptr");
 	}
 }
 

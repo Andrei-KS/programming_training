@@ -7,8 +7,46 @@
 #include "myLibMath.h"
 #include "AlarmClock.h"
 #include "TestMonitoringScreenImplementation.h"
+#include "StationToolkit.h"
 
 myUTest* myUTest::Utest = new TestBarometricPressureSensorTest();
+
+namespace {
+	class TStationToolkit : public StationToolkit
+	{
+	public:
+		TStationToolkit(int minValue, int maxValue)
+			: itsValues(std::vector<double>(2, 0))
+			, itsTypeReadTest(TestBarometricPressureSensor::TypeReadTestBarometricPressureSensor::Random)
+		{
+			itsValues.at(0) = minValue;
+			itsValues.at(1) = maxValue;
+		}
+
+		TStationToolkit(const std::vector<double>& pressureValues)
+			: itsValues(pressureValues)
+			, itsTypeReadTest(TestBarometricPressureSensor::TypeReadTestBarometricPressureSensor::PresetValues)
+		{
+		}
+
+		virtual TemperatureSensorImp* makeTemperature() override { return nullptr; }
+		virtual BarometricPressureSensorImp* makeBarometricPressure() override
+		{
+			if (itsTypeReadTest == TestBarometricPressureSensor::TypeReadTestBarometricPressureSensor::Random)
+			{
+				return new TestBarometricPressureSensor(static_cast<int>(itsValues.at(0)), static_cast<int>(itsValues.at(1)));
+			}
+			else
+			{
+				return new TestBarometricPressureSensor(itsValues);
+			}
+		}
+
+	private:
+		std::vector<double> itsValues;
+		TestBarometricPressureSensor::TypeReadTestBarometricPressureSensor itsTypeReadTest;
+	};
+}
 
 void TestBarometricPressureSensorTest::excute()
 {
@@ -29,7 +67,8 @@ void TestBarometricPressureSensorTest::readRandomValue(int minValue, int maxValu
 {
 	const double accuracy = 0.001;
 	AlarmClock ac;
-	BarometricPressureSensor* bps = new BarometricPressureSensor(&ac, new TestBarometricPressureSensor(minValue, maxValue));
+	TStationToolkit tst(minValue, maxValue);
+	BarometricPressureSensor* bps = new BarometricPressureSensor(&ac, &tst);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingPressure = bps->read();
@@ -43,7 +82,8 @@ void TestBarometricPressureSensorTest::readPresetValue(const std::vector<double>
 {
 	const double accuracy = 0.001;
 	AlarmClock ac;
-	BarometricPressureSensor* bps = new BarometricPressureSensor(&ac, new TestBarometricPressureSensor(pressureValues));
+	TStationToolkit tst(pressureValues);
+	BarometricPressureSensor* bps = new BarometricPressureSensor(&ac, &tst);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingPressure = bps->read();
@@ -70,7 +110,8 @@ void TestBarometricPressureSensorTest::AlarmClockReadPresetValueBarometricPressu
 {
 	const double accuracy = 0.001;
 	AlarmClock* ac = new AlarmClock();
-	BarometricPressureSensor* bps = new BarometricPressureSensor(ac, new TestBarometricPressureSensor(pressureValues));
+	TStationToolkit tst(pressureValues);
+	BarometricPressureSensor* bps = new BarometricPressureSensor(ac, &tst);
 	TestMonitoringScreenImplementation msi(nullptr, bps, nullptr);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
@@ -86,7 +127,8 @@ void TestBarometricPressureSensorTest::creatTestBarometricPressureSensorWithNull
 	bool isGetThowCase = false;
 	try
 	{
-		BarometricPressureSensor* bps = new BarometricPressureSensor(nullptr, new TestBarometricPressureSensor(std::vector<double>({ 1, 2, 3, 4 })));
+		TStationToolkit tst(std::vector<double>({ 1, 2, 3, 4 }));
+		BarometricPressureSensor* bps = new BarometricPressureSensor(nullptr, &tst);
 	}
 	catch(...)
 	{

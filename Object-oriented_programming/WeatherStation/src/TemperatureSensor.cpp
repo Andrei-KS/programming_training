@@ -4,13 +4,18 @@
 #include "TemperatureType.h"
 #include "TemperatureSensorImp.h"
 
-TemperatureSensor::TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp)
+TemperatureSensor::TemperatureSensor(AlarmClock* AClock, StationToolkit* st)
 	: itsLastReading(MinTemperature)
-	, itsTemperatureSensorImp(TSImp)
 {
+	if (st == nullptr)
+	{
+		throw("Error: TemperatureSensor(AlarmClock* AClock, StationToolkit* st): st is nullptr");
+	}
+	
+	itsTemperatureSensorImp = st->makeTemperature();
 	if (itsTemperatureSensorImp == nullptr)
 	{
-		throw("Error: TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp): TSImp is nullptr");
+		throw("Error: TemperatureSensor(AlarmClock* AClock, StationToolkit* st): st creat nullptr");
 	}
 
 	if (AClock != nullptr)
@@ -21,7 +26,7 @@ TemperatureSensor::TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* T
 	}
 	else
 	{
-		throw("Error: TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp): AClock is nullptr");
+		throw("Error: TemperatureSensor(AlarmClock* AClock, StationToolkit* st): AClock is nullptr");
 	}
 }
 

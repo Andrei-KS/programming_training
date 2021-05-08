@@ -7,8 +7,46 @@
 #include "myLibMath.h"
 #include "AlarmClock.h"
 #include "TestMonitoringScreenImplementation.h"
+#include "StationToolkit.h"
 
 myUTest* myUTest::Utest = new TestTemperatureSensorTest();
+
+namespace {
+	class TStationToolkit : public StationToolkit
+	{
+	public:
+		TStationToolkit(int minValue, int maxValue)
+			: itsValues(std::vector<double>(2, 0))
+			, itsTypeReadTest(TestTemperatureSensor::TypeReadTestTemperatureSensor::Random)
+		{
+			itsValues.at(0) = minValue;
+			itsValues.at(1) = maxValue;
+		}
+
+		TStationToolkit(const std::vector<double>& temperatureValues)
+			: itsValues(temperatureValues)
+			, itsTypeReadTest(TestTemperatureSensor::TypeReadTestTemperatureSensor::PresetValues)
+		{
+		}
+
+		virtual TemperatureSensorImp* makeTemperature() override
+		{
+			if (itsTypeReadTest == TestTemperatureSensor::TypeReadTestTemperatureSensor::Random)
+			{
+				return new TestTemperatureSensor(static_cast<int>(itsValues.at(0)), static_cast<int>(itsValues.at(1)));
+			}
+			else
+			{
+				return new TestTemperatureSensor(itsValues);
+			}
+		}
+		virtual BarometricPressureSensorImp* makeBarometricPressure() override { return nullptr; }
+
+	private:
+		std::vector<double> itsValues;
+		TestTemperatureSensor::TypeReadTestTemperatureSensor itsTypeReadTest;
+	};
+}
 
 void TestTemperatureSensorTest::excute()
 {
@@ -30,7 +68,8 @@ void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int 
 {
 	const double accuracy = 0.001;
 	AlarmClock ac;
-	TemperatureSensor* ts = new TemperatureSensor(&ac, new TestTemperatureSensor(minValue, maxValue));
+	TStationToolkit tst(minValue,maxValue);
+	TemperatureSensor* ts = new TemperatureSensor(&ac, &tst);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
@@ -44,7 +83,8 @@ void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& tempe
 {
 	const double accuracy = 0.001;
 	AlarmClock ac;
-	TemperatureSensor* ts = new TemperatureSensor(&ac, new TestTemperatureSensor(temperatureValues));
+	TStationToolkit tst(temperatureValues);
+	TemperatureSensor* ts = new TemperatureSensor(&ac, &tst);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
 		double ReadingTemperature = ts->read();
@@ -72,7 +112,8 @@ void TestTemperatureSensorTest::AlarmClockReadTemperatureSensor(const std::vecto
 {
 	const double accuracy = 0.001;
 	AlarmClock* ac = new AlarmClock();
-	TemperatureSensor* ts = new TemperatureSensor(ac, new TestTemperatureSensor(temperatureValues));
+	TStationToolkit tst(temperatureValues);
+	TemperatureSensor* ts = new TemperatureSensor(ac, &tst);
 	TestMonitoringScreenImplementation msi(ts,nullptr,nullptr);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
@@ -88,7 +129,8 @@ void TestTemperatureSensorTest::creatTestTemperatureSensorWithNullAlramClock()
 	bool isGetThowCase = false;
 	try
 	{
-		TemperatureSensor* ts = new TemperatureSensor(nullptr, new TestTemperatureSensor(std::vector<double>({ 1, 2, 3, 4 })));
+		TStationToolkit tst(std::vector<double>({ 1, 2, 3, 4 }));
+		TemperatureSensor* ts = new TemperatureSensor(nullptr, &tst);
 	}
 	catch (...)
 	{

@@ -89,6 +89,8 @@ List(APPEND ListNamesSRCfiles
 	"BarometricPressureTrendObserver"
 	"AlarmListener"
 	"AlarmClock"
+	"StationToolkit"
+	"TestStationToolkit"
 	)
 
 List(APPEND ListPathToLibs

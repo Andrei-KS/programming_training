@@ -4,6 +4,7 @@
 #include "Observable.h"
 #include "AlarmClock.h"
 #include "AlarmListener.h"
+#include "StationToolkit.h"
 
 class TemperatureSensorImp;
 
@@ -22,10 +23,10 @@ public:
 	/**
 	* Ñonstructor for creating a new TemperatureSensor
 	* @param AClock - pointer to the alarm clocker are associated with this temperature sensor
-	* @param TSImp - pointed implementation will bonding  to this object
-	* @see AlarmClock
+	* @param st - a pointer to the StationToolkit that is responsible for creating the implementation of this TemperatureSensor 
+	* @see AlarmClock, StationToolkit
 	*/
-	TemperatureSensor(AlarmClock* AClock, TemperatureSensorImp* TSImp);
+	TemperatureSensor(AlarmClock* AClock, StationToolkit* st);
 	
 	/**
 	* Destructor for created the TemperatureSensor
