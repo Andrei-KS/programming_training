@@ -3,8 +3,8 @@
 #include "TestMonitoringScreenImplementation.h"
 #include "Observable.h"
 
-TestMonitoringScreenImplementation::TestMonitoringScreenImplementation(Observable* temperatureSensorObservable, Observable* barometricPressureSensorObservable, Observable* barometricPressureTrendSensorObservable)
-	: MonitoringScreen(temperatureSensorObservable, barometricPressureSensorObservable, barometricPressureTrendSensorObservable)
+TestMonitoringScreenImplementation::TestMonitoringScreenImplementation(WeatherStationComponent* wsc)
+	: MonitoringScreen(wsc)
 	, itsPressure(0)
 	, itsPressureTrend(0)
 	, itsTemp(0)

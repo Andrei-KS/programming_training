@@ -9,6 +9,8 @@
 #include "TestMonitoringScreenImplementation.h"
 #include "StationToolkit.h"
 #include "TestAlarmClockImp.h"
+#include "WeatherStation.h"
+#include "TestTemperatureSensor.h"
 
 myUTest* myUTest::Utest = new TestBarometricPressureSensorTest();
 
@@ -35,7 +37,7 @@ namespace {
 			delete itsAlarmClockImp;
 		}
 
-		virtual TemperatureSensorImp* makeTemperature() override { return nullptr; }
+		virtual TemperatureSensorImp* makeTemperature() override { return new TestTemperatureSensor(0,0); }
 		
 		virtual BarometricPressureSensorImp* makeBarometricPressure() override
 		{
@@ -127,16 +129,16 @@ void TestBarometricPressureSensorTest::AlarmClockReadPresetValueBarometricPressu
 {
 	const double accuracy = 0.001;
 	TStationToolkit tst(pressureValues);
-	AlarmClock* ac = new AlarmClock(&tst);
-	BarometricPressureSensor* bps = new BarometricPressureSensor(ac, &tst);
-	TestMonitoringScreenImplementation msi(nullptr, bps, nullptr);
+	WeatherStation ws(&tst);
+	TestMonitoringScreenImplementation msi(&ws);
+	TestAlarmClockImp* taci = dynamic_cast<TestAlarmClockImp*>(tst.getAlarmClock());
+
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
-		ac->wakeupAll();
+		taci->run();
+		//ac->wakeupAll();
 		assert(myLibMath::EqualDouble(msi.getPressure(), pressureValues.at(i % pressureValues.size()), accuracy));
 	}
-	delete ac;
-	delete bps;
 }
 
 void TestBarometricPressureSensorTest::creatTestBarometricPressureSensorWithNullAlramClock()

@@ -16,11 +16,10 @@ public:
 	* Ñonstructor for creating a new MonitoringScreenImplementation.
 	*
 	* While creating Monitor Screen it create Observers and register they to correspondent Observable objects
-	* @param temperatureSensorObservable - Observable objects correspond temperature sensor
-	* @param barometricPressureSensorObservable - Observable objects correspond barometric pressure sensor
-	* @see Observable, Observer, TemperatureObserver, BarometricPressureObserver
+	* @param wsc - pointer to WeatherStationComponent that registers this object as an observer of it
+	* @see Observable, Observer, WeatherStationComponent
 	*/
-	MonitoringScreenImplementation(Observable* temperatureSensorObservable, Observable* barometricPressureSensorObservable, Observable* barometricPressureTrendSensorObservable);
+	MonitoringScreenImplementation(WeatherStationComponent* wsc);
 
 	/**
 	* Function display temperature reading from temperature sensor

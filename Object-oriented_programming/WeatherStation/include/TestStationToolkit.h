@@ -7,7 +7,7 @@
 #include "TestAlarmClockImp.h"
 
 /**
-* Overridden  class StationToolkit that creates a test temperature sensor and a test barometric pressure sensor 
+* Overridden class StationToolkit that creates a test temperature sensor and a test barometric pressure sensor 
 */
 class TestStationToolkit : public StationToolkit
 {

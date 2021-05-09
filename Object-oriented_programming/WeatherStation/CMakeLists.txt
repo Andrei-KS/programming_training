@@ -94,6 +94,8 @@ List(APPEND ListNamesSRCfiles
 	"ClockListner"
 	"AlarmClockImp"
 	"TestAlarmClockImp"
+	"WeatherStation"
+	"WeatherStationComponent"
 	)
 
 List(APPEND ListPathToLibs
