@@ -3,6 +3,8 @@
 
 #include <vector>
 #include "AlarmListener.h"
+#include "StationToolkit.h"
+#include "ClockListner.h"
 
 /**
 * Description of class AlarmClock
@@ -11,13 +13,14 @@
 *
 * @see pattern Listener, AlarmListener
 */
-class AlarmClock
+class AlarmClock : public ClockListner
 {
 public:
 	/**
 	* Constructor for creating a new defualt AlarmClock
+	* @param st - a pointer to the StationToolkit that is responsible for creating the implementation of this AlarmClock 
 	*/
-	AlarmClock();
+	AlarmClock(StationToolkit* st);
 
 	/**
 	* Destructor for created the AlarmClock. Since this object does not own listeners, it will not delete them 
@@ -36,6 +39,11 @@ public:
 	*/
 	void wakeupAll() const;
 
+	/**
+	* A function that updates the this object 
+	* check listeners and if it need wake up then it wake up this listner
+	*/
+	virtual void tic() override;
 
 private:
 	/**

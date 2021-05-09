@@ -1,8 +1,16 @@
-#include "..\include\AlarmClock.h"
 
-AlarmClock::AlarmClock()
+
+#include "AlarmClock.h"
+#include "AlarmClockImp.h"
+
+AlarmClock::AlarmClock(StationToolkit* st)
 	: itsAlarmListners(std::vector<AlarmListener*>())
 {
+	if (st == nullptr)
+	{
+		throw ("Error: AlarmClock::AlarmClock(StationToolkit* st): st is nullptr");
+	}
+	st->getAlarmClock()->registerClockListner(this);
 }
 
 AlarmClock::~AlarmClock()
@@ -20,4 +28,10 @@ void AlarmClock::wakeupAll() const
 	{
 		(*cit)->wakeup();
 	}
+}
+
+void AlarmClock::tic()
+{
+	wakeupAll();
+	//TODO check listener and if it need wake up then it wake up this listner
 }

@@ -91,6 +91,9 @@ List(APPEND ListNamesSRCfiles
 	"AlarmClock"
 	"StationToolkit"
 	"TestStationToolkit"
+	"ClockListner"
+	"AlarmClockImp"
+	"TestAlarmClockImp"
 	)
 
 List(APPEND ListPathToLibs

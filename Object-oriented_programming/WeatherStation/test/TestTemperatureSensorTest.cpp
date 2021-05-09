@@ -8,6 +8,7 @@
 #include "AlarmClock.h"
 #include "TestMonitoringScreenImplementation.h"
 #include "StationToolkit.h"
+#include "TestAlarmClockImp.h"
 
 myUTest* myUTest::Utest = new TestTemperatureSensorTest();
 
@@ -29,6 +30,11 @@ namespace {
 		{
 		}
 
+		~TStationToolkit()
+		{
+			delete itsAlarmClockImp;
+		}
+
 		virtual TemperatureSensorImp* makeTemperature() override
 		{
 			if (itsTypeReadTest == TestTemperatureSensor::TypeReadTestTemperatureSensor::Random)
@@ -41,10 +47,19 @@ namespace {
 			}
 		}
 		virtual BarometricPressureSensorImp* makeBarometricPressure() override { return nullptr; }
+		virtual AlarmClockImp* getAlarmClock() override
+		{
+			if (itsAlarmClockImp == nullptr)
+			{
+				itsAlarmClockImp = new TestAlarmClockImp();
+			}
+			return itsAlarmClockImp;
+		}
 
 	private:
 		std::vector<double> itsValues;
 		TestTemperatureSensor::TypeReadTestTemperatureSensor itsTypeReadTest;
+		AlarmClockImp* itsAlarmClockImp = nullptr;
 	};
 }
 
@@ -67,8 +82,8 @@ void TestTemperatureSensorTest::excute()
 void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int numberOfCallOfFunction)
 {
 	const double accuracy = 0.001;
-	AlarmClock ac;
-	TStationToolkit tst(minValue,maxValue);
+	TStationToolkit tst(minValue, maxValue);
+	AlarmClock ac(&tst);
 	TemperatureSensor* ts = new TemperatureSensor(&ac, &tst);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
@@ -82,8 +97,8 @@ void TestTemperatureSensorTest::readRandomValue(int minValue, int maxValue, int 
 void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& temperatureValues, int numberOfCallOfFunction)
 {
 	const double accuracy = 0.001;
-	AlarmClock ac;
 	TStationToolkit tst(temperatureValues);
+	AlarmClock ac(&tst);
 	TemperatureSensor* ts = new TemperatureSensor(&ac, &tst);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
 	{
@@ -96,7 +111,8 @@ void TestTemperatureSensorTest::readPresetValue(const std::vector<double>& tempe
 void TestTemperatureSensorTest::creatTestTemperatureSensorWithZeroVector()
 {
 	bool isGetThowCase = false;
-	AlarmClock ac;
+	TStationToolkit tst(0, 1);
+	AlarmClock ac(&tst);
 	try
 	{
 		TestTemperatureSensor* tts = new TestTemperatureSensor(std::vector<double>());
@@ -111,8 +127,9 @@ void TestTemperatureSensorTest::creatTestTemperatureSensorWithZeroVector()
 void TestTemperatureSensorTest::AlarmClockReadTemperatureSensor(const std::vector<double>& temperatureValues, int numberOfCallOfFunction)
 {
 	const double accuracy = 0.001;
-	AlarmClock* ac = new AlarmClock();
 	TStationToolkit tst(temperatureValues);
+	AlarmClock* ac = new AlarmClock(&tst);
+
 	TemperatureSensor* ts = new TemperatureSensor(ac, &tst);
 	TestMonitoringScreenImplementation msi(ts,nullptr,nullptr);
 	for (int i = 0; i < numberOfCallOfFunction; i++)
@@ -142,7 +159,8 @@ void TestTemperatureSensorTest::creatTestTemperatureSensorWithNullAlramClock()
 void TestTemperatureSensorTest::creatTestTemperatureSensorWithNullTemperatureSensorImp()
 {
 	bool isGetThowCase = false;
-	AlarmClock ac;
+	TStationToolkit tst(0, 1);
+	AlarmClock ac(&tst);
 	try
 	{
 		TemperatureSensor* ts = new TemperatureSensor(&ac, nullptr);
