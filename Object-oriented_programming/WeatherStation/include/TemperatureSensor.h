@@ -41,17 +41,18 @@ public:
 
 protected:
 	/**
-	* Function check new reading value. if new value is not equal last value, this function notify registered observers about changed value
+	* Function check new reading value. if new value is not equal last value,
+	* this function notify registered observers about changed value
 	*/
 	void check();
 
-	/**
-	* The field contains last reading value
-	*/
+	/** The field contains last reading value */
 	double itsLastReading;
 
 	/**
-	* Anonymous listener connects the temperature sensor to the AlarmClock. After the expiration of the time in the alarm clock, the function of checking the associated temperature sensor class will be called  
+	* Anonymous listener connects the temperature sensor to the AlarmClock.
+	* After the expiration of the time in the alarm clock, the function of
+	* checking the associated temperature sensor class will be called  
 	* @see AlarmClock
 	*/
 	class : public AlarmListener
@@ -67,16 +68,12 @@ protected:
 				itsTemperatureSensor->check();
 			}
 		}
-		/**
-		* The field contains pointer to Temperature Sensor for which called check function
-		*/
+		/** The field contains pointer to Temperature Sensor for which called check function */
 		TemperatureSensor* itsTemperatureSensor = nullptr;
 	} itsListener;
 
 private:
-	/**
-	* Field contains implementation of temperature sensor bonded to this object
-	*/
+	/** Field contains implementation of temperature sensor bonded to this object */
 	TemperatureSensorImp* itsTemperatureSensorImp;
 };
 

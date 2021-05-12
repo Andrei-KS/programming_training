@@ -2,7 +2,6 @@
 #define __MYLIBMATH_H__
 
 #include <cmath>
-
 namespace myLibMath
 {
 	/**

@@ -15,19 +15,48 @@ set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 include(CreatLibFromFiles.cmake)
 include(CreatTestForLib.cmake)
 
-# create LmyLibMath lib
+# create LmyUtest lib
 # setting arguments for a function  CreatPackageFromFiles
-set(NameLib "LmyLibMath")
+set(NameLib "LmyUtest")
+set(prefixDirectory)
 set(ListPathToInclude)
 set(ListPathToSrc)
 set(ListNamesSRCfiles)
 set(ListPathToLibs)
+
+set(prefixDirectory "_Lib/UTest")
 List(APPEND ListPathToInclude 
-	"include"
+	"${prefixDirectory}/include"
 	)
 
 List(APPEND ListPathToSrc 
-	"src"
+	"${prefixDirectory}/src"
+	)
+
+List(APPEND ListNamesSRCfiles
+	"mainUTest"
+	)
+
+List(APPEND ListPathToLibs
+	)
+CreatLibFromFiles(${NameLib})
+
+# create LmyLibMath lib
+# setting arguments for a function  CreatPackageFromFiles
+set(NameLib "LmyLibMath")
+set(prefixDirectory)
+set(ListPathToInclude)
+set(ListPathToSrc)
+set(ListNamesSRCfiles)
+set(ListPathToLibs)
+
+set(prefixDirectory "_Lib/Math")
+List(APPEND ListPathToInclude 
+	"${prefixDirectory}/include"
+	)
+
+List(APPEND ListPathToSrc 
+	"${prefixDirectory}/src"
 	)
 
 List(APPEND ListNamesSRCfiles
@@ -41,8 +70,11 @@ CreatLibFromFiles(${NameLib})
 set(NameTest UTestMath)
 set(ListPathToTestSrc)
 set(ListNamesTestSRCfiles)
+List(APPEND ListPathToInclude
+	"_Lib/UTest/include"
+	)
 List(APPEND ListPathToTestSrc
-	"test"
+	"${prefixDirectory}/test"
 	)
 List(APPEND ListNamesTestSRCfiles
 	"UTestMath"
@@ -50,6 +82,7 @@ List(APPEND ListNamesTestSRCfiles
 
 List(APPEND ListPathToLibs
 	"${PROJECT_BINARY_DIR}/${NameLib}"
+	"${PROJECT_BINARY_DIR}/LmyUtest"
 	)
 CreatTestForLib(${NameTest})
 
@@ -63,6 +96,7 @@ set(ListPathToLibs)
 
 List(APPEND ListPathToInclude 
 	"include"
+	"_Lib/Math/include"
 	)
 
 List(APPEND ListPathToSrc 
@@ -96,27 +130,32 @@ List(APPEND ListNamesSRCfiles
 	"TestAlarmClockImp"
 	"WeatherStation"
 	"WeatherStationComponent"
+	"TemperatureHiLo"
 	)
 
 List(APPEND ListPathToLibs
 	"${PROJECT_BINARY_DIR}/LmyLibMath"
 	)
 CreatLibFromFiles(${NameLib})
+
 # add test BarometricPressureSensor
 set(NameTest LWS_UTest_BarometricPressureSensor)
 set(ListPathToTestSrc)
 set(ListNamesTestSRCfiles)
+List(APPEND ListPathToInclude
+	"_Lib/UTest/include"
+	)
 List(APPEND ListPathToTestSrc
 	"test"
 	)
 List(APPEND ListNamesTestSRCfiles
-	"mainUTest"
 	"TestBarometricPressureSensorTest"
 	"TestMonitoringScreenImplementation"
 	)
 
 List(APPEND ListPathToLibs
 	"${PROJECT_BINARY_DIR}/${NameLib}"
+	"${PROJECT_BINARY_DIR}/LmyUtest"
 	)
 CreatTestForLib(${NameTest})
 
@@ -124,7 +163,6 @@ CreatTestForLib(${NameTest})
 set(NameTest LWS_UTest_TemperatureSensor)
 set(ListNamesTestSRCfiles)
 List(APPEND ListNamesTestSRCfiles
-	"mainUTest"
 	"TestTemperatureSensorTest"
 	"TestMonitoringScreenImplementation"
 	)

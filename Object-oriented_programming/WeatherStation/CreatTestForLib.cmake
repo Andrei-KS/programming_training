@@ -27,9 +27,9 @@ function(CreatTestForLib NameTest)
 
 	#Creat Test
     if(PathsToSRC)
-        add_executable (${NameTest}_test ${PathsToSRC})
+        add_executable(${NameTest}_test ${PathsToSRC})
         
-        foreach(includePath IN LISTS ListInclude)
+        foreach(includePath IN LISTS ListPathToInclude)
             target_include_directories(${NameTest}_test PUBLIC "${includePath}/")
         endforeach()
         foreach(includePath IN LISTS ListPathToTestSrc)

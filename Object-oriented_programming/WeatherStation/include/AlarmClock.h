@@ -28,16 +28,22 @@ public:
 	~AlarmClock();
 
 	/**
-	* AlarmClock registration function
+	* Register Listener that will notified every time the interval time passes
 	* @param interval - how often the listener will notify, the value is set in milliseconds
 	* @param AListner - registered AlarmListner 
 	*/
 	void wakeEvery(int interval, AlarmListener* AListner);
 
 	/**
+	* Register Listener that will notified one time to day at midnight
+	* @param AListner - registered AlarmListner
+	*/
+	void wakeupEveryDay(AlarmListener* AListner);
+
+	/**
 	* wakups all registered listeners
 	*/
-	void wakeupAll() const;
+	void wakeupNowAll() const;
 
 	/**
 	* A function that updates the this object 
@@ -46,9 +52,7 @@ public:
 	virtual void tic() override;
 
 private:
-	/**
-	* the field containing all registered alarm listners
-	*/
+	/** the field containing all registered alarm listners */
 	std::vector<AlarmListener*> itsAlarmListners;
 };
 

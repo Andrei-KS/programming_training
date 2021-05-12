@@ -3,7 +3,6 @@
 
 #include <vector>
 #include "myUTest.h"
-
 /**
 * Description of class TestBarometricPressureSensorTest
 *
