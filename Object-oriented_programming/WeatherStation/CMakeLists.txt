@@ -86,9 +86,55 @@ List(APPEND ListPathToLibs
 	)
 CreatTestForLib(${NameTest})
 
+# create LmyDate lib
+# setting arguments for a function  CreatPackageFromFiles
+set(NameLib "LmyDate")
+set(prefixDirectory)
+set(ListPathToInclude)
+set(ListPathToSrc)
+set(ListNamesSRCfiles)
+set(ListPathToLibs)
+
+set(prefixDirectory "_Lib/Date")
+List(APPEND ListPathToInclude 
+	"${prefixDirectory}/include"
+	)
+
+List(APPEND ListPathToSrc 
+	"${prefixDirectory}/src"
+	)
+
+List(APPEND ListNamesSRCfiles
+	"Date"
+	)
+
+List(APPEND ListPathToLibs
+	)
+CreatLibFromFiles(${NameLib})
+# add test
+set(NameTest UTestDate)
+set(ListPathToTestSrc)
+set(ListNamesTestSRCfiles)
+List(APPEND ListPathToInclude
+	"_Lib/UTest/include"
+	)
+List(APPEND ListPathToTestSrc
+	"${prefixDirectory}/test"
+	)
+List(APPEND ListNamesTestSRCfiles
+	"UTestDate"
+	)
+
+List(APPEND ListPathToLibs
+	"${PROJECT_BINARY_DIR}/${NameLib}"
+	"${PROJECT_BINARY_DIR}/LmyUtest"
+	)
+CreatTestForLib(${NameTest})
+
 # create LWeatherStation lib
 # setting arguments for a function  CreatPackageFromFiles
 set(NameLib "LWeatherStation")
+set(prefixDirectory)
 set(ListPathToInclude)
 set(ListPathToSrc)
 set(ListNamesSRCfiles)

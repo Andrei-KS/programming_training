@@ -11,7 +11,7 @@ include(CreatListSRC.cmake)
 ##  ListNamesTestSRCfiles - names necessary test cpp file
 ## Output : None
 function(CreatTestForLib NameTest)
-	message(STATUS "Name test is ${NameTest}")
+	message(STATUS "--Name test is ${NameTest}")
 	message(STATUS "ListPathToInclude: ${ListPathToInclude}")
 	message(STATUS "ListPathToLibs: ${ListPathToLibs}")
 	message(STATUS "ListPathToTestSrc: ${ListPathToTestSrc}")

@@ -17,7 +17,7 @@ function(CreatLibFromFiles NamePackege)
 	    file(WRITE "${PROJECT_BINARY_DIR}/${NamePackege}.lib" "IS EMPTY")
     endif()
 
-	message(STATUS "Name package is ${NamePackege}")
+	message(STATUS "--Name package is ${NamePackege}")
     message(STATUS "ListPathToInclude: ${ListPathToInclude}")
     message(STATUS "ListPathToSrc: ${ListPathToSrc}")
     message(STATUS "ListNamesSRCfiles: ${ListNamesSRCfiles}")
