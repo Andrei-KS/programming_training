@@ -60,7 +60,6 @@ List(APPEND ListPathToSrc
 	)
 
 List(APPEND ListNamesSRCfiles
-	"myLibMath"
 	)
 
 List(APPEND ListPathToLibs
@@ -105,7 +104,6 @@ List(APPEND ListPathToSrc
 	)
 
 List(APPEND ListNamesSRCfiles
-	"Date"
 	)
 
 List(APPEND ListPathToLibs
@@ -131,6 +129,59 @@ List(APPEND ListPathToLibs
 	)
 CreatTestForLib(${NameTest})
 
+# create LmyStringProcessingUtilits lib
+# setting arguments for a function  CreatPackageFromFiles
+set(NameLib "LmyStringProcessingUtilits")
+set(prefixDirectory)
+set(ListPathToInclude)
+set(ListPathToSrc)
+set(ListNamesSRCfiles)
+set(ListPathToLibs)
+
+set(prefixDirectory "_Lib/StringProcessingUtilits")
+List(APPEND ListPathToInclude 
+	"${prefixDirectory}/include"
+	)
+
+List(APPEND ListPathToSrc 
+	"${prefixDirectory}/src"
+	)
+
+List(APPEND ListNamesSRCfiles
+	)
+
+List(APPEND ListPathToLibs
+	)
+CreatLibFromFiles(${NameLib})
+# add test
+set(NameTest UTestSplitStringToVector)
+set(ListPathToTestSrc)
+set(ListNamesTestSRCfiles)
+List(APPEND ListPathToInclude
+	"_Lib/UTest/include"
+	)
+List(APPEND ListPathToTestSrc
+	"${prefixDirectory}/test"
+	)
+List(APPEND ListNamesTestSRCfiles
+	"UTestSplitStringToVector"
+	)
+
+List(APPEND ListPathToLibs
+	"${PROJECT_BINARY_DIR}/${NameLib}"
+	"${PROJECT_BINARY_DIR}/LmyUtest"
+	)
+CreatTestForLib(${NameTest})
+# add test UTestGetStringOfGivenLength
+set(NameTest UTestGetStringOfGivenLength)
+set(ListNamesTestSRCfiles)
+List(APPEND ListNamesTestSRCfiles
+	"UTestGetStringOfGivenLength"
+	)
+CreatTestForLib(${NameTest})
+
+
+
 # create LWeatherStation lib
 # setting arguments for a function  CreatPackageFromFiles
 set(NameLib "LWeatherStation")
@@ -143,6 +194,8 @@ set(ListPathToLibs)
 List(APPEND ListPathToInclude 
 	"include"
 	"_Lib/Math/include"
+	"_Lib/Date/include"
+	"_Lib/StringProcessingUtilits/include"
 	)
 
 List(APPEND ListPathToSrc 
@@ -150,37 +203,12 @@ List(APPEND ListPathToSrc
 	)
 
 List(APPEND ListNamesSRCfiles
-	"TemperatureSensor"
-	"TemperatureSensorImp"
-	"TemperatureType"
-	"TestTemperatureSensor"
-	"Observable"
-	"Observer"
-	"MonitoringScreen"
-	"MonitoringScreenImplementation"
-	"TemperatureObserver"
-	"ObserverMScreen"
-	"BarometricPressureSensor"
-	"BarometricPressureSensorImp"
-	"TestBarometricPressureSensor"
-	"TestBarometricPressureSensorTest"
-	"BarometricPressureObserver"
-	"BarometricPressureTrendSensor"
-	"BarometricPressureTrendObserver"
-	"AlarmListener"
-	"AlarmClock"
-	"StationToolkit"
-	"TestStationToolkit"
-	"ClockListner"
-	"AlarmClockImp"
-	"TestAlarmClockImp"
-	"WeatherStation"
-	"WeatherStationComponent"
-	"TemperatureHiLo"
 	)
 
 List(APPEND ListPathToLibs
 	"${PROJECT_BINARY_DIR}/LmyLibMath"
+	"${PROJECT_BINARY_DIR}/LmyDate"
+	"${PROJECT_BINARY_DIR}/LmyStringProcessingUtilits"
 	)
 CreatLibFromFiles(${NameLib})
 
@@ -218,9 +246,12 @@ CreatTestForLib(${NameTest})
 # end block of create libs
 ###
 
+if(NOT EXISTS "${PROJECT_BINARY_DIR}/_StorageForData")
+	file(WRITE "${PROJECT_BINARY_DIR}/_StorageForData" "")
+endif()
 
 # include header to main function
-include_directories("${PROJECT_SOURCE_DIR}/include")
+include_directories("${PROJECT_SOURCE_DIR}/include;${PROJECT_SOURCE_DIR}/_Lib/Date/include")
 
 # Add source to this project's executable.
 add_executable (${PROJECT_NAME} "main.cpp")
@@ -228,4 +259,6 @@ add_executable (${PROJECT_NAME} "main.cpp")
 target_link_libraries(${PROJECT_NAME} 
 	PRIVATE "${PROJECT_BINARY_DIR}/LWeatherStation.lib"
 	PRIVATE "${PROJECT_BINARY_DIR}/LmyLibMath.lib"
+	PRIVATE "${PROJECT_BINARY_DIR}/LmyDate.lib"
+	PRIVATE "${PROJECT_BINARY_DIR}/LmyStringProcessingUtilits.lib"
 	)

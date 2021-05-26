@@ -1,8 +1,10 @@
 
 
 #include "TemperatureHiLo.h"
+#include "HiLoData.h"
 
-TemperatureHiLo::TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts)
+TemperatureHiLo::TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts, HiLoData* hld)
+	: itsCurrentTime(0)
 {
 	if (ts != nullptr)
 	{
@@ -10,7 +12,7 @@ TemperatureHiLo::TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts)
 	}
 	else
 	{
-		throw("Error: TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts): ts is nullptr");
+		throw("Error: TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts, HiLoData* hld): ts is nullptr");
 	}
 
 	if (AClock != nullptr)
@@ -21,11 +23,20 @@ TemperatureHiLo::TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts)
 	}
 	else
 	{
-		throw("Error: TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts): AClock is nullptr");
+		throw("Error: TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts, HiLoData* hld): AClock is nullptr");
+	}
+
+	if (hld != nullptr)
+	{
+		itsHiLoDate = hld;
+	}
+	else
+	{
+		throw("Error: TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts, HiLoData* hld): hld is nullptr");
 	}
 }
 
 void TemperatureHiLo::update(double value)
 {
-	//TODO submit message to TemperatureHiLOData
+	itsHiLoDate->currentReading(value, itsCurrentTime);
 }

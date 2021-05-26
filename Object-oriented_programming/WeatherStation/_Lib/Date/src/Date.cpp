@@ -1,6 +1,7 @@
 
 
 #include "Date.h"
+#include <ctime>
 
 namespace
 {
@@ -14,6 +15,17 @@ namespace
 
 Date::~Date()
 {
+}
+
+Date::Date()
+	: itsDays(0)
+	, itsYear(0)
+{
+	// get time now
+	std::time_t t = std::time(0);
+	std::tm* now = std::localtime(&t);
+	itsYear = now->tm_year + 1900;
+	itsDays = (IsYearleap(itsYear) ? StartDaysLeapYear[now->tm_mon] : StartDaysLeapYear[now->tm_mon]) - 1 + now->tm_mday;
 }
 
 Date::Date(char day, char month, short year)

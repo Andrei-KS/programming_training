@@ -4,6 +4,7 @@
 class TemperatureSensorImp;
 class BarometricPressureSensorImp;
 class AlarmClockImp;
+class PersistentImp;
 /**
 * An interface class representing methods for instantiating
 * classes from an API interface
@@ -30,6 +31,12 @@ public:
 	* @return pointer to current AlarmClockImp
 	*/
 	virtual AlarmClockImp* getAlarmClock() = 0;
+
+	/**
+	* if PersistentImp is not created then it create AlarmClockImp else return current created AlarmClockImp
+	* @return pointer to current PersistentImp
+	*/
+	virtual PersistentImp* getPersistentImp() = 0;
 };
 
 #endif // !__STATIONTOOLKIT_H__

@@ -9,6 +9,11 @@ class Date
 {
 public:
 	/**
+	* Constructor for creating a new Date with today date
+	*/
+	Date();
+
+	/**
 	* Constructor for creating a new Date
 	* @param day - day of month 
 	* @param month - month number 

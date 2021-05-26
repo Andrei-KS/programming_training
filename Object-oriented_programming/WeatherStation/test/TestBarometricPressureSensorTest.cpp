@@ -11,6 +11,7 @@
 #include "TestAlarmClockImp.h"
 #include "WeatherStation.h"
 #include "TestTemperatureSensor.h"
+#include "PersistentImp.h"
 
 myUTest* myUTest::Utest = new TestBarometricPressureSensorTest();
 
@@ -59,11 +60,20 @@ namespace {
 			}
 			return itsAlarmClockImp;
 		}
+		virtual PersistentImp* getPersistentImp() override
+		{
+			if (itsPersistentImp == nullptr)
+			{
+				itsPersistentImp = new PersistentImp("StorageForData");
+			}
+			return itsPersistentImp;
+		}
 
 	private:
 		std::vector<double> itsValues;
 		TestBarometricPressureSensor::TypeReadTestBarometricPressureSensor itsTypeReadTest;
 		AlarmClockImp* itsAlarmClockImp = nullptr;
+		PersistentImp* itsPersistentImp;
 	};
 }
 

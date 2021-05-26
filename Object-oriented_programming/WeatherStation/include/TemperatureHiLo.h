@@ -4,8 +4,7 @@
 #include "AlarmListener.h"
 #include "Observer.h"
 #include "TemperatureSensor.h"
-
-class AlarmClock;
+#include "HiLoData.h"
 
 /**
 * class responsible for collecting data from sensors after a set time interval
@@ -23,7 +22,7 @@ public:
 	* @param ts - TemperatureSensor which will be associated with this object
 	* @see AlarmClock, TemperatureSensor
 	*/
-	TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts);
+	TemperatureHiLo(AlarmClock* AClock, TemperatureSensor* ts, HiLoData* hld);
 
 	/**
 	* When the temperature is read on the sensor, this will be called 
@@ -48,7 +47,8 @@ protected:
 		virtual void wakeup() override
 		{
 			double currentTemperature = itsTemperatureSensor->read();
-			//submit message to TemperatureHiLOData
+			itsTemperatureHiLo->itsCurrentTime = 0;
+			itsTemperatureHiLo->itsHiLoDate->newDay(currentTemperature, itsTemperatureHiLo->itsCurrentTime);
 		}
 
 		/** TemperatureHiLo which will be associated with this object */
@@ -58,6 +58,15 @@ protected:
 		TemperatureSensor* itsTemperatureSensor;
 
 	} itsListener;
+
+	/**
+	* Pointer to the algorithm responsible for determining the highest and lowest values
+	* @see HiLoData
+	*/
+	HiLoData* itsHiLoDate;
+
+	/** current time*/
+	long itsCurrentTime;
 };
 
 #endif // !__TEMPERATUREHILO_H__

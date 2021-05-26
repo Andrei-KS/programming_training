@@ -40,8 +40,17 @@ public:
 	*/
 	virtual AlarmClockImp* getAlarmClock() override;
 
+	/**
+	* if PersistentImp is not created then it create AlarmClockImp else return current created AlarmClockImp
+	* @return pointer to current PersistentImp
+	*/
+	virtual PersistentImp* getPersistentImp() override;
+
 private:
+	/**  */
 	AlarmClockImp* itsAlarmClockImp;
+	/**  */
+	PersistentImp* itsPersistentImp;
 };
 
 #endif // !__TESTSTATIONTOOLKIT_H__

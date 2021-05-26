@@ -1,15 +1,18 @@
 
 
 #include "TestStationToolkit.h"
+#include "PersistentImp.h"
 
 TestStationToolkit::TestStationToolkit()
 	: itsAlarmClockImp(nullptr)
+	, itsPersistentImp(nullptr)
 {
 }
 
 TestStationToolkit::~TestStationToolkit()
 {
 	delete itsAlarmClockImp;
+	delete itsPersistentImp;
 }
 
 TemperatureSensorImp* TestStationToolkit::makeTemperature()
@@ -29,4 +32,13 @@ AlarmClockImp* TestStationToolkit::getAlarmClock()
 		itsAlarmClockImp = new TestAlarmClockImp();
 	}
 	return itsAlarmClockImp;
+}
+
+PersistentImp* TestStationToolkit::getPersistentImp()
+{
+	if (itsPersistentImp == nullptr)
+	{
+		itsPersistentImp = new PersistentImp("_StorageForData");
+	}
+	return itsPersistentImp;
 }
