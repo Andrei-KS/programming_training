@@ -65,7 +65,8 @@ CreatLibFromFiles(${NameLib})
 # 2		- WaitingInCaseException
 # 3		- UsingThreadGuard
 # 4		- UsingScopedThread
-set(ChosenExample 4)
+# 5		- StartMoreThread	/	Starting more thread and it is joined to started thread
+set(ChosenExample 5)
 
 # create Example lib
 # set default setting
@@ -123,6 +124,20 @@ elseif(ChosenExample EQUAL 4)
 	set(prefixDirectory "Example/UsingScopedThread")
 	List(APPEND ListPathToInclude
 		"_lib/ParallelUtilities/include"
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 5)
+	set(prefixDirectory "Example/StartMoreThread")
+	List(APPEND ListPathToInclude 
 		"${PROJECT_SOURCE_DIR}/include"
 		"${prefixDirectory}/include"
 		)

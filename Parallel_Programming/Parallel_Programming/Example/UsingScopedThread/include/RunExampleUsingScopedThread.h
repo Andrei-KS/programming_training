@@ -3,6 +3,9 @@
 
 #include "RunCommandOfExample.h"
 
+/**
+* 
+*/
 class RunExampleUsingScopedThread : public RunCommandOfExample
 {
 	/**
