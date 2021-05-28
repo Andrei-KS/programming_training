@@ -61,10 +61,11 @@ CreatLibFromFiles(${NameLib})
 # Example lib
 ###------------------------------------------
 # need choice one of example
-# 1 - HellowWorld
-# 2 - WaitingInCaseException
-# 3 - UsingThreadGuard
-set(ChosenExample 3)
+# 1		- HellowWorld
+# 2		- WaitingInCaseException
+# 3		- UsingThreadGuard
+# 4		- UsingScopedThread
+set(ChosenExample 4)
 
 # create Example lib
 # set default setting
@@ -105,6 +106,21 @@ elseif(ChosenExample EQUAL 2)
 ###------------------------------------------
 elseif(ChosenExample EQUAL 3)
 	set(prefixDirectory "Example/UsingThreadGuard")
+	List(APPEND ListPathToInclude
+		"_lib/ParallelUtilities/include"
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 4)
+	set(prefixDirectory "Example/UsingScopedThread")
 	List(APPEND ListPathToInclude
 		"_lib/ParallelUtilities/include"
 		"${PROJECT_SOURCE_DIR}/include"
