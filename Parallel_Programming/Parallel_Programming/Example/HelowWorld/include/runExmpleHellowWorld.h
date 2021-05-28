@@ -4,7 +4,7 @@
 #include "RunCommandOfExample.h"
 /**
 */
-class runExmpleHellowWorld : public RunCommandOfExample
+class RunExmpleHellowWorld : public RunCommandOfExample
 {
 public:
 	/**

@@ -1,10 +1,10 @@
 
 
-#include "runExmpleHellowWorld.h"
+#include "RunExmpleHellowWorld.h"
 #include <iostream>
 #include <thread>
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new runExmpleHellowWorld();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new RunExmpleHellowWorld();
 
 namespace {
 	void hello()
@@ -13,7 +13,7 @@ namespace {
 	}
 }
 
-void runExmpleHellowWorld::excute()
+void RunExmpleHellowWorld::excute()
 {
 	std::thread t(hello);
 	t.join();
