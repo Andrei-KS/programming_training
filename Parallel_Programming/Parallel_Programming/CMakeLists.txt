@@ -63,7 +63,8 @@ CreatLibFromFiles(${NameLib})
 # need choice one of example
 # 1 - HellowWorld
 # 2 - WaitingInCaseException
-set(ChosenExample 2)
+# 3 - UsingThreadGuard
+set(ChosenExample 3)
 
 # create Example lib
 # set default setting
@@ -77,7 +78,7 @@ set(ListPathToLibs)
 if(ChosenExample EQUAL 1)
 	set(prefixDirectory "Example/HelowWorld")
 	List(APPEND ListPathToInclude 
-		"${PROJECT_SOURCE_DIR}/include/"
+		"${PROJECT_SOURCE_DIR}/include"
 		"${prefixDirectory}/include"
 		)
 	List(APPEND ListPathToSrc 
@@ -87,10 +88,26 @@ if(ChosenExample EQUAL 1)
 		)
 	List(APPEND ListPathToLibs
 		)
+###------------------------------------------
 elseif(ChosenExample EQUAL 2)
 	set(prefixDirectory "Example/WaitingInCaseException")
 	List(APPEND ListPathToInclude 
-		"${PROJECT_SOURCE_DIR}/include/"
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 3)
+	set(prefixDirectory "Example/UsingThreadGuard")
+	List(APPEND ListPathToInclude
+		"_lib/ParallelUtilities/include"
+		"${PROJECT_SOURCE_DIR}/include"
 		"${prefixDirectory}/include"
 		)
 	List(APPEND ListPathToSrc 
@@ -139,8 +156,9 @@ add_executable (${PROJECT_NAME} ${ListPathToSrc})
 
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE "${PROJECT_BINARY_DIR}/CurrentExemple.lib"
+	PRIVATE "${PROJECT_BINARY_DIR}/LParallelUtilities.lib"
 	)
 
 ###----------------------------------------------------------------------------------
-# block of make main program
+# end block of make main program
 ###----------------------------------------------------------------------------------
