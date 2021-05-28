@@ -2,8 +2,15 @@
 
 int main(int argc, char* argv[])
 {
-	RunCommandOfExample::runCommandOfExample->itsArgC = argc;
-	RunCommandOfExample::runCommandOfExample->itsArgV = argv;
-	RunCommandOfExample::runCommandOfExample->excute();
+	try
+	{
+		RunCommandOfExample::runCommandOfExample->itsArgC = argc;
+		RunCommandOfExample::runCommandOfExample->itsArgV = argv;
+		RunCommandOfExample::runCommandOfExample->excute();
+	}
+	catch (...)
+	{
+		//Do nothing
+	}
 	return 0;
 }

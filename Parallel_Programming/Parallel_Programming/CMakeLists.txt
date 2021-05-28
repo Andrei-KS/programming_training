@@ -32,9 +32,38 @@ include(CopyFolder)
 # block of create lib
 ###----------------------------------------------------------------------------------
 
+###------------------------------------------
+# ParallelUtilities lib
+###------------------------------------------
+# create ParallelUtilities lib
+# set default setting
+set(NameLib "LParallelUtilities")
+set(prefixDirectory)
+set(ListPathToInclude)
+set(ListPathToSrc)
+set(ListNamesSRCfiles)
+set(ListPathToLibs)
+
+set(prefixDirectory "_lib/ParallelUtilities")
+List(APPEND ListPathToInclude 
+	"${prefixDirectory}/include"
+	)
+List(APPEND ListPathToSrc 
+	"${prefixDirectory}/src"
+	)
+List(APPEND ListNamesSRCfiles
+	)
+List(APPEND ListPathToLibs
+	)
+CreatLibFromFiles(${NameLib})
+
+###------------------------------------------
+# Example lib
+###------------------------------------------
 # need choice one of example
 # 1 - HellowWorld
-set(ChosenExample 1)
+# 2 - WaitingInCaseException
+set(ChosenExample 2)
 
 # create Example lib
 # set default setting
@@ -47,6 +76,19 @@ set(ListPathToLibs)
 
 if(ChosenExample EQUAL 1)
 	set(prefixDirectory "Example/HelowWorld")
+	List(APPEND ListPathToInclude 
+		"${PROJECT_SOURCE_DIR}/include/"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+elseif(ChosenExample EQUAL 2)
+	set(prefixDirectory "Example/WaitingInCaseException")
 	List(APPEND ListPathToInclude 
 		"${PROJECT_SOURCE_DIR}/include/"
 		"${prefixDirectory}/include"
