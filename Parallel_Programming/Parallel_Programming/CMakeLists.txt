@@ -66,7 +66,8 @@ CreatLibFromFiles(${NameLib})
 # 3		- UsingThreadGuard
 # 4		- UsingScopedThread
 # 5		- StartMoreThread	/	Starting more thread and it is joined to started thread
-set(ChosenExample 5)
+# 6		- NaiveVersionOfAccumulation
+set(ChosenExample 6)
 
 # create Example lib
 # set default setting
@@ -137,6 +138,20 @@ elseif(ChosenExample EQUAL 4)
 ###------------------------------------------
 elseif(ChosenExample EQUAL 5)
 	set(prefixDirectory "Example/StartMoreThread")
+	List(APPEND ListPathToInclude 
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 6)
+	set(prefixDirectory "Example/NaiveVersionOfAccumulation")
 	List(APPEND ListPathToInclude 
 		"${PROJECT_SOURCE_DIR}/include"
 		"${prefixDirectory}/include"
