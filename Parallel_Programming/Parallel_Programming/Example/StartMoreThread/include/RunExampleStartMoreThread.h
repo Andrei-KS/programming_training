@@ -4,7 +4,7 @@
 #include "RunCommandOfExample.h"
 
 /**
-* 
+* Implementation for running examples StartMoreThread
 */
 class RunExampleStartMoreThread : public RunCommandOfExample
 {

@@ -4,7 +4,8 @@
 #include "RunCommandOfExample.h"
 
 /**
-* 
+* Implementation for running examples UsingScopedThread
+* @see ScopedThread
 */
 class RunExampleUsingScopedThread : public RunCommandOfExample
 {

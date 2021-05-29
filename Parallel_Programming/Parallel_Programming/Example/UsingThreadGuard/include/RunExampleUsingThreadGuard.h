@@ -4,6 +4,8 @@
 #include "RunCommandOfExample.h"
 
 /**
+* Implementation for running examples UsingThreadGuard
+* @see ThreadGuard
 */
 class RunExampleUsingThreadGuard : public RunCommandOfExample
 {

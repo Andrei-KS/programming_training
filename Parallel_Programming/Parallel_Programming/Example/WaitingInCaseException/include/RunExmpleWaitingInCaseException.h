@@ -4,7 +4,7 @@
 #include "RunCommandOfExample.h"
 
 /**
-* 
+* Implementation for running examples WaitingInCaseException
 */
 class RunExmpleWaitingInCaseException : public RunCommandOfExample
 {
