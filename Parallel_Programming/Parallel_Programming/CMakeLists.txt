@@ -67,7 +67,8 @@ CreatLibFromFiles(${NameLib})
 # 4		- UsingScopedThread
 # 5		- StartMoreThread	/	Starting more thread and it is joined to started thread
 # 6		- NaiveVersionOfAccumulation
-set(ChosenExample 6)
+# 7		- ProtectingListWithMutex
+set(ChosenExample 7)
 
 # create Example lib
 # set default setting
@@ -152,6 +153,20 @@ elseif(ChosenExample EQUAL 5)
 ###------------------------------------------
 elseif(ChosenExample EQUAL 6)
 	set(prefixDirectory "Example/NaiveVersionOfAccumulation")
+	List(APPEND ListPathToInclude 
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 7)
+	set(prefixDirectory "Example/ProtectingListWithMutex")
 	List(APPEND ListPathToInclude 
 		"${PROJECT_SOURCE_DIR}/include"
 		"${prefixDirectory}/include"
