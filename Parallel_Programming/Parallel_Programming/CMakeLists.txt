@@ -69,7 +69,8 @@ CreatLibFromFiles(${NameLib})
 # 6		- NaiveVersionOfAccumulation
 # 7		- ProtectingListWithMutex
 # 8		- UsingThreadsafeStack
-set(ChosenExample 8)
+# 9		- LockingMoreMutexes
+set(ChosenExample 9)
 
 # create Example lib
 # set default setting
@@ -182,6 +183,21 @@ elseif(ChosenExample EQUAL 7)
 ###------------------------------------------
 elseif(ChosenExample EQUAL 8)
 	set(prefixDirectory "Example/UsingThreadsafeStack")
+	List(APPEND ListPathToInclude
+		"_lib/ParallelUtilities/include"
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 9)
+	set(prefixDirectory "Example/LockingMoreMutexes")
 	List(APPEND ListPathToInclude
 		"_lib/ParallelUtilities/include"
 		"${PROJECT_SOURCE_DIR}/include"
