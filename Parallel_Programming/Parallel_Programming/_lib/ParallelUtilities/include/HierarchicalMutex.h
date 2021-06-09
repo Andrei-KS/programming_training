@@ -27,22 +27,23 @@ namespace ParallelUtilities
 		void lock();
 
 		/**
-		* 
+		* Releases the lock on the mutex, and sets the previously saved value of the itsPreviousValue to the current value of the thisThreadHierarchyValue
 		*/
 		void unlock();
 
 		/**
+		* 
 		*/
 		bool try_lock();
 
 	private:
 		/** Mutex to be captured  */
 		std::mutex itsInternalMutex;
-		/** Ordinal number in the mutex hierarchy  */
+		/** Ordinal number in the mutex hierarchy */
 		unsigned long const itsHierarchyValue;
-		/**  */
+		/** Contains the previous captured mutex that was captured earlier than the current one */
 		unsigned itsPreviousValue;
-		/**  */
+		/** The captured mutex in the current thread */
 		static thread_local unsigned long thisThreadHierarchyValue;
 
 		/**
