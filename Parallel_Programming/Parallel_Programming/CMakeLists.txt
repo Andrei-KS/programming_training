@@ -70,7 +70,8 @@ CreatLibFromFiles(${NameLib})
 # 7		- ProtectingListWithMutex
 # 8		- UsingThreadsafeStack
 # 9		- LockingMoreMutexes
-set(ChosenExample 9)
+# 10	- UsingHierarchicalMutex
+set(ChosenExample 10)
 
 # create Example lib
 # set default setting
@@ -198,6 +199,21 @@ elseif(ChosenExample EQUAL 8)
 ###------------------------------------------
 elseif(ChosenExample EQUAL 9)
 	set(prefixDirectory "Example/LockingMoreMutexes")
+	List(APPEND ListPathToInclude
+		"_lib/ParallelUtilities/include"
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc 
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 10)
+	set(prefixDirectory "Example/UsingHierarchicalMutex")
 	List(APPEND ListPathToInclude
 		"_lib/ParallelUtilities/include"
 		"${PROJECT_SOURCE_DIR}/include"
