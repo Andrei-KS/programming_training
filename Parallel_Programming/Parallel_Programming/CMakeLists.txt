@@ -72,7 +72,8 @@ CreatLibFromFiles(${NameLib})
 # 9		- LockingMoreMutexes
 # 10	- UsingHierarchicalMutex
 # 11	- UsingConditionVariable / Waiting for data with std::condition_variable
-set(ChosenExample 11)
+# 12	- UsingThreadsafeQueue
+set(ChosenExample 12)
 
 # create Example lib
 # set default setting
@@ -235,7 +236,22 @@ elseif(ChosenExample EQUAL 11)
 		"${PROJECT_SOURCE_DIR}/include"
 		"${prefixDirectory}/include"
 		)
-	List(APPEND ListPathToSrc 
+	List(APPEND ListPathToSrc sss
+		"${prefixDirectory}/src"
+		)
+	List(APPEND ListNamesSRCfiles
+		)
+	List(APPEND ListPathToLibs
+		)
+###------------------------------------------
+elseif(ChosenExample EQUAL 12)
+	set(prefixDirectory "Example/UsingThreadsafeQueue")
+	List(APPEND ListPathToInclude
+		"_lib/ParallelUtilities/include"
+		"${PROJECT_SOURCE_DIR}/include"
+		"${prefixDirectory}/include"
+		)
+	List(APPEND ListPathToSrc sss
 		"${prefixDirectory}/src"
 		)
 	List(APPEND ListNamesSRCfiles
