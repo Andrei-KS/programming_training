@@ -25,8 +25,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #[[-------------------------------------------------------------------------
                     The builder's configurations of libs
 ]]#-------------------------------------------------------------------------
-
-#[[---------------- ParallelUtilities lib --------------------------------]]
+#[[------------------------------------
+					ParallelUtilities lib
+]]#------------------------------------
 # builder of ParallelUtilities lib
 # set default setting
 set(NameLib "LParallelUtilities")
@@ -48,8 +49,9 @@ List(APPEND EP_CLFF_SrcFiles
 List(APPEND EP_CLFF_Libs
 	)
 creat_lib_from_files(${NameLib})
-
-#[[---------------- Example lib ------------------------------------------]]
+#[[------------------------------------
+					Example lib 
+]]#------------------------------------
 # need choice one of example
 # 1		- HellowWorld							/
 # 2		- WaitingInCaseException				/
@@ -89,7 +91,7 @@ if(ChosenExample EQUAL 1)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 2)
 	set(prefixDirectory "Example/WaitingInCaseException")
 	List(APPEND EP_CLFF_Includes 
@@ -103,7 +105,7 @@ elseif(ChosenExample EQUAL 2)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 3)
 	set(prefixDirectory "Example/UsingThreadGuard")
 	List(APPEND EP_CLFF_Includes
@@ -118,7 +120,7 @@ elseif(ChosenExample EQUAL 3)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 4)
 	set(prefixDirectory "Example/UsingScopedThread")
 	List(APPEND EP_CLFF_Includes
@@ -133,7 +135,7 @@ elseif(ChosenExample EQUAL 4)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 5)
 	set(prefixDirectory "Example/StartMoreThread")
 	List(APPEND EP_CLFF_Includes 
@@ -147,7 +149,7 @@ elseif(ChosenExample EQUAL 5)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 6)
 	set(prefixDirectory "Example/NaiveVersionOfAccumulation")
 	List(APPEND EP_CLFF_Includes 
@@ -161,7 +163,7 @@ elseif(ChosenExample EQUAL 6)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 7)
 	set(prefixDirectory "Example/ProtectingListWithMutex")
 	List(APPEND EP_CLFF_Includes 
@@ -175,7 +177,7 @@ elseif(ChosenExample EQUAL 7)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 8)
 	set(prefixDirectory "Example/UsingThreadsafeStack")
 	List(APPEND EP_CLFF_Includes
@@ -190,7 +192,7 @@ elseif(ChosenExample EQUAL 8)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 9)
 	set(prefixDirectory "Example/LockingMoreMutexes")
 	List(APPEND EP_CLFF_Includes
@@ -205,7 +207,7 @@ elseif(ChosenExample EQUAL 9)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 10)
 	set(prefixDirectory "Example/UsingHierarchicalMutex")
 	List(APPEND EP_CLFF_Includes
@@ -220,7 +222,7 @@ elseif(ChosenExample EQUAL 10)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 11)
 	set(prefixDirectory "Example/UsingConditionVariable")
 	List(APPEND EP_CLFF_Includes
@@ -235,7 +237,7 @@ elseif(ChosenExample EQUAL 11)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 12)
 	set(prefixDirectory "Example/UsingThreadsafeQueue")
 	List(APPEND EP_CLFF_Includes
@@ -250,7 +252,7 @@ elseif(ChosenExample EQUAL 12)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 13)
 	set(prefixDirectory "Example/PassingCommandsBetweenThreads")
 	List(APPEND EP_CLFF_Includes
@@ -265,7 +267,7 @@ elseif(ChosenExample EQUAL 13)
 		)
 	List(APPEND EP_CLFF_Libs
 		)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(ChosenExample EQUAL 14)
 	set(prefixDirectory "Example/WaitingConditionVariableWithTimeout")
 	List(APPEND EP_CLFF_Includes

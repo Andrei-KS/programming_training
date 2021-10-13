@@ -46,7 +46,7 @@ if(${NUMBER_EXAMPLE} EQUAL 1)
 	set(NAME_EXAMPEL
 		__EXAMPLE_COMMAND_PRINT__
 	)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(${NUMBER_EXAMPLE} EQUAL 2)
 	set(PATH_H_SRC
 		"ActiveObjectEngine"
@@ -54,7 +54,7 @@ elseif(${NUMBER_EXAMPLE} EQUAL 2)
 	set(NAME_EXAMPEL
 		__EXAMPLE_ACTIVE_OBJECT_SLEEPCOMMAND__
 	)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(${NUMBER_EXAMPLE} EQUAL 3)
 	set(PATH_H_SRC
 		"TemplateMethod"
@@ -62,7 +62,7 @@ elseif(${NUMBER_EXAMPLE} EQUAL 3)
 	set(NAME_EXAMPEL
 		__EXAMPLE_TEMPLATE_METHOD_QUICK_SORT__
 	)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(${NUMBER_EXAMPLE} EQUAL 4)
 	set(PATH_H_SRC
 		"Strategy"
@@ -70,7 +70,7 @@ elseif(${NUMBER_EXAMPLE} EQUAL 4)
 	set(NAME_EXAMPEL
 		__EXAMPLE_STRATEGY_QUICK_SORT__
 	)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(${NUMBER_EXAMPLE} EQUAL 5)
 	set(PATH_H_SRC
 		"Singleton"
@@ -78,7 +78,7 @@ elseif(${NUMBER_EXAMPLE} EQUAL 5)
 	set(NAME_EXAMPEL
 		__EXAMPLE_SIMPEL_SINGLETON__
 	)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(${NUMBER_EXAMPLE} EQUAL 6)
 	set(PATH_H_SRC
 		"Monostate"
@@ -86,7 +86,7 @@ elseif(${NUMBER_EXAMPLE} EQUAL 6)
 	set(NAME_EXAMPEL
 		__EXAMPLE_MONOSTATE_TURNSTILE__
 	)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(${NUMBER_EXAMPLE} EQUAL 7)
 	set(PATH_H_SRC
 		"Factory"
@@ -94,7 +94,7 @@ elseif(${NUMBER_EXAMPLE} EQUAL 7)
 	set(NAME_EXAMPEL
 		__EXAMPLE_SHAPE_FACTORY__
 	)
-###-------------------------------------------------------------------------
+###------------------------------------
 elseif(${NUMBER_EXAMPLE} EQUAL 8)
 	set(PATH_H_SRC
 		"Composite/CompositeShape"
