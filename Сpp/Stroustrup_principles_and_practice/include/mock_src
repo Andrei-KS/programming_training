@@ -1,0 +1,17 @@
+/*
+	This file is created from a mocks that is in : ${project_source_dir_include}
+	date generate								 : ${date_generate}
+	author										 : ${author}
+*/
+
+#include "${name_file}RunExmple.h"
+
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new ${name_file}RunExmple()${ln}
+
+namespace {
+}
+
+int ${name_file}RunExmple::excute()
+{
+	return 0${ln}
+}
