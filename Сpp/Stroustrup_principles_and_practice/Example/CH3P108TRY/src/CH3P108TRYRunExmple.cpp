@@ -22,6 +22,7 @@ int CH3P108TRYRunExmple::excute()
 		<< "\nn+n == " << n + n
 		<< "\nn/2 == " << n / 2
 		<< "\nsqrt(n) == " << sqrt(n)
+		<< "\nn/5*5 + n%5 == " << n
 		<< "\n";
 	return 0;
 }
