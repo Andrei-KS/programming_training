@@ -1,0 +1,269 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/TransactionImplementation.lib"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"GetStaticLibrary",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"Object-oriented_programming/PayrollSystemToPackages/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 88,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 52,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 53,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 1
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "C:/GitHub/programming_training/Сpp/Object-oriented_programming/PayrollSystemToPackages/include/TransactionImplementation"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "C:/GitHub/programming_training/Сpp/Object-oriented_programming/PayrollSystemToPackages/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "11"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18
+			]
+		}
+	],
+	"id" : "TransactionImplementation::@eb8ecde1dd76b0d8b47b",
+	"name" : "TransactionImplementation",
+	"nameOnDisk" : "TransactionImplementation.lib",
+	"paths" : 
+	{
+		"build" : "Object-oriented_programming/PayrollSystemToPackages",
+		"source" : "Object-oriented_programming/PayrollSystemToPackages"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/AddCommissionedEmployee.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/AddHourlyEmployee.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/AddSalariedEmployee.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeAddressTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeCommissionedTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeDirectTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeHoldTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeHourlyTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeMailTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeMemberTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeNameTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeSalariedTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ChangeUnaffiliatedTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/DeleteEmployeeTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/PaydayTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/SalesReceiptTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/ServiceChargeTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/TimeCardTransaction.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Object-oriented_programming/PayrollSystemToPackages/src/TransactionImplementation/TransactionFactoryImplementation.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}
