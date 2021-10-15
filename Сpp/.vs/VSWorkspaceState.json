@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Object-oriented_programming\\PayrollSystem\\include",
+    "\\Object-oriented_programming\\PayrollSystem\\include\\Affiliation",
+    "\\Object-oriented_programming\\PayrollSystem\\include\\Database",
+    "\\Object-oriented_programming\\PayrollSystem\\include\\PaymentClassification",
+    "\\Object-oriented_programming\\PayrollSystem\\include\\PaymentMethod",
+    "\\Object-oriented_programming\\PayrollSystem\\include\\PaymentSchedule",
+    "\\Object-oriented_programming\\PayrollSystem\\include\\Transaction",
     "\\Object-oriented_programming\\PayrollSystem\\Test",
-    "\\Stroustrup_principles_and_practice",
-    "\\Stroustrup_principles_and_practice\\Example",
-    "\\Stroustrup_principles_and_practice\\Example\\CH3P106TRY",
-    "\\Stroustrup_principles_and_practice\\Example\\CH3P106TRY\\include",
     "\\Stroustrup_principles_and_practice\\Example\\CH3P106TRY\\src"
   ],
-  "SelectedNode": "\\Stroustrup_principles_and_practice\\Example\\CH3P106TRY\\src\\CH3P106TRYRunExmple.cpp",
+  "SelectedNode": "\\Stroustrup_principles_and_practice",
   "PreviewInSolutionExplorer": false
 }
