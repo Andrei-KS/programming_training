@@ -30,7 +30,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 					Example lib 
 ]]#------------------------------------
 # need choice one of example
-# CH3P106TRY
+# CH3P106TRY / Change the "The name and age"program so that it displays age in months. Entered age is expressed in years
+
+
 # if sample is not exist that new directory will created for this example by mock
 set(name_Example "CH3P106TRY")
 set(dir_Example "${PROJECT_SOURCE_DIR}/Example/${name_Example}")

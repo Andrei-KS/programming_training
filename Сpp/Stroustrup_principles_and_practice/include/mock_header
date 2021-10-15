@@ -1,12 +1,13 @@
 /*
 	This file is created from a mocks that is in : ${project_source_dir_include}
-	date generate								 : ${date_generate}
-	author										 : ${author}
+	date generate                                : ${date_generate}
+	author                                       : ${author}
 */
 #ifndef __${name_file}__
 #define __${name_file}__
 
 #include "RunCommandOfExample.h"
+#include "std_lib_facilities.h"
 
 /**
 * 

@@ -1,7 +1,7 @@
 /*
 	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate								 : 10/14/2021 02:48:15
-	author										 : Andrei-KS
+	date generate                                : 10/14/2021 02:59:10
+	author                                       : Andrei-KS
 */
 #ifndef __CH3P106TRY__
 #define __CH3P106TRY__
