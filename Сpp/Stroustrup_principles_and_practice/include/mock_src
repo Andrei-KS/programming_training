@@ -5,6 +5,7 @@
 */
 
 #include "${name_file}RunExmple.h"
+#include "std_lib_facilities.h"
 
 RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new ${name_file}RunExmple()${ln}
 

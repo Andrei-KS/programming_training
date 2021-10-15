@@ -7,7 +7,6 @@
 #define __${name_file}__
 
 #include "RunCommandOfExample.h"
-#include "std_lib_facilities.h"
 
 /**
 * 
