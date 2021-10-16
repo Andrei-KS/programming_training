@@ -32,9 +32,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # need choice one of example
 # CH3P106TRY	/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
 # CH3P108TRY	/ Change the "Display working of operators" so that double will become int
-# CH3P124TASK1	/ 
+# CH3P124TASK1	/ Modify the "Hi, first_name" program
+# CH3P124TASK2	/ 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH3P124TASK1")
+set(name_Example "CH3P124TASK2")
 set(dir_Example "${PROJECT_SOURCE_DIR}/Example/${name_Example}")
 if(NOT EXISTS "${dir_Example}")
 	message(STATUS "Directori is not found: ${dir_Example}\n\t\tThis directory will created by generator from a mocks")
