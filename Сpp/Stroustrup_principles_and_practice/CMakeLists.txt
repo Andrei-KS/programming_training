@@ -30,6 +30,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 					Example lib 
 ]]#------------------------------------
 # need choice one of example
+# naming rule for examples
+# [CH](number chapter)[P](number pag)[TASK/EXERC/TRY](number)
+# TASK	- Drill/task 
+# EXERC	- Exercises
+# TRY	- Try this
+# example: CH1P1EXERC1
+#
+# list of examples:
 # CH3P106TRY	/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
 # CH3P108TRY	/ Change the "Display working of operators" so that double will become int
 # CH3P124TASK1	/ Modify the "Hi, first_name" program
