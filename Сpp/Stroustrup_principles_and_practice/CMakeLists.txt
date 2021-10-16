@@ -36,8 +36,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH3P124TASK2	/ Add string "How are you?I'm fine. I miss you." to cpp file of CH3P124TASK1 task
 # CH3P124TASK3	/ Add new variable friend_name and the string "How long have you met friend_name?" 
 # CH3P124TASK4	/ Add new variable friend_sex and the string "If you see friend_name, please ask him/her to call me."
+# CH3P125TASK5	/ 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH3P124TASK4")
+set(name_Example "CH3P125TASK5")
 set(dir_Example "${PROJECT_SOURCE_DIR}/Example/${name_Example}")
 if(NOT EXISTS "${dir_Example}")
 	message(STATUS "Directori is not found: ${dir_Example}\n\t\tThis directory will created by generator from a mocks")
