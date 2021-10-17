@@ -59,10 +59,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P146TRY			/ Converting UAH, RUB and CNY to USD
 # CH4P149TRY			/ Converting UAD, CNY, EUR, GBP or RUB to USD using switch
 # CH4P151TRY			/ Display char and its number in table
+# CH4P154TRY			/ Display char A-Za-z and its number in table using for
 # 
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH4P151TRY")
+set(name_Example "CH4P154TRY")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
