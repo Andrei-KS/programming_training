@@ -29,7 +29,7 @@ int CH3P127EXERC6RunExmple::excute()
 		v2 = v1;
 		v1 = temp;
 	}
-	cout << "v2: ";
+	cout << "v3: ";
 	cin >> v3;
 	if (v3 < v1)
 	{
