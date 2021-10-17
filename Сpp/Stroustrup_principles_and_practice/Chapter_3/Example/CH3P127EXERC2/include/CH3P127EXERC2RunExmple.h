@@ -1,10 +1,10 @@
 /*
 	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 10/17/2021 11:40:45
+	date generate                                : 10/17/2021 11:53:01
 	author                                       : Andrei-KS
 */
-#ifndef __CH3P127EXERC1__
-#define __CH3P127EXERC1__
+#ifndef __CH3P127EXERC2__
+#define __CH3P127EXERC2__
 
 #include "RunCommandOfExample.h"
 
@@ -12,7 +12,7 @@
 * 
 * @author Andrei-KS
 */
-class CH3P127EXERC1RunExmple : public RunCommandOfExample
+class CH3P127EXERC2RunExmple : public RunCommandOfExample
 {
 public:
 	/**
@@ -25,4 +25,4 @@ public:
 	virtual int excute() override;
 };
 
-#endif // !__CH3P127EXERC1__
+#endif // !__CH3P127EXERC2__

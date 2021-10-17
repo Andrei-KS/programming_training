@@ -39,19 +39,20 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #
 # list of examples:
 #------------------------------------ Chapter_3
-# CH3P106TRY	/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
-# CH3P108TRY	/ Change the "Display working of operators" so that double will become int
-# CH3P124TASK1	/ Modify the "Hi, first_name" program
-# CH3P124TASK2	/ Add string "How are you?I'm fine. I miss you." to cpp file of CH3P124TASK1 task
-# CH3P124TASK3	/ Add new variable friend_name and the string "How long have you met friend_name?" 
-# CH3P124TASK4	/ Add new variable friend_sex and the string "If you see friend_name, please ask him/her to call me."
-# CH3P125TASK5	/ Add new variable age, string "I heard you just celebrated your birthday and you are age years" and checking age
-# CH3P125TASK6	/ Add if statement for age
-# CH3P125TASK7	/ Add string "Sincerely yours" and place for signature
-# CH3P127EXERC1	/
+# CH3P106TRY		/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
+# CH3P108TRY		/ Change the "Display working of operators" so that double will become int
+# CH3P124TASK1		/ Modify the "Hi, first_name" program
+# CH3P124TASK2		/ Add string "How are you?I'm fine. I miss you." to cpp file of CH3P124TASK1 task
+# CH3P124TASK3		/ Add new variable friend_name and the string "How long have you met friend_name?" 
+# CH3P124TASK4		/ Add new variable friend_sex and the string "If you see friend_name, please ask him/her to call me."
+# CH3P125TASK5		/ Add new variable age, string "I heard you just celebrated your birthday and you are age years" and checking age
+# CH3P125TASK6		/ Add if statement for age
+# CH3P125TASK7		/ Add string "Sincerely yours" and place for signature
+# CH3P127EXERC2		/ Converting ml to km
+# CH3P127EXERC4		/ Arithmetical operation on int
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH3P127EXERC1")
+set(name_Example "CH3P127EXERC2")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
