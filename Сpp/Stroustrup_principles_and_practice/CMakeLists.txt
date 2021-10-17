@@ -66,9 +66,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P166TASK2			/ display max and min
 # CH4P166TASK3			/ display numbers are equal
 # CH4P166TASK4			/ Work with double
+# CH4P166TASK5			/ The numbers are almost equal 
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH4P166TASK4")
+set(name_Example "CH4P166TASK5")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")

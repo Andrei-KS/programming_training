@@ -1,0 +1,53 @@
+/*
+	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
+	date generate                                : 10/18/2021 00:38:38
+	author                                       : Andrei-KS
+*/
+
+#include "CH4P166TASK5RunExmple.h"
+#include "std_lib_facilities.h"
+
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH4P166TASK5RunExmple();
+
+namespace {
+}
+
+int CH4P166TASK5RunExmple::excute()
+{
+	constexpr double accuracy = 1.0 / 100;
+	cout << "Please, entry two doubles:";
+	vector<double> nums;
+	double temp = 0;
+	double min = std::numeric_limits<double>::max();
+	double max = std::numeric_limits<double>::min();
+	bool isNumbersEqual = true;
+	bool isNumberAlmostEqual = true;
+	double prevNum = 0;
+	while (cin >> temp)
+	{
+		if (nums.size() > 0)
+		{
+			if (prevNum != temp) isNumbersEqual = false;
+			if (abs(prevNum - temp) > accuracy) isNumberAlmostEqual = false;
+		}
+		else
+		{
+			prevNum = temp;
+		}
+		nums.push_back(temp);
+		if (temp > max) max = temp;
+		if (temp < min) min = temp;
+		if (nums.size() > 1) break;
+	}
+	int i = 0;
+	while (i < nums.size())
+	{
+		cout << nums[i] << "\n";
+		++i;
+	}
+	cout << "Max == " << max << "\n"
+		<< "Min == " << min << "\n";
+	if (isNumbersEqual) cout << "Numbers are equal\n";
+	if (isNumberAlmostEqual && !isNumbersEqual) cout << "The numbers are almost equal\n";
+	return 0;
+}
