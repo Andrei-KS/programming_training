@@ -57,9 +57,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH3P127EXERC10		/ The simple calculator
 #------------------------------------ Chapter_4
 # CH4P146TRY			/ Converting UAH, RUB and CNY to USD
+# CH4P149TRY			/ Converting UAH, RUB and CNY to USD
+# 
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH4P146TRY")
+set(name_Example "CH4P149TRY")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
