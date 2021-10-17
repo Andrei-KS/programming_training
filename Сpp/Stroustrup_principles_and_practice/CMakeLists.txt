@@ -38,6 +38,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # example: CH1P1EXERC1
 #
 # list of examples:
+#------------------------------------ Chapter_3
 # CH3P106TRY	/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
 # CH3P108TRY	/ Change the "Display working of operators" so that double will become int
 # CH3P124TASK1	/ Modify the "Hi, first_name" program
@@ -47,9 +48,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH3P125TASK5	/ Add new variable age, string "I heard you just celebrated your birthday and you are age years" and checking age
 # CH3P125TASK6	/ Add if statement for age
 # CH3P125TASK7	/ Add string "Sincerely yours" and place for signature
+# CH3P127EXERC1	/
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH3P125TASK7")
+set(name_Example "CH3P127EXERC1")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
@@ -127,7 +129,7 @@ set(EP_CLFF_Src)
 set(EP_CLFF_SrcFiles)
 set(EP_CLFF_Libs)
 
-set(prefixDirectory "Example/${name_Example}")
+set(prefixDirectory "${parent_dir}/Example/${name_Example}/")
 List(APPEND EP_CLFF_Includes 
 	"${PROJECT_SOURCE_DIR}/include"
 	"${prefixDirectory}/include"
