@@ -53,9 +53,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH3P127EXERC5		/ Arithmetical operation on double
 # CH3P127EXERC6		/ Enter three integers and then outputs them in ascending order 
 # CH3P127EXERC7		/ Enter three strings and then outputs them in ascending order 
+# CH3P127EXERC8		/ check parity int
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH3P127EXERC7")
+set(name_Example "CH3P127EXERC8")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
