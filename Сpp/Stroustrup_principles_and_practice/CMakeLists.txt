@@ -50,9 +50,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH3P125TASK7			/ Add string "Sincerely yours" and place for signature
 # CH3P127EXERC2		/ Converting ml to km
 # CH3P127EXERC4		/ Arithmetical operation on int
+# CH3P127EXERC5		/ Arithmetical operation on double
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH3P127EXERC4")
+set(name_Example "CH3P127EXERC5")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
