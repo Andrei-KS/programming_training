@@ -62,9 +62,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P154TRY			/ Display char A-Za-z and its number in table using for
 # CH4P157TRY			/ Implementation square function without multiply
 # CH4P165TRY			/ Implementation a program to muffle unwanted words
+# CH4P166TASK1			/ Read and display two int
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH4P165TRY")
+set(name_Example "CH4P166TASK1")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
