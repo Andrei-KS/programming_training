@@ -71,9 +71,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P167TASK7			/ Reading num and unit
 # CH4P167TASK8			/ Reading num and unit only [cm], [m], [in] and [ft]
 # CH4P167TASK9			/ Count numbers and calculate sum in [m]
+# CH4P167TASK10		/ Converting all entered values in [m]
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH4P167TASK9")
+set(name_Example "CH4P167TASK10")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
