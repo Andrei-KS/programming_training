@@ -74,9 +74,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P167TASK10		/ Converting all entered values in [m]
 # CH4P167TASK11		/ sort values in vector
 # CH4P169EXERC2		/ find median
+# CH4P169EXERC3		/ Distances between cities
+
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH4P169EXERC2")
+set(name_Example "CH4P169EXERC3")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
