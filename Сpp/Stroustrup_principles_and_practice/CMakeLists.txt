@@ -34,7 +34,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # [CH](number chapter)[P](number pag)[TASK/EXERC/TRY](number)
 # TASK	- Drill/task 
 # EXERC	- Exercises
-# TRY	- Try this
+# TRY		- Try this
 # example: CH1P1EXERC1
 #
 # list of examples:
@@ -78,10 +78,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P169EXERC4		/ Guess a number from 1 to 100
 # CH4P169EXERC5		/ The simple calculator
 # CH4P169EXERC8		/ Grains and cells 
-#
+#------------------------------------ Chapter_5
+# CH5P188TRY			/ Add checking
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH4P169EXERC8")
+set(name_Example "CH5P188TRY")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
