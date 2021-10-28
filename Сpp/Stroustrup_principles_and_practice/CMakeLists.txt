@@ -81,10 +81,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #------------------------------------ Chapter_5
 # CH5P188TRY			/ Add checking
 # CH5P198TRY			/ Break program and get invalid result
+# CH5P199TRY			/ Set valid min and max value
 
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH5P198TRY")
+set(name_Example "CH5P199TRY")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
