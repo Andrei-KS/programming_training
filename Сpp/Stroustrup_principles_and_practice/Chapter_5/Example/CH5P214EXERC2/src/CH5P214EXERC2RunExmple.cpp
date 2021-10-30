@@ -1,13 +1,13 @@
 /*
 	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 10/30/2021 12:43:42
+	date generate                                : 10/30/2021 12:47:21
 	author                                       : Andrei-KS
 */
 
-#include "CH5P214EXERC1RunExmple.h"
+#include "CH5P214EXERC2RunExmple.h"
 #include "std_lib_facilities.h"
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH5P214EXERC1RunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH5P214EXERC2RunExmple();
 
 namespace {
 	double ctok(double c)
@@ -17,7 +17,7 @@ namespace {
 	}
 }
 
-int CH5P214EXERC1RunExmple::excute()
+int CH5P214EXERC2RunExmple::excute()
 {
 	double c = 0;
 	cin >> c;
