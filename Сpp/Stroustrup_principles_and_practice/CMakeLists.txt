@@ -85,11 +85,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH5P209TRY			/ Find bad value for post condition
 # CH5P211TASK			/ Fixbug
 # CH5P214EXERC2		/ Сelsius to kelvin  
-
-
+# CH5P214EXERC3		/ Сelsius to kelvin, add checking less than -273.15C
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH5P214EXERC2")
+set(name_Example "CH5P214EXERC3")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
