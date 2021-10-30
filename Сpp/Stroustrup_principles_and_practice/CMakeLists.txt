@@ -84,10 +84,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH5P199TRY			/ Set valid min and max value
 # CH5P209TRY			/ Find bad value for post condition
 # CH5P211TASK			/ Fixbug
+# CH5P214EXERC1		/ Сelsius to kelvin  
+
 
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH5P211TASK")
+set(name_Example "CH5P214EXERC1")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
