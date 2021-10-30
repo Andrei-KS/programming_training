@@ -90,9 +90,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH5P214EXERC5		/ Kelvin to celsius
 # CH5P214EXERC6		/ Celsius to fahrenheit and fahrenheit to celsius
 # CH5P214EXERC7		/ Quadratic equation
+# CH5P214EXERC8		/ The sum of the first N numbers
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH5P214EXERC7")
+set(name_Example "CH5P214EXERC8")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
