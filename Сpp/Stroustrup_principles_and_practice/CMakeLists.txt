@@ -87,9 +87,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH5P214EXERC2		/ Сelsius to kelvin  
 # CH5P214EXERC3		/ Сelsius to kelvin, add checking less than -273.15C
 # CH5P214EXERC4		/ Сelsius to kelvin, add checking less than -273.15C into function
+# CH5P214EXERC5		/ Kelvin to celsius
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH5P214EXERC4")
+set(name_Example "CH5P214EXERC5")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
