@@ -29,6 +29,11 @@ int CH5P214EXERC8RunExmple::excute()
 		}
 	}
 
+	if (num > values.size())
+	{
+		error("number of summed values more than size of values vector");
+	}
+
 	cout << "The sum of the first " << num << " numbers (";
 	for (int i = 0; i < num; ++i)
 	{
