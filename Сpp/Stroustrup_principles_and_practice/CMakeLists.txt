@@ -94,10 +94,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #------------------------------------ Chapter_6
 # CH6P250TRY			/ First version calculator
 # CH6P262TRY			/ Second version calculator
-# CH6P263TASK			/ Correction of the second version 
+# CH6P263TASK			/ Correction of the second version
+# CH6P264EXERC2		/ Added '{' and '}' to second version calculator
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH6P263TASK")
+set(name_Example "CH6P264EXERC2")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
