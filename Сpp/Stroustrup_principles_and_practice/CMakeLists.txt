@@ -39,72 +39,76 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #
 # list of examples:
 #------------------------------------ Chapter_3
-# CH3P106TRY			/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
-# CH3P108TRY			/ Change the "Display working of operators" so that double will become int
-# CH3P124TASK1			/ Modify the "Hi, first_name" program
-# CH3P124TASK2			/ Add string "How are you?I'm fine. I miss you." to cpp file of CH3P124TASK1 task
-# CH3P124TASK3			/ Add new variable friend_name and the string "How long have you met friend_name?" 
-# CH3P124TASK4			/ Add new variable friend_sex and the string "If you see friend_name, please ask him/her to call me."
-# CH3P125TASK5			/ Add new variable age, string "I heard you just celebrated your birthday and you are age years" and checking age
-# CH3P125TASK6			/ Add if statement for age
-# CH3P125TASK7			/ Add string "Sincerely yours" and place for signature
-# CH3P127EXERC2		/ Converting ml to km
-# CH3P127EXERC4		/ Arithmetical operation on int
-# CH3P127EXERC5		/ Arithmetical operation on double
-# CH3P127EXERC6		/ Enter three integers and then outputs them in ascending order 
-# CH3P127EXERC7		/ Enter three strings and then outputs them in ascending order 
-# CH3P127EXERC8		/ check parity int
-# CH3P127EXERC10		/ The simple calculator
+# CH3P106TRY					/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
+# CH3P108TRY					/ Change the "Display working of operators" so that double will become int
+# CH3P124TASK1					/ Modify the "Hi, first_name" program
+# CH3P124TASK2					/ Add string "How are you?I'm fine. I miss you." to cpp file of CH3P124TASK1 task
+# CH3P124TASK3					/ Add new variable friend_name and the string "How long have you met friend_name?" 
+# CH3P124TASK4					/ Add new variable friend_sex and the string "If you see friend_name, please ask him/her to call me."
+# CH3P125TASK5					/ Add new variable age, string "I heard you just celebrated your birthday and you are age years" and checking age
+# CH3P125TASK6					/ Add if statement for age
+# CH3P125TASK7					/ Add string "Sincerely yours" and place for signature
+# CH3P127EXERC2				/ Converting ml to km
+# CH3P127EXERC4				/ Arithmetical operation on int
+# CH3P127EXERC5				/ Arithmetical operation on double
+# CH3P127EXERC6				/ Enter three integers and then outputs them in ascending order 
+# CH3P127EXERC7				/ Enter three strings and then outputs them in ascending order 
+# CH3P127EXERC8				/ check parity int
+# CH3P127EXERC10				/ The simple calculator
 #------------------------------------ Chapter_4
-# CH4P146TRY			/ Converting UAH, RUB and CNY to USD
-# CH4P149TRY			/ Converting UAD, CNY, EUR, GBP or RUB to USD using switch
-# CH4P151TRY			/ Display char and its number in table
-# CH4P154TRY			/ Display char A-Za-z and its number in table using for
-# CH4P157TRY			/ Implementation square function without multiply
-# CH4P165TRY			/ Implementation a program to muffle unwanted words
-# CH4P166TASK1			/ Read and display two int
-# CH4P166TASK2			/ display max and min
-# CH4P166TASK3			/ display numbers are equal
-# CH4P166TASK4			/ Work with double
-# CH4P166TASK5			/ The numbers are almost equal
-# CH4P166TASK6			/ Reading more than two
-# CH4P167TASK7			/ Reading num and unit
-# CH4P167TASK8			/ Reading num and unit only [cm], [m], [in] and [ft]
-# CH4P167TASK9			/ Count numbers and calculate sum in [m]
-# CH4P167TASK10		/ Converting all entered values in [m]
-# CH4P167TASK11		/ sort values in vector
-# CH4P169EXERC2		/ find median
-# CH4P169EXERC3		/ Distances between cities
-# CH4P169EXERC4		/ Guess a number from 1 to 100
-# CH4P169EXERC5		/ The simple calculator
-# CH4P169EXERC8		/ Grains and cells 
+# CH4P146TRY					/ Converting UAH, RUB and CNY to USD
+# CH4P149TRY					/ Converting UAD, CNY, EUR, GBP or RUB to USD using switch
+# CH4P151TRY					/ Display char and its number in table
+# CH4P154TRY					/ Display char A-Za-z and its number in table using for
+# CH4P157TRY					/ Implementation square function without multiply
+# CH4P165TRY					/ Implementation a program to muffle unwanted words
+# CH4P166TASK1					/ Read and display two int
+# CH4P166TASK2					/ display max and min
+# CH4P166TASK3					/ display numbers are equal
+# CH4P166TASK4					/ Work with double
+# CH4P166TASK5					/ The numbers are almost equal
+# CH4P166TASK6					/ Reading more than two
+# CH4P167TASK7					/ Reading num and unit
+# CH4P167TASK8					/ Reading num and unit only [cm], [m], [in] and [ft]
+# CH4P167TASK9					/ Count numbers and calculate sum in [m]
+# CH4P167TASK10				/ Converting all entered values in [m]
+# CH4P167TASK11				/ sort values in vector
+# CH4P169EXERC2				/ find median
+# CH4P169EXERC3				/ Distances between cities
+# CH4P169EXERC4				/ Guess a number from 1 to 100
+# CH4P169EXERC5				/ The simple calculator
+# CH4P169EXERC8				/ Grains and cells 
 #------------------------------------ Chapter_5
-# CH5P188TRY			/ Add checking
-# CH5P198TRY			/ Break program and get invalid result
-# CH5P199TRY			/ Set valid min and max value
-# CH5P209TRY			/ Find bad value for post condition
-# CH5P211TASK			/ Fixbug
-# CH5P214EXERC2		/ Сelsius to kelvin  
-# CH5P214EXERC3		/ Сelsius to kelvin, add checking less than -273.15C
-# CH5P214EXERC4		/ Сelsius to kelvin, add checking less than -273.15C into function
-# CH5P214EXERC5		/ Kelvin to celsius
-# CH5P214EXERC6		/ Celsius to fahrenheit and fahrenheit to celsius
-# CH5P214EXERC7		/ Quadratic equation
-# CH5P214EXERC8		/ The sum of the first N numbers
+# CH5P188TRY					/ Add checking
+# CH5P198TRY					/ Break program and get invalid result
+# CH5P199TRY					/ Set valid min and max value
+# CH5P209TRY					/ Find bad value for post condition
+# CH5P211TASK					/ Fixbug
+# CH5P214EXERC2				/ Сelsius to kelvin  
+# CH5P214EXERC3				/ Сelsius to kelvin, add checking less than -273.15C
+# CH5P214EXERC4				/ Сelsius to kelvin, add checking less than -273.15C into function
+# CH5P214EXERC5				/ Kelvin to celsius
+# CH5P214EXERC6				/ Celsius to fahrenheit and fahrenheit to celsius
+# CH5P214EXERC7				/ Quadratic equation
+# CH5P214EXERC8				/ The sum of the first N numbers
 #------------------------------------ Chapter_6
-# CH6P250TRY			/ First version calculator
-# CH6P262TRY			/ Second version calculator
-# CH6P263TASK			/ Correction of the second version
-# CH6P264EXERC2		/ Added '{' and '}' to second version calculator
-# CH6P264EXERC3		/ Added factorial function (number!) to second version calculator
-# CH6P265EXERC6		/ Simple english grammar
-# CH6P265EXERC7		/ A grammar for bitwise logical expressions
+# CH6P250TRY					/ First version calculator
+# CH6P262TRY					/ Second version calculator
+# CH6P263TASK					/ Correction of the second version
+# CH6P264EXERC2				/ Added '{' and '}' to second version calculator
+# CH6P264EXERC3				/ Added factorial function (number!) to second version calculator
+# CH6P265EXERC6				/ Simple english grammar
+# CH6P265EXERC7				/ A grammar for bitwise logical expressions
 #------------------------------------ Chapter_7
-# CH7P297TASK4			/ Data for tests
+# CH7P297TASK4					/ Data for tests
+# CH7P297_298TASKS6_11		/ Add a predefined name k meaning 1000, a square root functions
+#									/ sqrt() and pow(x,i) to mean “Multiply x with itself i times”.
+#									/ Change the “declaration keyword” from let to #.
+#									/ Change the “quit keyword” from quit to exit.
 
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH7P297TASK4")
+set(name_Example "CH7P297_298TASKS6_11")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")

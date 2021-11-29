@@ -1,6 +1,6 @@
 /*
 	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 11/12/2021 10:36:59
+	date generate                                : 11/23/2021 10:24:56
 	author                                       : Andrei-KS
 	source code link										: https://www.stroustrup.com/Programming/calculator08buggy.cpp
 */
@@ -33,14 +33,14 @@
 	Expression :
 		Term
 		Expression + Term
-		Expression —   Term
+		Expression — Term
 
 	Term :
 		Primary
 		Term * Primary
 		Term / Primary
 		Term % Primary
-	
+
 	Primary :
 		Expression!
 		Number
@@ -48,6 +48,14 @@
 		{Expression}
 		— Primary
 		+ Primary
+		FunctionOne(Expression)
+		FunctionTwo(Expression,Expression)
+
+	FunctionOne:
+		sqrt
+
+	FunctionTwo:
+		pow
 
 	Number :
 		floating_point_literal
@@ -74,31 +82,34 @@
 	(2/3)!;		//	error: info lost
 */
 
-
-
-#include "CH7P297TASK4RunExmple.h"
+#include "CH7P297_298TASKS6_11RunExmple.h"
 #include "std_lib_facilities.h"
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH7P297TASK4RunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH7P297_298TASKS6_11RunExmple();
 
 namespace {
 	/*----------------------------------------------
-		Declaration
-	----------------------------------------------*/
-	// Definition of kinds
-	constexpr char QUIT_KIND	= 'Q';
-	constexpr char PRINT_KIND	= ';';
-	constexpr char NUMBER_KIND	= '8';	// we use ‘8’ to represent a number
-	constexpr char NAME_KIND	= 'a';
-	constexpr char LET_KIND		= 'L';
+	Declaration
+----------------------------------------------*/
+// Definition of kinds
+	constexpr char QUIT_KIND			= 'Q';
+	constexpr char PRINT_KIND			= ';';
+	constexpr char NUMBER_KIND			= '8';	// we use ‘8’ to represent a number
+	constexpr char NAME_KIND			= 'a';
+	constexpr char LET_KIND				= 'L';
+	constexpr char SQRT_KIND			= '1';
+	constexpr char POW_KIND				= '2';
+
 
 	// Definition of symbols
 	constexpr char QUIT_SYMBOL		= 'q';
 	constexpr char PRINT_SYMBOL	= PRINT_KIND;
 
 	// Definition of keywords
-	const string DECLKEY	= "let";
-	const string QUITKEY = "quit";
+	const string DECLKEY = "#";
+	const string QUITKEY = "exit";
+	const string SQRTKEY = "sqrt";
+	const string POWKEY	= "pow";
 
 	/*
 	* Token class - this type is required for lexicographic analysis
@@ -181,7 +192,7 @@ namespace {
 	};
 
 	/*
-	* 
+	*
 	*/
 	class Variable
 	{
@@ -223,7 +234,7 @@ namespace {
 	* @return true if var is already in var_table, otherwise false
 	*/
 	bool is_declared(string var);
-	
+
 	/*
 	* Makes a check if the next character is a factorial sign.
 	* @param value - the number to which the factorial sign can be applied
@@ -270,7 +281,7 @@ namespace {
 	double statement();
 
 	/*
-	* factorial does not work with numbers that have a fractional part 
+	* factorial does not work with numbers that have a fractional part
 	* @param number - the factorial of this number will be returned
 	* @return the factorial of a number
 	*/
@@ -323,6 +334,7 @@ namespace {
 		case '%':
 		case '!':
 		case '=':
+		case ',':
 			{
 				return Token(ch);				// let each character represent itself
 			}
@@ -338,13 +350,17 @@ namespace {
 		case '8':
 		case '9':
 			{
-				cin.putback(ch);				// put digit back into the input stream
+				cin.putback(ch);							// put digit back into the input stream
 				double val;
-				cin >> val;						// read a floating-point number
+				cin >> val;									// read a floating-point number
 				return Token(NUMBER_KIND, val);		// let '8' represent "a number"
 			}
 		default:
 			{
+				if (ch == '#')
+				{
+					return Token(LET_KIND);
+				}
 				if (isalpha(ch))
 				{
 					string s;
@@ -356,9 +372,13 @@ namespace {
 					cin.putback(ch);
 
 					// Checking of the declaration keyword
-					if (s == DECLKEY)
+					if (s == SQRTKEY)
 					{
-						return Token(LET_KIND);
+						return Token(SQRT_KIND, s);
+					}
+					if (s == POWKEY)
+					{
+						return Token(POW_KIND, s);
 					}
 					if (s == QUITKEY || (s.size() == 1 && s[0] == QUIT_SYMBOL))
 					{
@@ -465,38 +485,86 @@ namespace {
 		while (true) {
 			switch (token.kind)
 			{
+			case SQRT_KIND:
+				{
+					token = token_stream.get();
+					if (token.kind != '(')
+					{
+						error("SQRT_KIND: required '('\n");
+					}
+
+					double value = expression();
+					if (value < 0)
+					{
+						error("SQRT_KIND: value < 0\n");
+					}
+
+					token = token_stream.get();
+					if (token.kind != ')')
+					{
+						error("SQRT_KIND: required ')'\n");
+					}
+
+					return sqrt(value);
+				}
+			case POW_KIND:
+				{
+					token = token_stream.get();
+					if (token.kind != '(')
+					{
+						error("POW_KIND: required '('\n");
+					}
+
+					double value = expression();
+
+					token = token_stream.get();
+					if (token.kind != ',')
+					{
+						error("POW_KIND: required ','\n");
+					}
+
+					int order = narrow_cast<int>(expression());
+
+					token = token_stream.get();
+					if (token.kind != ')')
+					{
+						error("POW_KIND: required ')'\n");
+					}
+
+					return pow(value,order);
+				}
 			case '{':
-			{
-				double d = expression();
-				token = token_stream.get();
-				if (token.kind != '}')
 				{
-					error("required '}'\n");
+					double d = expression();
+					token = token_stream.get();
+					if (token.kind != '}')
+					{
+						error("required '}'\n");
+					}
+					return check_token_to_factorial(d);
 				}
-				return check_token_to_factorial(d);
-			}
 			case '(':
-			{
-				double d = expression();
-				token = token_stream.get();
-				if (token.kind != ')')
 				{
-					error("required ')'\n");
+					double d = expression();
+					token = token_stream.get();
+					if (token.kind != ')')
+					{
+						error("required ')'\n");
+					}
+					return check_token_to_factorial(d);
 				}
-				return check_token_to_factorial(d);
-			}
 			case NUMBER_KIND:
-			{
-				return check_token_to_factorial(token.value);
-			}
+				{
+					return check_token_to_factorial(token.value);
+				}
 			case '-':
-			{
-				return -check_token_to_factorial(primary());
-			}
+				{
+					return -check_token_to_factorial(primary());
+				}
 			case '+':
-			{
-				return check_token_to_factorial(primary());
-			}
+				{
+					return check_token_to_factorial(primary());
+				}
 			case NAME_KIND:
 				{
 					return get_value(token.name);
@@ -637,7 +705,7 @@ namespace {
 				return;
 			}
 			token_stream.putback(token);
-			try 
+			try
 			{
 				if (statementDone)
 				{
@@ -675,15 +743,14 @@ namespace {
 	}
 }
 
-
-
-int CH7P297TASK4RunExmple::excute()
+int CH7P297_298TASKS6_11RunExmple::excute()
 {
 	try
 	{
 		// predefine names:
 		define_name("pi", 3.1415926535);
 		define_name("e", 2.7182818284);
+		define_name("k", 1000);
 
 		calculate();
 
