@@ -1,6 +1,6 @@
 /*
 	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 11/23/2021 10:24:56
+	date generate                                : 11/30/2021 10:08:51
 	author                                       : Andrei-KS
 	source code link										: https://www.stroustrup.com/Programming/calculator08buggy.cpp
 */
@@ -50,6 +50,8 @@
 		+ Primary
 		FunctionOne(Expression)
 		FunctionTwo(Expression,Expression)
+		Name = Expression
+		Name
 
 	FunctionOne:
 		sqrt
@@ -82,34 +84,34 @@
 	(2/3)!;		//	error: info lost
 */
 
-#include "CH7P297_298TASKS6_11RunExmple.h"
+#include "CH7P299EXERC1_2RunExmple.h"
 #include "std_lib_facilities.h"
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH7P297_298TASKS6_11RunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH7P299EXERC1_2RunExmple();
 
 namespace {
 	/*----------------------------------------------
 	Declaration
 	----------------------------------------------*/
 	// Definition of kinds
-	constexpr char QUIT_KIND			= 'Q';
-	constexpr char PRINT_KIND			= ';';
-	constexpr char NUMBER_KIND			= '8';	// we use ‘8’ to represent a number
-	constexpr char NAME_KIND			= 'a';
-	constexpr char LET_KIND				= 'L';
-	constexpr char SQRT_KIND			= '1';
-	constexpr char POW_KIND				= '2';
+	constexpr char QUIT_KIND = 'Q';
+	constexpr char PRINT_KIND = ';';
+	constexpr char NUMBER_KIND = '8';	// we use ‘8’ to represent a number
+	constexpr char NAME_KIND = 'a';
+	constexpr char LET_KIND = 'L';
+	constexpr char SQRT_KIND = '1';
+	constexpr char POW_KIND = '2';
 
 
 	// Definition of symbols
-	constexpr char QUIT_SYMBOL		= 'q';
-	constexpr char PRINT_SYMBOL	= PRINT_KIND;
+	constexpr char QUIT_SYMBOL = 'q';
+	constexpr char PRINT_SYMBOL = PRINT_KIND;
 
 	// Definition of keywords
 	const string DECLKEY = "#";
 	const string QUITKEY = "exit";
 	const string SQRTKEY = "sqrt";
-	const string POWKEY	= "pow";
+	const string POWKEY = "pow";
 
 	/*
 	* Token class - this type is required for lexicographic analysis
@@ -365,7 +367,7 @@ namespace {
 				{
 					string s;
 					s += ch;
-					while (cin.get(ch) && (isalpha(ch) || isdigit(ch)))
+					while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || ch == '_'))
 					{
 						s += ch;
 					}
@@ -531,7 +533,7 @@ namespace {
 						error("POW_KIND: required ')'\n");
 					}
 
-					return pow(value,order);
+					return pow(value, order);
 				}
 			case '{':
 				{
@@ -567,10 +569,24 @@ namespace {
 				}
 			case NAME_KIND:
 				{
-					return get_value(token.name);
+					string name = token.name;
+					token = token_stream.get();
+					if (token.kind == '=')
+					{
+						if (!is_declared(name))
+						{
+							error(name, "is not declared.\n");
+						}
+						set_value(name, expression());
+					}
+					else
+					{
+						token_stream.putback(token);
+					}
+					return get_value(name);
 				}
 			default:
-				error("primary expression required\n");
+				error("primary expression required.\n");
 			}
 		}
 	}
@@ -743,7 +759,7 @@ namespace {
 	}
 }
 
-int CH7P297_298TASKS6_11RunExmple::excute()
+int CH7P299EXERC1_2RunExmple::excute()
 {
 	try
 	{

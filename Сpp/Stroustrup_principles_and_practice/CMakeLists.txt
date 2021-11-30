@@ -105,10 +105,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ sqrt() and pow(x,i) to mean “Multiply x with itself i times”.
 #									/ Change the “declaration keyword” from let to #.
 #									/ Change the “quit keyword” from quit to exit.
-
+# CH7P299EXERC1_2				/ Allow underscores in the calculator’s variable names.
+#									/ Provide an assignment operator, '='.
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH7P297_298TASKS6_11")
+set(name_Example "CH7P299EXERC1_2")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
