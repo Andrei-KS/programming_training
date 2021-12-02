@@ -107,9 +107,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ Change the “quit keyword” from quit to exit.
 # CH7P299EXERC1_2				/ Allow underscores in the calculator’s variable names.
 #									/ Provide an assignment operator, '='.
+# CH7P299EXERC3				/ Provide named constants that you really can’t change the value of.
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH7P299EXERC1_2")
+set(name_Example "CH7P299EXERC3")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
