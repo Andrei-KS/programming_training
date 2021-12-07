@@ -599,7 +599,7 @@ namespace {
 					{
 						token_stream.putback(token);
 					}
-					return get_value(name);
+					return check_token_to_factorial(get_value(name));
 				}
 			default:
 				error("primary expression required.\n");
@@ -805,6 +805,5 @@ int CH7P299EXERC3RunExmple::excute()
 		keep_window_open();
 		return 2;
 	}
-	return 0;
 	return 0;
 }
