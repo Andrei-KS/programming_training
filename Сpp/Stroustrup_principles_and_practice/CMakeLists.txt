@@ -109,9 +109,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ Provide an assignment operator, '='.
 # CH7P299EXERC3				/ Provide named constants that you really can’t change the value of.
 # CH7P299EXERC4				/ Define a class called Symbol_table
+# CH7P299_300EXERC5_6		/ Modify  Token_stream::get() to return Token(print) when it sees a newline.
+#									/ Add key h/H/help for helping information
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH7P299EXERC4")
+set(name_Example "CH7P299_300EXERC5_6")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
