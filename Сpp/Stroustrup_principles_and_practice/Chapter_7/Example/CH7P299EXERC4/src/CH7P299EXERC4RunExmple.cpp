@@ -2,6 +2,7 @@
 	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
 	date generate                                : 12/07/2021 09:56:32
 	author                                       : Andrei-KS
+	source code link										: https://www.stroustrup.com/Programming/calculator08buggy.cpp
 */
 
 /*
@@ -92,25 +93,24 @@ namespace {
 	Declaration
 	----------------------------------------------*/
 	// Definition of kinds
-	constexpr char QUIT_KIND = 'Q';
-	constexpr char PRINT_KIND = ';';
-	constexpr char NUMBER_KIND = '8';	// we use ‘8’ to represent a number
-	constexpr char NAME_KIND = 'a';
-	constexpr char LET_KIND = 'L';
-	constexpr char SQRT_KIND = '1';
-	constexpr char POW_KIND = '2';
-
+	constexpr char QUIT_KIND		= 'Q';
+	constexpr char PRINT_KIND		= ';';
+	constexpr char NUMBER_KIND		= '8';	// we use ‘8’ to represent a number
+	constexpr char NAME_KIND		= 'a';
+	constexpr char LET_KIND			= 'L';
+	constexpr char SQRT_KIND		= '1';
+	constexpr char POW_KIND			= '2';
 
 	// Definition of symbols
-	constexpr char QUIT_SYMBOL = 'q';
-	constexpr char PRINT_SYMBOL = PRINT_KIND;
+	constexpr char QUIT_SYMBOL		= 'q';
+	constexpr char PRINT_SYMBOL	= PRINT_KIND;
 
 	// Definition of keywords
-	const string DECLKEY = "#";
-	const string CONSTDECLKEY = "const";
-	const string QUITKEY = "exit";
-	const string SQRTKEY = "sqrt";
-	const string POWKEY = "pow";
+	const string DECLKEY				= "#";
+	const string CONSTDECLKEY		= "const";
+	const string QUITKEY				= "exit";
+	const string SQRTKEY				= "sqrt";
+	const string POWKEY				= "pow";
 
 	/*
 	* Token class - this type is required for lexicographic analysis
