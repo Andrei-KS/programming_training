@@ -31,10 +31,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 ]]#------------------------------------
 # need choice one of example
 # naming rule for examples
-# [CH](number chapter)[P](number pag)[TASK/EXERC/TRY](number)
-# TASK	- Drill/task 
-# EXERC	- Exercises
-# TRY		- Try this
+# [CH](number chapter)[P](number pag)[TASK/EXERC/DRILL/TRY](numbers)
+# TASK/DRILL	- Drill/task 
+# EXERC			- Exercises
+# TRY				- Try this
 # example: CH1P1EXERC1
 #
 # list of examples:
@@ -111,9 +111,16 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH7P299EXERC4				/ Define a class called Symbol_table
 # CH7P299_300EXERC5_6		/ Modify  Token_stream::get() to return Token(print) when it sees a newline.
 #									/ Add key h/H/help for helping information
+#
+# Below linking chapters and exercises is linked to the
+# book of Programming Principles and Practice Using C++/
+# Second Edition/ Bjarne Stroustrup/ 2014/
+# ISBN-13: 978-0-321-99278-9
+#------------------------------------ Chapter_8
+# CH8P297DRILL1				/ Create three files:my.h, my.cpp, and use.cpp.
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH7P299_300EXERC5_6")
+set(name_Example "CH8P297DRILL1")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
