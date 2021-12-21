@@ -118,9 +118,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # ISBN-13: 978-0-321-99278-9
 #------------------------------------ Chapter_8
 # CH8P297DRILL1				/ Create three files:my.h, my.cpp, and use.cpp.
+# CH8P298DRILL3				/ Write a program using a single file containing three namespacesX, Y, and Z
+
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH8P297DRILL1")
+set(name_Example "CH8P298DRILL3")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
