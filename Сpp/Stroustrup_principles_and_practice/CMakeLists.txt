@@ -121,10 +121,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH8P298DRILL3				/ Write a program using a single file containing three namespacesX, Y, and Z
 # CH8P300EXERC1				/ Modify the calculator program to make the input stream
 #									/ an explicit parameter, rather than simply using cin.
-
+# CH8P300EXERC2				/ Write a function print() that prints a vector of ints
+#
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH8P300EXERC1")
+set(name_Example "CH8P300EXERC2")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
