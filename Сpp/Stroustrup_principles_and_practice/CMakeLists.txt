@@ -123,10 +123,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ an explicit parameter, rather than simply using cin.
 # CH8P300EXERC2				/ Write a function print() that prints a vector of ints
 # CH8P300EXERC3				/ Create a vector of Fibonacci numbers
+# CH8P300EXERC5				/ Write two functions that reverse the order of elements in a vector<int>
 #
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH8P300EXERC3")
+set(name_Example "CH8P300EXERC5")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
