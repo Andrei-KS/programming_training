@@ -127,10 +127,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH8P301EXERC6				/ Write two functions that reverse the order of elements in a vector<string>
 #------------------------------------ Chapter_9
 # CH9P339EXERC2				/ Design and implement a Name_pairs class holding (name,age) pair
+# CH9P339EXERC3				/ Replace Name_pair::print() with a (global) operator << and define ==
+#									/ and != for Name_pairs.
 #
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH9P339EXERC2")
+set(name_Example "CH9P339EXERC3")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
