@@ -129,10 +129,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P339EXERC2				/ Design and implement a Name_pairs class holding (name,age) pair
 # CH9P339EXERC3				/ Replace Name_pair::print() with a (global) operator << and define ==
 #									/ and != for Name_pairs.
+# CH9P339EXERC5				/ Design and implement a Book class
 #
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH9P339EXERC3")
+set(name_Example "CH9P339EXERC5")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
@@ -214,9 +215,11 @@ set(prefixDirectory "${parent_dir}/Example/${name_Example}/")
 List(APPEND EP_CLFF_Includes 
 	"${PROJECT_SOURCE_DIR}/include"
 	"${prefixDirectory}/include"
+	"${PROJECT_SOURCE_DIR}/lib/include"
 )
 List(APPEND EP_CLFF_Src 
 	"${prefixDirectory}/src"
+	"${PROJECT_SOURCE_DIR}/lib/src"
 )
 List(APPEND EP_CLFF_SrcFiles
 )
