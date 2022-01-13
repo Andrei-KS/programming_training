@@ -11,7 +11,7 @@
 RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH9P340EXERC6RunExmple();
 
 namespace {
-		/*----------------------------------------------
+	/*----------------------------------------------
 	Declaration
 	----------------------------------------------*/
 	/*
