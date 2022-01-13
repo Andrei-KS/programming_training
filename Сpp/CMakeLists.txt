@@ -15,6 +15,6 @@ include(copy_folder)
 
 # Include sub-projects.
 add_subdirectory ("Stroustrup_principles_and_practice")
-add_subdirectory ("DifferentTasksByAlgorithms")
-add_subdirectory ("Object-oriented_programming")
-add_subdirectory ("Parallel_Programming")
+#add_subdirectory ("DifferentTasksByAlgorithms")
+#add_subdirectory ("Object-oriented_programming")
+#add_subdirectory ("Parallel_Programming")
