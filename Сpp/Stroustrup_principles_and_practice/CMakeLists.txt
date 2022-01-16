@@ -131,10 +131,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ and != for Name_pairs.
 # CH9P339EXERC5				/ Design and implement a Book class.
 # CH9P340EXERC6				/ Add operators for the Book class.
+# CH9P340EXERC7				/ Create an enumerated type for the Book class called Genre.
 #
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH9P340EXERC6")
+set(name_Example "CH9P340EXERC7")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
