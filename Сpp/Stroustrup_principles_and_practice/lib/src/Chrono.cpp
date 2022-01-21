@@ -93,8 +93,8 @@ namespace Chrono
 
 	bool leapyear(int year)
 	{
-		// see exercise 10
-		return false;
+		year = year < 0 ? -year : year;
+		return !(year % 400) || (!(year % 4) && (year % 100));
 	}
 
 	bool operator==(const Date& left, const Date& right)
