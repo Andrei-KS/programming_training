@@ -6,9 +6,12 @@
 
 namespace Chrono
 {
+	/* to throw as exception */
+	class Invalid {};
+
 	enum class Day
 	{
-		sunday,
+		sunday = 1,
 		monday,
 		tuesday,
 		wednesday,
@@ -120,6 +123,18 @@ namespace Chrono
 	std::istream& operator>>(std::istream& is, Date& date);
 
 	/*
+	*/
+	int amount_of_day_year(int year);
+
+	/*
+	*/
+	int amount_days_in_month(Month month, int year);
+
+	/*
+	*/
+	int elapsed_days_until_month(Month month, int year);
+
+	/*
 	* @return Day of week of day
 	*/
 	Day day_of_week(const Date& day);
@@ -127,7 +142,7 @@ namespace Chrono
 	/*
 	* @return next Sunday after date
 	*/
-	Date next_Sunday(const Date date);
+	Date next_sunday(const Date& date);
 
 	/*
 	* @return next weekday after date
