@@ -57,7 +57,7 @@ namespace MyLib
 	int greatest_common_divisor(int left, int right)
 	{
 		left = left < 0 ? -left : left;
-		right = right < 0 ? right : right;
+		right = right < 0 ? -right : right;
 		if (left < right)
 		{
 			swap(left, right);
