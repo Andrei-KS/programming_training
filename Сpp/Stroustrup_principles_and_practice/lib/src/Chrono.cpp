@@ -76,8 +76,6 @@ namespace Chrono
 			else
 			{
 				itsYear++;
-				itsMonth = Month::jan;
-				itsDay = 1;
 				// we take one day due to transition to first day next year
 				n--;
 
