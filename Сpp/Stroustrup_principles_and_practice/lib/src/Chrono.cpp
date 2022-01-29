@@ -41,10 +41,11 @@ namespace Chrono
 
 		if (n > 0)
 		{
-			int elasedDaysOfYear = elapsed_days_until_month(itsMonth, itsYear) + itsDay;
-			int remainingDaysOfYear = amount_of_day_year(itsYear) - elasedDaysOfYear;
+			n += elapsed_days_until_month(itsMonth, itsYear) + itsDay;
+			itsMonth = Month::jan;
+			itsDay = 1;
 
-			n -= remainingDaysOfYear;
+			n -= amount_of_day_year(itsYear);
 			if (n <= 0)
 			{
 				const int maxDay = amount_of_day_year(itsYear);
