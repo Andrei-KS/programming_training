@@ -137,11 +137,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P340EXERC10				/ Implement leapyear() in Chrono::Date.
 # CH9P340EXERC11				/ Design and implement a set of useful helper functions for the Date class.
 # CH9P340EXERC13				/ Design and implement a rational number class, Rational.
-# CH9P340EXERC14				/ Design and implement a Money class for calculations involving dollars and cents.
+# CH9P341EXERC14				/ Design and implement a Money class for calculations involving dollars and cents.
+# CH9P341EXERC15				/ Refine the Money class by adding a currency.
 #
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH9P340EXERC14")
+set(name_Example "CH9P341EXERC15")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
