@@ -13,5 +13,10 @@ int main(int argc, char* argv[])
 		//Do nothing
 		return 1;
 	}
+
+	if (RunCommandOfExample::runCommandOfExample != nullptr)
+	{
+		delete RunCommandOfExample::runCommandOfExample;
+	}
 	return 0;
 }
