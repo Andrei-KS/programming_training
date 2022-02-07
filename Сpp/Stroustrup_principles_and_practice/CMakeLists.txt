@@ -139,10 +139,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P340EXERC13				/ Design and implement a rational number class, Rational.
 # CH9P341EXERC14				/ Design and implement a Money class for calculations involving dollars and cents.
 # CH9P341EXERC15				/ Refine the Money class by adding a currency.
+# CH9P341EXERC16				/ Define an input operator (>>) and output operator (<<) for the Money.
 #
 
 # if sample is not exist that new directory will created for this example by mock
-set(name_Example "CH9P341EXERC15")
+set(name_Example "CH9P341EXERC16")
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
