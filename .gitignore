@@ -1,3 +1,2 @@
-
-DifferentTasksByAlgorithms/out/*
-DifferentTasksByAlgorithms/.vs/*
+*/out/*
+/.vs/*
