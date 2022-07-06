@@ -1,8 +1,8 @@
 /*
-	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 12/07/2021 09:56:32
-	author                                       : Andrei-KS
-	source code link										: https://www.stroustrup.com/Programming/calculator08buggy.cpp
+	This file is generated from a layout that is in : {PROJECT_SOURCE_DIR}/include
+	date generate												: 12/07/2021 09:56:32
+	author														: Andrei-KS
+	source code link											: https://www.stroustrup.com/Programming/calculator08buggy.cpp
 */
 
 /*

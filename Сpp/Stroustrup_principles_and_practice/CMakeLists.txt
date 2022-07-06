@@ -2,9 +2,9 @@
 # project specific logic here.
 #
 
-#[[-------------------------------------------------------------------------
+#[[----------------------------------------------------------------------------
                     Configuration cmake project
-]]#-------------------------------------------------------------------------
+]]#----------------------------------------------------------------------------
 cmake_minimum_required (VERSION 3.8)
 
 project("Stroustrup_principles_and_practice")
@@ -22,9 +22,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #include(copy_folder)
 
 
-#[[-------------------------------------------------------------------------
+#[[----------------------------------------------------------------------------
                     The builder's configurations of libs
-]]#-------------------------------------------------------------------------
+]]#----------------------------------------------------------------------------
 
 #[[------------------------------------
 					Example lib 
@@ -38,7 +38,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # example: CH1P1EXERC1
 #
 # list of examples:
-#------------------------------------ Chapter_3
+#-------------------------------------- Chapter_3
 # CH3P106TRY					/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
 # CH3P108TRY					/ Change the "Display working of operators" so that double will become int
 # CH3P124TASK1					/ Modify the "Hi, first_name" program
@@ -55,7 +55,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH3P127EXERC7				/ Enter three strings and then outputs them in ascending order 
 # CH3P127EXERC8				/ check parity int
 # CH3P127EXERC10				/ The simple calculator
-#------------------------------------ Chapter_4
+#-------------------------------------- Chapter_4
 # CH4P146TRY					/ Converting UAH, RUB and CNY to USD
 # CH4P149TRY					/ Converting UAD, CNY, EUR, GBP or RUB to USD using switch
 # CH4P151TRY					/ Display char and its number in table
@@ -78,7 +78,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P169EXERC4				/ Guess a number from 1 to 100
 # CH4P169EXERC5				/ The simple calculator
 # CH4P169EXERC8				/ Grains and cells 
-#------------------------------------ Chapter_5
+#-------------------------------------- Chapter_5
 # CH5P188TRY					/ Add checking
 # CH5P198TRY					/ Break program and get invalid result
 # CH5P199TRY					/ Set valid min and max value
@@ -91,7 +91,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH5P214EXERC6				/ Celsius to fahrenheit and fahrenheit to celsius
 # CH5P214EXERC7				/ Quadratic equation
 # CH5P214EXERC8				/ The sum of the first N numbers
-#------------------------------------ Chapter_6
+#-------------------------------------- Chapter_6
 # CH6P250TRY					/ First version calculator
 # CH6P262TRY					/ Second version calculator
 # CH6P263TASK					/ Correction of the second version
@@ -99,7 +99,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH6P264EXERC3				/ Added factorial function (number!) to second version calculator
 # CH6P265EXERC6				/ Simple english grammar
 # CH6P265EXERC7				/ A grammar for bitwise logical expressions
-#------------------------------------ Chapter_7
+#-------------------------------------- Chapter_7
 # CH7P297TASK4					/ Data for tests
 # CH7P297_298TASKS6_11		/ Add a predefined name k meaning 1000, a square root functions
 #									/ sqrt() and pow(x,i) to mean “Multiply x with itself i times”.
@@ -116,7 +116,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # book of Programming Principles and Practice Using C++/
 # Second Edition/ Bjarne Stroustrup/ 2014/
 # ISBN-13: 978-0-321-99278-9
-#------------------------------------ Chapter_8
+#-------------------------------------- Chapter_8
 # CH8P297DRILL1				/ Create three files:my.h, my.cpp, and use.cpp.
 # CH8P298DRILL3				/ Write a program using a single file containing three namespacesX, Y, and Z
 # CH8P300EXERC1				/ Modify the calculator program to make the input stream
@@ -125,7 +125,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH8P300EXERC3				/ Create a vector of Fibonacci numbers
 # CH8P300EXERC5				/ Write two functions that reverse the order of elements in a vector<int>
 # CH8P301EXERC6				/ Write two functions that reverse the order of elements in a vector<string>
-#------------------------------------ Chapter_9
+#-------------------------------------- Chapter_9
 # CH9P339EXERC2				/ Design and implement a Name_pairs class holding (name,age) pair
 # CH9P339EXERC3				/ Replace Name_pair::print() with a (global) operator << and define ==
 #									/ and != for Name_pairs.
@@ -142,74 +142,111 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P341EXERC16				/ Define an input operator (>>) and output operator (<<) for the Money.
 #
 
-# if sample is not exist that new directory will created for this example by mock
+# if the example does not exist that new directory will be created for it by layout
 set(name_Example "CH9P341EXERC16")
+
+#[[------------------------------------
+					Example's hierarchy
+]]#------------------------------------
+# processing the example name, if it does not exist, hierarchy will be made for it 
+
+option(SHOWE_STATUS_MESSAGE "" TRUE)
+option(SHOWE_INFO_MESSAGE "" TRUE)
+
+# set layout file names
+set(layout_file_names
+	"layout_h"
+	"layout_cpp"
+)
+
+# set substitutions list
+set(current_date)
+string(TIMESTAMP current_date "%m/%d/%Y %H:%M:%S")
+set(substitutions_list
+	"name_file"	"${name_Example}"
+	"project_source_dir_include" "{PROJECT_SOURCE_DIR}/include"
+	"date_generate" "${current_date}"
+	"author" "Andrei-KS"
+)
+
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
 	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
 else()
 	set(parent_dir "${parent_dir}EmptyNumber")
 endif()
+
 set(dir_Example "${PROJECT_SOURCE_DIR}/${parent_dir}/Example/${name_Example}")
 if(NOT EXISTS "${dir_Example}")
-	message(STATUS "Directori is not found: ${dir_Example}\n\t\tThis directory will created by generator from a mocks")
+
+	make_directory(${dir_Example})
+	if(SHOWE_STATUS_MESSAGE)
+		message(STATUS "Directory is not found: ${dir_Example}\n\t\tThis directory will be created by generator from layouts")
+	endif()
+
 	set(src_dir_Example "${dir_Example}/src")
 	set(include_dir_Example "${dir_Example}/include")
 	make_directory(${src_dir_Example})
 	make_directory(${include_dir_Example})
 	
-	set(current_date)
-	string(TIMESTAMP current_date "%m/%d/%Y %H:%M:%S")
-	
-	set(currnet_search_list
-		"name_file"
-		"project_source_dir_include"
-		"date_generate"
-		"author"
-		"ln"							# last element in list, don't change, because at loops of replace semicolon is lost
-	)
-	set(currnet_replace_list
-		"${name_Example}"
-		"${PROJECT_SOURCE_DIR}/include"
-		"${current_date}"
-		"Andrei-KS"
-		"\\\\\;"						# last element in list, don't change, because at loops of replace semicolon is lost
-	)
-	list(TRANSFORM currnet_search_list PREPEND "[$][{]")
-	list(TRANSFORM currnet_search_list APPEND "[}]")
-	foreach(mock_file_name IN LISTS currnet_search_list)
-		message(${mock_file_name})
+	# get the number of items on the list
+	list(LENGTH substitutions_list length_substitutions_list)
+	# get the max valid index of the list
+	math(EXPR upper_number_substitutions_list "${length_substitutions_list} - 1" OUTPUT_FORMAT DECIMAL)
+
+	foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
+			list(GET substitutions_list ${index} list_item)
+			list(REMOVE_AT substitutions_list ${index})
+			list(INSERT substitutions_list ${index} "[$][{]${list_item}[}]")
 	endforeach()
-	foreach(mock_file_name IN LISTS currnet_replace_list)
-		message(${mock_file_name})
-	endforeach()
-	set(current_mock_file_names
-		"mock_header"
-		"mock_src"
-	)
-	foreach(mock_file_name IN LISTS current_mock_file_names)
-		message("${mock_file}")
-		list(LENGTH currnet_search_list stop_value)
-		file(READ "${PROJECT_SOURCE_DIR}/include/${mock_file_name}" content_mock_file)
-		message("${content_mock_file}")
-		math(EXPR stop_value "${stop_value} - 1" OUTPUT_FORMAT DECIMAL) 
-		foreach(index RANGE 0 ${stop_value} 1)
-			list(GET currnet_search_list ${index} current_search_element)
-			list(GET currnet_replace_list ${index} current_replace_element)
+
+
+	if(SHOWE_INFO_MESSAGE)
+		message("length_substitutions_list:\t"${length_substitutions_list})
+		message("upper_number_substitutions_list:\t"${upper_number_substitutions_list})
+		foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
+			list(GET substitutions_list ${index} search_item)
+			math(EXPR index_replace_item "${index} + 1" OUTPUT_FORMAT DECIMAL)
+			list(GET substitutions_list ${index_replace_item} replace_item)
+			message(${search_item}"\t<-\t"${replace_item})
+		endforeach()
+	endif()
+
+	foreach(layout_file_name IN LISTS layout_file_names)
+
+		# get content from the current layout file
+		file(READ "${PROJECT_SOURCE_DIR}/include/${layout_file_name}" content_layout_file)
+		
+		if(SHOWE_INFO_MESSAGE)
+			message("layout_file_name:\t${layout_file_name}")
+			message("content_layout_file:\n${content_layout_file}")
+		endif()
+ 
+		foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
+			list(GET substitutions_list ${index} search_item)
+			math(EXPR index_replace_item "${index} + 1" OUTPUT_FORMAT DECIMAL)
+			list(GET substitutions_list ${index_replace_item} replace_item)
+
 			string(REGEX REPLACE
-				"${current_search_element}"
-				"${current_replace_element}"
-				content_mock_file
-				${content_mock_file}
+				"${search_item}"
+				"${replace_item}"
+				content_layout_file
+				"${content_layout_file}"
 			)
 		endforeach()
-		message("${content_mock_file}")
-		if(${mock_file_name} MATCHES "[_]header$")
-			file(WRITE "${include_dir_Example}/${name_Example}RunExmple.h" ${content_mock_file})
-		elseif(${mock_file_name} MATCHES "[_]src$")
-			file(WRITE "${src_dir_Example}/${name_Example}RunExmple.cpp" ${content_mock_file})
+		
+		if(SHOWE_INFO_MESSAGE)	
+			message("content_layout_file: ${content_layout_file}")
 		endif()
+
+		if(${layout_file_name} MATCHES "[_]h$")
+			file(WRITE "${include_dir_Example}/${name_Example}RunExmple.h" "${content_layout_file}")
+		elseif(${layout_file_name} MATCHES "[_]cpp$")
+			file(WRITE "${src_dir_Example}/${name_Example}RunExmple.cpp" "${content_layout_file}")
+		endif()
+
 	endforeach()
+
 endif()
 
 # builder of Example lib

@@ -1,7 +1,7 @@
 /*
-	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 11/07/2021 12:52:50
-	author                                       : Andrei-KS
+	This file is generated from a layout that is in : {PROJECT_SOURCE_DIR}/include
+	date generate												: 11/07/2021 12:52:50
+	author														: Andrei-KS
 */
 
 #include "CH6P264EXERC3RunExmple.h"

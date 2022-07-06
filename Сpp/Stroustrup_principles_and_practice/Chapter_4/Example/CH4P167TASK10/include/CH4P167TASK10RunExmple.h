@@ -1,7 +1,7 @@
 /*
-	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 10/19/2021 10:02:53
-	author                                       : Andrei-KS
+	This file is generated from a layout that is in : {PROJECT_SOURCE_DIR}/include
+	date generate												: 10/19/2021 10:02:53
+	author														: Andrei-KS
 */
 #ifndef __CH4P167TASK10__
 #define __CH4P167TASK10__

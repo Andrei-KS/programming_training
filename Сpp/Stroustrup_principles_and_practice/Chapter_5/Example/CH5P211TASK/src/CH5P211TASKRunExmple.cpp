@@ -1,7 +1,7 @@
 /*
-	This file is created from a mocks that is in : C:/GitHub/programming_training/Сpp/Stroustrup_principles_and_practice/include
-	date generate                                : 10/29/2021 10:18:22
-	author                                       : Andrei-KS
+	This file is generated from a layout that is in : {PROJECT_SOURCE_DIR}/include
+	date generate												: 10/29/2021 10:18:22
+	author														: Andrei-KS
 */
 
 #include "CH5P211TASKRunExmple.h"

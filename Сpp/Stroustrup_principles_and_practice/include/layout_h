@@ -1,7 +1,7 @@
 /*
-	This file is created from a mocks that is in : ${project_source_dir_include}
-	date generate                                : ${date_generate}
-	author                                       : ${author}
+	This file is generated from a layout that is in : ${project_source_dir_include}
+	date generate												: ${date_generate}
+	author														: ${author}
 */
 #ifndef __${name_file}__
 #define __${name_file}__
@@ -10,7 +10,7 @@
 
 /**
 * 
-* @author Andrei-KS
+* @author ${author}
 */
 class ${name_file}RunExmple : public RunCommandOfExample
 {
@@ -22,7 +22,7 @@ public:
 	 *
 	 * @see RunCommandOfExample
 	 */
-	virtual int excute() override${ln}
-}${ln}
+	virtual int excute() override;
+};
 
 #endif // !__${name_file}__
