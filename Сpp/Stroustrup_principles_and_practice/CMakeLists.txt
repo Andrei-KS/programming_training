@@ -147,11 +147,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ store it in a vector of Points called original_points
 # CH10P376DRILL4				/ Open an ofstream and output each point to a file named mydata.txt.
 # CH10P376DRILL5				/ Close the ofstream and then open an ifstream for mydata.txt. Read the data
-#									/ from mydata.txt and store it in a new vector called processed_points.	
+#									/ from mydata.txt and store it in a new vector called processed_points.
+# CH10P376DRILL6_7			/ Print the data elements from both vectors. Compare the two vectors
+#									/ and print Something's wrong! if the number of elements or
+#									/ the values of elements differ
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P376DRILL5")
+set(name_Example "CH10P376DRILL6_7")
 
 #[[------------------------------------
 					Example's hierarchy
