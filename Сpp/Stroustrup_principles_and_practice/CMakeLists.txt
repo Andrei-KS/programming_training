@@ -140,10 +140,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P341EXERC14				/ Design and implement a Money class for calculations involving dollars and cents.
 # CH9P341EXERC15				/ Refine the Money class by adding a currency.
 # CH9P341EXERC16				/ Define an input operator (>>) and output operator (<<) for the Money.
+#-------------------------------------- Chapter_10
+# CH10P376DRILL1				/ Start a program to work with points. Begin by defining the data type Point that has two coordinate members x and y
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH9P341EXERC16")
+set(name_Example "CH10P376DRILL1")
 
 #[[------------------------------------
 					Example's hierarchy
