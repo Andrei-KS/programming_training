@@ -151,10 +151,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH10P376DRILL6_7			/ Print the data elements from both vectors. Compare the two vectors
 #									/ and print Something's wrong! if the number of elements or
 #									/ the values of elements differ
+# CH10P377EXERC1				/ Write a program that produces the sum of all the numbers in a file of
+#									/ whitespace-separated integers.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P376DRILL6_7")
+set(name_Example "CH10P377EXERC1")
 
 #[[------------------------------------
 					Example's hierarchy
