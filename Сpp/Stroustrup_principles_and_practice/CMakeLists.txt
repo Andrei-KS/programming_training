@@ -142,10 +142,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P341EXERC16				/ Define an input operator (>>) and output operator (<<) for the Money.
 #-------------------------------------- Chapter_10
 # CH10P376DRILL1				/ Start a program to work with points. Begin by defining the data type Point that has two coordinate members x and y
+# CH10P376DRILL2				/ Prompt the user to input seven (x,y) pairs. As the data is entered, store it in a vector of Points called original_points
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P376DRILL1")
+set(name_Example "CH10P376DRILL2")
 
 #[[------------------------------------
 					Example's hierarchy
