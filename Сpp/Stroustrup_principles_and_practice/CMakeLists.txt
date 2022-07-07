@@ -141,13 +141,17 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P341EXERC15				/ Refine the Money class by adding a currency.
 # CH9P341EXERC16				/ Define an input operator (>>) and output operator (<<) for the Money.
 #-------------------------------------- Chapter_10
-# CH10P376DRILL1				/ Start a program to work with points. Begin by defining the data type Point that has two coordinate members x and y
-# CH10P376DRILL2				/ Prompt the user to input seven (x,y) pairs. As the data is entered, store it in a vector of Points called original_points
+# CH10P376DRILL1				/ Start a program to work with points. Begin by defining the data type
+#									/ Point that has two coordinate members x and y
+# CH10P376DRILL2				/ Prompt the user to input seven (x,y) pairs. As the data is entered,
+#									/ store it in a vector of Points called original_points
 # CH10P376DRILL4				/ Open an ofstream and output each point to a file named mydata.txt.
+# CH10P376DRILL5				/ Close the ofstream and then open an ifstream for mydata.txt. Read the data
+#									/ from mydata.txt and store it in a new vector called processed_points.	
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P376DRILL4")
+set(name_Example "CH10P376DRILL5")
 
 #[[------------------------------------
 					Example's hierarchy
