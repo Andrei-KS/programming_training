@@ -160,10 +160,15 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH10P377EXERC3				/ Write a program that reads the data from raw_temps.txt created
 #									/ in exercise 2 into a vector and then calculates the mean
 #									/ and median temperatures in your data set.
+# CH10P377EXERC4				/ Modify the program from exercise 2 to include a temperature 
+#									/ suffix c for Celsius or f for Fahrenheit temperatures. Then
+#									/ modify the program from exercise 3 to test each temperature,
+#									/ converting the Celsius readings to Fahrenheit before putting
+#									/ them into the vector
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P377EXERC3")
+set(name_Example "CH10P377EXERC4")
 
 #[[------------------------------------
 					Example's hierarchy
