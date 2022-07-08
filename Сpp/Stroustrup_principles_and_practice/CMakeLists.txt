@@ -157,10 +157,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ Reading type. For testing, fill the file with at least 50
 #									/ “temperature readings.” Call this program and the file it
 #									/ creates raw_temps.txt.
+# CH10P377EXERC3				/ Write a program that reads the data from raw_temps.txt created
+#									/ in exercise 2 into a vector and then calculates the mean
+#									/ and median temperatures in your data set.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P377EXERC2")
+set(name_Example "CH10P377EXERC3")
 
 #[[------------------------------------
 					Example's hierarchy
