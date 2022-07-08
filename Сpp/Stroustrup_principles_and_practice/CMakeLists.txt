@@ -153,10 +153,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ the values of elements differ
 # CH10P377EXERC1				/ Write a program that produces the sum of all the numbers in a file of
 #									/ whitespace-separated integers.
+# CH10P377EXERC2				/ Write a program that creates a file of data in the form of the temperature
+#									/ Reading type. For testing, fill the file with at least 50
+#									/ “temperature readings.” Call this program and the file it
+#									/ creates raw_temps.txt.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P377EXERC1")
+set(name_Example "CH10P377EXERC2")
 
 #[[------------------------------------
 					Example's hierarchy
