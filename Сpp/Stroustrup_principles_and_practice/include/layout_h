@@ -9,7 +9,7 @@
 #include "RunCommandOfExample.h"
 
 /**
-* 
+* ${task_description}
 * @author ${author}
 */
 class ${name_file}RunExmple : public RunCommandOfExample

@@ -172,6 +172,14 @@ set(layout_file_names
 	"layout_cpp"
 )
 
+# search task description of the name_Example in CMakeLists.txt
+file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_description)
+string(REGEX MATCH "# ${name_Example}\t+[^#]+(#\t+[/][^#]+)*" task_description "${task_description}")
+# delete unnecessary characters of the CMakeList.txt file formatting from the task description 
+string(REGEX REPLACE "(# ${name_Example}\t+/ |\n$)" "" task_description ${task_description})
+string(REGEX REPLACE "\n#\t+/ " " " task_description ${task_description})
+
+
 # set substitutions list
 set(current_date)
 string(TIMESTAMP current_date "%m/%d/%Y %H:%M:%S")
@@ -180,6 +188,7 @@ set(substitutions_list
 	"project_source_dir_include" "{PROJECT_SOURCE_DIR}/include"
 	"date_generate" "${current_date}"
 	"author" "Andrei-KS"
+	"task_description" "${task_description}"
 )
 
 set(parent_dir "Chapter_")
@@ -264,7 +273,7 @@ endif()
 
 # builder of Example lib
 # set default setting
-set(NameLib "Stroustrup_principles_and_practice_Exemple")
+set(NameLib "${name_Example}")
 set(prefixDirectory)
 set(EP_CLFF_Includes)
 set(EP_CLFF_Src)
@@ -316,5 +325,5 @@ include_directories(${ListPathToInclude})
 add_executable (${PROJECT_NAME} ${ListPathToSrc})
 
 target_link_libraries(${PROJECT_NAME}
-	PRIVATE "${PROJECT_BINARY_DIR}/Stroustrup_principles_and_practice_Exemple.lib"
+	PRIVATE "${PROJECT_BINARY_DIR}/${name_Example}.lib"
 )
