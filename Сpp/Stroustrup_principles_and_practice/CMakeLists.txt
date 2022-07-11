@@ -165,10 +165,11 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ modify the program from exercise 3 to test each temperature,
 #									/ converting the Celsius readings to Fahrenheit before putting
 #									/ them into the vector
+# CH10P377EXERC5				/ Write the function print_year().
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P377EXERC4")
+set(name_Example "CH10P377EXERC5")
 
 #[[------------------------------------
 					Example's hierarchy
