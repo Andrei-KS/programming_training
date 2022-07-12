@@ -170,10 +170,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ << and >>. Provide Roman_int with an as_int() member that returns
 #									/ the int value, so that if r is a Roman_int, we can write
 #									/ cout << "Roman" << r << " equals " << r.as_int() << '\n';.
+# CH10P378EXERC7				/ Make a version of the calculator from Chapter 7 that accepts Roman
+#									/ numerals rather than the usual Arabic ones, for example, XXI + CIV ==
+#									/ CXXV.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P377EXERC6")
+set(name_Example "CH10P378EXERC7")
 
 #[[------------------------------------
 					Example's hierarchy
