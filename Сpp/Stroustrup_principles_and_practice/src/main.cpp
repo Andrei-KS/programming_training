@@ -1,18 +1,24 @@
 #include "RunCommandOfExample.h"
+#include <iostream>
+#include <exception>
 
 int main(int argc, char* argv[])
 {
-	//try
-	//{
+	try
+	{
 		RunCommandOfExample::runCommandOfExample->itsArgC = argc;
 		RunCommandOfExample::runCommandOfExample->itsArgV = argv;
 		RunCommandOfExample::runCommandOfExample->excute();
-	//}
-	//catch (...)
-	//{
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << "\n";
+	}
+	catch (...)
+	{
 		//Do nothing
-	//	return 1;
-	//}
+		return 1;
+	}
 
 	if (RunCommandOfExample::runCommandOfExample != nullptr)
 	{

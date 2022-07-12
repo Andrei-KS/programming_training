@@ -143,6 +143,13 @@ inline void error(const string& s, const string& s2)
 	error(s + s2);
 }
 
+inline void error(const string& s, char ch)
+{
+	ostringstream os;
+	os << s << ": " << ch;
+	error(os.str());
+}
+
 inline void error(const string& s, int i)
 {
 	ostringstream os;

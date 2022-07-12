@@ -166,10 +166,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ converting the Celsius readings to Fahrenheit before putting
 #									/ them into the vector
 # CH10P377EXERC5				/ Write the function print_year().
+# CH10P377EXERC6				/ Define a Roman_int class for holding Roman numerals (as ints) with a
+#									/ << and >>. Provide Roman_int with an as_int() member that returns
+#									/ the int value, so that if r is a Roman_int, we can write
+#									/ cout << "Roman" << r << " equals " << r.as_int() << '\n';.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P377EXERC5")
+set(name_Example "CH10P377EXERC6")
 
 #[[------------------------------------
 					Example's hierarchy
