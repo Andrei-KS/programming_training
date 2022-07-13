@@ -38,6 +38,8 @@ public:
 	Roman_int(const int arab_number);
 	/**/
 	Roman_int(const Roman_int& other);
+	/**/
+	Roman_int(const string& roman_str);
 
 	//------------------------ Operator section
 	//---------------- I/O operators
@@ -69,6 +71,17 @@ public:
 	friend Roman_int operator/(Roman_int lhs, const Roman_int rhs);
 	/**/
 	friend Roman_int operator%(Roman_int lhs, const Roman_int rhs);
+	/**/
+	friend Roman_int operator+=(Roman_int& lhs, const Roman_int rhs);
+	/**/
+	friend Roman_int operator-=(Roman_int& lhs, const Roman_int rhs);
+	/**/
+	friend Roman_int operator*=(Roman_int& lhs, const Roman_int rhs);
+	/**/
+	friend Roman_int operator/=(Roman_int& lhs, const Roman_int rhs);
+	/**/
+	friend Roman_int operator%=(Roman_int& lhs, const Roman_int rhs);
+
 
 	 
 	//------------------------ Other function section

@@ -106,6 +106,12 @@ Roman_int::Roman_int(const Roman_int& other)
 {
 }
 
+Roman_int::Roman_int(const string& roman_str)
+	: number(0)
+{
+	(*this).number = roman_to_arab(roman_str);
+}
+
 istream& operator>>(istream& ist, Roman_int& roman_int)
 {
 	string roman_str;
@@ -133,12 +139,12 @@ ostream& operator<<(ostream& ost, const Roman_int& roman_int)
 	return ost << arab_to_roman(roman_int.number);
 }
 
-inline bool operator==(const Roman_int& left, const Roman_int& right) { return left.number == right.number; }
-inline bool operator!=(const Roman_int& left, const Roman_int& right) { return !(left == right); }
-inline bool operator< (const Roman_int& lhs, const Roman_int& rhs) { return lhs.number < rhs.number; }
-inline bool operator> (const Roman_int& lhs, const Roman_int& rhs) { return rhs < lhs; }
-inline bool operator<=(const Roman_int& lhs, const Roman_int& rhs) { return !(lhs > rhs); }
-inline bool operator>=(const Roman_int& lhs, const Roman_int& rhs) { return !(lhs < rhs); }
+bool operator==(const Roman_int& left, const Roman_int& right) { return left.number == right.number; }
+bool operator!=(const Roman_int& left, const Roman_int& right) { return !(left == right); }
+bool operator< (const Roman_int& lhs, const Roman_int& rhs) { return lhs.number < rhs.number; }
+bool operator> (const Roman_int& lhs, const Roman_int& rhs) { return rhs < lhs; }
+bool operator<=(const Roman_int& lhs, const Roman_int& rhs) { return !(lhs > rhs); }
+bool operator>=(const Roman_int& lhs, const Roman_int& rhs) { return !(lhs < rhs); }
 
 Roman_int operator+(Roman_int lhs, const Roman_int rhs)
 {
@@ -181,6 +187,52 @@ Roman_int operator/(Roman_int lhs, const Roman_int rhs)
 }
 
 Roman_int operator%(Roman_int lhs, const Roman_int rhs)
+{
+	lhs.number %= rhs.number;
+	if (!Roman_int::is_valid(lhs.number))
+	{
+		error("Value is unknown in Roman number", lhs.number);
+	}
+	return lhs;
+}
+
+Roman_int operator+=(Roman_int& lhs, const Roman_int rhs)
+{
+	lhs.number += rhs.number;
+	if (!Roman_int::is_valid(lhs.number))
+	{
+		error("Value is unknown in Roman number", lhs.number);
+	}
+	return lhs;
+}
+Roman_int operator-=(Roman_int& lhs, const Roman_int rhs)
+{
+	lhs.number -= rhs.number;
+	if (!Roman_int::is_valid(lhs.number))
+	{
+		error("Value is unknown in Roman number", lhs.number);
+	}
+	return lhs;
+}
+Roman_int operator*=(Roman_int& lhs, const Roman_int rhs)
+{
+	lhs.number *= rhs.number;
+	if (!Roman_int::is_valid(lhs.number))
+	{
+		error("Value is unknown in Roman number", lhs.number);
+	}
+	return lhs;
+}
+Roman_int operator/=(Roman_int& lhs, const Roman_int rhs)
+{
+	lhs.number /= rhs.number;
+	if (!Roman_int::is_valid(lhs.number))
+	{
+		error("Value is unknown in Roman number", lhs.number);
+	}
+	return lhs;
+}
+Roman_int operator%=(Roman_int& lhs, const Roman_int rhs)
 {
 	lhs.number %= rhs.number;
 	if (!Roman_int::is_valid(lhs.number))
