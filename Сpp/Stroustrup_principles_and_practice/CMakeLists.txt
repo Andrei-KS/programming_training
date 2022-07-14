@@ -171,12 +171,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ the int value, so that if r is a Roman_int, we can write
 #									/ cout << "Roman" << r << " equals " << r.as_int() << '\n';.
 # CH10P378EXERC7				/ Make a version of the calculator from Chapter 7 that accepts Roman
-#									/ numerals rather than the usual Arabic ones, for example, XXI + CIV ==
-#									/ CXXV.
+#									/ numerals rather than the usual Arabic ones, for example, XXI + CIV == CXXV.
+# CH10P378EXERC8				/ Write a program that accepts two file names and produces a new file that
+#									/ is the contents of the first file followed by the contents of the second; that
+#									/ is, the program concatenates the two files.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P378EXERC7")
+set(name_Example "CH10P378EXERC8")
 
 #[[------------------------------------
 					Example's hierarchy
