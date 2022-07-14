@@ -175,10 +175,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH10P378EXERC8				/ Write a program that accepts two file names and produces a new file that
 #									/ is the contents of the first file followed by the contents of the second; that
 #									/ is, the program concatenates the two files.
+# CH10P378EXERC9				/ Write a program that takes two files containing sorted whitespace-separated
+#									/ words and merges them, preserving order.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P378EXERC8")
+set(name_Example "CH10P378EXERC9")
 
 #[[------------------------------------
 					Example's hierarchy
