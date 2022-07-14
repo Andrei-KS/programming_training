@@ -177,10 +177,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ is, the program concatenates the two files.
 # CH10P378EXERC9				/ Write a program that takes two files containing sorted whitespace-separated
 #									/ words and merges them, preserving order.
+# CH10P378EXERC10				/ Add a command from x to the calculator from Chapter 7 that makes it
+#									/ take input from a file x. Add a command to y to the calculator that makes
+#									/ it write its output (both standard output and error output) to file y. 
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P378EXERC9")
+set(name_Example "CH10P378EXERC10")
 
 #[[------------------------------------
 					Example's hierarchy
