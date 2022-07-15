@@ -180,10 +180,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH10P378EXERC10				/ Add a command from x to the calculator from Chapter 7 that makes it
 #									/ take input from a file x. Add a command to y to the calculator that makes
 #									/ it write its output (both standard output and error output) to file y. 
+# CH10P378EXERC11				/ Write a program that produces the sum of all the whitespace-separated
+#									/ integers in a text file. For example, bears: 17 elephants 9 end should output 26.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P378EXERC10")
+set(name_Example "CH10P378EXERC11")
 
 #[[------------------------------------
 					Example's hierarchy
