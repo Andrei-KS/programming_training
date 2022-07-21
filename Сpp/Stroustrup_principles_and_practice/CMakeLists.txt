@@ -182,10 +182,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ it write its output (both standard output and error output) to file y. 
 # CH10P378EXERC11				/ Write a program that produces the sum of all the whitespace-separated
 #									/ integers in a text file. For example, bears: 17 elephants 9 end should output 26.
+#-------------------------------------- Chapter_11
+# CH11P382TRY					/ Output your birth year in decimal, hexadecimal, and octal form. Label eachvalue.
+#									/ Label each value.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH10P378EXERC11")
+set(name_Example "CH11P382TRY")
 
 #[[------------------------------------
 					Example's hierarchy
