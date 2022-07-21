@@ -185,10 +185,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #-------------------------------------- Chapter_11
 # CH11P382TRY					/ Output your birth year in decimal, hexadecimal, and octal form. Label eachvalue.
 #									/ Label each value.
+# CH11P384TRY					/ Complete the code fragment above to make it into a program. Try the suggested input; 
+#									/ then type in 1234 1234 1234 1234
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P382TRY")
+set(name_Example "CH11P384TRY")
 
 #[[------------------------------------
 					Example's hierarchy
