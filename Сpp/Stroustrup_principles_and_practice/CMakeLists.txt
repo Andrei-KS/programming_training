@@ -356,3 +356,7 @@ add_executable (${PROJECT_NAME} ${ListPathToSrc})
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE "${PROJECT_BINARY_DIR}/${name_Example}.lib"
 )
+
+# It defines correct dependencies for targets that eliminate necessary
+# to make an empty file for the library if it does not exist or not early build 
+add_dependencies(${PROJECT_NAME} ${NameLib})
