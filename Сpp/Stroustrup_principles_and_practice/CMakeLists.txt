@@ -187,10 +187,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ Label each value.
 # CH11P384TRY					/ Complete the code fragment above to make it into a program. Try the suggested input; 
 #									/ then type in 1234 1234 1234 1234
+# CH11P386TRY					/ Write some code to print the number 1234567.89 three times, first using
+#									/ defaultfloat, then fixed, then scientific. 
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P384TRY")
+set(name_Example "CH11P386TRY")
 
 #[[------------------------------------
 					Example's hierarchy
