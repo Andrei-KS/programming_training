@@ -191,10 +191,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ defaultfloat, then fixed, then scientific.
 # CH11P388TRY					/ Make a simple table including the last name, first name, telephone number,
 #									/ and email address for yourself and at least five of your friends.
+# CH11P407DRILL1_2			/ Declare an integer birth_year and assign it the year you were born.
+#									/ Output your birth_year in decimal, hexadecimal, and octal form.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P388TRY")
+set(name_Example "CH11P407DRILL1_2")
 
 #[[------------------------------------
 					Example's hierarchy
