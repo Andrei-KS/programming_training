@@ -196,10 +196,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ Label each value with the name of the base used.
 #									/ Did you line up your output in columns using the tab character? If not,
 #									/ do it.
+# CH11P408EXERC1				/ Write a program that reads a text file and converts its input to all lower
+#									/ case, producing a new file.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P407DRILL1_4")
+set(name_Example "CH11P408EXERC1")
 
 #[[------------------------------------
 					Example's hierarchy
