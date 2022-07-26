@@ -198,10 +198,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ do it.
 # CH11P408EXERC1				/ Write a program that reads a text file and converts its input to all lower
 #									/ case, producing a new file.
+# CH11P408EXERC2				/ Write a program that given a file name and a word outputs each line that
+#									/ contains that word together with the line number. Hint: getline()
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC1")
+set(name_Example "CH11P408EXERC2")
 
 #[[------------------------------------
 					Example's hierarchy
