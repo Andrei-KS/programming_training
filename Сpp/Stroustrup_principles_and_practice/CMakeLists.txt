@@ -200,10 +200,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ case, producing a new file.
 # CH11P408EXERC2				/ Write a program that given a file name and a word outputs each line that
 #									/ contains that word together with the line number. Hint: getline()
+# CH11P408EXERC3				/ Write a program that removes all vowels from a file (“disemvowels”). For
+#									/ example, Once upon a time! becomes nc pn tm!.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC2")
+set(name_Example "CH11P408EXERC3")
 
 #[[------------------------------------
 					Example's hierarchy
