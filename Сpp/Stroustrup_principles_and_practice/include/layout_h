@@ -8,14 +8,14 @@
 
 #include "RunCommandOfExample.h"
 
-/**
+/*
 * ${task_description}
 * @author ${author}
 */
 class ${name_file}RunExmple : public RunCommandOfExample
 {
 public:
-	/**
+	/*
 	 * The main function launch to run a example.
 	 * This function can use command line parameters
 	 * via self variables itsArgC, itsArgV

@@ -226,7 +226,8 @@ file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_description)
 string(REGEX MATCH "# ${name_Example}\t+[^#]+(#\t+[/][^#]+)*" task_description "${task_description}")
 # delete unnecessary characters of the CMakeList.txt file formatting from the task description 
 string(REGEX REPLACE "(# ${name_Example}\t+/ |\n$)" "" task_description ${task_description})
-string(REGEX REPLACE "\n#\t+/ " " " task_description ${task_description})
+string(REGEX REPLACE "#\t+/ " "* " task_description ${task_description})
+string(APPEND task_description "\n*")
 
 
 # set substitutions list
