@@ -208,10 +208,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ form.Then your program should output the values in properly spaced
 #									/ columns like this:
 #									/    0x43 hexadecimal converts to 67 decimal
+# CH11P408EXERC5				/ Write a program that reads strings and for each string outputs the
+#									/ character classification of each character, as defined by
+#									/ the character classification. Note that a character can have several
+#									/ classifications (e.g., x is both a letter and an alphanumeric).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC4")
+set(name_Example "CH11P408EXERC5")
 
 #[[------------------------------------
 					Example's hierarchy
