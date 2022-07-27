@@ -202,10 +202,16 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ contains that word together with the line number. Hint: getline()
 # CH11P408EXERC3				/ Write a program that removes all vowels from a file (“disemvowels”). For
 #									/ example, Once upon a time! becomes nc pn tm!.
+# CH11P408EXERC4				/ Write a program that prompts the user to enter several integers in any
+#									/ combination of octal, decimal, or hexadecimal, using the 0 and 0x base
+#									/ suffixes; interprets the numbers correctly; and converts them to decimal
+#									/ form.Then your program should output the values in properly spaced
+#									/ columns like this:
+#									/    0x43 hexadecimal converts to 67 decimal
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC3")
+set(name_Example "CH11P408EXERC4")
 
 #[[------------------------------------
 					Example's hierarchy
