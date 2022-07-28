@@ -212,10 +212,15 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ character classification of each character, as defined by
 #									/ the character classification. Note that a character can have several
 #									/ classifications (e.g., x is both a letter and an alphanumeric).
+# CH11P408EXERC6				/ Write a program that replaces punctuation with whitespace. Consider
+#									/ . (dot), ; (semicolon), , (comma), ? (question mark), - (dash), ' (single
+#									/ quote) punctuation characters. Don’t modify characters within a pair of
+#									/ double quotes ("). For example, " - don't use the as-if rule." becomes
+#									/ " don t use the as if rule ".
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC5")
+set(name_Example "CH11P408EXERC6")
 
 #[[------------------------------------
 					Example's hierarchy
