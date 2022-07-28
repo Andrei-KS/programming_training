@@ -217,10 +217,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ quote) punctuation characters. Don’t modify characters within a pair of
 #									/ double quotes ("). For example, " - don't use the as-if rule." becomes
 #									/ " don t use the as if rule ".
+# CH11P408EXERC7				/ Modify the program from the previous exercise so that it replaces don't
+#									/ with do not, can't with can not, etc.; leaves hyphens within words intact
+#									/ (so that we get “ do not use the as-if rule ”); and converts all characters
+#									/ to lower case.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC6")
+set(name_Example "CH11P408EXERC7")
 
 #[[------------------------------------
 					Example's hierarchy
