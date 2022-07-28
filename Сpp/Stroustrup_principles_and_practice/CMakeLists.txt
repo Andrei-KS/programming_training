@@ -221,10 +221,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ with do not, can't with can not, etc.; leaves hyphens within words intact
 #									/ (so that we get “ do not use the as-if rule ”); and converts all characters
 #									/ to lower case.
+# CH11P408EXERC9				/ Write a program is content next subprograms: one program that
+#									/ converts an ordinary text file into binary and one program that reads
+#									/ binary and converts it to text.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC7")
+set(name_Example "CH11P408EXERC9")
 
 #[[------------------------------------
 					Example's hierarchy
