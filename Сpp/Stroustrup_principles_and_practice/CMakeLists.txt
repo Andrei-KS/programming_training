@@ -233,10 +233,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH11P408EXERC12				/ Reverse the order of characters in a text file. For example, asdfghjkl
 #									/ becomes lkjhgfdsa. Warning: There is no really good, portable, and efficient
 #									/ way of reading a file backward.
+# CH11P408EXERC13				/ Reverse the order of words (defined as whitespace-separated strings) in a
+#									/ file. For example, Norwegian Blue parrot becomes parrot Blue Norwegian.
+#									/ You are allowed to assume that all the strings from the file will fit into
+#									/ memory at once.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC12")
+set(name_Example "CH11P408EXERC13")
 
 #[[------------------------------------
 					Example's hierarchy
