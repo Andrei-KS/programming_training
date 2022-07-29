@@ -230,10 +230,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ that returns a vector of whitespace-separated substrings from
 #									/ the argument s, where whitespace is defined as “ordinary whitespace” plus the
 #									/ characters in w.
+# CH11P408EXERC12				/ Reverse the order of characters in a text file. For example, asdfghjkl
+#									/ becomes lkjhgfdsa. Warning: There is no really good, portable, and efficient
+#									/ way of reading a file backward.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC11")
+set(name_Example "CH11P408EXERC12")
 
 #[[------------------------------------
 					Example's hierarchy
