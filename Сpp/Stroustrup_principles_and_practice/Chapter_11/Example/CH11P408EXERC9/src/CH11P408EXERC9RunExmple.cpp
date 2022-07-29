@@ -43,7 +43,7 @@ namespace {
 			{
 				break;
 			}
-			ios::openmode in_mode = ios_base::in | (work_function == bin_to_text ? 0 : ios::binary);
+			ios::openmode in_mode = ios_base::in | (work_function == bin_to_text ? ios::binary : 0);
 			ifstream infile{ str, in_mode };
 			if (!infile)
 			{
@@ -60,7 +60,7 @@ namespace {
 					cout << "Something went wrong when entering input_file_name\n";
 					continue;
 				}
-				ios::openmode out_mod = ios_base::out | (work_function == text_to_bin ? 0 : ios::binary);
+				ios::openmode out_mod = ios_base::out | (work_function == text_to_bin ? ios::binary : 0);
 				ofstream outfile{ output_file_name, out_mod };
 				if (!outfile)
 				{
