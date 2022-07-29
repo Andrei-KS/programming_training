@@ -224,10 +224,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH11P408EXERC9				/ Write a program is content next subprograms: one program that
 #									/ converts an ordinary text file into binary and one program that reads
 #									/ binary and converts it to text.
+# CH11P408EXERC10				/ Write a function vector<string> split(const string& s) that returns a vector
+#									/ of whitespace-separated substrings from the argument s
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC9")
+set(name_Example "CH11P408EXERC10")
 
 #[[------------------------------------
 					Example's hierarchy
