@@ -226,10 +226,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ binary and converts it to text.
 # CH11P408EXERC10				/ Write a function vector<string> split(const string& s) that returns a vector
 #									/ of whitespace-separated substrings from the argument s
+# CH11P408EXERC11				/ Write a function vector<string> split(const string& s, const string& w)
+#									/ that returns a vector of whitespace-separated substrings from
+#									/ the argument s, where whitespace is defined as “ordinary whitespace” plus the
+#									/ characters in w.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC10")
+set(name_Example "CH11P408EXERC11")
 
 #[[------------------------------------
 					Example's hierarchy
