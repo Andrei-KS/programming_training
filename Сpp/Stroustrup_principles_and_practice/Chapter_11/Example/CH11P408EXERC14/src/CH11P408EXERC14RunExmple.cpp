@@ -48,7 +48,7 @@ int CH11P408EXERC14RunExmple::excute()
 	}
 
 	cout << "a program that reads a text file and writes out how many characters\n"
-		<< "of each character classification.\n"
+		<< "of each character classification are in the file.\n"
 		<< "Please enter file name: ";
 	string file_name;
 	cin >> file_name;
