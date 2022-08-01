@@ -39,6 +39,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #
 # list of examples:
 #-------------------------------------- Chapter_3
+#-------------------------------------- Objects, Types, and Values
 # CH3P106TRY					/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
 # CH3P108TRY					/ Change the "Display working of operators" so that double will become int
 # CH3P124TASK1					/ Modify the "Hi, first_name" program
@@ -56,6 +57,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH3P127EXERC8				/ check parity int
 # CH3P127EXERC10				/ The simple calculator
 #-------------------------------------- Chapter_4
+#-------------------------------------- Computation
 # CH4P146TRY					/ Converting UAH, RUB and CNY to USD
 # CH4P149TRY					/ Converting UAD, CNY, EUR, GBP or RUB to USD using switch
 # CH4P151TRY					/ Display char and its number in table
@@ -79,6 +81,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH4P169EXERC5				/ The simple calculator
 # CH4P169EXERC8				/ Grains and cells 
 #-------------------------------------- Chapter_5
+#-------------------------------------- Errors
 # CH5P188TRY					/ Add checking
 # CH5P198TRY					/ Break program and get invalid result
 # CH5P199TRY					/ Set valid min and max value
@@ -92,6 +95,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH5P214EXERC7				/ Quadratic equation
 # CH5P214EXERC8				/ The sum of the first N numbers
 #-------------------------------------- Chapter_6
+#-------------------------------------- Writing a Program
 # CH6P250TRY					/ First version calculator
 # CH6P262TRY					/ Second version calculator
 # CH6P263TASK					/ Correction of the second version
@@ -100,6 +104,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH6P265EXERC6				/ Simple english grammar
 # CH6P265EXERC7				/ A grammar for bitwise logical expressions
 #-------------------------------------- Chapter_7
+#-------------------------------------- Completing a Program
 # CH7P297TASK4					/ Data for tests
 # CH7P297_298TASKS6_11		/ Add a predefined name k meaning 1000, a square root functions
 #									/ sqrt() and pow(x,i) to mean “Multiply x with itself i times”.
@@ -117,6 +122,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # Second Edition/ Bjarne Stroustrup/ 2014/
 # ISBN-13: 978-0-321-99278-9
 #-------------------------------------- Chapter_8
+#-------------------------------------- Technicalities: Functions, etc.
 # CH8P297DRILL1				/ Create three files:my.h, my.cpp, and use.cpp.
 # CH8P298DRILL3				/ Write a program using a single file containing three namespacesX, Y, and Z
 # CH8P300EXERC1				/ Modify the calculator program to make the input stream
@@ -126,6 +132,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH8P300EXERC5				/ Write two functions that reverse the order of elements in a vector<int>
 # CH8P301EXERC6				/ Write two functions that reverse the order of elements in a vector<string>
 #-------------------------------------- Chapter_9
+#-------------------------------------- Technicalities: Classes, etc.
 # CH9P339EXERC2				/ Design and implement a Name_pairs class holding (name,age) pair
 # CH9P339EXERC3				/ Replace Name_pair::print() with a (global) operator << and define ==
 #									/ and != for Name_pairs.
@@ -141,6 +148,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH9P341EXERC15				/ Refine the Money class by adding a currency.
 # CH9P341EXERC16				/ Define an input operator (>>) and output operator (<<) for the Money.
 #-------------------------------------- Chapter_10
+#-------------------------------------- Input and Output Streams
 # CH10P376DRILL1				/ Start a program to work with points. Begin by defining the data type
 #									/ Point that has two coordinate members x and y
 # CH10P376DRILL2				/ Prompt the user to input seven (x,y) pairs. As the data is entered,
@@ -183,6 +191,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH10P378EXERC11				/ Write a program that produces the sum of all the whitespace-separated
 #									/ integers in a text file. For example, bears: 17 elephants 9 end should output 26.
 #-------------------------------------- Chapter_11
+#-------------------------------------- Customizing Input and Output
 # CH11P382TRY					/ Output your birth year in decimal, hexadecimal, and octal form. Label eachvalue.
 #									/ Label each value.
 # CH11P384TRY					/ Complete the code fragment above to make it into a program. Try the suggested input; 
@@ -253,6 +262,8 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/	5		3
 #									/	7		2
 #									/	117
+#-------------------------------------- Chapter_12
+#-------------------------------------- A Display Model
 #
 
 # if the example does not exist that new directory will be created for it by layout
