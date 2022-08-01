@@ -245,10 +245,18 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 # CH11P408EXERC15				/ Write a program that reads a file of whitespace-separated numbers and
 #									/ outputs a file of numbers using scientific format and precision 8 in four
 #									/ fields of 20 characters per line.
+# CH11P408EXERC16				/ Write a program to read a file of whitespace-separated numbers and
+#									/ output them in order (lowest value first), one value per line. Write a value
+#									/ only once, and if it occurs more than once write the count of its occurrences
+#									/ on its line. For example, 7 5 5 7 3 117 5 should give
+#									/	3
+#									/	5		3
+#									/	7		2
+#									/	117
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC15")
+set(name_Example "CH11P408EXERC16")
 
 #[[------------------------------------
 					Example's hierarchy
