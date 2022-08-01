@@ -242,10 +242,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ memory at once.
 # CH11P408EXERC14				/ Write a program that reads a text file and writes out how many characters
 #									/ of each character classification are in the file
+# CH11P408EXERC15				/ Write a program that reads a file of whitespace-separated numbers and
+#									/ outputs a file of numbers using scientific format and precision 8 in four
+#									/ fields of 20 characters per line.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC14")
+set(name_Example "CH11P408EXERC15")
 
 #[[------------------------------------
 					Example's hierarchy
