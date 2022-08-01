@@ -240,10 +240,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #									/ file. For example, Norwegian Blue parrot becomes parrot Blue Norwegian.
 #									/ You are allowed to assume that all the strings from the file will fit into
 #									/ memory at once.
+# CH11P408EXERC14				/ Write a program that reads a text file and writes out how many characters
+#									/ of each character classification are in the file
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC8")
+set(name_Example "CH11P408EXERC14")
 
 #[[------------------------------------
 					Example's hierarchy
