@@ -3,24 +3,50 @@
 ]]#-------------------------------------------------------------------------
 #[[
 # This function make list of paths to everything that is determined by given extensions
-# @name             : create_paths_list_to
-# @param            : none
-# @external params  : EP_CLPT_Directories       - These directories will be involved
-# @external params  : EP_CLPT_Ignored           - These files will not be added to list
-# @external params  : EP_CLPT_Extra_File        - These files will be added to list
-# @external params  : EP_CLPT_Extension         - These extensions determine necessary files
-# @return           : out_List_Path_To 
+# @name   : create_paths_list_to
+# @param  : NONE
+# @param  : DIRECTORIES       - will be involved to find files
+# @param  : IGNORE_NAMES      - files that use these names is excluded
+# @param  : EXTRA_FILES       - will be added to list
+# @param  : EXTENSION         - These extensions determine necessary files
+# @return : out_List_Path_To 
 #
+# @requirement cmake_minimum_required 8.0 
 # @author Andrei-KS
 ]]#
 function(create_paths_list_to out_Paths_List_To)
-  set(paths_List_To)
-  set(ignore_List)
+  set(options
+    SHOWE_INFO_MESSAGE
+  )
+  set(args
+  )
+  set(list_Args
+    DIRECTORIES
+    IGNORE_NAMES
+    EXTRA_FILES
+    EXTENSION
+  )
+  cmake_parse_arguments(
+    PARSE_ARGV 0
+    create_paths_list_to
+    "${options}"
+    "${args}"
+    "${list_Args}"
+  )
 
+  
+  list(LENGTH create_paths_list_to_UNPARSED_ARGUMENTS amount_variable)
+  if(NOT amount_variable EQUAL 1)
+    message(FATAL_ERROR "Error : need only one variable for output of the paths list")
+  endif()
+
+  message(STATUS "Call create_paths_list_to(${out_Paths_List_To})")
+  
   # make ignore List
-  if(EP_CLPT_Ignored)
+  set(ignore_List)
+  if(create_paths_list_to_IGNORE_NAMES)
 
-    foreach(curr_Ign IN LISTS EP_CLPT_Ignored)
+    foreach(curr_Ign IN LISTS create_paths_list_to_IGNORE_NAMES)
       if(NOT ignore_List)
         set(ignore_List ${curr_Ign})
       else()
@@ -31,11 +57,15 @@ function(create_paths_list_to out_Paths_List_To)
     set(ignore_List "(${ignore_List})")
   endif()
 
+  if(create_paths_list_to_SHOWE_INFO_MESSAGE)
+    message("ignore_List: ${ignore_List}")
+  endif()
+
   set(extensions_For_Search)
-  if(EP_CLPT_Extension)
+  if(create_paths_list_to_EXTENSION)
 
     set(is_Skip False)
-    foreach(curr_Ext IN LISTS EP_CLPT_Extension)
+    foreach(curr_Ext IN LISTS create_paths_list_to_EXTENSION)
 
       if(curr_Ext STREQUAL "*")
 
@@ -65,15 +95,22 @@ function(create_paths_list_to out_Paths_List_To)
     "*"
     )
   endif()
-  
+
+  if(create_paths_list_to_SHOWE_INFO_MESSAGE)
+    message("extensions_For_Search : ${extensions_For_Search}")
+  endif()
+
+  set(paths_List_To)
+
   # walk given directories and make paths list
-  if(EP_CLPT_Directories)
+  if(create_paths_list_to_DIRECTORIES)
 
     foreach(curr_Ext IN LISTS extensions_For_Search)
 
       set(is_Find False)
-      foreach(curr_Dir IN LISTS EP_CLPT_Directories)
-
+      foreach(curr_Dir IN LISTS create_paths_list_to_DIRECTORIES)
+        
+        set(curr_Target)
         file(GLOB curr_Target "${curr_Dir}/${curr_Ext}")
         if(curr_Target)
 
@@ -85,7 +122,6 @@ function(create_paths_list_to out_Paths_List_To)
           set(exist_files)
           foreach(file IN LISTS curr_Target)
             if(NOT IS_DIRECTORY "${file}")
-              message("${file}")
               list(APPEND exist_files
                 "${file}"
               )
@@ -108,11 +144,12 @@ function(create_paths_list_to out_Paths_List_To)
     endforeach()
   endif()
 
-  # add extra file
-  if(EP_CLPT_Extra_File)
+
+  # add extra files
+  if(create_paths_list_to_EXTRA_FILES)
 
     set(default_Dir ${PROJECT_SOURCE_DIR})
-    foreach(file_Name IN LISTS EP_CLPT_Extra_File)
+    foreach(file_Name IN LISTS create_paths_list_to_EXTRA_FILES)
       
       if(NOT file_Name MATCHES "[^:]+:[^:]+")
         set(file_Name "${default_Dir}/${file_Name}")
@@ -122,19 +159,27 @@ function(create_paths_list_to out_Paths_List_To)
       if(file_Name MATCHES "[.][^./]*$")
         file(GLOB curr_Target "${file_Name}")
       else()
-        foreach(curr_Ext IN LISTS EP_CLPT_Extension)
+        foreach(curr_Ext IN LISTS create_paths_list_to_EXTENSION)
           file(GLOB curr_Target "${file_Name}.${curr_Ext}")
         endforeach()
       endif()
 
       if(NOT curr_Target)
-        message(WARNING "Warrning: Not found files (with extensions: ${EP_CLPT_Extension}) ${file_Name}")
+        message(WARNING "Warrning: Not found files (with extensions: ${Extension}) ${file_Name}")
       else()
         list(APPEND paths_List_To ${curr_Target})
       endif()
 
     endforeach()
   endif()
+
+  if(create_paths_list_to_SHOWE_INFO_MESSAGE)
+    message("${out_Paths_List_To} : ")
+    foreach( list_item IN LISTS paths_List_To)
+      message("\t${list_item}")
+    endforeach()
+  endif()
+
 
   set(${out_Paths_List_To} ${paths_List_To} PARENT_SCOPE)
 endfunction()
