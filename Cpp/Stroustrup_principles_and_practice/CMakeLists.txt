@@ -21,6 +21,27 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 #include(creat_test_for_lib)
 #include(copy_folder)
 
+#[[-------------------------------------------------------------------------
+                    The builder's configuration of main program
+]]#-------------------------------------------------------------------------
+# Setting main program
+# Setting SRC
+set(ListPathToSrc)
+List(APPEND ListPathToSrc
+	"${PROJECT_SOURCE_DIR}/src/main.cpp"
+)
+
+# Setting header
+set(ListPathToInclude)
+List(APPEND ListPathToInclude
+	"${PROJECT_SOURCE_DIR}/include"
+)
+
+# include header to main function
+include_directories(${ListPathToInclude})
+
+# Add source to this project's executable.
+add_executable (${PROJECT_NAME} ${ListPathToSrc})
 
 #[[----------------------------------------------------------------------------
                     The builder's configurations of libs
@@ -336,8 +357,8 @@ if(NOT EXISTS "${dir_Example}")
 
 
 	if(SHOWE_INFO_MESSAGE)
-		message("length_substitutions_list:\t"${length_substitutions_list})
-		message("upper_number_substitutions_list:\t"${upper_number_substitutions_list})
+		message("length_substitutions_list:\t${length_substitutions_list}")
+		message("upper_number_substitutions_list:\t${upper_number_substitutions_list}")
 		foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
 			list(GET substitutions_list ${index} search_item)
 			math(EXPR index_replace_item "${index} + 1" OUTPUT_FORMAT DECIMAL)
@@ -385,61 +406,39 @@ endif()
 
 # builder of Example lib
 # set default setting
-set(NameLib "${name_Example}")
-set(prefixDirectory)
-set(EP_CLFF_Includes)
-set(EP_CLFF_Src)
-set(EP_CLFF_SrcFiles)
-set(EP_CLFF_Libs)
+set(name_Lib "${name_Example}")
+set(includes_Directories)
+set(src_Directories)
+set(src_Ignore_Names)
+set(src_Extra_Files)
+set(lib_Directories)
+set(lib_Ignore_Names)
+set(lib_Extra_Files)
 
-set(prefixDirectory "${parent_dir}/Example/${name_Example}/")
-List(APPEND EP_CLFF_Includes 
+set(prefixDirectory "${parent_dir}/Example/${name_Example}")
+List(APPEND includes_Directories 
 	"${PROJECT_SOURCE_DIR}/include"
 	"${prefixDirectory}/include"
-	"${PROJECT_SOURCE_DIR}/lib/include"
+	"${PROJECT_SOURCE_DIR}/lib/Chrono/include"
 )
-List(APPEND EP_CLFF_Src 
+List(APPEND src_Directories 
 	"${prefixDirectory}/src"
-	"${PROJECT_SOURCE_DIR}/lib/src"
-)
-List(APPEND EP_CLFF_SrcFiles
-)
-List(APPEND EP_CLFF_Libs
+	"${PROJECT_SOURCE_DIR}/lib/Chrono/src"
 )
 
-creat_lib_from_files(${NameLib})
-
-
-
-
-
-#[[-------------------------------------------------------------------------
-                    The builder's configuration of main program
-]]#-------------------------------------------------------------------------
-# Setting main program
-# Setting SRC
-set(ListPathToSrc)
-List(APPEND ListPathToSrc
-	"${PROJECT_SOURCE_DIR}/src/main.cpp"
+creat_lib_from_files(
+	SHOWE_INFO_MESSAGE
+	NAME_LIB ${name_Lib}
+	NAME_TARGET ${PROJECT_NAME}
+	INCLUDES_DIRECTORIES ${includes_Directories}
+	SRC_DIRECTORIES ${src_Directories}
+	SRC_IGNORE_NAMES ${src_Ignored_Names}
+	SRC_EXTRA_FILES ${src_Extra_Files}
+	LIB_DIRECTORIES ${lib_Directories}
+	LIB_IGNORE_NAMES ${lib_Ignore_Names}
+	EXTRA_LIBS ${lib_Extra_Files}
 )
-
-# Setting header
-set(ListPathToInclude)
-List(APPEND ListPathToInclude
-	"${PROJECT_SOURCE_DIR}/include"
-)
-
-
-# include header to main function
-include_directories(${ListPathToInclude})
-
-# Add source to this project's executable.
-add_executable (${PROJECT_NAME} ${ListPathToSrc})
 
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE "${PROJECT_BINARY_DIR}/${name_Example}.lib"
 )
-
-# It defines correct dependencies for targets that eliminate necessary
-# to make an empty file for the library if it does not exist or not early build 
-add_dependencies(${PROJECT_NAME} ${NameLib})
