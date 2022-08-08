@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+                             Remember:
+-------------------------------------------------------------------------------
+---------------------------------------
+                   About linking static and dynamic lib
+---------------------------------------
+  If you create a library or program in C or C++, the build process consists
+  of two steps:
+    1. Compiling each C/C++ file into an object file
+    2. Linking the object files and creating library or
+       executable (If you create a static library, it isn't really linking;
+       but let's use this word for simplicity.)
+
+  - Compliation
+    If you compile code that makes use of a library, you need header files (.h)
+    for the library. They declare the public functions and classes in the
+    library. You don't need to binary files for compilation.
+  
+  - Linking
+    For the linking step, you then need the binary file of the static or
+    dynamic library (.lib or .a for static libraries, .dll or .so for
+    dynamic libraries).
+  
+  - Dependencies between libraries
+    If you create a static library, all your object files will be put
+    into a new library file. Nothing from the consumed library (static
+    or dynamic) will be included. But it will be needed when somebody
+    uses your library. So your library isn't self contained.
+
+    If you create a dynamic library and consume a static library,
+    the necessary code from the static library will be included into
+    your dynamic library. The new dynamic library will be self contained
+    as far as the consumed library is concerned.
+
+    If you create a dynamic library and consume a dynamic library,
+    only a reference to the consumed library will be included.
+    So to run the final product, both the new and the consumed
+    library will need to be available.
+
+reference:
+  1. https://stackoverflow.com/questions/41322971/compiling-a-library-that-uses-another-library-in-c
+  (see answer by dgrine)
