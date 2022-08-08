@@ -5,10 +5,11 @@
 # This function make list of paths to everything that is determined by given extensions
 # @name   : create_paths_list_to
 # @param  : NONE
-# @param  : DIRECTORIES       - will be involved to find files
-# @param  : IGNORE_NAMES      - files that use these names is excluded
-# @param  : EXTRA_FILES       - will be added to list
-# @param  : EXTENSION         - These extensions determine necessary files
+# @param  : SHOWE_INFO_MESSAGE  - option that allows showing of extra info of the paths making process
+# @param  : DIRECTORIES         - will be involved to find files
+# @param  : IGNORE_NAMES        - files that use these names is excluded
+# @param  : EXTRA_FILES         - will be added to list
+# @param  : EXTENSION           - These extensions determine necessary files
 # @return : out_List_Path_To 
 #
 # @requirement cmake_minimum_required 8.0 

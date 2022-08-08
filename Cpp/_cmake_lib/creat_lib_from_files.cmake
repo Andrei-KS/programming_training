@@ -11,7 +11,8 @@ include(create_paths_list_to)
 # the first assembly, instead of the created library, it creates a stub.
 # 
 # @name   : creat_lib_from_files
-# @param  : NAME_LIB
+# @param  : SHOWE_INFO_MESSAGE    - option that allows showing of extra info of the paths making process
+# @param  : NAME_LIB              - will be title of the lib that will be made
 # @param  : NAME_TARGET           - will depend on target of this lib to ensure that it build before name_target does.
 # @param  : INCLUDES_DIRECTORIES  - will be involved to find include files
 # @param  : SRC_DIRECTORIES       - will be involved to find source files
@@ -108,16 +109,16 @@ function(creat_lib_from_files)
 
   # Creat lib
   if(paths_To_SRC)
-      add_library(${name_Lib} STATIC ${paths_To_SRC})
-      foreach(include_Path IN LISTS creat_lib_from_files_INCLUDES_DIRECTORIES)
-          target_include_directories(${name_Lib} PUBLIC "${include_Path}/")
-      endforeach()
+    add_library(${name_Lib} STATIC ${paths_To_SRC})
+    foreach(include_Path IN LISTS creat_lib_from_files_INCLUDES_DIRECTORIES)
+      target_include_directories(${name_Lib} PUBLIC "${include_Path}/")
+    endforeach()
 
-      if(paths_To_Lib)
-        target_link_libraries(${name_Lib} PRIVATE ${paths_To_Lib})
-      endif()
+    if(paths_To_Lib)
+      target_link_libraries(${name_Lib} PRIVATE ${paths_To_Lib})
+    endif()
   else()
-      message(WARNING "Warrning: paths_To_Lib does not constened anything")
+      message(WARNING "Warrning: paths_To_SRC does not constened anything")
   endif()
 
   # make dependence
