@@ -26,117 +26,117 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 ]]#-------------------------------------------------------------------------
 # Setting main program
 # Setting SRC
-set(ListPathToSrc)
-List(APPEND ListPathToSrc
-	"${PROJECT_SOURCE_DIR}/src/main.cpp"
+set(list_Path_To_Src)
+List(APPEND list_Path_To_Src
+   "${PROJECT_SOURCE_DIR}/src/main.cpp"
 )
 
 # Setting header
-set(ListPathToInclude)
-List(APPEND ListPathToInclude
-	"${PROJECT_SOURCE_DIR}/include"
+set(list_Path_To_Include)
+List(APPEND list_Path_To_Include
+   "${PROJECT_SOURCE_DIR}/include"
 )
 
 # include header to main function
-include_directories(${ListPathToInclude})
+include_directories(${list_Path_To_Include})
 
 # Add source to this project's executable.
-add_executable (${PROJECT_NAME} ${ListPathToSrc})
+add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 
 #[[----------------------------------------------------------------------------
                     The builder's configurations of libs
 ]]#----------------------------------------------------------------------------
 
 #[[------------------------------------
-					Example lib 
+                    Example lib 
 ]]#------------------------------------
 # need choice one of example
 # naming rule for examples
 # [CH](number chapter)[P](number pag)[TASK/EXERC/DRILL/TRY](numbers)
-# TASK/DRILL	- Drill/task 
-# EXERC			- Exercises
-# TRY				- Try this
+# TASK/DRILL    - Drill/task 
+# EXERC         - Exercises
+# TRY           - Try this
 # example: CH1P1EXERC1
 #
 # list of examples:
 #-------------------------------------- Chapter_3
 #-------------------------------------- Objects, Types, and Values
-# CH3P106TRY					/ Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
-# CH3P108TRY					/ Change the "Display working of operators" so that double will become int
-# CH3P124TASK1					/ Modify the "Hi, first_name" program
-# CH3P124TASK2					/ Add string "How are you?I'm fine. I miss you." to cpp file of CH3P124TASK1 task
-# CH3P124TASK3					/ Add new variable friend_name and the string "How long have you met friend_name?" 
-# CH3P124TASK4					/ Add new variable friend_sex and the string "If you see friend_name, please ask him/her to call me."
-# CH3P125TASK5					/ Add new variable age, string "I heard you just celebrated your birthday and you are age years" and checking age
-# CH3P125TASK6					/ Add if statement for age
-# CH3P125TASK7					/ Add string "Sincerely yours" and place for signature
-# CH3P127EXERC2				/ Converting ml to km
-# CH3P127EXERC4				/ Arithmetical operation on int
-# CH3P127EXERC5				/ Arithmetical operation on double
-# CH3P127EXERC6				/ Enter three integers and then outputs them in ascending order 
-# CH3P127EXERC7				/ Enter three strings and then outputs them in ascending order 
-# CH3P127EXERC8				/ check parity int
-# CH3P127EXERC10				/ The simple calculator
+# CH3P106TRY                / Change the "The name and age" program so that it will display age in months. Entered age is expressed in years
+# CH3P108TRY                / Change the "Display working of operators" so that double will become int
+# CH3P124TASK1              / Modify the "Hi, first_name" program
+# CH3P124TASK2              / Add string "How are you?I'm fine. I miss you." to cpp file of CH3P124TASK1 task
+# CH3P124TASK3              / Add new variable friend_name and the string "How long have you met friend_name?" 
+# CH3P124TASK4              / Add new variable friend_sex and the string "If you see friend_name, please ask him/her to call me."
+# CH3P125TASK5              / Add new variable age, string "I heard you just celebrated your birthday and you are age years" and checking age
+# CH3P125TASK6              / Add if statement for age
+# CH3P125TASK7              / Add string "Sincerely yours" and place for signature
+# CH3P127EXERC2             / Converting ml to km
+# CH3P127EXERC4             / Arithmetical operation on int
+# CH3P127EXERC5             / Arithmetical operation on double
+# CH3P127EXERC6             / Enter three integers and then outputs them in ascending order 
+# CH3P127EXERC7             / Enter three strings and then outputs them in ascending order 
+# CH3P127EXERC8             / check parity int
+# CH3P127EXERC10            / The simple calculator
 #-------------------------------------- Chapter_4
 #-------------------------------------- Computation
-# CH4P146TRY					/ Converting UAH, RUB and CNY to USD
-# CH4P149TRY					/ Converting UAD, CNY, EUR, GBP or RUB to USD using switch
-# CH4P151TRY					/ Display char and its number in table
-# CH4P154TRY					/ Display char A-Za-z and its number in table using for
-# CH4P157TRY					/ Implementation square function without multiply
-# CH4P165TRY					/ Implementation a program to muffle unwanted words
-# CH4P166TASK1					/ Read and display two int
-# CH4P166TASK2					/ display max and min
-# CH4P166TASK3					/ display numbers are equal
-# CH4P166TASK4					/ Work with double
-# CH4P166TASK5					/ The numbers are almost equal
-# CH4P166TASK6					/ Reading more than two
-# CH4P167TASK7					/ Reading num and unit
-# CH4P167TASK8					/ Reading num and unit only [cm], [m], [in] and [ft]
-# CH4P167TASK9					/ Count numbers and calculate sum in [m]
-# CH4P167TASK10				/ Converting all entered values in [m]
-# CH4P167TASK11				/ sort values in vector
-# CH4P169EXERC2				/ find median
-# CH4P169EXERC3				/ Distances between cities
-# CH4P169EXERC4				/ Guess a number from 1 to 100
-# CH4P169EXERC5				/ The simple calculator
-# CH4P169EXERC8				/ Grains and cells 
+# CH4P146TRY                / Converting UAH, RUB and CNY to USD
+# CH4P149TRY                / Converting UAD, CNY, EUR, GBP or RUB to USD using switch
+# CH4P151TRY                / Display char and its number in table
+# CH4P154TRY                / Display char A-Za-z and its number in table using for
+# CH4P157TRY                / Implementation square function without multiply
+# CH4P165TRY                / Implementation a program to muffle unwanted words
+# CH4P166TASK1              / Read and display two int
+# CH4P166TASK2              / display max and min
+# CH4P166TASK3              / display numbers are equal
+# CH4P166TASK4              / Work with double
+# CH4P166TASK5              / The numbers are almost equal
+# CH4P166TASK6              / Reading more than two
+# CH4P167TASK7              / Reading num and unit
+# CH4P167TASK8              / Reading num and unit only [cm], [m], [in] and [ft]
+# CH4P167TASK9              / Count numbers and calculate sum in [m]
+# CH4P167TASK10             / Converting all entered values in [m]
+# CH4P167TASK11             / sort values in vector
+# CH4P169EXERC2             / find median
+# CH4P169EXERC3             / Distances between cities
+# CH4P169EXERC4             / Guess a number from 1 to 100
+# CH4P169EXERC5             / The simple calculator
+# CH4P169EXERC8             / Grains and cells 
 #-------------------------------------- Chapter_5
 #-------------------------------------- Errors
-# CH5P188TRY					/ Add checking
-# CH5P198TRY					/ Break program and get invalid result
-# CH5P199TRY					/ Set valid min and max value
-# CH5P209TRY					/ Find bad value for post condition
-# CH5P211TASK					/ Fixbug
-# CH5P214EXERC2				/ Сelsius to kelvin  
-# CH5P214EXERC3				/ Сelsius to kelvin, add checking less than -273.15C
-# CH5P214EXERC4				/ Сelsius to kelvin, add checking less than -273.15C into function
-# CH5P214EXERC5				/ Kelvin to celsius
-# CH5P214EXERC6				/ Celsius to fahrenheit and fahrenheit to celsius
-# CH5P214EXERC7				/ Quadratic equation
-# CH5P214EXERC8				/ The sum of the first N numbers
+# CH5P188TRY                / Add checking
+# CH5P198TRY                / Break program and get invalid result
+# CH5P199TRY                / Set valid min and max value
+# CH5P209TRY                / Find bad value for post condition
+# CH5P211TASK               / Fixbug
+# CH5P214EXERC2             / Сelsius to kelvin  
+# CH5P214EXERC3             / Сelsius to kelvin, add checking less than -273.15C
+# CH5P214EXERC4             / Сelsius to kelvin, add checking less than -273.15C into function
+# CH5P214EXERC5             / Kelvin to celsius
+# CH5P214EXERC6             / Celsius to fahrenheit and fahrenheit to celsius
+# CH5P214EXERC7             / Quadratic equation
+# CH5P214EXERC8             / The sum of the first N numbers
 #-------------------------------------- Chapter_6
 #-------------------------------------- Writing a Program
-# CH6P250TRY					/ First version calculator
-# CH6P262TRY					/ Second version calculator
-# CH6P263TASK					/ Correction of the second version
-# CH6P264EXERC2				/ Added '{' and '}' to second version calculator
-# CH6P264EXERC3				/ Added factorial function (number!) to second version calculator
-# CH6P265EXERC6				/ Simple english grammar
-# CH6P265EXERC7				/ A grammar for bitwise logical expressions
+# CH6P250TRY                / First version calculator
+# CH6P262TRY                / Second version calculator
+# CH6P263TASK               / Correction of the second version
+# CH6P264EXERC2             / Added '{' and '}' to second version calculator
+# CH6P264EXERC3             / Added factorial function (number!) to second version calculator
+# CH6P265EXERC6             / Simple english grammar
+# CH6P265EXERC7             / A grammar for bitwise logical expressions
 #-------------------------------------- Chapter_7
 #-------------------------------------- Completing a Program
-# CH7P297TASK4					/ Data for tests
-# CH7P297_298TASKS6_11		/ Add a predefined name k meaning 1000, a square root functions
-#									/ sqrt() and pow(x,i) to mean “Multiply x with itself i times”.
-#									/ Change the “declaration keyword” from let to #.
-#									/ Change the “quit keyword” from quit to exit.
-# CH7P299EXERC1_2				/ Allow underscores in the calculator’s variable names.
-#									/ Provide an assignment operator, '='.
-# CH7P299EXERC3				/ Provide named constants that you really can’t change the value of.
-# CH7P299EXERC4				/ Define a class called Symbol_table
-# CH7P299_300EXERC5_6		/ Modify  Token_stream::get() to return Token(print) when it sees a newline.
-#									/ Add key h/H/help for helping information
+# CH7P297TASK4              / Data for tests
+# CH7P297_298TASKS6_11      / Add a predefined name k meaning 1000, a square root functions
+#                           / sqrt() and pow(x,i) to mean “Multiply x with itself i times”.
+#                           / Change the “declaration keyword” from let to #.
+#                           / Change the “quit keyword” from quit to exit.
+# CH7P299EXERC1_2           / Allow underscores in the calculator’s variable names.
+#                           / Provide an assignment operator, '='.
+# CH7P299EXERC3             / Provide named constants that you really can’t change the value of.
+# CH7P299EXERC4             / Define a class called Symbol_table
+# CH7P299_300EXERC5_6       / Modify  Token_stream::get() to return Token(print) when it sees a newline.
+#                           / Add key h/H/help for helping information
 #
 # Below linking chapters and exercises is linked to the
 # book of Programming Principles and Practice Using C++/
@@ -144,154 +144,156 @@ add_executable (${PROJECT_NAME} ${ListPathToSrc})
 # ISBN-13: 978-0-321-99278-9
 #-------------------------------------- Chapter_8
 #-------------------------------------- Technicalities: Functions, etc.
-# CH8P297DRILL1				/ Create three files:my.h, my.cpp, and use.cpp.
-# CH8P298DRILL3				/ Write a program using a single file containing three namespacesX, Y, and Z
-# CH8P300EXERC1				/ Modify the calculator program to make the input stream
-#									/ an explicit parameter, rather than simply using cin.
-# CH8P300EXERC2				/ Write a function print() that prints a vector of ints
-# CH8P300EXERC3				/ Create a vector of Fibonacci numbers
-# CH8P300EXERC5				/ Write two functions that reverse the order of elements in a vector<int>
-# CH8P301EXERC6				/ Write two functions that reverse the order of elements in a vector<string>
+# CH8P297DRILL1             / Create three files:my.h, my.cpp, and use.cpp.
+# CH8P298DRILL3             / Write a program using a single file containing three namespacesX, Y, and Z
+# CH8P300EXERC1             / Modify the calculator program to make the input stream
+#                           / an explicit parameter, rather than simply using cin.
+# CH8P300EXERC2             / Write a function print() that prints a vector of ints
+# CH8P300EXERC3             / Create a vector of Fibonacci numbers
+# CH8P300EXERC5             / Write two functions that reverse the order of elements in a vector<int>
+# CH8P301EXERC6             / Write two functions that reverse the order of elements in a vector<string>
 #-------------------------------------- Chapter_9
 #-------------------------------------- Technicalities: Classes, etc.
-# CH9P339EXERC2				/ Design and implement a Name_pairs class holding (name,age) pair
-# CH9P339EXERC3				/ Replace Name_pair::print() with a (global) operator << and define ==
-#									/ and != for Name_pairs.
-# CH9P339EXERC5				/ Design and implement a Book class.
-# CH9P340EXERC6				/ Add operators for the Book class.
-# CH9P340EXERC7				/ Create an enumerated type for the Book class called Genre.
-# CH9P340EXERC8				/ Create a Patron class for the library.
-# CH9P340EXERC9				/ Create a Library class.
-# CH9P340EXERC10				/ Implement leapyear() in Chrono::Date.
-# CH9P340EXERC11				/ Design and implement a set of useful helper functions for the Date class.
-# CH9P340EXERC13				/ Design and implement a rational number class, Rational.
-# CH9P341EXERC14				/ Design and implement a Money class for calculations involving dollars and cents.
-# CH9P341EXERC15				/ Refine the Money class by adding a currency.
-# CH9P341EXERC16				/ Define an input operator (>>) and output operator (<<) for the Money.
+# CH9P339EXERC2             / Design and implement a Name_pairs class holding (name,age) pair
+# CH9P339EXERC3             / Replace Name_pair::print() with a (global) operator << and define ==
+#                           / and != for Name_pairs.
+# CH9P339EXERC5             / Design and implement a Book class.
+# CH9P340EXERC6             / Add operators for the Book class.
+# CH9P340EXERC7             / Create an enumerated type for the Book class called Genre.
+# CH9P340EXERC8             / Create a Patron class for the library.
+# CH9P340EXERC9             / Create a Library class.
+# CH9P340EXERC10            / Implement leapyear() in Chrono::Date.
+# CH9P340EXERC11            / Design and implement a set of useful helper functions for the Date class.
+# CH9P340EXERC13            / Design and implement a rational number class, Rational.
+# CH9P341EXERC14            / Design and implement a Money class for calculations involving dollars and cents.
+# CH9P341EXERC15            / Refine the Money class by adding a currency.
+# CH9P341EXERC16            / Define an input operator (>>) and output operator (<<) for the Money.
 #-------------------------------------- Chapter_10
 #-------------------------------------- Input and Output Streams
-# CH10P376DRILL1				/ Start a program to work with points. Begin by defining the data type
-#									/ Point that has two coordinate members x and y
-# CH10P376DRILL2				/ Prompt the user to input seven (x,y) pairs. As the data is entered,
-#									/ store it in a vector of Points called original_points
-# CH10P376DRILL4				/ Open an ofstream and output each point to a file named mydata.txt.
-# CH10P376DRILL5				/ Close the ofstream and then open an ifstream for mydata.txt. Read the data
-#									/ from mydata.txt and store it in a new vector called processed_points.
-# CH10P376DRILL6_7			/ Print the data elements from both vectors. Compare the two vectors
-#									/ and print Something's wrong! if the number of elements or
-#									/ the values of elements differ
-# CH10P377EXERC1				/ Write a program that produces the sum of all the numbers in a file of
-#									/ whitespace-separated integers.
-# CH10P377EXERC2				/ Write a program that creates a file of data in the form of the temperature
-#									/ Reading type. For testing, fill the file with at least 50
-#									/ “temperature readings.” Call this program and the file it
-#									/ creates raw_temps.txt.
-# CH10P377EXERC3				/ Write a program that reads the data from raw_temps.txt created
-#									/ in exercise 2 into a vector and then calculates the mean
-#									/ and median temperatures in your data set.
-# CH10P377EXERC4				/ Modify the program from exercise 2 to include a temperature 
-#									/ suffix c for Celsius or f for Fahrenheit temperatures. Then
-#									/ modify the program from exercise 3 to test each temperature,
-#									/ converting the Celsius readings to Fahrenheit before putting
-#									/ them into the vector
-# CH10P377EXERC5				/ Write the function print_year().
-# CH10P377EXERC6				/ Define a Roman_int class for holding Roman numerals (as ints) with a
-#									/ << and >>. Provide Roman_int with an as_int() member that returns
-#									/ the int value, so that if r is a Roman_int, we can write
-#									/ cout << "Roman" << r << " equals " << r.as_int() << '\n';.
-# CH10P378EXERC7				/ Make a version of the calculator from Chapter 7 that accepts Roman
-#									/ numerals rather than the usual Arabic ones, for example, XXI + CIV == CXXV.
-# CH10P378EXERC8				/ Write a program that accepts two file names and produces a new file that
-#									/ is the contents of the first file followed by the contents of the second; that
-#									/ is, the program concatenates the two files.
-# CH10P378EXERC9				/ Write a program that takes two files containing sorted whitespace-separated
-#									/ words and merges them, preserving order.
-# CH10P378EXERC10				/ Add a command from x to the calculator from Chapter 7 that makes it
-#									/ take input from a file x. Add a command to y to the calculator that makes
-#									/ it write its output (both standard output and error output) to file y. 
-# CH10P378EXERC11				/ Write a program that produces the sum of all the whitespace-separated
-#									/ integers in a text file. For example, bears: 17 elephants 9 end should output 26.
+# CH10P376DRILL1            / Start a program to work with points. Begin by defining the data type
+#                           / Point that has two coordinate members x and y
+# CH10P376DRILL2            / Prompt the user to input seven (x,y) pairs. As the data is entered,
+#                           / store it in a vector of Points called original_points
+# CH10P376DRILL4            / Open an ofstream and output each point to a file named mydata.txt.
+# CH10P376DRILL5            / Close the ofstream and then open an ifstream for mydata.txt. Read the data
+#                           / from mydata.txt and store it in a new vector called processed_points.
+# CH10P376DRILL6_7          / Print the data elements from both vectors. Compare the two vectors
+#                           / and print Something's wrong! if the number of elements or
+#                           / the values of elements differ
+# CH10P377EXERC1            / Write a program that produces the sum of all the numbers in a file of
+#                           / whitespace-separated integers.
+# CH10P377EXERC2            / Write a program that creates a file of data in the form of the temperature
+#                           / Reading type. For testing, fill the file with at least 50
+#                           / “temperature readings.” Call this program and the file it
+#                           / creates raw_temps.txt.
+# CH10P377EXERC3            / Write a program that reads the data from raw_temps.txt created
+#                           / in exercise 2 into a vector and then calculates the mean
+#                           / and median temperatures in your data set.
+# CH10P377EXERC4            / Modify the program from exercise 2 to include a temperature 
+#                           / suffix c for Celsius or f for Fahrenheit temperatures. Then
+#                           / modify the program from exercise 3 to test each temperature,
+#                           / converting the Celsius readings to Fahrenheit before putting
+#                           / them into the vector
+# CH10P377EXERC5            / Write the function print_year().
+# CH10P377EXERC6            / Define a Roman_int class for holding Roman numerals (as ints) with a
+#                           / << and >>. Provide Roman_int with an as_int() member that returns
+#                           / the int value, so that if r is a Roman_int, we can write
+#                           / cout << "Roman" << r << " equals " << r.as_int() << '\n';.
+# CH10P378EXERC7            / Make a version of the calculator from Chapter 7 that accepts Roman
+#                           / numerals rather than the usual Arabic ones, for example, XXI + CIV == CXXV.
+# CH10P378EXERC8            / Write a program that accepts two file names and produces a new file that
+#                           / is the contents of the first file followed by the contents of the second; that
+#                           / is, the program concatenates the two files.
+# CH10P378EXERC9            / Write a program that takes two files containing sorted whitespace-separated
+#                           / words and merges them, preserving order.
+# CH10P378EXERC10           / Add a command from x to the calculator from Chapter 7 that makes it
+#                           / take input from a file x. Add a command to y to the calculator that makes
+#                           / it write its output (both standard output and error output) to file y. 
+# CH10P378EXERC11           / Write a program that produces the sum of all the whitespace-separated
+#                           / integers in a text file. For example, bears: 17 elephants 9 end should output 26.
 #-------------------------------------- Chapter_11
 #-------------------------------------- Customizing Input and Output
-# CH11P382TRY					/ Output your birth year in decimal, hexadecimal, and octal form. Label eachvalue.
-#									/ Label each value.
-# CH11P384TRY					/ Complete the code fragment above to make it into a program. Try the suggested input; 
-#									/ then type in 1234 1234 1234 1234
-# CH11P386TRY					/ Write some code to print the number 1234567.89 three times, first using
-#									/ defaultfloat, then fixed, then scientific.
-# CH11P388TRY					/ Make a simple table including the last name, first name, telephone number,
-#									/ and email address for yourself and at least five of your friends.
-# CH11P407DRILL1_4			/ Declare an integer birth_year and assign it the year you were born.
-#									/ Output your birth_year in decimal, hexadecimal, and octal form.
-#									/ Label each value with the name of the base used.
-#									/ Did you line up your output in columns using the tab character? If not,
-#									/ do it.
-# CH11P408EXERC1				/ Write a program that reads a text file and converts its input to all lower
-#									/ case, producing a new file.
-# CH11P408EXERC2				/ Write a program that given a file name and a word outputs each line that
-#									/ contains that word together with the line number. Hint: getline()
-# CH11P408EXERC3				/ Write a program that removes all vowels from a file (“disemvowels”). For
-#									/ example, Once upon a time! becomes nc pn tm!.
-# CH11P408EXERC4				/ Write a program that prompts the user to enter several integers in any
-#									/ combination of octal, decimal, or hexadecimal, using the 0 and 0x base
-#									/ suffixes; interprets the numbers correctly; and converts them to decimal
-#									/ form.Then your program should output the values in properly spaced
-#									/ columns like this:
-#									/    0x43 hexadecimal converts to 67 decimal
-# CH11P408EXERC5				/ Write a program that reads strings and for each string outputs the
-#									/ character classification of each character, as defined by
-#									/ the character classification. Note that a character can have several
-#									/ classifications (e.g., x is both a letter and an alphanumeric).
-# CH11P408EXERC6				/ Write a program that replaces punctuation with whitespace. Consider
-#									/ . (dot), ; (semicolon), , (comma), ? (question mark), - (dash), ' (single
-#									/ quote) punctuation characters. Don’t modify characters within a pair of
-#									/ double quotes ("). For example, " - don't use the as-if rule." becomes
-#									/ " don t use the as if rule ".
-# CH11P408EXERC7				/ Modify the program from the previous exercise so that it replaces don't
-#									/ with do not, can't with can not, etc.; leaves hyphens within words intact
-#									/ (so that we get “ do not use the as-if rule ”); and converts all characters
-#									/ to lower case.
-# CH11P408EXERC8				/ Use the program from the previous exercise to make a dictionary.
-#									/ Run the result on a multi-page text file, look at the result,
-#									/ and see if you can improve the program to make a better dictionary.
-# CH11P408EXERC9				/ Write a program is content next subprograms: one program that
-#									/ converts an ordinary text file into binary and one program that reads
-#									/ binary and converts it to text.
-# CH11P408EXERC10				/ Write a function vector<string> split(const string& s) that returns a vector
-#									/ of whitespace-separated substrings from the argument s
-# CH11P408EXERC11				/ Write a function vector<string> split(const string& s, const string& w)
-#									/ that returns a vector of whitespace-separated substrings from
-#									/ the argument s, where whitespace is defined as “ordinary whitespace” plus the
-#									/ characters in w.
-# CH11P408EXERC12				/ Reverse the order of characters in a text file. For example, asdfghjkl
-#									/ becomes lkjhgfdsa. Warning: There is no really good, portable, and efficient
-#									/ way of reading a file backward.
-# CH11P408EXERC13				/ Reverse the order of words (defined as whitespace-separated strings) in a
-#									/ file. For example, Norwegian Blue parrot becomes parrot Blue Norwegian.
-#									/ You are allowed to assume that all the strings from the file will fit into
-#									/ memory at once.
-# CH11P408EXERC14				/ Write a program that reads a text file and writes out how many characters
-#									/ of each character classification are in the file
-# CH11P408EXERC15				/ Write a program that reads a file of whitespace-separated numbers and
-#									/ outputs a file of numbers using scientific format and precision 8 in four
-#									/ fields of 20 characters per line.
-# CH11P408EXERC16				/ Write a program to read a file of whitespace-separated numbers and
-#									/ output them in order (lowest value first), one value per line. Write a value
-#									/ only once, and if it occurs more than once write the count of its occurrences
-#									/ on its line. For example, 7 5 5 7 3 117 5 should give
-#									/	3
-#									/	5		3
-#									/	7		2
-#									/	117
+# CH11P382TRY               / Output your birth year in decimal, hexadecimal, and octal form. Label eachvalue.
+#                           / Label each value.
+# CH11P384TRY               / Complete the code fragment above to make it into a program. Try the suggested input; 
+#                           / then type in 1234 1234 1234 1234
+# CH11P386TRY               / Write some code to print the number 1234567.89 three times, first using
+#                           / defaultfloat, then fixed, then scientific.
+# CH11P388TRY               / Make a simple table including the last name, first name, telephone number,
+#                           / and email address for yourself and at least five of your friends.
+# CH11P407DRILL1_4          / Declare an integer birth_year and assign it the year you were born.
+#                           / Output your birth_year in decimal, hexadecimal, and octal form.
+#                           / Label each value with the name of the base used.
+#                           / Did you line up your output in columns using the tab character? If not,
+#                           / do it.
+# CH11P408EXERC1            / Write a program that reads a text file and converts its input to all lower
+#                           / case, producing a new file.
+# CH11P408EXERC2            / Write a program that given a file name and a word outputs each line that
+#                           / contains that word together with the line number. Hint: getline()
+# CH11P408EXERC3            / Write a program that removes all vowels from a file (“disemvowels”). For
+#                           / example, Once upon a time! becomes nc pn tm!.
+# CH11P408EXERC4            / Write a program that prompts the user to enter several integers in any
+#                           / combination of octal, decimal, or hexadecimal, using the 0 and 0x base
+#                           / suffixes; interprets the numbers correctly; and converts them to decimal
+#                           / form.Then your program should output the values in properly spaced
+#                           / columns like this:
+#                           /    0x43 hexadecimal converts to 67 decimal
+# CH11P408EXERC5            / Write a program that reads strings and for each string outputs the
+#                           / character classification of each character, as defined by
+#                           / the character classification. Note that a character can have several
+#                           / classifications (e.g., x is both a letter and an alphanumeric).
+# CH11P408EXERC6            / Write a program that replaces punctuation with whitespace. Consider
+#                           / . (dot), ; (semicolon), , (comma), ? (question mark), - (dash), ' (single
+#                           / quote) punctuation characters. Don’t modify characters within a pair of
+#                           / double quotes ("). For example, " - don't use the as-if rule." becomes
+#                           / " don t use the as if rule ".
+# CH11P408EXERC7            / Modify the program from the previous exercise so that it replaces don't
+#                           / with do not, can't with can not, etc.; leaves hyphens within words intact
+#                           / (so that we get “ do not use the as-if rule ”); and converts all characters
+#                           / to lower case.
+# CH11P408EXERC8            / Use the program from the previous exercise to make a dictionary.
+#                           / Run the result on a multi-page text file, look at the result,
+#                           / and see if you can improve the program to make a better dictionary.
+# CH11P408EXERC9            / Write a program is content next subprograms: one program that
+#                           / converts an ordinary text file into binary and one program that reads
+#                           / binary and converts it to text.
+# CH11P408EXERC10           / Write a function vector<string> split(const string& s) that returns a vector
+#                           / of whitespace-separated substrings from the argument s
+# CH11P408EXERC11           / Write a function vector<string> split(const string& s, const string& w)
+#                           / that returns a vector of whitespace-separated substrings from
+#                           / the argument s, where whitespace is defined as “ordinary whitespace” plus the
+#                           / characters in w.
+# CH11P408EXERC12           / Reverse the order of characters in a text file. For example, asdfghjkl
+#                           / becomes lkjhgfdsa. Warning: There is no really good, portable, and efficient
+#                           / way of reading a file backward.
+# CH11P408EXERC13           / Reverse the order of words (defined as whitespace-separated strings) in a
+#                           / file. For example, Norwegian Blue parrot becomes parrot Blue Norwegian.
+#                           / You are allowed to assume that all the strings from the file will fit into
+#                           / memory at once.
+# CH11P408EXERC14           / Write a program that reads a text file and writes out how many characters
+#                           / of each character classification are in the file
+# CH11P408EXERC15           / Write a program that reads a file of whitespace-separated numbers and
+#                           / outputs a file of numbers using scientific format and precision 8 in four
+#                           / fields of 20 characters per line.
+# CH11P408EXERC16           / Write a program to read a file of whitespace-separated numbers and
+#                           / output them in order (lowest value first), one value per line. Write a value
+#                           / only once, and if it occurs more than once write the count of its occurrences
+#                           / on its line. For example, 7 5 5 7 3 117 5 should give
+#                           /   3
+#                           /   5      3
+#                           /   7      2
+#                           /   117
 #-------------------------------------- Chapter_12
 #-------------------------------------- A Display Model
+# CH12P_FLTK                /
+#                           /
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH11P408EXERC16")
+set(name_Example "CH12P415_FLTK")
 
 #[[------------------------------------
-					Example's hierarchy
+                    Example's hierarchy
 ]]#------------------------------------
 # processing the example name, if it does not exist, hierarchy will be made for it 
 
@@ -300,107 +302,113 @@ option(SHOWE_INFO_MESSAGE "" TRUE)
 
 # set layout file names
 set(layout_file_names
-	"layout_h"
-	"layout_cpp"
+  "layout_h"
+  "layout_cpp"
 )
 
 # search task description of the name_Example in CMakeLists.txt
 file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_description)
-string(REGEX MATCH "# ${name_Example}\t+[^#]+(#\t+[/][^#]+)*" task_description "${task_description}")
-# delete unnecessary characters of the CMakeList.txt file formatting from the task description 
-string(REGEX REPLACE "(# ${name_Example}\t+/ |\n$)" "" task_description ${task_description})
-string(REGEX REPLACE "#\t+/ " "* " task_description ${task_description})
-string(APPEND task_description "\n*")
+string(REGEX MATCH "# ${name_Example}(\t|[ ])+[^#]+(#(\t|[ ])+[/][^#]+)*" task_description "${task_description}")
+# delete unnecessary characters of the CMakeList.txt file formatting from the task description
+if(task_description)
+  string(REGEX REPLACE "(# ${name_Example}(\t|[ ])+/[ ]?|\n$)" "" task_description ${task_description})
+  string(REGEX REPLACE "#(\t|[ ])+/[ ]?" "* " task_description ${task_description})
+  string(APPEND task_description "\n*")
+endif()
+
+if(SHOWE_STATUS_MESSAGE)
+  message(STATUS "task_description:\n${task_description}")
+endif()
 
 
 # set substitutions list
 set(current_date)
 string(TIMESTAMP current_date "%m/%d/%Y %H:%M:%S")
 set(substitutions_list
-	"name_file"	"${name_Example}"
-	"project_source_dir_include" "{PROJECT_SOURCE_DIR}/include"
-	"date_generate" "${current_date}"
-	"author" "Andrei-KS"
-	"task_description" "${task_description}"
+  "name_file"   "${name_Example}"
+  "project_source_dir_include" "{PROJECT_SOURCE_DIR}/include"
+  "date_generate" "${current_date}"
+  "author" "Andrei-KS"
+  "task_description" "${task_description}"
 )
 
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
-	set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
+  set(parent_dir "${parent_dir}${CMAKE_MATCH_1}")
 else()
-	set(parent_dir "${parent_dir}EmptyNumber")
+  set(parent_dir "${parent_dir}EmptyNumber")
 endif()
 
 set(dir_Example "${PROJECT_SOURCE_DIR}/${parent_dir}/Example/${name_Example}")
 if(NOT EXISTS "${dir_Example}")
 
-	make_directory(${dir_Example})
-	if(SHOWE_STATUS_MESSAGE)
-		message(STATUS "Directory is not found: ${dir_Example}\n\t\tThis directory will be created by generator from layouts")
-	endif()
+  make_directory(${dir_Example})
+  if(SHOWE_STATUS_MESSAGE)
+    message(STATUS "Directory is not found: ${dir_Example}\n\t\tThis directory will be created by generator from layouts")
+  endif()
 
-	set(src_dir_Example "${dir_Example}/src")
-	set(include_dir_Example "${dir_Example}/include")
-	make_directory(${src_dir_Example})
-	make_directory(${include_dir_Example})
-	
-	# get the number of items on the list
-	list(LENGTH substitutions_list length_substitutions_list)
-	# get the max valid index of the list
-	math(EXPR upper_number_substitutions_list "${length_substitutions_list} - 1" OUTPUT_FORMAT DECIMAL)
+  set(src_dir_Example "${dir_Example}/src")
+  set(include_dir_Example "${dir_Example}/include")
+  make_directory(${src_dir_Example})
+  make_directory(${include_dir_Example})
+   
+  # get the number of items on the list
+  list(LENGTH substitutions_list length_substitutions_list)
+  # get the max valid index of the list
+  math(EXPR upper_number_substitutions_list "${length_substitutions_list} - 1" OUTPUT_FORMAT DECIMAL)
 
-	foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
-			list(GET substitutions_list ${index} list_item)
-			list(REMOVE_AT substitutions_list ${index})
-			list(INSERT substitutions_list ${index} "[$][{]${list_item}[}]")
-	endforeach()
+  foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
+    list(GET substitutions_list ${index} list_item)
+    list(REMOVE_AT substitutions_list ${index})
+    list(INSERT substitutions_list ${index} "[$][{]${list_item}[}]")
+  endforeach()
 
 
-	if(SHOWE_INFO_MESSAGE)
-		message("length_substitutions_list:\t${length_substitutions_list}")
-		message("upper_number_substitutions_list:\t${upper_number_substitutions_list}")
-		foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
-			list(GET substitutions_list ${index} search_item)
-			math(EXPR index_replace_item "${index} + 1" OUTPUT_FORMAT DECIMAL)
-			list(GET substitutions_list ${index_replace_item} replace_item)
-			message(${search_item}"\t<-\t"${replace_item})
-		endforeach()
-	endif()
+  if(SHOWE_INFO_MESSAGE)
+    message("length_substitutions_list:\t${length_substitutions_list}")
+    message("upper_number_substitutions_list:\t${upper_number_substitutions_list}")
+    foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
+      list(GET substitutions_list ${index} search_item)
+      math(EXPR index_replace_item "${index} + 1" OUTPUT_FORMAT DECIMAL)
+      list(GET substitutions_list ${index_replace_item} replace_item)
+      message(${search_item}"\t<-\t"${replace_item})
+    endforeach()
+  endif()
 
-	foreach(layout_file_name IN LISTS layout_file_names)
+  foreach(layout_file_name IN LISTS layout_file_names)
 
-		# get content from the current layout file
-		file(READ "${PROJECT_SOURCE_DIR}/include/${layout_file_name}" content_layout_file)
-		
-		if(SHOWE_INFO_MESSAGE)
-			message("layout_file_name:\t${layout_file_name}")
-			message("content_layout_file:\n${content_layout_file}")
-		endif()
+    # get content from the current layout file
+    file(READ "${PROJECT_SOURCE_DIR}/include/${layout_file_name}" content_layout_file)
+      
+    if(SHOWE_INFO_MESSAGE)
+      message("layout_file_name:\t${layout_file_name}")
+      message("content_layout_file:\n${content_layout_file}")
+    endif()
  
-		foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
-			list(GET substitutions_list ${index} search_item)
-			math(EXPR index_replace_item "${index} + 1" OUTPUT_FORMAT DECIMAL)
-			list(GET substitutions_list ${index_replace_item} replace_item)
+    foreach(index RANGE 0 ${upper_number_substitutions_list} 2)
+      list(GET substitutions_list ${index} search_item)
+      math(EXPR index_replace_item "${index} + 1" OUTPUT_FORMAT DECIMAL)
+      list(GET substitutions_list ${index_replace_item} replace_item)
 
-			string(REGEX REPLACE
-				"${search_item}"
-				"${replace_item}"
-				content_layout_file
-				"${content_layout_file}"
-			)
-		endforeach()
-		
-		if(SHOWE_INFO_MESSAGE)	
-			message("content_layout_file: ${content_layout_file}")
-		endif()
+      string(REGEX REPLACE
+        "${search_item}"
+        "${replace_item}"
+        content_layout_file
+        "${content_layout_file}"
+      )
+    endforeach()
+      
+    if(SHOWE_INFO_MESSAGE)   
+      message("content_layout_file: ${content_layout_file}")
+    endif()
 
-		if(${layout_file_name} MATCHES "[_]h$")
-			file(WRITE "${include_dir_Example}/${name_Example}RunExmple.h" "${content_layout_file}")
-		elseif(${layout_file_name} MATCHES "[_]cpp$")
-			file(WRITE "${src_dir_Example}/${name_Example}RunExmple.cpp" "${content_layout_file}")
-		endif()
+    if(${layout_file_name} MATCHES "[_]h$")
+      file(WRITE "${include_dir_Example}/${name_Example}RunExmple.h" "${content_layout_file}")
+    elseif(${layout_file_name} MATCHES "[_]cpp$")
+      file(WRITE "${src_dir_Example}/${name_Example}RunExmple.cpp" "${content_layout_file}")
+    endif()
 
-	endforeach()
+endforeach()
 
 endif()
 
@@ -417,28 +425,65 @@ set(lib_Extra_Files)
 
 set(prefixDirectory "${parent_dir}/Example/${name_Example}")
 List(APPEND includes_Directories 
-	"${PROJECT_SOURCE_DIR}/include"
-	"${prefixDirectory}/include"
-	"${PROJECT_SOURCE_DIR}/lib/Chrono/include"
+  "${PROJECT_SOURCE_DIR}/include"
+  "${prefixDirectory}/include"
+  "${PROJECT_SOURCE_DIR}/lib/Chrono/include"
 )
 List(APPEND src_Directories 
-	"${prefixDirectory}/src"
-	"${PROJECT_SOURCE_DIR}/lib/Chrono/src"
+  "${prefixDirectory}/src"
+  "${PROJECT_SOURCE_DIR}/lib/Chrono/src"
 )
 
+if(name_Example MATCHES "_FLTK")
+  #for VS2022 Community
+  message(STATUS "FLTK ON")
+  List(APPEND includes_Directories
+    "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/include"
+    "${PROJECT_SOURCE_DIR}/lib/GUI/include"
+  )
+  List(APPEND src_Directories 
+    "${PROJECT_SOURCE_DIR}/lib/GUI/src"
+  )
+  List(APPEND lib_Directories
+    "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/lib"
+  )
+
+  # Local Paths to additional libs of current lib
+  set(paths_To_Lib)
+  # Get all paths of files for source of packege
+  create_paths_list_to(
+    paths_To_Lib
+    DIRECTORIES   ${lib_Directories}
+    EXTENSION     "lib"
+  )
+  if(paths_To_Lib)
+    target_link_libraries(${PROJECT_NAME} PRIVATE ${paths_To_Lib})
+  endif()
+
+  if(EXISTS "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluid.exe")
+    message("file fluid.exe exists")
+    file(COPY "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluid.exe" DESTINATION ${PROJECT_BINARY_DIR})
+  endif()
+  if(EXISTS "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluidd.exe")
+    message("file fluidd.exe exists")
+    file(COPY "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluidd.exe" DESTINATION ${PROJECT_BINARY_DIR})
+  endif()
+endif()
+
 creat_lib_from_files(
-	SHOWE_INFO_MESSAGE
-	NAME_LIB ${name_Lib}
-	NAME_TARGET ${PROJECT_NAME}
-	INCLUDES_DIRECTORIES ${includes_Directories}
-	SRC_DIRECTORIES ${src_Directories}
-	SRC_IGNORE_NAMES ${src_Ignored_Names}
-	SRC_EXTRA_FILES ${src_Extra_Files}
-	LIB_DIRECTORIES ${lib_Directories}
-	LIB_IGNORE_NAMES ${lib_Ignore_Names}
-	EXTRA_LIBS ${lib_Extra_Files}
+  SHOWE_INFO_MESSAGE
+  NAME_LIB ${name_Lib}
+  NAME_TARGET ${PROJECT_NAME}
+  INCLUDES_DIRECTORIES ${includes_Directories}
+  SRC_DIRECTORIES ${src_Directories}
+  SRC_IGNORE_NAMES ${src_Ignored_Names}
+  SRC_EXTRA_FILES ${src_Extra_Files}
+  LIB_DIRECTORIES ${lib_Directories}
+  LIB_IGNORE_NAMES ${lib_Ignore_Names}
+  EXTRA_LIBS ${lib_Extra_Files}
 )
 
 target_link_libraries(${PROJECT_NAME}
-	PRIVATE "${PROJECT_BINARY_DIR}/${name_Example}.lib"
+  PRIVATE "${PROJECT_BINARY_DIR}/${name_Example}.lib"
 )
+

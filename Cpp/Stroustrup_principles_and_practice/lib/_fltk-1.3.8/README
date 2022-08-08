@@ -1,0 +1,187 @@
+1.Downloading fltk-1.3.8 from http://www.fltk.org/index.php
+2.Compiling and building fltk from source
+Note: for x64 on VS2022 you need follow next step:
+	N.1. tool->Options->build and run
+	N.2. change "maximum number of parallel project builds" to 1
+3.Check correct work fltk: you need try to run demo.exe in folder fltk-1.3.8/test
+4.Integrating fltk
+	4.1. copy the Fl folder into your include folder
+	4.2. copy all .lib files into lib
+	 Note that there are pairs of 2, one of them named with a “d” for debug in the end)
+	4.3. copy fluid.exe (and fluidd.exe) into bin folder
+	4.4. copy fltkdll.dll, fltkdll.exp, fltkdll.lib into dll folder from fltk-1.3.8/test
+
+_fltk-1.3.8 have next hierarchy:
+x64
+|-bin
+| \-fluid.exe
+|dll
+| |-fltkdll.dll
+| |-fltkdll.exp
+| \-fltkdll.lib
+|-include
+| |-abi-version.h
+| |-dirent.h
+| |-Enumerations.H
+| |-filename.H
+| |-Fl.H
+| |-Fl_Adjuster.H
+| |-fl_ask.H
+| |-Fl_Bitmap.H
+| |-Fl_BMP_Image.H
+| |-Fl_Box.H
+| |-Fl_Browser.H
+| |-Fl_Browser_.H
+| |-Fl_Button.H
+| |-Fl_Cairo.H
+| |-Fl_Cairo_Window.H
+| |-Fl_Chart.H
+| |-Fl_Check_Browser.H
+| |-Fl_Check_Button.H
+| |-Fl_Choice.H
+| |-Fl_Clock.H
+| |-Fl_Color_Chooser.H
+| |-Fl_Copy_Surface.H
+| |-Fl_Counter.H
+| |-Fl_Device.H
+| |-Fl_Dial.H
+| |-Fl_Double_Window.H
+| |-fl_draw.H
+| |-Fl_Export.H
+| |-Fl_File_Browser.H
+| |-Fl_File_Chooser.H
+| |-Fl_File_Icon.H
+| |-Fl_File_Input.H
+| |-Fl_Fill_Dial.H
+| |-Fl_Fill_Slider.H
+| |-Fl_Float_Input.H
+| |-Fl_FormsBitmap.H
+| |-Fl_FormsPixmap.H
+| |-Fl_Free.H
+| |-Fl_GIF_Image.H
+| |-Fl_Gl_Window.H
+| |-Fl_Group.H
+| |-Fl_Help_Dialog.H
+| |-Fl_Help_View.H
+| |-Fl_Hold_Browser.H
+| |-Fl_Hor_Fill_Slider.H
+| |-Fl_Hor_Nice_Slider.H
+| |-Fl_Hor_Slider.H
+| |-Fl_Hor_Value_Slider.H
+| |-Fl_Image.H
+| |-Fl_Image_Surface.H
+| |-Fl_Input.H
+| |-Fl_Input_.H
+| |-Fl_Input_Choice.H
+| |-Fl_Int_Input.H
+| |-Fl_JPEG_Image.H
+| |-Fl_Light_Button.H
+| |-Fl_Line_Dial.H
+| |-Fl_Menu.H
+| |-Fl_Menu_.H
+| |-Fl_Menu_Bar.H
+| |-Fl_Menu_Button.H
+| |-Fl_Menu_Item.H
+| |-Fl_Menu_Window.H
+| |-fl_message.H
+| |-Fl_Multiline_Input.H
+| |-Fl_Multiline_Output.H
+| |-Fl_Multi_Browser.H
+| |-Fl_Multi_Label.H
+| |-Fl_Native_File_Chooser.H
+| |-Fl_Nice_Slider.H
+| |-Fl_Object.H
+| |-Fl_Output.H
+| |-Fl_Overlay_Window.H
+| |-Fl_Pack.H
+| |-Fl_Paged_Device.H
+| |-Fl_Pixmap.H
+| |-Fl_Plugin.H
+| |-Fl_PNG_Image.H
+| |-Fl_PNM_Image.H
+| |-Fl_Positioner.H
+| |-Fl_PostScript.H
+| |-Fl_Preferences.H
+| |-Fl_Printer.H
+| |-Fl_Progress.H
+| |-Fl_Radio_Button.H
+| |-Fl_Radio_Light_Button.H
+| |-Fl_Radio_Round_Button.H
+| |-Fl_Repeat_Button.H
+| |-Fl_Return_Button.H
+| |-Fl_RGB_Image.H
+| |-Fl_Roller.H
+| |-Fl_Round_Button.H
+| |-Fl_Round_Clock.H
+| |-Fl_Scroll.H
+| |-Fl_Scrollbar.H
+| |-Fl_Secret_Input.H
+| |-Fl_Select_Browser.H
+| |-Fl_Shared_Image.H
+| |-fl_show_colormap.H
+| |-fl_show_input.H
+| |-Fl_Simple_Counter.H
+| |-Fl_Single_Window.H
+| |-Fl_Slider.H
+| |-Fl_Spinner.H
+| |-Fl_Sys_Menu_Bar.H
+| |-Fl_Table.H
+| |-Fl_Table_Row.H
+| |-Fl_Tabs.H
+| |-Fl_Text_Buffer.H
+| |-Fl_Text_Display.H
+| |-Fl_Text_Editor.H
+| |-Fl_Tile.H
+| |-Fl_Tiled_Image.H
+| |-Fl_Timer.H
+| |-Fl_Toggle_Button.H
+| |-Fl_Toggle_Light_Button.H
+| |-Fl_Toggle_Round_Button.H
+| |-Fl_Tooltip.H
+| |-Fl_Tree.H
+| |-Fl_Tree_Item.H
+| |-Fl_Tree_Item_Array.H
+| |-Fl_Tree_Prefs.H
+| |-fl_types.h
+| |-fl_utf8.h
+| |-Fl_Valuator.H
+| |-Fl_Value_Input.H
+| |-Fl_Value_Output.H
+| |-Fl_Value_Slider.H
+| |-Fl_Widget.H
+| |-Fl_Window.H
+| |-Fl_Wizard.H
+| |-Fl_XBM_Image.H
+| |-Fl_XPM_Image.H
+| |-forms.H
+| |-gl.h
+| |-gl2opengl.h
+| |-glu.h
+| |-glut.H
+| |-gl_draw.H
+| |-mac.H
+| |-math.h
+| |-names.h
+| |-platform.H
+| |-win32.H
+| \-x.H
+|-lib
+| |-fltk.lib
+| |-fltkd.lib
+| |-fltkforms.lib
+| |-fltkformsd.lib
+| |-fltkgl.lib
+| |-fltkgld.lib
+| |-fltkimages.lib
+| |-fltkimagesd.lib
+| |-fltkjpeg.lib
+| |-fltkjpegd.lib
+| |-fltkpng.lib
+| |-fltkpngd.lib
+| |-fltkzlib.lib
+| \-fltkzlibd.lib
+\-src
+
+reference:
+  1. https://alf-p-steinbach.github.io/Install-FLTK-for-use-with-Visual-C-/#3-build-the-library-with-visual-studio-2019
+  2. https://bumpyroadtocode.com/2017/08/05/how-to-install-and-use-fltk-1-3-4-in-visual-studio-2017-complete-guide/

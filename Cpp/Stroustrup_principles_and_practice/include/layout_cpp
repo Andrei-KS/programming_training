@@ -1,7 +1,7 @@
 /*
 	This file is generated from a layout that is in : ${project_source_dir_include}
-	date generate												: ${date_generate}
-	author														: ${author}
+	date generate                                   : ${date_generate}
+	author                                          : ${author}
 */
 
 #include "${name_file}RunExmple.h"
