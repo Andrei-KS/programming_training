@@ -285,8 +285,7 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           /   117
 #-------------------------------------- Chapter_12
 #-------------------------------------- A Display Model
-# CH12P_FLTK                /
-#                           /
+# CH12P415_FLTK             / Preparatory work for the start of the graphics learning.
 #
 
 # if the example does not exist that new directory will be created for it by layout
@@ -307,30 +306,70 @@ set(layout_file_names
 )
 
 # search task description of the name_Example in CMakeLists.txt
-file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_description)
-string(REGEX MATCH "# ${name_Example}(\t|[ ])+[^#]+(#(\t|[ ])+[/][^#]+)*" task_description "${task_description}")
+file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_Description)
+string(REGEX MATCH "# ${name_Example}(\t|[ ])+[^#]+(#(\t|[ ])+[/]([^#]|#[A-Za-z])+)*" task_Description "${task_Description}")
 # delete unnecessary characters of the CMakeList.txt file formatting from the task description
-if(task_description)
-  string(REGEX REPLACE "(# ${name_Example}(\t|[ ])+/[ ]?|\n$)" "" task_description ${task_description})
-  string(REGEX REPLACE "#(\t|[ ])+/[ ]?" "* " task_description ${task_description})
-  string(APPEND task_description "\n*")
+if(task_Description)
+  string(REGEX REPLACE "(# ${name_Example}(\t|[ ])+/[ ]?|\n$)" "" task_Description ${task_Description})
+  string(REGEX REPLACE "#(\t|[ ])+/[ ]?" "* " task_Description ${task_Description})
+  string(APPEND task_Description "\n*")
 endif()
 
 if(SHOWE_STATUS_MESSAGE)
-  message(STATUS "task_description:\n${task_description}")
+  message(STATUS "task_Description:\n${task_Description}")
 endif()
 
+set(is_FLTK)
+if(name_Example MATCHES "_FLTK")
+  set(is_FLTK TRUE)
+  message(STATUS "FLTK ON")
+endif()
 
 # set substitutions list
 set(current_date)
 string(TIMESTAMP current_date "%m/%d/%Y %H:%M:%S")
-set(substitutions_list
-  "name_file"   "${name_Example}"
-  "project_source_dir_include" "{PROJECT_SOURCE_DIR}/include"
-  "date_generate" "${current_date}"
-  "author" "Andrei-KS"
-  "task_description" "${task_description}"
+set(include_General
+  "std_lib_facilities.h"
 )
+set(include_Extra)
+if(is_FLTK)
+  list(APPEND include_Extra
+    "Simple_window.h"
+    "Graph.h"
+  )
+endif()
+set(substitutions_list
+  "name_File"   "${name_Example}"
+  "project_Source_Dir_Include" "{PROJECT_SOURCE_DIR}/include"
+  "date_Generate" "${current_date}"
+  "author" "Andrei-KS"
+  "task_Description" "${task_Description}"
+)
+
+if(include_General)
+  set(str_Include_General)
+  foreach(item IN LISTS include_General)
+    string(APPEND str_Include_General "#include \"${item}\"\n")
+  endforeach()
+  string(REGEX REPLACE "\n$" "" str_Include_General "${str_Include_General}")
+
+  list(APPEND substitutions_list
+    "include_General" "${str_Include_General}"
+  )
+endif()
+
+if(include_Extra)
+  set(str_Include_Extra)
+  foreach(item IN LISTS include_Extra)
+    string(APPEND str_Include_Extra "#include \"${item}\"\n")
+  endforeach()
+  string(REGEX REPLACE "\n$" "" str_Include_Extra "${str_Include_Extra}")
+
+  list(APPEND substitutions_list
+    "include_Extra" "${str_Include_Extra}"
+  )
+endif()
+
 
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
@@ -397,7 +436,14 @@ if(NOT EXISTS "${dir_Example}")
         "${content_layout_file}"
       )
     endforeach()
-      
+    
+    string(REGEX REPLACE
+      "[$]{[^}]+}[\n]?"
+      ""
+      content_layout_file
+      "${content_layout_file}"
+    )
+
     if(SHOWE_INFO_MESSAGE)   
       message("content_layout_file: ${content_layout_file}")
     endif()
@@ -434,9 +480,8 @@ List(APPEND src_Directories
   "${PROJECT_SOURCE_DIR}/lib/Chrono/src"
 )
 
-if(name_Example MATCHES "_FLTK")
+if(is_FLTK)
   #for VS2022 Community
-  message(STATUS "FLTK ON")
   List(APPEND includes_Directories
     "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/include"
     "${PROJECT_SOURCE_DIR}/lib/GUI/include"

@@ -1,18 +1,19 @@
 /*
-	This file is generated from a layout that is in : ${project_source_dir_include}
-	date generate                                   : ${date_generate}
+	This file is generated from a layout that is in : ${project_Source_Dir_Include}
+	date generate                                   : ${date_Generate}
 	author                                          : ${author}
 */
 
-#include "${name_file}RunExmple.h"
-#include "std_lib_facilities.h"
+#include "${name_File}RunExmple.h"
+${include_General}
+${include_Extra}
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new ${name_file}RunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new ${name_File}RunExmple();
 
 namespace {
 }
 
-int ${name_file}RunExmple::excute()
+int ${name_File}RunExmple::excute()
 {
 	return 0;
 }

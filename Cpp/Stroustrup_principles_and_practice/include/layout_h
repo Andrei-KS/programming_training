@@ -1,18 +1,18 @@
 /*
-	This file is generated from a layout that is in : ${project_source_dir_include}
-	date generate                                   : ${date_generate}
+	This file is generated from a layout that is in : ${project_Source_Dir_Include}
+	date generate                                   : ${date_Generate}
 	author                                          : ${author}
 */
-#ifndef __${name_file}__
-#define __${name_file}__
+#ifndef __${name_File}__
+#define __${name_File}__
 
 #include "RunCommandOfExample.h"
 
 /*
-* ${task_description}
+* ${task_Description}
 * @author ${author}
 */
-class ${name_file}RunExmple : public RunCommandOfExample
+class ${name_File}RunExmple : public RunCommandOfExample
 {
 public:
   /*
@@ -25,4 +25,4 @@ public:
   virtual int excute() override;
 };
 
-#endif // !__${name_file}__
+#endif // !__${name_File}__
