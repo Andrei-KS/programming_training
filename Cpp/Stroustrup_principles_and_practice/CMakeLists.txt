@@ -52,11 +52,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 ]]#------------------------------------
 # need choice one of example
 # naming rule for examples
-# [CH](number chapter)[P](number pag)[TASK/EXERC/DRILL/TRY](numbers)
+# [CH](number chapter)[P](number pag)[TASK/EXERC/DRILL/TRY](numbers)[_FLTK]
 # TASK/DRILL    - Drill/task 
 # EXERC         - Exercises
 # TRY           - Try this
-# example: CH1P1EXERC1
+# if _FLTK is added to the name FLTK will include in the project
+# example1: CH1P1EXERC1
+# example2: CH1P1EXERC1_FLTK
 #
 # list of examples:
 #-------------------------------------- Chapter_3
@@ -289,10 +291,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH12P415DRILL1_FLTK       / Get an empty Simple_window with the size 600 by 400 and a label My
 #                           / window compiled, linked, and run. #include Graph.h and Simple_window.h
 #                           / in your code; and include Graph.cpp and Window.cpp in your project.
+# CH12P415DRILL2_FLTK       / Now add the examples from §12.7 one by one, testing between each
+#                           / added subsection example.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P415DRILL1_FLTK")
+set(name_Example "CH12P415DRILL2_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
@@ -457,8 +461,7 @@ if(NOT EXISTS "${dir_Example}")
       file(WRITE "${src_dir_Example}/${name_Example}RunExmple.cpp" "${content_layout_file}")
     endif()
 
-endforeach()
-
+  endforeach()
 endif()
 
 # builder of Example lib
@@ -535,3 +538,17 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE "${PROJECT_BINARY_DIR}/${name_Example}.lib"
 )
 
+#if a data folder exists its contents will be copied to ${PROJECT_BINARY_DIR}
+set(data_dir_Example "${dir_Example}/data")
+if(EXISTS "${data_dir_Example}" AND IS_DIRECTORY "${data_dir_Example}")
+  message(STATUS "data_dir_Example : ${data_dir_Example}")
+  # Local Paths to data
+  set(paths_To_Data)
+  # Get all paths of files for source of packege
+  create_paths_list_to(
+    paths_To_Data
+    DIRECTORIES   ${data_dir_Example}
+    EXTENSION     "*"
+  )
+  file(COPY ${paths_To_Data} DESTINATION ${PROJECT_BINARY_DIR})
+endif()
