@@ -286,10 +286,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #-------------------------------------- Chapter_12
 #-------------------------------------- A Display Model
 # CH12P415_FLTK             / Preparatory work for the start of the graphics learning.
+# CH12P415DRILL1_FLTK       / Get an empty Simple_window with the size 600 by 400 and a label My
+#                           / window compiled, linked, and run. #include Graph.h and Simple_window.h
+#                           / in your code; and include Graph.cpp and Window.cpp in your project.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P415_FLTK")
+set(name_Example "CH12P415DRILL1_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy

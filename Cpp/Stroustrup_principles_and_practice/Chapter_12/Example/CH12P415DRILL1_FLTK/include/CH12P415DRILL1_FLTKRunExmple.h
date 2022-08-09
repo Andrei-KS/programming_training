@@ -1,19 +1,20 @@
 /*
 	This file is generated from a layout that is in : {PROJECT_SOURCE_DIR}/include
-	date generate                                   : 08/08/2022 15:39:08
+	date generate                                   : 08/09/2022 13:17:35
 	author                                          : Andrei-KS
 */
-#ifndef __CH12P415_FLTK__
-#define __CH12P415_FLTK__
+#ifndef __CH12P415DRILL1_FLTK__
+#define __CH12P415DRILL1_FLTK__
 
 #include "RunCommandOfExample.h"
 
 /*
-* Preparatory work for the start of the graphics learning.
+* Get an empty Simple_window with the size 600 by 400 and a label My
+* window compiled, linked, and run. 
 *
 * @author Andrei-KS
 */
-class CH12P415_FLTKRunExmple : public RunCommandOfExample
+class CH12P415DRILL1_FLTKRunExmple : public RunCommandOfExample
 {
 public:
   /*
@@ -26,4 +27,4 @@ public:
   virtual int excute() override;
 };
 
-#endif // !__CH12P415_FLTK__
+#endif // !__CH12P415DRILL1_FLTK__
