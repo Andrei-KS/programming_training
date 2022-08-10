@@ -293,10 +293,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / in your code; and include Graph.cpp and Window.cpp in your project.
 # CH12P415DRILL2_FLTK       / Now add the examples from §12.7 one by one, testing between each
 #                           / added subsection example.
+# CH12P438EXERC1_FLTK       / Draw a rectangle as a Rectangle and as a Polygon. Make the lines of the
+#                           / Polygon red and the lines of the Rectangle blue.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P415DRILL2_FLTK")
+set(name_Example "CH12P438EXERC1_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
