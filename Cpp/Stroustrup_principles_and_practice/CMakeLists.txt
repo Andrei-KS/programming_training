@@ -301,10 +301,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH12P438EXERC4_FLTK       / Draw a 3-by-3 tic-tac-toe board of alternating white and red squares.
 # CH12P438EXERC5_FLTK       / Draw a red ¼-inch frame around a rectangle that is three-quarters the
 #                           / height of your screen and two-thirds the width. 
+# CH12P438EXERC6_FLTK       / What happens when you draw a Shape that doesn’t fit inside its window?
+#                           / What happens when you draw a Window that doesn’t fit on your screen?
+#                           / Write two programs that illustrate these two phenomena.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC5_FLTK")
+set(name_Example "CH12P438EXERC6_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
