@@ -299,10 +299,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH12P438EXERC3_FLTK       / Draw your initials 150 pixels high. Use a thick line. Draw each initial in
 #                           / a different color
 # CH12P438EXERC4_FLTK       / Draw a 3-by-3 tic-tac-toe board of alternating white and red squares.
+# CH12P438EXERC5_FLTK       / Draw a red ¼-inch frame around a rectangle that is three-quarters the
+#                           / height of your screen and two-thirds the width. 
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC4_FLTK")
+set(name_Example "CH12P438EXERC5_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
