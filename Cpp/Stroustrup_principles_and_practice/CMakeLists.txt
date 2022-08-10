@@ -304,10 +304,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH12P438EXERC6_FLTK       / What happens when you draw a Shape that doesn’t fit inside its window?
 #                           / What happens when you draw a Window that doesn’t fit on your screen?
 #                           / Write two programs that illustrate these two phenomena.
+# CH12P438EXERC7_FLTK       / Draw a two-dimensional house seen from the front, the way a child
+#                           / would: with a door, two windows, and a roof with a chimney. Feel free to
+#                           / add details; maybe have “smoke” come out of the chimney.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC6_FLTK")
+set(name_Example "CH12P438EXERC7_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
