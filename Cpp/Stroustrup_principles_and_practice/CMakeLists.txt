@@ -296,10 +296,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH12P438EXERC1_FLTK       / Draw a rectangle as a Rectangle and as a Polygon. Make the lines of the
 #                           / Polygon red and the lines of the Rectangle blue.
 # CH12P438EXERC2_FLTK       / Draw a 100-by-30 Rectangle and place the text “Howdy!” inside it.
+# CH12P438EXERC3_FLTK       / Draw your initials 150 pixels high. Use a thick line. Draw each initial in
+#                           / a different color
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC2_FLTK")
+set(name_Example "CH12P438EXERC3_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
