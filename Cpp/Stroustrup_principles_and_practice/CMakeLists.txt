@@ -307,10 +307,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH12P438EXERC7_FLTK       / Draw a two-dimensional house seen from the front, the way a child
 #                           / would: with a door, two windows, and a roof with a chimney. Feel free to
 #                           / add details; maybe have “smoke” come out of the chimney.
+# CH12P438EXERC8_FLTK       / Draw the Olympic five rings. If you can’t remember the colors, look
+#                           / them up.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC7_FLTK")
+set(name_Example "CH12P438EXERC8_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
