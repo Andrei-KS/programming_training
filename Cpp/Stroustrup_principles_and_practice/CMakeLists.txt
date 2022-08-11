@@ -309,10 +309,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / add details; maybe have “smoke” come out of the chimney.
 # CH12P438EXERC8_FLTK       / Draw the Olympic five rings. If you can’t remember the colors, look
 #                           / them up.
+# CH12P438EXERC9_FLTK       / Display an image on the screen, e.g., a photo of a friend. Label the image
+#                           / both with a title on the window and with a caption in the window.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC8_FLTK")
+set(name_Example "CH12P438EXERC9_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
