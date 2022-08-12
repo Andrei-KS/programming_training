@@ -311,10 +311,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / them up.
 # CH12P438EXERC9_FLTK       / Display an image on the screen, e.g., a photo of a friend. Label the image
 #                           / both with a title on the window and with a caption in the window.
+# CH12P438EXERC10_FLTK      / Draw the file diagram from §12.8.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC9_FLTK")
+set(name_Example "CH12P438EXERC10_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
