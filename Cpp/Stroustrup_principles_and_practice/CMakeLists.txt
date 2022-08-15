@@ -312,10 +312,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH12P438EXERC9_FLTK       / Display an image on the screen, e.g., a photo of a friend. Label the image
 #                           / both with a title on the window and with a caption in the window.
 # CH12P438EXERC10_FLTK      / Draw the file diagram from §12.8.
+# CH12P438EXERC11_FLTK      / Draw a series of regular polygons, one inside the other. The innermost
+#                           / should be an equilateral triangle, enclosed by a square, enclosed by a
+#                           / pentagon, etc. For the mathematically adept only: let all the points of
+#                           / each N-polygon touch sides of the (N+1)-polygon. Hint: The trigonometric
+#                           / functions are found in <cmath> 
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC10_FLTK")
+set(name_Example "CH12P438EXERC11_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
