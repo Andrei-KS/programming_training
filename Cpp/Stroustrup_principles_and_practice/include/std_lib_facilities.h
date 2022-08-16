@@ -157,6 +157,13 @@ inline void error(const string& s, int i)
 	error(os.str());
 }
 
+inline void error(const string& s, double d)
+{
+  ostringstream os;
+  os << s << ": " << d;
+  error(os.str());
+}
+
 
 template<class T> char* as_bytes(T& i)	// needed for binary I/O
 {
