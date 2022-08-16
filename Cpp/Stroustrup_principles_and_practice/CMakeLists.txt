@@ -330,10 +330,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / points to one or more other points (if you like you can make the number
 #                           / of points to which to connect a point another argument or just use N–1,
 #                           / i.e., all the other points).
+# CH12P439EXERC13_FLTK      / Find a way to add color to the lines from the previous exercise. Make
+#                           / some lines one color and other lines another color or other colors.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH12P438EXERC12_FLTK")
+set(name_Example "CH12P439EXERC13_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
