@@ -336,10 +336,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #-------------------------------------- Chapter_13
 #-------------------------------------- Graphics Classes
 # CH13P445ILLUST_FLTK       / "two lines"
+# CH13P447ILLUST_FLTK       / "Lines"
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P445ILLUST_FLTK")
+set(name_Example "CH13P447ILLUST_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
