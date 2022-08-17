@@ -22,13 +22,13 @@ Vector_ref.h
 #ifndef __VECTOR_REF_H__
 #define __VECTOR_REF_H__
 
-#include <vector>
+#include "std_lib_facilities.h"
 
 namespace Utility_lib
 {
   template<class T> class Vector_ref {
-    std::vector<T*> v;
-    std::vector<T*> owned;
+    vector<T*> v;
+    vector<T*> owned;
   public:
     Vector_ref()
     {
@@ -43,12 +43,12 @@ namespace Utility_lib
       }
     }
 
-    void push_back(t& s)
+    void push_back(T& s)
     {
       v.push_back(&s);
     }
 
-    void push_back()
+    void push_back(T* p)
     {
       v.push_back(p);
       owned.push_back(p);
