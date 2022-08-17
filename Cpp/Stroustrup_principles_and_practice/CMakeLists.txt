@@ -338,10 +338,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P445ILLUST_FLTK       / "two lines"
 # CH13P447ILLUST_FLTK       / "Lines"
 # CH13P448ILLUST_FLTK       / "Grid"
+# CH13P462ILLUST_FLTK       / "Rectangle"
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P448ILLUST_FLTK")
+set(name_Example "CH13P462ILLUST_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
