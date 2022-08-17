@@ -8,7 +8,6 @@
 #include "std_lib_facilities.h"
 #include "Simple_window.h"
 #include "Graph.h"
-#include "Vector_ref.h"
 
 RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH13P467ILLUST_FLTKRunExmple();
 
@@ -20,7 +19,7 @@ int CH13P467ILLUST_FLTKRunExmple::excute()
   const Graph_lib::Point x{ 100,100 };
   Graph_lib::Simple_window win{ x,600,400,"Rectangle" };
 
-  Utility_lib::Vector_ref<Graph_lib::Rectangle> vr;
+  Graph_lib::Vector_ref<Graph_lib::Rectangle> vr;
   for (int i = 0; i < 16; ++i)
   {
     for (int j = 0; j < 16; ++j)

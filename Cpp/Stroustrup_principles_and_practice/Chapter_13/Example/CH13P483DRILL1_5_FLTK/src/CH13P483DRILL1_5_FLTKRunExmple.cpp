@@ -8,7 +8,6 @@
 #include "std_lib_facilities.h"
 #include "Simple_window.h"
 #include "Graph.h"
-#include "Vector_ref.h"
 
 RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH13P483DRILL1_5_FLTKRunExmple();
 
@@ -48,7 +47,7 @@ int CH13P483DRILL1_5_FLTKRunExmple::excute()
   sWindow.attach(grid);
 
   // make red rectangle
-  Utility_lib::Vector_ref<Graph_lib::Rectangle> redRectangles;
+  Graph_lib::Vector_ref<Graph_lib::Rectangle> redRectangles;
   for (int redRectangleIndex = 0; redRectangleIndex < gridHorizontalCellAmount; ++redRectangleIndex)
   {
     redRectangles.push_back(new Graph_lib::Rectangle(Graph_lib::Point{ gridOneCellWidth * redRectangleIndex, gridOneCellHeight * redRectangleIndex }, gridOneCellWidth, gridOneCellHeight));
@@ -58,7 +57,7 @@ int CH13P483DRILL1_5_FLTKRunExmple::excute()
   }
 
   // make three copies of the image
-  Utility_lib::Vector_ref<Graph_lib::Image> images;
+  Graph_lib::Vector_ref<Graph_lib::Image> images;
   for (int imageIndex = 0; imageIndex < 3; ++imageIndex)
   {
     images.push_back(new Graph_lib::Image(Graph_lib::Point{ 2 * gridOneCellWidth * (imageIndex + 1), 2 * gridOneCellHeight * imageIndex }, "Image.jpg"));
