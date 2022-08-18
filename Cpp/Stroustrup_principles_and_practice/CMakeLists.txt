@@ -354,10 +354,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / to square when you click the “Next” button. Just put wait_for_button()
 #                           / in a loop with some code that picks a new square for your image.
 # CH13P484EXERC1_FLTK       / Define a class Arc, which draws a part of an ellipse. Hint: fl_arc().
+# CH13P484EXERC2_FLTK       / Draw a box with rounded corners. Define a class Box, consisting of four
+#                           / lines and four arcs
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC1_FLTK")
+set(name_Example "CH13P484EXERC2_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
