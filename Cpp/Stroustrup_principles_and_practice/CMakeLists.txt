@@ -353,10 +353,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 5. Add a 100-by-100 image. Have it move around from square
 #                           / to square when you click the “Next” button. Just put wait_for_button()
 #                           / in a loop with some code that picks a new square for your image.
+# CH13P484EXERC1_FLTK       / Define a class Arc, which draws a part of an ellipse. Hint: fl_arc().
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P483DRILL1_5_FLTK")
+set(name_Example "CH13P484EXERC1_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
@@ -551,9 +552,11 @@ if(is_FLTK)
   List(APPEND includes_Directories
     "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/include"
     "${PROJECT_SOURCE_DIR}/lib/GUI/include"
+    "${PROJECT_SOURCE_DIR}/lib/ExtantionGUI/include"
   )
   List(APPEND src_Directories 
     "${PROJECT_SOURCE_DIR}/lib/GUI/src"
+    "${PROJECT_SOURCE_DIR}/lib/ExtantionGUI/src"
   )
   List(APPEND lib_Directories
     "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/lib"
