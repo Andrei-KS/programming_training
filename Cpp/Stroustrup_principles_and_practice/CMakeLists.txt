@@ -357,10 +357,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P484EXERC2_FLTK       / Draw a box with rounded corners. Define a class Box, consisting of four
 #                           / lines and four arcs
 # CH13P484EXERC3_FLTK       / Define a class Arrow, which draws a line with an arrowhead.
+# CH13P484EXERC4_FLTK       / Define functions n(), s(), e(), w(), center(), ne(), se(), sw(), and nw(). Each
+#                           / takes a Rectangle argument and returns a Point. These functions define
+#                           / “connection points” on and in the rectangle. For example, nw(r) is the
+#                           / northwest (top left) corner of a Rectangle called r.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC3_FLTK")
+set(name_Example "CH13P484EXERC4_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
