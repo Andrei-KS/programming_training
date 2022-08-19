@@ -361,10 +361,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / takes a Rectangle argument and returns a Point. These functions define
 #                           / “connection points” on and in the rectangle. For example, nw(r) is the
 #                           / northwest (top left) corner of a Rectangle called r.
+# CH13P484EXERC5_FLTK       / Define the functions from exercise 4 for a Circle and an Ellipse. Place the
+#                           / connection points on or outside the shape but not outside the bounding
+#                           / rectangle.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC4_FLTK")
+set(name_Example "CH13P484EXERC5_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
