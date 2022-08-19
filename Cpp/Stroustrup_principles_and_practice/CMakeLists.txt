@@ -356,10 +356,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P484EXERC1_FLTK       / Define a class Arc, which draws a part of an ellipse. Hint: fl_arc().
 # CH13P484EXERC2_FLTK       / Draw a box with rounded corners. Define a class Box, consisting of four
 #                           / lines and four arcs
+# CH13P484EXERC3_FLTK       / Define a class Arrow, which draws a line with an arrowhead.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC2_FLTK")
+set(name_Example "CH13P484EXERC3_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
@@ -543,10 +544,12 @@ List(APPEND includes_Directories
   "${PROJECT_SOURCE_DIR}/include"
   "${prefixDirectory}/include"
   "${PROJECT_SOURCE_DIR}/lib/Chrono/include"
+  "${PROJECT_SOURCE_DIR}/lib/Utility/include"
 )
 List(APPEND src_Directories 
   "${prefixDirectory}/src"
   "${PROJECT_SOURCE_DIR}/lib/Chrono/src"
+  "${PROJECT_SOURCE_DIR}/lib/Utility/src"
 )
 
 if(is_FLTK)
