@@ -123,7 +123,6 @@ namespace Graph_lib {
       fl_arc(point(0).x, point(0).y + (mHeight - 2 * mCornerRoundingHeight), 2 * mCornerRoundingWidth, 2 * mCornerRoundingHeight, 180, 270);
       fl_arc(point(0).x + (mWidth - 2 * mCornerRoundingWidth), point(0).y + (mHeight - 2 * mCornerRoundingHeight), 2 * mCornerRoundingWidth, 2 * mCornerRoundingHeight, 270, 360);
       fl_arc(point(0).x + (mWidth - 2 * mCornerRoundingWidth), point(0).y, 2 * mCornerRoundingWidth, 2 * mCornerRoundingHeight, 0, 90);
-      //fl_rect(point(0).x, point(0).y, w, h);
     }
   }
 
