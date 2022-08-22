@@ -364,10 +364,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P484EXERC5_FLTK       / Define the functions from exercise 4 for a Circle and an Ellipse. Place the
 #                           / connection points on or outside the shape but not outside the bounding
 #                           / rectangle.
+# CH13P484EXERC6_FLTK       / Write a program that draws a class diagram like the one in §12.6. It will
+#                           / simplify matters if you start by defining a Box class that is a rectangle with
+#                           / a text label.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC5_FLTK")
+set(name_Example "CH13P484EXERC6_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy

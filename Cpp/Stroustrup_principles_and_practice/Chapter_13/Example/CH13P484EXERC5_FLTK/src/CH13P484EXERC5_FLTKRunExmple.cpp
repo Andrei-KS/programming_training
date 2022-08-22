@@ -47,7 +47,7 @@ namespace {
 int CH13P484EXERC5_FLTKRunExmple::excute()
 {
   Graph_lib::Point windowLeftTopCorner{ xWindowLeftTopCorner, yWindowLeftTopCorner };
-  Graph_lib::Simple_window sWindow(windowLeftTopCorner, windowWidth, windowHeight, "CH13P484EXERC4_FLTKRunExmple");
+  Graph_lib::Simple_window sWindow(windowLeftTopCorner, windowWidth, windowHeight, "CH13P484EXERC5_FLTKRunExmple");
 
   Graph_lib::Circle circle{ Graph_lib::Point{300,300},100};
   circle.set_color(Graph_lib::Color::red);

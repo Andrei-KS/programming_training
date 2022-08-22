@@ -7,6 +7,8 @@
 #define __UTILITY_FUNCTION_H__
 
 #include "Graph.h"
+#include "Box.h"
+#include "TextBox.h"
 
 namespace Graph_lib {
 //-------------------------------------- Rectangle
@@ -41,6 +43,28 @@ namespace Graph_lib {
   Point e(const Ellipse& ellipse);
   Point w(const Ellipse& ellipse);
   Point center(const Ellipse& circle);
+
+//-------------------------------------- Box
+  Point n(const Box& box);
+  Point ne(const Box& box);
+  Point nw(const Box& box);
+  Point s(const Box& box);
+  Point se(const Box& box);
+  Point sw(const Box& box);
+  Point e(const Box& box);
+  Point w(const Box& box);
+  Point center(const Box& box);
+
+//-------------------------------------- TextBox
+  Point n(const TextBox& textBox);
+  Point ne(const TextBox& textBox);
+  Point nw(const TextBox& textBox);
+  Point s(const TextBox& textBox);
+  Point se(const TextBox& textBox);
+  Point sw(const TextBox& textBox);
+  Point e(const TextBox& textBox);
+  Point w(const TextBox& textBox);
+  Point center(const TextBox& textBox);
 }
 
 

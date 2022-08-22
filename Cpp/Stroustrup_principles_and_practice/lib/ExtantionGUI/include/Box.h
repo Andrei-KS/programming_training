@@ -49,6 +49,26 @@ namespace Graph_lib{
     */
     int cornerRoundingHeight() const;
 
+    /*
+    */
+    void setWidth(int width);
+
+    /*
+    */
+    void setHeight(int height);
+
+    /*
+    */
+    void setCornerRoundingSize(int cornerRoundingSize);
+
+    /*
+    */
+    void setCornerRoundingWidth(int cornerRoundingWidth);
+
+    /*
+    */
+    void setCornerRoundingHeight(int cornerRoundingHeight);
+
   private:
     /**/
     int mWidth;

@@ -61,11 +61,11 @@ namespace Graph_lib {
     {
       error("Bad box: first point is not top left");
     }
-    if (cornerRoundingWidth > mWidth / 2)
+    if (mCornerRoundingWidth > mWidth / 2)
     {
       error("Bad box: corner rounding width greater than half width");
     }
-    if (cornerRoundingHeight > mHeight / 2)
+    if (mCornerRoundingHeight > mHeight / 2)
     {
       error("Bad box: corner rounding height greater than half height");
     }
@@ -83,11 +83,11 @@ namespace Graph_lib {
     {
       error("Bad box: first point is not top left");
     }
-    if (cornerRoundingSize > mWidth / 2 )
+    if (mCornerRoundingWidth > mWidth / 2 )
     {
       error("Bad box: corner rounding width greater than half width");
     }
-    if (cornerRoundingSize > mHeight / 2)
+    if (mCornerRoundingHeight > mHeight / 2)
     {
       error("Bad box: corner rounding height greater than half height");
     }
@@ -128,12 +128,12 @@ namespace Graph_lib {
 
   int Box::width() const
   {
-    return point(1).x - point(1).x;
+    return mWidth;
   }
 
   int Box::height() const
   {
-    return point(1).y - point(1).y;
+    return mHeight;
   }
 
   int Box::cornerRoundingWidth() const
@@ -144,5 +144,63 @@ namespace Graph_lib {
   int Box::cornerRoundingHeight() const
   {
     return mCornerRoundingHeight;
+  }
+
+  void Box::setWidth(int width)
+  {
+    if (mCornerRoundingWidth > width / 2)
+    {
+      error("Bad box: corner rounding width greater than half width");
+    }
+    mWidth = width;
+  }
+
+  /*
+  */
+  void Box::setHeight(int height)
+  {
+    if (mCornerRoundingHeight > height / 2)
+    {
+      error("Bad box: corner rounding height greater than half height");
+    }
+    mHeight = height;
+  }
+
+  /*
+  */
+  void Box::setCornerRoundingSize(int cornerRoundingSize)
+  {
+    if (cornerRoundingSize > mWidth / 2)
+    {
+      error("Bad box: corner rounding width greater than half width");
+    }
+    if (cornerRoundingSize > mHeight / 2)
+    {
+      error("Bad box: corner rounding height greater than half height");
+    }
+    mCornerRoundingWidth = cornerRoundingSize;
+    mCornerRoundingHeight = cornerRoundingSize;
+  }
+
+  /*
+  */
+  void Box::setCornerRoundingWidth(int cornerRoundingWidth)
+  {
+    if (cornerRoundingWidth > mWidth / 2)
+    {
+      error("Bad box: corner rounding width greater than half width");
+    }
+    mCornerRoundingWidth = cornerRoundingWidth;
+  }
+
+  /*
+  */
+  void Box::setCornerRoundingHeight(int cornerRoundingHeight)
+  {
+    if (cornerRoundingHeight > mHeight / 2)
+    {
+      error("Bad box: corner rounding height greater than half height");
+    }
+    mCornerRoundingHeight = cornerRoundingHeight;
   }
 }
