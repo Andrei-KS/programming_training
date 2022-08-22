@@ -1,0 +1,28 @@
+/*
+  Regular_hexagon.h
+  author  : Andrei-KS
+*/
+
+#ifndef __REGULAR_HEXAGON_H__
+#define __REGULAR_HEXAGON_H__
+
+#include "Graph.h"
+
+namespace Graph_lib {
+  /*
+  */
+  struct Regular_hexagon : Polygon {
+    /*
+    * @param center -
+    * @param lengthToCorner -
+    * @param shapeRotate - measured in degrees counter - clockwise from 3 o'clock.
+    */
+    Regular_hexagon(Point center, int lengthToCorner, double shapeRotate = 0);
+
+  protected:
+    /**/
+    void add(Point p) = delete;
+  };
+}
+
+#endif // !__REGULAR_HEXAGON_H__

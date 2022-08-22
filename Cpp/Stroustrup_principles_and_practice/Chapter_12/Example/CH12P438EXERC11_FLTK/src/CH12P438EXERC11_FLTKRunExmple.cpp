@@ -8,6 +8,7 @@
 #include "std_lib_facilities.h"
 #include "Simple_window.h"
 #include "Graph.h"
+#include "Utility_lib_Constatnt.h"
 
 RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH12P438EXERC11_FLTKRunExmple();
 
@@ -49,7 +50,7 @@ namespace {
 
   inline double toRadian(double angle)
   {
-    return angle / 180 * std::_Pi;
+    return angle / 180 * Utility_lib::PI;
   }
 
   Vector2D rotateTo(const Vector2D& vect, const double angle)

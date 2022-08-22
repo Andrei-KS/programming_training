@@ -368,10 +368,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / simplify matters if you start by defining a Box class that is a rectangle with
 #                           / a text label.
 # CH13P484EXERC7_FLTK       / Make an RGB color chart (e.g., search the web for “RGB color chart”).
+# CH13P484EXERC8_FLTK       / Define a class Regular_hexagon (a regular hexagon is a six-sided polygon
+#                           / with all sides of equal length). Use the center and the distance from the
+#                           / center to a corner point as constructor arguments.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC7_FLTK")
+set(name_Example "CH13P484EXERC8_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
