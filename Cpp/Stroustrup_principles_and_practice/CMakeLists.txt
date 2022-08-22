@@ -367,10 +367,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P484EXERC6_FLTK       / Write a program that draws a class diagram like the one in §12.6. It will
 #                           / simplify matters if you start by defining a Box class that is a rectangle with
 #                           / a text label.
+# CH13P484EXERC7_FLTK       / Make an RGB color chart (e.g., search the web for “RGB color chart”).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC6_FLTK")
+set(name_Example "CH13P484EXERC7_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
