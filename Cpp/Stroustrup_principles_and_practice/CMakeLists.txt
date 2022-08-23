@@ -378,10 +378,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 300-pixel-long y axis through the center of the ellipse. Mark the foci.
 #                           / Mark a point on the ellipse that is not on one of the axes. Draw the two
 #                           / lines from the foci to the point.
+# CH13P485EXERC12_FLTK      / Draw a circle. Move a mark around on the circle (let it move a bit each
+#                           / time you hit the “Next” button).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC11_FLTK")
+set(name_Example "CH13P485EXERC12_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
