@@ -374,10 +374,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P484EXERC9_FLTK       / Tile a part of a window with Regular_hexagons (use at least eight hexagons).
 # CH13P485EXERC10_FLTK      / Define a class Regular_polygon. Use the center, the number of sides (>2),
 #                           / and the distance from the center to a corner as constructor arguments.
+# CH13P485EXERC11_FLTK      / Draw a 300-by-200-pixel ellipse. Draw a 400-pixel-long x axis and a
+#                           / 300-pixel-long y axis through the center of the ellipse. Mark the foci.
+#                           / Mark a point on the ellipse that is not on one of the axes. Draw the two
+#                           / lines from the foci to the point.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC10_FLTK")
+set(name_Example "CH13P485EXERC11_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
