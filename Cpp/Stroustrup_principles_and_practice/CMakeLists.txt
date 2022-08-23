@@ -381,10 +381,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P485EXERC12_FLTK      / Draw a circle. Move a mark around on the circle (let it move a bit each
 #                           / time you hit the “Next” button).
 # CH13P485EXERC13_FLTK      / Draw the color matrix from §13.10, but without lines around each color
+# CH13P485EXERC14_FLTK      / Define a right triangle class. Make an octagonal shape out of eight right
+#                           / triangles of different colors.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC13_FLTK")
+set(name_Example "CH13P485EXERC14_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
