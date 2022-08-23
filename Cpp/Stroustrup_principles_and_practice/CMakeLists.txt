@@ -372,10 +372,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / with all sides of equal length). Use the center and the distance from the
 #                           / center to a corner point as constructor arguments.
 # CH13P484EXERC9_FLTK       / Tile a part of a window with Regular_hexagons (use at least eight hexagons).
+# CH13P485EXERC10_FLTK      / Define a class Regular_polygon. Use the center, the number of sides (>2),
+#                           / and the distance from the center to a corner as constructor arguments.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P484EXERC9_FLTK")
+set(name_Example "CH13P485EXERC10_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
