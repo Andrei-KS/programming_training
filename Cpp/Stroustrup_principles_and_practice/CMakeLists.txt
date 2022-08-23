@@ -380,10 +380,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / lines from the foci to the point.
 # CH13P485EXERC12_FLTK      / Draw a circle. Move a mark around on the circle (let it move a bit each
 #                           / time you hit the “Next” button).
+# CH13P485EXERC13_FLTK      / Draw the color matrix from §13.10, but without lines around each color
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC12_FLTK")
+set(name_Example "CH13P485EXERC13_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
