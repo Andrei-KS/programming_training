@@ -8,18 +8,18 @@
 
 namespace Graph_lib {
 
-  Right_triangle::Right_triangle(Point rightAngle, int sidelength, double shapeRotate)
+  Right_triangle::Right_triangle(Point rightAngle, int sidelength1, int sidelength2, double shapeRotate)
   {
-    if (sidelength <= 0)
+    if (sidelength1 <= 0 || sidelength2 <= 0)
     {
-      error("The distance from the center to a corner point less or equal zero");
+      error("The one of side lengths of the right triangle less or equal zero");
     }
     Polygon::add(rightAngle);
-    Utility_lib::Vector2D direction{ sidelength,0 };
+    Utility_lib::Vector2D direction{ 1,0 };
     direction.rotate(shapeRotate);
-    Polygon::add(Point{ static_cast<int>(direction.x) + rightAngle.x, static_cast<int>(direction.y) + rightAngle.y });
+    Polygon::add(Point{ static_cast<int>(direction.x * sidelength1) + rightAngle.x, static_cast<int>(direction.y * sidelength1) + rightAngle.y });
     direction.rotate(90);
-    Polygon::add(Point{ static_cast<int>(direction.x) + rightAngle.x, static_cast<int>(direction.y) + rightAngle.y });
+    Polygon::add(Point{ static_cast<int>(direction.x * sidelength2) + rightAngle.x, static_cast<int>(direction.y * sidelength2) + rightAngle.y });
   }
 
 }

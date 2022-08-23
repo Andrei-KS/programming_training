@@ -14,10 +14,11 @@ namespace Graph_lib {
   struct Right_triangle : Polygon {
     /*
     * @param rightAngle -
-    * @param sidelength -
+    * @param sidelength1 -
+    * @param sidelength2 -
     * @param shapeRotate - measured in degrees counter - clockwise from 3 o'clock.
     */
-    Right_triangle(Point rightAngle, int sidelength, double shapeRotate = 0);
+    Right_triangle(Point rightAngle, int sidelength1, int sidelength2, double shapeRotate = 0);
 
   protected:
     /**/
