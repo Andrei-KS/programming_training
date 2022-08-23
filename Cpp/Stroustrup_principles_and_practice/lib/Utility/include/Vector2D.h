@@ -25,7 +25,7 @@ namespace Utility_lib {
   * @param rotateAngel - measured in degrees counter - clockwise from 3 o'clock.
   * @return rotated vector
   */
-  Vector2D getRotateVector(Vector2D vect, double rotateAngel);
+  Vector2D getRotateVector(const Vector2D& vect, double rotateAngel);
 }
 
 #endif // !__VECTOR2D_H__
