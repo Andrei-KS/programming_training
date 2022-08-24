@@ -386,10 +386,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P485EXERC15_FLTK      / “Tile” a window with small right triangles.
 # CH13P485EXERC16_FLTK      / Do the previous exercise, but with hexagons.
 # CH13P485EXERC17_FLTK      / Do the previous exercise, but using hexagons of a few different colors.
+# CH13P485EXERC18_FLTK      / Define a class Poly that represents a polygon but checks that its points
+#                           / really do make a polygon in its constructor. Hint: You’ll have to supply
+#                           / the points to the constructor.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC17_FLTK")
+set(name_Example "CH13P485EXERC18_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
