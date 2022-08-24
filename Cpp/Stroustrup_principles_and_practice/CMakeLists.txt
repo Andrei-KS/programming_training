@@ -389,10 +389,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P485EXERC18_FLTK      / Define a class Poly that represents a polygon but checks that its points
 #                           / really do make a polygon in its constructor. Hint: You’ll have to supply
 #                           / the points to the constructor.
+# CH13P485EXERC19_FLTK      / Define a class Star. One parameter should be the number of points. Draw
+#                           / a few stars with differing numbers of points, differing line colors,
+#                           / and differing fill colors.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC18_FLTK")
+set(name_Example "CH13P485EXERC19_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
