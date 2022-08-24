@@ -385,10 +385,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / triangles of different colors.
 # CH13P485EXERC15_FLTK      / “Tile” a window with small right triangles.
 # CH13P485EXERC16_FLTK      / Do the previous exercise, but with hexagons.
+# CH13P485EXERC17_FLTK      / Do the previous exercise, but using hexagons of a few different colors.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC16_FLTK")
+set(name_Example "CH13P485EXERC17_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
