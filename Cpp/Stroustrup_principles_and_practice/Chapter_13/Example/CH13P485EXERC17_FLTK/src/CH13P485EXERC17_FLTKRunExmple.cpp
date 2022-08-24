@@ -23,6 +23,7 @@ namespace {
 
   // The tile setting
   constexpr int lengthToCorner = 10;
+  constexpr int amountFrame = 10;
 
 
   int toInt(double value)
@@ -66,13 +67,20 @@ int CH13P485EXERC17_FLTKRunExmple::excute()
     }
   }
 
-
   for (int index = 0; index < tile.size(); index++)
   {
-    tile[index].set_color(Graph_lib::Color(index%255));
-    tile[index].set_fill_color(Graph_lib::Color((index+1) % 255));
     sWindow.attach(tile[index]);
   }
-  sWindow.wait_for_button();
+
+  int currFrame = amountFrame;
+  while (currFrame--)
+  {
+    for (int index = 0; index < tile.size(); index++)
+    {
+      tile[index].set_color(Graph_lib::Color((index+ currFrame) % 255));
+      tile[index].set_fill_color(Graph_lib::Color((index + currFrame + 1) % 255));
+    }
+    sWindow.wait_for_button();
+  }
   return 0;
 }
