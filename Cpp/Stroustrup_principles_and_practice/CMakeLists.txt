@@ -392,10 +392,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH13P485EXERC19_FLTK      / Define a class Star. One parameter should be the number of points. Draw
 #                           / a few stars with differing numbers of points, differing line colors,
 #                           / and differing fill colors.
+#-------------------------------------- Chapter_14
+#-------------------------------------- Graphics Class Design
+# CH14P516EXERC1_FLTK       / Define two classes Smiley and Frowny, which are both derived from class
+#                           / Circle and have two eyes and a mouth. Next, derive classes from Smiley
+#                           / and Frowny which add an appropriate hat to each
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH13P485EXERC19_FLTK")
+set(name_Example "CH14P516EXERC1_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
