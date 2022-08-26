@@ -28,7 +28,7 @@ namespace Graph_lib {
       fl_color(fill_color().as_int());
       int widthStrip = fill_line_style().width();
       fl_line_style(fill_line_style().style(), widthStrip);
-      int distanceBetweenStrips = distance_between_strips() <= 0 ? widthStrip : distance_between_strips();
+      int distanceBetweenStrips = distance_between_strips() < 0 ? widthStrip : distance_between_strips();
       int top = style().width() / 2  + distanceBetweenStrips;
       int down = height() - style().width() / 2 - distanceBetweenStrips;
       for (int currentYPosition = top; currentYPosition < down; currentYPosition += widthStrip + distanceBetweenStrips)

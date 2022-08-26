@@ -405,10 +405,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / by drawing one-pixel-wide horizontal lines across the inside of the rectangle
 #                           / (say, draw every second line like that). You may have to play with the
 #                           / width of lines and the line spacing to get a pattern you like.
+# CH14P516EXERC6_FLTK       / Define a Striped_circle using the technique from Striped_rectangle
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC5_FLTK")
+set(name_Example "CH14P516EXERC6_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
