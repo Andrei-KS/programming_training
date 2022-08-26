@@ -398,10 +398,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / Circle and have two eyes and a mouth. Next, derive classes from Smiley
 #                           / and Frowny which add an appropriate hat to each
 # CH14P516EXERC2_FLTK       / Try to copy a Shape. What happens?
+# CH14P516EXERC3_FLTK       / Define an abstract class and try to define an object of that type. What
+#                           / happens?
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC2_FLTK")
+set(name_Example "CH14P516EXERC3_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
