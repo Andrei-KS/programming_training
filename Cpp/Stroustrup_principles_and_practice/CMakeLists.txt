@@ -397,10 +397,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH14P516EXERC1_FLTK       / Define two classes Smiley and Frowny, which are both derived from class
 #                           / Circle and have two eyes and a mouth. Next, derive classes from Smiley
 #                           / and Frowny which add an appropriate hat to each
+# CH14P516EXERC2_FLTK       / Try to copy a Shape. What happens?
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC1_FLTK")
+set(name_Example "CH14P516EXERC2_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
