@@ -400,10 +400,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH14P516EXERC2_FLTK       / Try to copy a Shape. What happens?
 # CH14P516EXERC3_FLTK       / Define an abstract class and try to define an object of that type. What
 #                           / happens?
+# CH14P516EXERC4_FLTK       / Define a class Immobile_Circle, which is just like Circle but can’t be moved.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC3_FLTK")
+set(name_Example "CH14P516EXERC4_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
