@@ -410,10 +410,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / rectangle (this requires some algorithmic inventiveness).
 # CH14P516EXERC8_FLTK       / Define a class Octagon to be a regular octagon. Write a test that exercises
 #                           / all of its functions (as defined by you or inherited from Shape).
+# CH14P516EXERC9_FLTK       / Define a Group to be a container of Shapes with suitable operations
+#                           / applied to the various members of the Group. Hint: Vector_ref. Use a
+#                           / Group to define a checkers (draughts) board where pieces can be moved
+#                           / under program control.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC8_FLTK")
+set(name_Example "CH14P516EXERC9_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
