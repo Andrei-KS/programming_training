@@ -16,22 +16,25 @@ namespace Graph_lib {
   {
     if (fill_color().visibility()) {	// fill
       fl_color(fill_color().as_int());
-      int widthStrip = fill_line_style().width();
-      fl_line_style(fill_line_style().style(), widthStrip);
-      int distanceBetweenStrips = distance_between_strips() < 0 ? widthStrip : distance_between_strips();
-      int sqrR = radius() * radius();
-      for (int currentYPosition = 0; currentYPosition < radius(); currentYPosition += widthStrip + distanceBetweenStrips)
+      int widthStrip = fill_line_style().width() <= 0 ? style().width() : fill_line_style().width();
+      if (widthStrip > 0)
       {
-        int xPosition = static_cast<int>(sqrt(sqrR - currentYPosition * currentYPosition));
-        fl_line(center().x - xPosition, center().y + currentYPosition, center().x + xPosition, center().y + currentYPosition);
-        fl_line(center().x - xPosition, center().y - currentYPosition, center().x + xPosition, center().y - currentYPosition);
-        //fl_line(point(0).x + style().width() / 2, point(0).y + currentYPosition, point(0).x + mWidth - style().width() / 2, point(0).y + currentYPosition);
+        fl_line_style(fill_line_style().style(), widthStrip);
+        int distanceBetweenStrips = distance_between_strips() < 0 ? widthStrip : distance_between_strips();
+        int sqrR = radius() * radius();
+        for (int currentYPosition = 0; currentYPosition < radius(); currentYPosition += widthStrip + distanceBetweenStrips)
+        {
+          int xPosition = static_cast<int>(sqrt(sqrR - currentYPosition * currentYPosition));
+          fl_line(center().x - xPosition, center().y + currentYPosition, center().x + xPosition, center().y + currentYPosition);
+          fl_line(center().x - xPosition, center().y - currentYPosition, center().x + xPosition, center().y - currentYPosition);
+          //fl_line(point(0).x + style().width() / 2, point(0).y + currentYPosition, point(0).x + mWidth - style().width() / 2, point(0).y + currentYPosition);
 
+        }
+
+        // reset
+        fl_color(color().as_int());
+        fl_line_style(style().style(), style().width());
       }
-
-      // reset
-      fl_color(color().as_int());
-      fl_line_style(style().style(), style().width());
     }
 
     if (color().visibility()) {

@@ -26,20 +26,23 @@ namespace Graph_lib {
   {
     if (fill_color().visibility()) {	// fill
       fl_color(fill_color().as_int());
-      int widthStrip = fill_line_style().width();
-      fl_line_style(fill_line_style().style(), widthStrip);
-      int distanceBetweenStrips = distance_between_strips() < 0 ? widthStrip : distance_between_strips();
-      int top = style().width() / 2  + distanceBetweenStrips;
-      int down = height() - style().width() / 2 - distanceBetweenStrips;
-      for (int currentYPosition = top; currentYPosition < down; currentYPosition += widthStrip + distanceBetweenStrips)
+      int widthStrip = fill_line_style().width() <= 0 ? style().width() : fill_line_style().width();
+      if (widthStrip > 0)
       {
-        fl_line(point(0).x + style().width() / 2, point(0).y + currentYPosition, point(0).x + mWidth - style().width() / 2, point(0).y + currentYPosition);
+        fl_line_style(fill_line_style().style(), widthStrip);
+        int distanceBetweenStrips = distance_between_strips() < 0 ? widthStrip : distance_between_strips();
+        int top = style().width() / 2 + distanceBetweenStrips;
+        int down = height() - style().width() / 2 - distanceBetweenStrips;
+        for (int currentYPosition = top; currentYPosition < down; currentYPosition += widthStrip + distanceBetweenStrips)
+        {
+          fl_line(point(0).x + style().width() / 2, point(0).y + currentYPosition, point(0).x + mWidth - style().width() / 2, point(0).y + currentYPosition);
 
+        }
+
+        // reset
+        fl_color(color().as_int());
+        fl_line_style(style().style(), style().width());
       }
-      
-      // reset
-      fl_color(color().as_int());	
-      fl_line_style(style().style(), style().width());
     }
 
     if (color().visibility()) {	// edge on top of fill
