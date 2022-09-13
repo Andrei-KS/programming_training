@@ -406,10 +406,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / (say, draw every second line like that). You may have to play with the
 #                           / width of lines and the line spacing to get a pattern you like.
 # CH14P516EXERC6_FLTK       / Define a Striped_circle using the technique from Striped_rectangle
+# CH14P516EXERC7_FLTK       / Define a Striped_closed_polyline using the technique from Striped_
+#                           / rectangle (this requires some algorithmic inventiveness).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC6_FLTK")
+set(name_Example "CH14P516EXERC7_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
