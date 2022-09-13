@@ -408,10 +408,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH14P516EXERC6_FLTK       / Define a Striped_circle using the technique from Striped_rectangle
 # CH14P516EXERC7_FLTK       / Define a Striped_closed_polyline using the technique from Striped_
 #                           / rectangle (this requires some algorithmic inventiveness).
+# CH14P516EXERC8_FLTK       / Define a class Octagon to be a regular octagon. Write a test that exercises
+#                           / all of its functions (as defined by you or inherited from Shape).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC6_FLTK")
+set(name_Example "CH14P516EXERC8_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
