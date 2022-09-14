@@ -414,10 +414,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / applied to the various members of the Group. Hint: Vector_ref. Use a
 #                           / Group to define a checkers (draughts) board where pieces can be moved
 #                           / under program control.
+# CH14P517EXERC10_FLTK      / Define a class Pseudo_window that looks as much like a Window as you
+#                           / can make it without heroic efforts. It should have rounded corners,
+#                           / a label, and control icons. Maybe you could add some fake “contents,” such
+#                           / as an image. It need not actually do anything. It is acceptable (and indeed
+#                           / recommended) to have it appear within a Simple_window.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P516EXERC9_FLTK")
+set(name_Example "CH14P517EXERC10_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
