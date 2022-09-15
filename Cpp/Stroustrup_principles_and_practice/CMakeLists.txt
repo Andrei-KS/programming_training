@@ -419,10 +419,17 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / a label, and control icons. Maybe you could add some fake “contents,” such
 #                           / as an image. It need not actually do anything. It is acceptable (and indeed
 #                           / recommended) to have it appear within a Simple_window.
+# CH14P517EXERC11_FLTK      / Define a Binary_tree class derived from Shape. Give the number of levels
+#                           / as a parameter (levels==0 means no nodes, levels==1 means one node,
+#                           / levels==2 means one top node with two sub-nodes, levels==3 means one
+#                           / top node with two sub-nodes each with two sub-nodes, etc.). Let a node
+#                           / be represented by a small circle. Connect the nodes by lines (as is
+#                           / conventional). P.S. In computer science, trees grow downward from a top node
+#                           / (amusingly, but logically, often called the root).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P517EXERC10_FLTK")
+set(name_Example "CH14P517EXERC11_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
