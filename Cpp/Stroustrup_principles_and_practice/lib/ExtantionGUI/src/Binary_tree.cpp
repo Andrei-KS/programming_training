@@ -4,17 +4,39 @@
 */
 
 #include "Binary_tree.h"
+#include "Vector2D.h"
 
 namespace {
   constexpr int DEFAULT_NODE_SIZE = 20;
+  constexpr double Y_NODE_DISTANCE_RATIO = 1.0 / 2;
+  constexpr double X_HALF_BOTTOM_NODE_DISTANCE_RATIO = 1.0 / 4;
+
+  void draw_arrow(const Graph_lib::Point& start, const Graph_lib::Point& end, const double arrowLenght, const double arrowWidth)
+  {
+    Utility_lib::Vector2D unitVectorLine = Utility_lib::Vector2D{ static_cast<double>(end.x - start.x), static_cast<double>(end.y - start.y) }.getUnitVector();
+    Utility_lib::Vector2D normalToVector = unitVectorLine.getNormal();
+    unitVectorLine.x *= arrowLenght;
+    unitVectorLine.y *= arrowLenght;
+    normalToVector.x *= static_cast<double>(arrowWidth) / 2;
+    normalToVector.y *= static_cast<double>(arrowWidth) / 2;
+
+
+    fl_begin_complex_polygon();
+    fl_vertex(end.x - static_cast<int>(unitVectorLine.x) + static_cast<int>(normalToVector.x), end.y - static_cast<int>(unitVectorLine.y) + static_cast<int>(normalToVector.y));
+    fl_vertex(end.x, end.y);
+    fl_vertex(end.x - static_cast<int>(unitVectorLine.x) - static_cast<int>(normalToVector.x), end.y - static_cast<int>(unitVectorLine.y) - static_cast<int>(normalToVector.y));
+
+    fl_end_complex_polygon();
+  }
 }
 
 namespace Graph_lib {
-  Binary_tree::Binary_tree(Point leftTopCorner, int levels)
+  Binary_tree::Binary_tree(const Point& leftTopCorner, int levels, ConnectorInfo connectorInfo)
     : mLevels(0)
     , mBoundingRectangleWidth(0)
     , mBoundingRectangleHeight(0)
     , mNodeSize(DEFAULT_NODE_SIZE)
+    , mConnectorInfo(connectorInfo)
   {
     if (levels < 0)
     {
@@ -97,7 +119,7 @@ namespace Graph_lib {
     recalculate_node_center_positions();
   }
 
-  void Binary_tree::draw_node(Point center) const
+  void Binary_tree::draw_node(const Point& center) const
   {
     if (fill_color().visibility()) {	// fill
       fl_color(fill_color().as_int());
@@ -111,9 +133,47 @@ namespace Graph_lib {
     }
   }
 
-  void Binary_tree::draw_connecter_line(Point start, Point end) const
+  void Binary_tree::draw_connecter_line(const Point& start, const Point& end) const
   {
-    fl_line(start.x, start.y, end.x, end.y);
+    
+    fl_color(mConnectorInfo.color.as_int());
+    fl_line_style(mConnectorInfo.lineStyle.style(), mConnectorInfo.lineStyle.width());
+
+    int sign = end.x - start.x > 0 ? 1 : -1;
+    fl_line(start.x + sign*node_size()/4, start.y + node_size() / 2, end.x - sign * node_size() / 4, end.y - node_size() / 2);
+    fl_line_style(Graph_lib::Line_style::solid, mConnectorInfo.lineStyle.width());
+
+    double arrowLenght = mConnectorInfo.arrowLenghtRatio * node_size();
+    double arrowWidth = mConnectorInfo.arrowWidthRatio * node_size();
+    switch (mConnectorInfo.type)
+    {
+      case ConnectorInfo::TypeConnector::None:
+      {
+        break;
+      }
+      case ConnectorInfo::TypeConnector::ArrowToStart:
+      {
+        draw_arrow({ end.x - sign * node_size() / 4, end.y - node_size() / 2 }, { start.x + sign * node_size() / 4, start.y + node_size() / 2 }, arrowLenght, arrowWidth);
+        break;
+      }
+      case ConnectorInfo::TypeConnector::ArrowToEnd:
+      {
+        draw_arrow({ start.x + sign * node_size() / 4, start.y + node_size() / 2 }, { end.x - sign * node_size() / 4, end.y - node_size() / 2 }, arrowLenght, arrowWidth);
+        break;
+      }
+      case ConnectorInfo::TypeConnector::ArrowToBothPoint:
+      {
+        draw_arrow({ start.x + sign * node_size() / 4, start.y + node_size() / 2 }, { end.x - sign * node_size() / 4, end.y - node_size() / 2 }, arrowLenght, arrowWidth);
+        draw_arrow({ end.x - sign * node_size() / 4, end.y - node_size() / 2 }, { start.x + sign * node_size() / 4, start.y + node_size() / 2 }, arrowLenght, arrowWidth);
+        break;
+      }
+      default:
+      {
+        error("Binary_tree: draw_connecter_line: TypeConnector is wrong");
+      }
+    }
+    fl_color(color().as_int());
+    fl_line_style(style().style(),style().width());
   }
 
   void Binary_tree::recalculate_node_center_positions()
@@ -123,8 +183,8 @@ namespace Graph_lib {
       return;
     }
 
-    const int yNodeDistance = node_size() * 1 / 4;
-    const int xHalfBottomNodeDistance = node_size() * 1 / 4;
+    const int yNodeDistance = static_cast<int>(node_size() * Y_NODE_DISTANCE_RATIO);
+    const int xHalfBottomNodeDistance = static_cast<int>(node_size() * X_HALF_BOTTOM_NODE_DISTANCE_RATIO);
 
     // fill the bottom level of binary tree
     int processedNodesAmount = 0;

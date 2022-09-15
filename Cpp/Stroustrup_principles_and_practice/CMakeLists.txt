@@ -429,10 +429,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH14P517EXERC12_FLTK      / Modify Binary_tree to draw its nodes using a virtual function. Then,
 #                           / derive a new class from Binary_tree that overrides that virtual function to
 #                           / use a different representation for a node (e.g., a triangle).
+# CH14P517EXERC13_FLTK      / Modify Binary_tree to take a parameter (or parameters) to indicate what
+#                           / kind of line to use to connect the nodes (e.g., an arrow pointing down
+#                           / or a red arrow pointing up). Note how this exercise and the last use two
+#                           / alternative ways of making a class hierarchy more flexible and useful.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P517EXERC12_FLTK")
+set(name_Example "CH14P517EXERC13_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy

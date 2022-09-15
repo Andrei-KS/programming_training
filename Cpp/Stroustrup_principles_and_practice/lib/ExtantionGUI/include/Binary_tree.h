@@ -14,7 +14,34 @@ namespace Graph_lib {
   struct Binary_tree : Shape {
     /*
     */
-    Binary_tree(Point leftTopCorner, int levels);
+    struct ConnectorInfo {
+      /*
+      */
+      enum class TypeConnector {
+        None,
+        ArrowToStart,
+        ArrowToEnd,
+        ArrowToBothPoint,
+      };
+
+      /**/
+      Color color = Color::black;
+      
+      /**/
+      Line_style lineStyle = Line_style{Line_style::dash,2};
+      
+      /**/
+      TypeConnector type = TypeConnector::ArrowToBothPoint;
+
+      /**/
+      double arrowLenghtRatio = 1.0 / 4;
+
+      /**/
+      double arrowWidthRatio = 1.0 / 8;
+    };
+    /*
+    */
+    Binary_tree(const Point& leftTopCorner, int levels, ConnectorInfo connectorInfo = ConnectorInfo());
 
     /*
     */
@@ -51,11 +78,11 @@ namespace Graph_lib {
   protected:
     /*
     */
-    virtual void draw_node(Point center) const;
+    virtual void draw_node(const Point& center) const;
 
     /*
     */
-    virtual void draw_connecter_line(Point start, Point end) const;
+    virtual void draw_connecter_line(const Point& start, const Point& end) const;
 
   private:
     /*
@@ -76,6 +103,9 @@ namespace Graph_lib {
 
     /**/
     vector<Point> mNodePositions;
+
+    /**/
+    ConnectorInfo mConnectorInfo;
   };
 
   /*
