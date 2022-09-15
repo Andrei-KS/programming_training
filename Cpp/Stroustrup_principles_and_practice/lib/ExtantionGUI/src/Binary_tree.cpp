@@ -146,4 +146,27 @@ namespace Graph_lib {
     mBoundingRectangleHeight = (*mNodePositions.rbegin()).y - bounding_rectangle_left_top_corner().y + node_size() / 2;
     mBoundingRectangleWidth = (*mNodePositions.rbegin()).x - bounding_rectangle_left_top_corner().x + node_size() / 2;
   }
+
+  Triangle_Binary_tree::Triangle_Binary_tree(Point leftTopCorner, int levels)
+    : Binary_tree(leftTopCorner, levels)
+  {
+  }
+
+  void Triangle_Binary_tree::draw_node(Point center) const
+  {
+    if (fill_color().visibility()) {
+      fl_color(fill_color().as_int());
+      fl_begin_complex_polygon();
+
+      fl_vertex(center.x, center.y - node_size()/2);
+      fl_vertex(center.x - node_size() / 2, center.y + node_size() / 2);
+      fl_vertex(center.x + node_size() / 2, center.y + node_size() / 2);
+
+      fl_end_complex_polygon();
+      fl_color(color().as_int());	// reset color
+    }
+
+    if (color().visibility())
+      Shape::draw_lines();
+  }
 }

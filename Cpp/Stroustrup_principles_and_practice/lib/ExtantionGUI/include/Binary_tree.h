@@ -77,6 +77,19 @@ namespace Graph_lib {
     /**/
     vector<Point> mNodePositions;
   };
+
+  /*
+  */
+  struct Triangle_Binary_tree : Binary_tree {
+    /*
+    */
+    Triangle_Binary_tree(Point leftTopCorner, int levels);
+
+  protected:
+    /*
+    */
+    void draw_node(Point center) const;
+  };
 }
 
 #endif // !__BINARY_TREE_H__

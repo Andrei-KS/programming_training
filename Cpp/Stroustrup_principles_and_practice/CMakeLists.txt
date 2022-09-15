@@ -426,10 +426,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / be represented by a small circle. Connect the nodes by lines (as is
 #                           / conventional). P.S. In computer science, trees grow downward from a top node
 #                           / (amusingly, but logically, often called the root).
+# CH14P517EXERC12_FLTK      / Modify Binary_tree to draw its nodes using a virtual function. Then,
+#                           / derive a new class from Binary_tree that overrides that virtual function to
+#                           / use a different representation for a node (e.g., a triangle).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P517EXERC11_FLTK")
+set(name_Example "CH14P517EXERC12_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
