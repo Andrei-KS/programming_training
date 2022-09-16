@@ -446,10 +446,16 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / and the first call of next() yields a pointer to its first element, if any.
 #                           / If there is no next element, return 0. Test this by using a function void
 #                           / print(Iterator&) to print the elements of a vector<double> and a list<double>.
+# CH14P517EXERC16_FLTK      / Define a class Controller with four virtual functions on(), off(), set_level(int),
+#                           / and show(). Derive at least two classes from Controller. One should be a
+#                           / simple test class where show() prints out whether the class is set to on or
+#                           / off and what is the current level. The second derived class should somehow
+#                           / control the line color of a Shape; the exact meaning of “level” is up
+#                           / to you. Try to find a third “thing” to control with such a Controller class.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P517EXERC15_FLTK")
+set(name_Example "CH14P517EXERC16_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
