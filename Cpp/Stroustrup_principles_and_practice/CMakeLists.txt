@@ -433,10 +433,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / kind of line to use to connect the nodes (e.g., an arrow pointing down
 #                           / or a red arrow pointing up). Note how this exercise and the last use two
 #                           / alternative ways of making a class hierarchy more flexible and useful.
+# CH14P517EXERC14_FLTK      / Add an operation to Binary_tree that adds text to a node. You may have
+#                           / to modify the design of Binary_tree to implement this elegantly. Choose
+#                           / a way to identify a node; for example, you might give a string "lrrlr" for
+#                           / navigating left, right, right, left, and right down a binary tree (the root
+#                           / node would match both an initial l and an initial r).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P517EXERC13_FLTK")
+set(name_Example "CH14P517EXERC14_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy

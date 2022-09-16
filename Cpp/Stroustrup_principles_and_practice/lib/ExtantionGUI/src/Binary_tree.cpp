@@ -28,6 +28,32 @@ namespace {
 
     fl_end_complex_polygon();
   }
+
+  int getIndexFromAddress(const string& address)
+  {
+    int result = 0;
+    for (const char symbol : address)
+    {
+      switch (symbol)
+      {
+      case 'l':
+      {
+        result = 2 * result + 1;
+        break;
+      }
+      case 'r':
+      {
+        result = 2 * result + 2;
+        break;
+      }
+      default:
+      {
+        error("Binary_tree: getIndexFromAddress: the address contains the incorrect symbol -> ", symbol);
+      }
+      }
+    }
+    return result;
+  }
 }
 
 namespace Graph_lib {
@@ -37,6 +63,8 @@ namespace Graph_lib {
     , mBoundingRectangleHeight(0)
     , mNodeSize(DEFAULT_NODE_SIZE)
     , mConnectorInfo(connectorInfo)
+    , mNodesFont(fl_font())
+    , mNodesFontSize((14 < fl_size()) ? fl_size() : 14)
   {
     if (levels < 0)
     {
@@ -48,16 +76,16 @@ namespace Graph_lib {
 
   void Binary_tree::draw_lines() const
   {
-    int size = mNodePositions.size() - (1 << (levels() - 1));
+    int size = mNodes.size() - (1 << (levels() - 1));
     for (int index = 0; index < size; index++)
     {
-      draw_connecter_line(mNodePositions[index], mNodePositions[2 * index + 1]);
-      draw_connecter_line(mNodePositions[index], mNodePositions[2 * index + 2]);
+      draw_connecter_line(mNodes[index].center, mNodes[2 * index + 1].center);
+      draw_connecter_line(mNodes[index].center, mNodes[2 * index + 2].center);
     }
 
-    for (const Point& nodePosition : mNodePositions)
+    for (const NodeInfo& nodeInfo : mNodes)
     {
-      draw_node(nodePosition);
+      draw_node(nodeInfo);
     }
 
   }
@@ -100,7 +128,7 @@ namespace Graph_lib {
       error("Binary_tree: set_levels: levels less than zero");
     }
     mLevels = levels;
-    mNodePositions.clear();
+    mNodes.clear();
     
     if (mLevels == 0)
     {
@@ -115,21 +143,30 @@ namespace Graph_lib {
       nodesOnLevel = nodesOnLevel << 1;
     }
 
-    mNodePositions.insert(mNodePositions.begin(), nodesAmount, Point{ 0,0 });
+    mNodes.insert(mNodes.begin(), nodesAmount, NodeInfo());
     recalculate_node_center_positions();
   }
 
-  void Binary_tree::draw_node(const Point& center) const
+  void Binary_tree::draw_node(const NodeInfo& nodeInfo) const
   {
     if (fill_color().visibility()) {	// fill
       fl_color(fill_color().as_int());
-      fl_pie(center.x - node_size() / 2, center.y - node_size() / 2, node_size() - 1, node_size() - 1, 0, 360);
+      fl_pie(nodeInfo.center.x - node_size() / 2, nodeInfo.center.y - node_size() / 2, node_size() - 1, node_size() - 1, 0, 360);
       fl_color(color().as_int());	// reset color
     }
 
     if (color().visibility()) {
       fl_color(color().as_int());
-      fl_arc(center.x - node_size() / 2, center.y - node_size() / 2, node_size() - 1, node_size() - 1, 0, 360);
+      fl_arc(nodeInfo.center.x - node_size() / 2, nodeInfo.center.y - node_size() / 2, node_size() - 1, node_size() - 1, 0, 360);
+    }
+
+    if (nodeInfo.text != "")
+    {
+      int ofnt = fl_font();
+      int osz = fl_size();
+      fl_font(mNodesFont.as_int(), mNodesFontSize);
+      fl_draw(nodeInfo.text.c_str(), nodeInfo.center.x - node_size() / 4, nodeInfo.center.y);
+      fl_font(ofnt, osz);
     }
   }
 
@@ -195,17 +232,40 @@ namespace Graph_lib {
     {
       for (int indexNodeOnLevel = 0; indexNodeOnLevel < nodesAmountOnLevel; indexNodeOnLevel++)
       {
-        mNodePositions[indexNodeOnLevel + processedNodesAmount].x = bounding_rectangle_left_top_corner().x + currentXShift * indexNodeOnLevel - xHalfBottomNodeDistance + currentXShift / 2;
-        mNodePositions[indexNodeOnLevel + processedNodesAmount].y = currentYPosition;
+        mNodes[indexNodeOnLevel + processedNodesAmount].center.x = bounding_rectangle_left_top_corner().x + currentXShift * indexNodeOnLevel - xHalfBottomNodeDistance + currentXShift / 2;
+        mNodes[indexNodeOnLevel + processedNodesAmount].center.y = currentYPosition;
       }
       currentYPosition += yNodeDistance + node_size();
       processedNodesAmount += nodesAmountOnLevel;
       nodesAmountOnLevel = nodesAmountOnLevel << 1;
       currentXShift = currentXShift >> 1;
     }
-    mBoundingRectangleHeight = (*mNodePositions.rbegin()).y - bounding_rectangle_left_top_corner().y + node_size() / 2;
-    mBoundingRectangleWidth = (*mNodePositions.rbegin()).x - bounding_rectangle_left_top_corner().x + node_size() / 2;
+    mBoundingRectangleHeight = (*mNodes.rbegin()).center.y - bounding_rectangle_left_top_corner().y + node_size() / 2;
+    mBoundingRectangleWidth = (*mNodes.rbegin()).center.x - bounding_rectangle_left_top_corner().x + node_size() / 2;
   }
+
+  void Binary_tree::set_node_text(const string& address, const string& text)
+  {
+    int index = getIndexFromAddress(address);
+    if (index >= mNodes.size())
+    {
+      error("Binary_tree: node_text: the given address is incorrect, address = ", address);
+    }
+
+    mNodes[index].text = text;
+  }
+
+  const string Binary_tree::node_text(const string& address) const
+  {
+    int index = getIndexFromAddress(address);
+    if (index >= mNodes.size())
+    {
+      error("Binary_tree: node_text: the given address is incorrect, address = ", address);
+    }
+
+    return mNodes[index].text;
+  }
+
 
   Triangle_Binary_tree::Triangle_Binary_tree(Point leftTopCorner, int levels)
     : Binary_tree(leftTopCorner, levels)

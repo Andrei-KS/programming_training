@@ -14,6 +14,12 @@ namespace Graph_lib {
   struct Binary_tree : Shape {
     /*
     */
+    struct NodeInfo {
+      Point center = Point{0,0};
+      string text;
+    };
+    /*
+    */
     struct ConnectorInfo {
       /*
       */
@@ -75,10 +81,18 @@ namespace Graph_lib {
     */
     void set_levels(int levels);
 
+    /*
+    */
+    void set_node_text(const string& address, const string& text);
+
+    /*
+    */
+    const string node_text(const string& address) const;
+
   protected:
     /*
     */
-    virtual void draw_node(const Point& center) const;
+    virtual void draw_node(const NodeInfo& nodeInfo) const;
 
     /*
     */
@@ -102,10 +116,16 @@ namespace Graph_lib {
     int mNodeSize;
 
     /**/
-    vector<Point> mNodePositions;
+    vector<NodeInfo> mNodes;
 
     /**/
     ConnectorInfo mConnectorInfo;
+
+    /**/
+    Font mNodesFont;
+
+    /**/
+    int mNodesFontSize;
   };
 
   /*
