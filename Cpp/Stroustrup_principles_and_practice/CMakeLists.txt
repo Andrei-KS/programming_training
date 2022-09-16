@@ -438,10 +438,18 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / a way to identify a node; for example, you might give a string "lrrlr" for
 #                           / navigating left, right, right, left, and right down a binary tree (the root
 #                           / node would match both an initial l and an initial r).
+# CH14P517EXERC15_FLTK      / Define a class Iterator with a pure virtual function next() that returns
+#                           / a double* (see Chapter 17). Now derive Vector_iterator and List_iterator
+#                           / from Iterator so that next() for a Vector_iterator yields a pointer to
+#                           / the next element of a vector<double> and List_iterator does the same
+#                           / for a list<double>. You initialize a Vector_iterator with a vector<double>
+#                           / and the first call of next() yields a pointer to its first element, if any.
+#                           / If there is no next element, return 0. Test this by using a function void
+#                           / print(Iterator&) to print the elements of a vector<double> and a list<double>.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P517EXERC14_FLTK")
+set(name_Example "CH14P517EXERC15_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
