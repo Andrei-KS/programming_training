@@ -452,10 +452,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / off and what is the current level. The second derived class should somehow
 #                           / control the line color of a Shape; the exact meaning of “level” is up
 #                           / to you. Try to find a third “thing” to control with such a Controller class.
+# CH14P518EXERC17_FLTK      / The exceptions defined in the C++ standard library, such as exception,
+#                           / runtime_error, and out_of_range (§5.6.3), are organized into a class
+#                           / hierarchy (with a useful virtual function what() returning a string supposedly
+#                           / explaining what went wrong). Search your information sources for the
+#                           / C++ standard exception class hierarchy and draw a class hierarchy diagram of it.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P517EXERC16_FLTK")
+set(name_Example "CH14P518EXERC17_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
