@@ -457,10 +457,20 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / hierarchy (with a useful virtual function what() returning a string supposedly
 #                           / explaining what went wrong). Search your information sources for the
 #                           / C++ standard exception class hierarchy and draw a class hierarchy diagram of it.
+#-------------------------------------- Chapter_15
+#-------------------------------------- Graphing Functions and Data
+# CH15P546DRILL1_5_FLTK     / Function graphing drill:
+#                           / 1. Make an empty 600-by-600 Window labeled “Function graphs.”
+#                           / 2. Note that you’ll need to make a project with the properties specified in the
+#                           / “installation of FLTK” note from the course website.
+#                           / 3. You’ll need to move Graph.cpp and Window.cpp into your project.
+#                           / 4. Add an x axis and a y axis each of length 400, labeled “1 = = 20 pixels”
+#                           / and with a notch every 20 pixels. The axes should cross at (300,300).
+#                           / 5. Make both axes red.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH14P518EXERC17_FLTK")
+set(name_Example "CH15P546DRILL1_5_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
