@@ -467,10 +467,23 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 4. Add an x axis and a y axis each of length 400, labeled “1 = = 20 pixels”
 #                           / and with a notch every 20 pixels. The axes should cross at (300,300).
 #                           / 5. Make both axes red.
+# CH15P546DRILL1_9_FLTK     / In the following, use a separate Shape for each function to be graphed:
+#                           / 1. Graph the function double one(double x) { return 1; } in the range [–10,11]
+#                           / with (0,0) at (300,300) using 400 points and no scaling (in the window).
+#                           / 2. Change it to use x scale 20 and y scale 20.
+#                           / 3. From now on use that range, scale, etc. for all graphs.
+#                           / 4. Add double slope(double x) { return x/2; } to the window.
+#                           / 5. Label the slope with a Text "x/2" at a point just above its bottom left end
+#                           / point.
+#                           / 6. Add double square(double x) { return x*x; } to the window.
+#                           / 7. Add a cosine to the window (don’t write a new function).
+#                           / 8. Make the cosine blue.
+#                           /  9. Write a function sloping_cos() that adds a cosine to slope() (as defined
+#                           / above) and add it to the window.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P546DRILL1_5_FLTK")
+set(name_Example "CH15P546DRILL1_9_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
