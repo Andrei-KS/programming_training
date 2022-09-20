@@ -480,10 +480,29 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 8. Make the cosine blue.
 #                           /  9. Write a function sloping_cos() that adds a cosine to slope() (as defined
 #                           / above) and add it to the window.
+# CH15P547DRILL1_3_FLTK     / Class definition drill:
+#                           / 1. Define a struct Person containing a string name and an int age.
+#                           / 2. Define a variable of type Person, initialize it with “Goofy” and 63, and
+#                           / write it to the screen (cout).
+#                           / 3. Define an input (>>) and an output (<<) operator for Person; read in a
+#                           / Person from the keyboard (cin) and write it out to the screen (cout).
+# CH15P547DRILL4_9_FLTK     / Class definition drill:
+#                           / 4. Give Person a constructor initializing name and age.
+#                           / 5. Make the representation of Person private, and provide const member
+#                           / functions name() and age() to read the name and age.
+#                           / 6. Modify >> and << to work with the redefined Person.
+#                           / 7. Modify the constructor to check that age is [0:150) and that name doesn’t
+#                           / contain any of the characters ; : " ' [ ] * & ^ % $ # @ !. Use error() in case
+#                           / of error. Test.
+#                           / 8. Read a sequence of Persons from input (cin) into a vector<Person>;
+#                           / write them out again to the screen (cout). Test with correct and erroneous input.
+#                           / 9. Change the representation of Person to have first_name and second_name
+#                           / instead of name. Make it an error not to supply both a first and a second
+#                           / name. Be sure to fix >> and << also. Test.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P546DRILL1_9_FLTK")
+set(name_Example "CH15P547DRILL1_3_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
@@ -501,7 +520,7 @@ set(layout_file_names
 
 # search task description of the name_Example in CMakeLists.txt
 file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_Description)
-string(REGEX MATCH "# ${name_Example}(\t|[ ])+[^#]+(#(\t|[ ])+[/]([^#]|#[A-Za-z])+)*" task_Description "${task_Description}")
+string(REGEX MATCH "# ${name_Example}(\t|[ ])+[\/][^\n]+(\n#(\t|[ ])+[\/][^\n]+)*[\n]?" task_Description "${task_Description}")
 # delete unnecessary characters of the CMakeList.txt file formatting from the task description
 if(task_Description)
   string(REGEX REPLACE "(# ${name_Example}(\t|[ ])+/[ ]?|\n$)" "" task_Description ${task_Description})
