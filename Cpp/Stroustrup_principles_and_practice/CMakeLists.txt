@@ -502,7 +502,7 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P547DRILL1_3_FLTK")
+set(name_Example "CH15P547DRILL4_9_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
@@ -517,20 +517,6 @@ set(layout_file_names
   "layout_h"
   "layout_cpp"
 )
-
-# search task description of the name_Example in CMakeLists.txt
-file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_Description)
-string(REGEX MATCH "# ${name_Example}(\t|[ ])+[\/][^\n]+(\n#(\t|[ ])+[\/][^\n]+)*[\n]?" task_Description "${task_Description}")
-# delete unnecessary characters of the CMakeList.txt file formatting from the task description
-if(task_Description)
-  string(REGEX REPLACE "(# ${name_Example}(\t|[ ])+/[ ]?|\n$)" "" task_Description ${task_Description})
-  string(REGEX REPLACE "#(\t|[ ])+/[ ]?" "* " task_Description ${task_Description})
-  string(APPEND task_Description "\n*")
-endif()
-
-if(SHOWE_STATUS_MESSAGE)
-  message(STATUS "task_Description:\n${task_Description}")
-endif()
 
 set(is_FLTK)
 if(name_Example MATCHES "_FLTK")
@@ -556,7 +542,6 @@ set(substitutions_list
   "project_Source_Dir_Include" "{PROJECT_SOURCE_DIR}/include"
   "date_Generate" "${current_date}"
   "author" "Andrei-KS"
-  "task_Description" "${task_Description}"
 )
 
 if(include_General)
@@ -583,6 +568,23 @@ if(include_Extra)
   )
 endif()
 
+# search task description of the name_Example in CMakeLists.txt
+file(READ "${PROJECT_SOURCE_DIR}/CMakeLists.txt" task_Description)
+string(REGEX MATCH "# ${name_Example}(\t|[ ])+[\/][^\n]+(\n#(\t|[ ])+[\/][^\n]+)*[\n]?" task_Description "${task_Description}")
+# delete unnecessary characters of the CMakeList.txt file formatting from the task description
+if(task_Description)
+  string(REGEX REPLACE "(# ${name_Example}(\t|[ ])+/[ ]?|\n$)" "" task_Description ${task_Description})
+  string(REGEX REPLACE "#(\t|[ ])+/[ ]?" "* " task_Description ${task_Description})
+  string(APPEND task_Description "\n*")
+endif()
+
+if(SHOWE_STATUS_MESSAGE)
+  message(STATUS "task_Description:\n${task_Description}")
+endif()
+
+list(APPEND substitutions_list
+  "task_Description" "${task_Description}"
+)
 
 set(parent_dir "Chapter_")
 if(name_Example MATCHES "^CH([0-9]+)P")
