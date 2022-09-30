@@ -499,10 +499,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 9. Change the representation of Person to have first_name and second_name
 #                           / instead of name. Make it an error not to supply both a first and a second
 #                           / name. Be sure to fix >> and << also. Test.
+# CH15P548EXERC2_FLTK       / Define a class Fct that is just like Function except that it stores its con-
+#                           / structor arguments. Provide Fct with “reset” operations, so that you can
+#                           / use it repeatedly for different ranges, different functions, etc.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P547DRILL4_9_FLTK")
+set(name_Example "CH15P548EXERC2_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
