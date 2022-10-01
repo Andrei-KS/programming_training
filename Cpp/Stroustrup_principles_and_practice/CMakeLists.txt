@@ -508,10 +508,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH15P548EXERC4_FLTK       / Graph a sine (sin()), a cosine (cos()), the sum of those (sin(x)+cos(x)), and
 #                           / the sum of the squares of those (sin(x)*sin(x)+cos(x)*cos(x)) on a single
 #                           / graph. Do provide axes and labels
+# CH15P548EXERC5_FLTK       / “Animate” (as in §15.5) the series 1—1/3+1/5—1/7+1/9—1/11+ ... . It is
+#                           / known as Leibniz’s series and converges to pi/4.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC4_FLTK")
+set(name_Example "CH15P548EXERC5_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
