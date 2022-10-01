@@ -139,5 +139,20 @@ namespace Graph_lib {
       error("Bar_graph: getBarInfo: index outrange");
     }
     mBars[index] = barInfo;
+
+    mMaxValue = (numeric_limits<double>::min());
+    mMinValue = (numeric_limits<double>::max());
+    for (int valueIndex = 0; valueIndex < mBars.size(); valueIndex++)
+    {
+      if (mBars[valueIndex].value != NAN && mBars[valueIndex].value > mMaxValue)
+      {
+        mMaxValue = mBars[valueIndex].value;
+      }
+
+      if (mBars[valueIndex].value != NAN && mBars[valueIndex].value < mMinValue)
+      {
+        mMinValue = mBars[valueIndex].value;
+      }
+    }
   }
 }
