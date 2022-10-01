@@ -505,10 +505,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH15P548EXERC3_FLTK       / Modify Fct from the previous exercise to take an extra argument to con-
 #                           / trol precision or whatever. Make the type of that argument a template
 #                           / parameter for extra flexibility.
+# CH15P548EXERC4_FLTK       / Graph a sine (sin()), a cosine (cos()), the sum of those (sin(x)+cos(x)), and
+#                           / the sum of the squares of those (sin(x)*sin(x)+cos(x)*cos(x)) on a single
+#                           / graph. Do provide axes and labels
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC3_FLTK")
+set(name_Example "CH15P548EXERC4_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
