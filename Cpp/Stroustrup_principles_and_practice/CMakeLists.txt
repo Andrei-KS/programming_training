@@ -502,10 +502,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH15P548EXERC2_FLTK       / Define a class Fct that is just like Function except that it stores its con-
 #                           / structor arguments. Provide Fct with “reset” operations, so that you can
 #                           / use it repeatedly for different ranges, different functions, etc.
+# CH15P548EXERC3_FLTK       / Modify Fct from the previous exercise to take an extra argument to con-
+#                           / trol precision or whatever. Make the type of that argument a template
+#                           / parameter for extra flexibility.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC2_FLTK")
+set(name_Example "CH15P548EXERC3_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
