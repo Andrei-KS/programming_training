@@ -513,10 +513,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH15P548EXERC6_FLTK       / Design and implement a bar graph class. Its basic data is a vector<double>
 #                           / holding N values, and each value should be represented by a “bar” that is
 #                           / a rectangle where the height represents the value.
+# CH15P548EXERC7_FLTK       / Elaborate the bar graph class to allow labeling of the graph itself and its
+#                           / individual bars. Allow the use of color.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC6_FLTK")
+set(name_Example "CH15P548EXERC7_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
