@@ -510,10 +510,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / graph. Do provide axes and labels
 # CH15P548EXERC5_FLTK       / “Animate” (as in §15.5) the series 1—1/3+1/5—1/7+1/9—1/11+ ... . It is
 #                           / known as Leibniz’s series and converges to pi/4.
+# CH15P548EXERC6_FLTK       / Design and implement a bar graph class. Its basic data is a vector<double>
+#                           / holding N values, and each value should be represented by a “bar” that is
+#                           / a rectangle where the height represents the value.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC5_FLTK")
+set(name_Example "CH15P548EXERC6_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
