@@ -23,7 +23,7 @@ namespace {
 
 int CH15P548EXERC7_FLTKRunExmple::excute()
 {
-  Graph_lib::Simple_window sWindow(Graph_lib::Point{ 50,50 }, 600, 600, "CH15P548EXERC6_FLTKRunExmple");
+  Graph_lib::Simple_window sWindow(Graph_lib::Point{ 50,50 }, 600, 600, "CH15P548EXERC7_FLTKRunExmple");
 
   Graph_lib::Bar_graph bg{ Graph_lib::Point{100,100},200,200,values };
   bg.set_color(Graph_lib::Color::black);

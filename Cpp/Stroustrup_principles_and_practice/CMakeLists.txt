@@ -515,10 +515,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / a rectangle where the height represents the value.
 # CH15P548EXERC7_FLTK       / Elaborate the bar graph class to allow labeling of the graph itself and its
 #                           / individual bars. Allow the use of color.
+# CH15P548EXERC8_FLTK       / Here is a collection of heights in centimeters together with the number
+#                           / of people in a group of that height (rounded to the nearest 5cm): (170,7),
+#                           / (175,9), (180,23), (185,17), (190,6), (195,1). How would you graph that
+#                           / data? If you can’t think of anything better, do a bar graph. Remember to
+#                           / provide axes and labels. Place the data in a file and read it from that file.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC7_FLTK")
+set(name_Example "CH15P548EXERC8_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
