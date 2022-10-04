@@ -54,6 +54,20 @@ namespace Graph_lib {
     */
     void setBarInfo(int index, const Bar_info& barInfo);
 
+    /*
+    */
+    double minValue()
+    {
+      return mMinValue;
+    }
+
+    /*
+    */
+    double maxValue()
+    {
+      return mMaxValue;
+    }
+
   private:
     /**/
     vector<Bar_info> mBars;
