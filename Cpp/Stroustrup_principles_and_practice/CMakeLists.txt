@@ -529,11 +529,18 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / minimize changes when you want to reuse code.
 #-------------------------------------- Chapter_16
 #-------------------------------------- Graphical User Interfaces
-# CH16P565ILLUSTC_FLTK      / The Lines_window example 
+# CH16P565ILLUSTC_FLTK      / The Lines_window example
+# CH16P577DRILL1_4_FLTK     / 1. Make a completely new project with linker settings for FLTK (as described in Appendix D).
+#                           / 2. Using the facilities of Graph_lib, type in the line-drawing program from
+#                           / §16.5 and get it to run.
+#                           / 3. Modify the program to use a pop-up menu as described in §16.7 and get
+#                           / it to run.
+#                           / 4. Modify the program to have a second menu for choosing line styles and
+#                           / get it to run.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P565ILLUSTC_FLTK")
+set(name_Example "CH16P577DRILL1_4_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
