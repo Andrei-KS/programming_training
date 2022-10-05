@@ -520,10 +520,17 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / (175,9), (180,23), (185,17), (190,6), (195,1). How would you graph that
 #                           / data? If you can’t think of anything better, do a bar graph. Remember to
 #                           / provide axes and labels. Place the data in a file and read it from that file.
+# CH15P548EXERC9_FLTK       / Find another data set of heights (an inch is 2.54cm) and graph them with
+#                           / your program from the previous exercise. For example, search the web
+#                           / for “height distribution” or “height of people in the United States” and
+#                           / ignore a lot of rubbish or ask your friends for their heights. Ideally, you
+#                           / don’t have to change anything for the new data set. Calculating the scal-
+#                           / ing from the data is a key idea. Reading in labels from input also helps
+#                           / minimize changes when you want to reuse code.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC8_FLTK")
+set(name_Example "CH15P548EXERC9_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
