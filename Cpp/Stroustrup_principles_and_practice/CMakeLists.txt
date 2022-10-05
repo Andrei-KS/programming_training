@@ -527,10 +527,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / don’t have to change anything for the new data set. Calculating the scal-
 #                           / ing from the data is a key idea. Reading in labels from input also helps
 #                           / minimize changes when you want to reuse code.
+#-------------------------------------- Chapter_16
+#-------------------------------------- Graphical User Interfaces
+# CH16P565ILLUSTC_FLTK      / The Lines_window example 
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH15P548EXERC9_FLTK")
+set(name_Example "CH16P565ILLUSTC_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
