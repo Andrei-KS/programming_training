@@ -537,10 +537,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / it to run.
 #                           / 4. Modify the program to have a second menu for choosing line styles and
 #                           / get it to run.
+# CH16P578EXERC1_FLTK       / Make a My_window that’s a bit like Simple_window except that it has
+#                           / two buttons, next and quit.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P577DRILL1_4_FLTK")
+set(name_Example "CH16P578EXERC1_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
