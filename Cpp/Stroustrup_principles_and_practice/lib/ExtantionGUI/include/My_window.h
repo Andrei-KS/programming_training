@@ -17,6 +17,15 @@ namespace Graph_lib {
     */
     My_window(Point xy, int width, int height, const string& title);
 
+  protected:
+    /*
+    */
+    virtual void next();
+
+    /*
+    */
+    virtual void quit();
+
   private:
     /**/
     Button next_button;
@@ -31,14 +40,6 @@ namespace Graph_lib {
     /*
     */
     static void cb_quit(Address, Address pw);
-
-    /*
-    */
-    void next();
-
-    /*
-    */
-    void quit();
   };
 }
 

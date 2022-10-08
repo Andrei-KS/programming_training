@@ -539,10 +539,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / get it to run.
 # CH16P578EXERC1_FLTK       / Make a My_window that’s a bit like Simple_window except that it has
 #                           / two buttons, next and quit.
+# CH16P578EXERC2_FLTK       / Make a window (based on My_window) with a 4-by-4 checkerboard of
+#                           / square buttons. When pressed, a button performs a simple action, such as
+#                           / printing its coordinates in an output box, or turns a slightly different color
+#                           / (until another button is pressed).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P578EXERC1_FLTK")
+set(name_Example "CH16P578EXERC2_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
