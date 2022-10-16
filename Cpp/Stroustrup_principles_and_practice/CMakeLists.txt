@@ -543,10 +543,20 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / square buttons. When pressed, a button performs a simple action, such as
 #                           / printing its coordinates in an output box, or turns a slightly different color
 #                           / (until another button is pressed).
+# CH16P579EXERC3_FLTK       / Place an Image on top of a Button; move both when the button is pushed.
+#                           / Use this random number generator from std_lib_facilities.h to pick a
+#                           / new location for the “image button”:
+#                           / #include<random>
+#                           / inline int rand_int(int min, int max)
+#                           / {
+#                           /   static default_random_engine ran;
+#                           /   return uniform_int_distribution<>{min,max}(ran);
+#                           / }
+#                           / It returns a random int in the range [min,max).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P578EXERC2_FLTK")
+set(name_Example "CH16P579EXERC3_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
