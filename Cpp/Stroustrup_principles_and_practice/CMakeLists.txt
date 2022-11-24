@@ -553,10 +553,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           /   return uniform_int_distribution<>{min,max}(ran);
 #                           / }
 #                           / It returns a random int in the range [min,max).
+# CH16P579EXERC4_FLTK       / Make a menu with items that make a circle, a square, an equilateral triangle,
+#                           / and a hexagon, respectively. Make an input box (or two) for giving a
+#                           / coordinate pair, and place the shape made by pressing a menu item at that
+#                           / coordinate. Sorry, no drag and drop.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P579EXERC3_FLTK")
+set(name_Example "CH16P579EXERC4_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
