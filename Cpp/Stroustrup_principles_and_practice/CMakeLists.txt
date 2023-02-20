@@ -557,10 +557,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / and a hexagon, respectively. Make an input box (or two) for giving a
 #                           / coordinate pair, and place the shape made by pressing a menu item at that
 #                           / coordinate. Sorry, no drag and drop.
+# CH16P579EXERC5_FLTK       / Write a program that draws a shape of your choice and moves it to a new
+#                           / point each time you click “Next.” The new point should be determined
+#                           / by a coordinate pair read from an input stream.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P579EXERC4_FLTK")
+set(name_Example "CH16P579EXERC5_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
