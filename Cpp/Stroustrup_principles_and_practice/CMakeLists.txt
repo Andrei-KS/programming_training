@@ -560,10 +560,16 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH16P579EXERC5_FLTK       / Write a program that draws a shape of your choice and moves it to a new
 #                           / point each time you click “Next.” The new point should be determined
 #                           / by a coordinate pair read from an input stream.
+# CH16P579EXERC6_FLTK       / Make an “analog clock,” that is, a clock with hands that move. You get the
+#                           / time of day from the operating system through a library call. A major part
+#                           / of this exercise is to find the functions that give you the time of day and
+#                           / a way of waiting for a short period of time (e.g., a second for a clock tick)
+#                           / and to learn to use them based on the documentation you found. Hint:
+#                           / clock(), sleep().
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P579EXERC5_FLTK")
+set(name_Example "CH16P579EXERC6_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy

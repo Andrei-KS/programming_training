@@ -59,4 +59,24 @@ namespace Utility_lib {
     double angleInRadian = rotateAngel * PI / 180;
     return Vector2D{ vect.x * cos(angleInRadian) + vect.y * sin(angleInRadian) ,- vect.x * sin(angleInRadian) + vect.y * cos(angleInRadian) };
   }
+
+  double getLength(const Vector2D& vect)
+  {
+    return sqrt(pow(vect.x, 2) + pow(vect.y, 2));
+  }
+
+  double getLength(const Vector2D& start, const Vector2D& end)
+  {
+    return getLength(end - start);
+  }
+
+  Vector2D operator-(const Vector2D& left, const Vector2D& right)
+  {
+    return Vector2D{ left.x - right.x, left.y - right.y };
+  }
+
+  Vector2D operator+(const Vector2D& left, const Vector2D& right)
+  {
+    return Vector2D{ left.x + right.x, left.y + right.y };
+  }
 }

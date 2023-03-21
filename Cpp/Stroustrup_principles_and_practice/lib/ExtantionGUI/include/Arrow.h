@@ -18,9 +18,29 @@ namespace Graph_lib {
 
     /*
     */
+    void rotate(double angle);
+
+    /*
+    */
+    void setDirection(double angle);
+
+    /*
+    */
+    virtual void move(int dx, int dy);
+
+
+    /*
+    */
     void draw_lines() const;
 
+  protected:
+    /**/
+    void calculateArrow();
+
   private:
+    /**/
+    vector<Graph_lib::Point> mDisplayPoint;
+
     /**/
     int mArrowheadWidth;
 

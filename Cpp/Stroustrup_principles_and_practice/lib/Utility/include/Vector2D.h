@@ -26,6 +26,22 @@ namespace Utility_lib {
   * @return rotated vector
   */
   Vector2D getRotateVector(const Vector2D& vect, double rotateAngel);
+  
+  /*
+  * @param start -
+  * @param end -
+  * @return vector lenght
+  */
+  double getLength(const Vector2D& start, const Vector2D& end);
+
+  /*
+  * @param vector -
+  * @return vector lenght
+  */
+  double getLength(const Vector2D& vect);
+
+  Vector2D operator-(const Vector2D& left, const Vector2D& right);
+  Vector2D operator+(const Vector2D& left, const Vector2D& right);
 }
 
 #endif // !__VECTOR2D_H__
