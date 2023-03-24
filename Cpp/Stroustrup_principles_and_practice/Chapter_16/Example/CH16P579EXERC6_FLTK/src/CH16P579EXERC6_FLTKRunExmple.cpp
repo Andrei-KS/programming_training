@@ -115,6 +115,10 @@ namespace {
     {
       detach(*mSecondArrow);
       delete mSecondArrow;
+      detach(*mMinutArrow);
+      delete mMinutArrow;
+      detach(*mHourArrow);
+      delete mHourArrow;
     }
 
     void update()
