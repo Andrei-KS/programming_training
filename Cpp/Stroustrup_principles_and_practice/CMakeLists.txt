@@ -566,10 +566,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / a way of waiting for a short period of time (e.g., a second for a clock tick)
 #                           / and to learn to use them based on the documentation you found. Hint:
 #                           / clock(), sleep().
+# CH16P579EXERC7_FLTK       / Using the techniques developed in the previous exercises, make an image of
+#                           / an airplane “fly around” in a window. Have a “Start” and a “Stop” button.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P579EXERC6_FLTK")
+set(name_Example "CH16P579EXERC7_FLTK")
 
 #[[------------------------------------
                     Example's hierarchy
