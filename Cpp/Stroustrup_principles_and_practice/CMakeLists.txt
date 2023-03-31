@@ -568,10 +568,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / clock(), sleep().
 # CH16P579EXERC7_FLTK       / Using the techniques developed in the previous exercises, make an image of
 #                           / an airplane “fly around” in a window. Have a “Start” and a “Stop” button.
+#-------------------------------------- Chapter_17
+#-------------------------------------- Vector and Free Store
+# CH17P591TRY               / Execute the example above and see what you get. Then extend the example
+#                           / to determine the size of bool, double, and some other type.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH16P579EXERC7_FLTK")
+set(name_Example "CH17P591TRY")
 
 #[[------------------------------------
                     Example's hierarchy
