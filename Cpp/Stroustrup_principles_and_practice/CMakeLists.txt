@@ -572,10 +572,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #-------------------------------------- Vector and Free Store
 # CH17P591TRY               / Execute the example above and see what you get. Then extend the example
 #                           / to determine the size of bool, double, and some other type.
+# CH17P605TRY               / Write a little program using base classes and members where you define the
+#                           / constructors and destructors to output a line of information when they are
+#                           / called. Then, create a few objects and see how their constructors and destruc-
+#                           / tors are called.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH17P591TRY")
+set(name_Example "CH17P605TRY")
 
 #[[------------------------------------
                     Example's hierarchy
