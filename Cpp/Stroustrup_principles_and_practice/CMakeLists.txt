@@ -608,10 +608,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 12. Copy the values from the array pointed to by p1 into the array pointed to
 #                           / by p2.
 #                           / 13. Repeat 10–12 using a vector rather than an array.
+# CH17P624EXERC3            / Write a function, void to_lower(char* s), that replaces all uppercase char-
+#                           / acters in the C-style string s with their lowercase equivalents. For ex-
+#                           / ample, Hello, World! becomes hello, world!. Do not use any standard
+#                           / library functions. A C-style string is a zero-terminated array of characters,
+#                           / so if you find a char with the value 0 you are at the end.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH17P622DRILL1_13")
+set(name_Example "CH17P624EXERC3")
 
 #[[------------------------------------
                     Example's hierarchy
