@@ -613,10 +613,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / ample, Hello, World! becomes hello, world!. Do not use any standard
 #                           / library functions. A C-style string is a zero-terminated array of characters,
 #                           / so if you find a char with the value 0 you are at the end.
+# CH17P624EXERC4            / Write a function, char* strdup(const char*), that copies a C-style string
+#                           / into memory it allocates on the free store. Do not use any standard library
+#                           / functions.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH17P624EXERC3")
+set(name_Example "CH17P624EXERC4")
 
 #[[------------------------------------
                     Example's hierarchy
