@@ -616,10 +616,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH17P624EXERC4            / Write a function, char* strdup(const char*), that copies a C-style string
 #                           / into memory it allocates on the free store. Do not use any standard library
 #                           / functions.
+# CH17P624EXERC5            / Write a function, char* findx(const char* s, const char* x), that finds the
+#                           / first occurrence of the C-style string x in s.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH17P624EXERC4")
+set(name_Example "CH17P624EXERC5")
 
 #[[------------------------------------
                     Example's hierarchy
