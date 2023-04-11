@@ -618,10 +618,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / functions.
 # CH17P624EXERC5            / Write a function, char* findx(const char* s, const char* x), that finds the
 #                           / first occurrence of the C-style string x in s.
+#-------------------------------------- Chapter_18
+#-------------------------------------- Vector and Arrays
+# CH18P645DRILL             / We really mean it: do run this example and make sure you understand the
+#                           / result. If you do, you’ll understand most of what there is to know about
+#                           / construction and destruction of objects.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH17P624EXERC5")
+set(name_Example "CH18P645DRILL")
 
 #[[------------------------------------
                     Example's hierarchy
