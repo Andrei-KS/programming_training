@@ -4,10 +4,10 @@
 	author                                          : Andrei-KS
 */
 
-#include "CH18P646DRILLRunExmple.h"
+#include "CH18P646TRYRunExmple.h"
 #include "std_lib_facilities.h"
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH18P646DRILLRunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH18P646TRYRunExmple();
 
 namespace {
   class MyVector {
@@ -107,7 +107,7 @@ namespace {
   }
 }
 
-int CH18P646DRILLRunExmple::excute()
+int CH18P646TRYRunExmple::excute()
 {
   MyVector v(10);
   double x = v[2];

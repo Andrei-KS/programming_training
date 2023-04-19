@@ -3,8 +3,8 @@
 	date generate                                   : 04/12/2023 07:38:26
 	author                                          : Andrei-KS
 */
-#ifndef __CH18P646DRILL__
-#define __CH18P646DRILL__
+#ifndef __CH18P646TRY__
+#define __CH18P646TRY__
 
 #include "RunCommandOfExample.h"
 
@@ -14,7 +14,7 @@
 *
 * @author Andrei-KS
 */
-class CH18P646DRILLRunExmple : public RunCommandOfExample
+class CH18P646TRYRunExmple : public RunCommandOfExample
 {
 public:
   /*
@@ -27,4 +27,4 @@ public:
   virtual int excute() override;
 };
 
-#endif // !__CH18P646DRILL__
+#endif // !__CH18P646TRY__

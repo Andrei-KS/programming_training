@@ -4,10 +4,10 @@
 	author                                          : Andrei-KS
 */
 
-#include "CH18P645DRILLRunExmple.h"
+#include "CH18P645TRYRunExmple.h"
 #include "std_lib_facilities.h"
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH18P645DRILLRunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH18P645TRYRunExmple();
 
 namespace {
   struct X {
@@ -33,7 +33,7 @@ namespace {
   struct XX { X a; X b; };
 }
 
-int CH18P645DRILLRunExmple::excute()
+int CH18P645TRYRunExmple::excute()
 {
   X loc{ 4 }; //local variable
   X loc2{ loc }; //copy construction
