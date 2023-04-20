@@ -643,6 +643,22 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           /  b. Define an array aa with ten elements, and initialize it with the first ten
 #                           /     factorial values (1, 2*1, 3*2*1, 4*3*2*1, etc.).
 #                           /  c. Call f() with aa as its argument.
+# CH18P663DRILL1_4_vector   / Standard library vector drill:
+#                           / 1. Define a global vector<int> gv; initialize it with ten ints, 1, 2, 4, 8, 16, etc.
+#                           / 2. Define a function f() taking a vector<int> argument.
+#                           / 3. In f():
+#                           /  a. Define a local vector<int> lv with the same number of elements as the
+#                           /     argument vector.
+#                           /  b. Copy the values from gv into lv.
+#                           /  c. Print out the elements of lv.
+#                           /  d. Define a local vector<int> lv2; initialize it to be a copy of the argument
+#                           /     vector.
+#                           /  e. Print out the elements of lv2.
+#                           / 4. In main():
+#                           /  a. Call f() with gv as its argument.
+#                           /  b. Define a vector<int> vv, and initialize it with the first ten factorial val-
+#                           /     ues (1, 2*1, 3*2*1, 4*3*2*1, etc.).
+#                           /  c. Call f() with vv as its argument.
 #
 
 # if the example does not exist that new directory will be created for it by layout

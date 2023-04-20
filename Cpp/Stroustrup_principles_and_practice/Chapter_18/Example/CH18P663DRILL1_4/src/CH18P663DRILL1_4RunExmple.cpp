@@ -34,6 +34,14 @@ namespace {
     {
       p[index] = a[index];
     }
+
+    cout << "\n";
+    for (int index = 0; index < size; ++index)
+    {
+      cout << p[index] << " ";
+    }
+    cout << "\n";
+
     delete[] p;
   }
 }
@@ -46,7 +54,7 @@ int CH18P663DRILL1_4RunExmple::excute()
   int aa[AA_SIZE] = { 1 };
   for (int index = 1; index < AA_SIZE; ++index)
   {
-    aa[index] = aa[index - 1] * (aa[index-1] + 1);
+    aa[index] = aa[index-1] * (index-1 + 1);
   }
   f(aa, AA_SIZE);
 	return 0;
