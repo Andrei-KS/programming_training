@@ -659,10 +659,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           /  b. Define a vector<int> vv, and initialize it with the first ten factorial val-
 #                           /     ues (1, 2*1, 3*2*1, 4*3*2*1, etc.).
 #                           /  c. Call f() with vv as its argument.
+# CH18P665EXERC1            / Write a function, char* strdup(const char*), that copies a C-style string
+#                           / into memory it allocates on the free store. Do not use any standard li-
+#                           / brary functions. Do not use subscripting; use the dereference operator *
+#                           / instead.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P663DRILL1_4")
+set(name_Example "CH18P665EXERC1")
 
 #[[------------------------------------
                     Example's hierarchy
