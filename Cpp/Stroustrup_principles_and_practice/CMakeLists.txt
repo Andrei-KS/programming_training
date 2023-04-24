@@ -670,7 +670,7 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P664EXERC1")
+set(name_Example "CH18P664EXERC2")
 
 #[[------------------------------------
                     Example's hierarchy
