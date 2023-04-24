@@ -667,10 +667,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / first occurrence of the C-style string x in s. Do not use any standard li-
 #                           / brary functions. Do not use subscripting; use the dereference operator *
 #                           / instead.
+# CH18P664EXERC3            / Write a function, int strcmp(const char* s1, const char* s2), that compares
+#                           / C-style strings. Let it return a negative number if s1 is lexicographically
+#                           / before s2, zero if s1 equals s2, and a positive number if s1 is lexicograph-
+#                           / ically after s2. Do not use any standard library functions. Do not use
+#                           / subscripting; use the dereference operator * instead.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P664EXERC2")
+set(name_Example "CH18P664EXERC3")
 
 #[[------------------------------------
                     Example's hierarchy
