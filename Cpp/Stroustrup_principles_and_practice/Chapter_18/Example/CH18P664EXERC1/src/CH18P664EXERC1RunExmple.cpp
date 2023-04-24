@@ -4,10 +4,10 @@
 	author                                          : Andrei-KS
 */
 
-#include "CH18P665EXERC1RunExmple.h"
+#include "CH18P664EXERC1RunExmple.h"
 #include "std_lib_facilities.h"
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH18P665EXERC1RunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH18P664EXERC1RunExmple();
 
 namespace {
   size_t getLength(const char* str)
@@ -32,7 +32,7 @@ namespace {
   }
 }
 
-int CH18P665EXERC1RunExmple::excute()
+int CH18P664EXERC1RunExmple::excute()
 {
   char* source = "copyTEXT\ntest\ntest2";
   char* text = mystrdup(source);

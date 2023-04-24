@@ -3,8 +3,8 @@
 	date generate                                   : 04/21/2023 09:22:30
 	author                                          : Andrei-KS
 */
-#ifndef __CH18P665EXERC1__
-#define __CH18P665EXERC1__
+#ifndef __CH18P664EXERC1__
+#define __CH18P664EXERC1__
 
 #include "RunCommandOfExample.h"
 
@@ -16,7 +16,7 @@
 *
 * @author Andrei-KS
 */
-class CH18P665EXERC1RunExmple : public RunCommandOfExample
+class CH18P664EXERC1RunExmple : public RunCommandOfExample
 {
 public:
   /*
@@ -29,4 +29,4 @@ public:
   virtual int excute() override;
 };
 
-#endif // !__CH18P665EXERC1__
+#endif // !__CH18P664EXERC1__
