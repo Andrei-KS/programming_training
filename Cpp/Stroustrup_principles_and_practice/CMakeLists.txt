@@ -684,10 +684,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / (using delete) all the memory you allocated from free store (using new).
 #                           / Compare the effort involved in this exercise with the effort involved for
 #                           / exercises 5 and 6.
+# CH18P665EXERC8            / Rewrite all the functions in §18.7 to use the approach of making a back-
+#                           / ward copy of the string and then comparing; for example, take "home",
+#                           / generate "emoh", and compare those two strings to see that they are
+#                           / different, so home isn’t a palindrome.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P665EXERC7")
+set(name_Example "CH18P665EXERC8")
 
 #[[------------------------------------
                     Example's hierarchy
