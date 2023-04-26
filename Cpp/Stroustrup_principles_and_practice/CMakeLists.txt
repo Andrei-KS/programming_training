@@ -677,10 +677,17 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / dot("Niels", "Bohr") will return a string containing Niels.Bohr.
 # CH18P665EXERC6            / Modify cat_dot() from the previous exercise to take a string to be used as
 #                           / the separator (rather than dot) as its third argument.
+# CH18P665EXERC7            / Write versions of the cat_dot()s from the previous exercises to take
+#                           / C-style strings as arguments and return a free-store-allocated C-style string
+#                           / as the result. Do not use standard library functions or types in the im-
+#                           / plementation. Test these functions with several strings. Be sure to free
+#                           / (using delete) all the memory you allocated from free store (using new).
+#                           / Compare the effort involved in this exercise with the effort involved for
+#                           / exercises 5 and 6.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P665EXERC6")
+set(name_Example "CH18P665EXERC7")
 
 #[[------------------------------------
                     Example's hierarchy
