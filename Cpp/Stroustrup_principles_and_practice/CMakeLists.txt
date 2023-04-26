@@ -675,10 +675,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH18P665EXERC5            / Write a function, string cat_dot(const string& s1, const string& s2),
 #                           / that concatenates two strings with a dot in between. For example, cat_
 #                           / dot("Niels", "Bohr") will return a string containing Niels.Bohr.
+# CH18P665EXERC6            / Modify cat_dot() from the previous exercise to take a string to be used as
+#                           / the separator (rather than dot) as its third argument.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P665EXERC5")
+set(name_Example "CH18P665EXERC6")
 
 #[[------------------------------------
                     Example's hierarchy
