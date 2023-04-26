@@ -672,10 +672,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / before s2, zero if s1 equals s2, and a positive number if s1 is lexicograph-
 #                           / ically after s2. Do not use any standard library functions. Do not use
 #                           / subscripting; use the dereference operator * instead.
+# CH18P665EXERC5            / Write a function, string cat_dot(const string& s1, const string& s2),
+#                           / that concatenates two strings with a dot in between. For example, cat_
+#                           / dot("Niels", "Bohr") will return a string containing Niels.Bohr.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P664EXERC3")
+set(name_Example "CH18P665EXERC5")
 
 #[[------------------------------------
                     Example's hierarchy
