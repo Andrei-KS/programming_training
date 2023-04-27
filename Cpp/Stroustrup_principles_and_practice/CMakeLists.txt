@@ -688,10 +688,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / ward copy of the string and then comparing; for example, take "home",
 #                           / generate "emoh", and compare those two strings to see that they are
 #                           / different, so home isn’t a palindrome.
+# CH18P665EXERC9            / Consider the memory layout in §17.4. Write a program that tells the order
+#                           / in which static storage, the stack, and the free store are laid out in memory.
+#                           / In which direction does the stack grow: upward toward higher addresses
+#                           / or downward toward lower addresses? In an array on the free store, are
+#                           / elements with higher indices allocated at higher or lower addresses?
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P665EXERC8")
+set(name_Example "CH18P665EXERC9")
 
 #[[------------------------------------
                     Example's hierarchy
