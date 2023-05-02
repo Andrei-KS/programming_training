@@ -693,10 +693,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / In which direction does the stack grow: upward toward higher addresses
 #                           / or downward toward lower addresses? In an array on the free store, are
 #                           / elements with higher indices allocated at higher or lower addresses?
+#-------------------------------------- Chapter_19
+#-------------------------------------- Vector, Templates, and Exceptions
+# CH19P707TRY               / Modify reserve to use unique_ptr. Remember to release before returning.
+#                           / Compare that solution to the vector_base one. Consider which is easier to
+#                           / write and which is easier to get correct.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P665EXERC9")
+set(name_Example "CH19P707TRY")
 
 #[[------------------------------------
                     Example's hierarchy
