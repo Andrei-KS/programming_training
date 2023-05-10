@@ -719,10 +719,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           /     For both input and output use a { val, val, val } format. That will allow
 #                           /     read_val() to also handle the S<vector<int>> variable.
 #                           / Remember to test after each step.
+# CH19P708EXERC1            / Write a template function f() that adds the elements of one vector<T> to
+#                           / the elements of another; for example, f(v1,v2) should do v1[i]+=v2[i] for
+#                           / each element of v1.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P707DRILL1_14")
+set(name_Example "CH19P708EXERC1")
 
 #[[------------------------------------
                     Example's hierarchy
