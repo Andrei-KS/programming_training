@@ -722,10 +722,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH19P708EXERC1            / Write a template function f() that adds the elements of one vector<T> to
 #                           / the elements of another; for example, f(v1,v2) should do v1[i]+=v2[i] for
 #                           / each element of v1.
+# CH19P708EXERC2            / Write a template function that takes a vector<T> vt and a vector<U> vu as
+#                           / arguments and returns the sum of all vt[i]*vu[i]s.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P708EXERC1")
+set(name_Example "CH19P708EXERC2")
 
 #[[------------------------------------
                     Example's hierarchy
