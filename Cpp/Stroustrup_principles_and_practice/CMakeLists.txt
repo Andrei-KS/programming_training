@@ -724,10 +724,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / each element of v1.
 # CH19P708EXERC2            / Write a template function that takes a vector<T> vt and a vector<U> vu as
 #                           / arguments and returns the sum of all vt[i]*vu[i]s.
+# CH19P709EXERC3            / Write a template class Pair that can hold a pair of values of any type.
+#                           / Use this to implement a simple symbol table like the one we used in the
+#                           / calculator (§7.8).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P708EXERC2")
+set(name_Example "CH19P709EXERC3")
 
 #[[------------------------------------
                     Example's hierarchy
