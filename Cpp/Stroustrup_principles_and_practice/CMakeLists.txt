@@ -727,10 +727,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH19P709EXERC3            / Write a template class Pair that can hold a pair of values of any type.
 #                           / Use this to implement a simple symbol table like the one we used in the
 #                           / calculator (§7.8).
+# CH19P709EXERC4            / Modify class Link from §17.9.3 to be a template with the type of value
+#                           / as the template argument. Then redo exercise 13 from Chapter 17 with
+#                           / Link<God>.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC3")
+set(name_Example "CH19P709EXERC4")
 
 #[[------------------------------------
                     Example's hierarchy
