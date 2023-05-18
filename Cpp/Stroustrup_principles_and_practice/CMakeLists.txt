@@ -730,10 +730,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH19P709EXERC4            / Modify class Link from §17.9.3 to be a template with the type of value
 #                           / as the template argument. Then redo exercise 13 from Chapter 17 with
 #                           / Link<God>.
+# CH19P709EXERC5            / Define a class Int having a single member of class int. Define construc-
+#                           / tors, assignment, and operators +, –, *, / for it. Test it, and improve its
+#                           / design as needed (e.g., define operators << and >> for convenient I/O).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC4")
+set(name_Example "CH19P709EXERC5")
 
 #[[------------------------------------
                     Example's hierarchy
