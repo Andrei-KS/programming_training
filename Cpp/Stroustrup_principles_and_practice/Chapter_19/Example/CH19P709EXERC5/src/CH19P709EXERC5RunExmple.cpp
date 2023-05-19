@@ -120,7 +120,7 @@ namespace {
 
   istream& operator>>(ostream& is, Int& intValue)
   {
-    return is >> intValue;
+    return is >> intValue.value;
   }
 }
 
