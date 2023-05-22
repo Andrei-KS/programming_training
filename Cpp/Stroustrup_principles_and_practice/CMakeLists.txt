@@ -736,10 +736,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH19P709EXERC6            / Repeat the previous exercise, but with a class Number<T> where T can be
 #                           / any numeric type. Try adding % to Number and see what happens when
 #                           / you try to use % for Number<double> and Number<int>.
+# CH19P709EXERC7            / Try your solution to exercise 2 with some Numbers.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC6")
+set(name_Example "CH19P709EXERC7")
 
 #[[------------------------------------
                     Example's hierarchy
