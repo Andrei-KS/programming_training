@@ -737,10 +737,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / any numeric type. Try adding % to Number and see what happens when
 #                           / you try to use % for Number<double> and Number<int>.
 # CH19P709EXERC7            / Try your solution to exercise 2 with some Numbers.
+# CH19P709EXERC8            / Implement an allocator (§19.3.7) using the basic allocation functions mal-
+#                           / loc() and free() (§B.11.4). Get vector as defined by the end of §19.4 to
+#                           / work for a few simple test cases. Hint: Look up “placement new” and
+#                           / “explicit call of destructor” in a complete C++ reference.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC7")
+set(name_Example "CH19P709EXERC8")
 
 #[[------------------------------------
                     Example's hierarchy
