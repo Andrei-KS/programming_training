@@ -97,7 +97,7 @@ namespace {
     myVector()
       : sz{ 0 }
       , elem{ nullptr }
-      , space{ s }
+      , space{ 0 }
     {}
 
     /*
