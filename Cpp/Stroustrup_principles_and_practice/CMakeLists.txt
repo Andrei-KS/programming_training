@@ -741,10 +741,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / loc() and free() (§B.11.4). Get vector as defined by the end of §19.4 to
 #                           / work for a few simple test cases. Hint: Look up “placement new” and
 #                           / “explicit call of destructor” in a complete C++ reference.
+# CH19P709EXERC9            / Re-implement vector::operator=() (§19.2.5) using an allocator (§19.3.7)
+#                           / for memory management.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC8")
+set(name_Example "CH19P709EXERC9")
 
 #[[------------------------------------
                     Example's hierarchy
