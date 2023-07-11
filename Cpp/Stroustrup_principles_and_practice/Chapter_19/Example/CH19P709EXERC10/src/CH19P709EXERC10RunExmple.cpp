@@ -186,12 +186,18 @@ namespace {
   template<typename T>
   T* myUnique_ptr<T>::operator->()
   {
+#ifdef DEBUG_BUILD
+    log(__FUNCTION__);
+#endif // DEBUGEBUG
     return obj;
   }
 
   template<typename T>
   T& myUnique_ptr<T>::operator*()
   {
+#ifdef DEBUG_BUILD
+    log(__FUNCTION__);
+#endif // DEBUGEBUG
     return *obj;
   }
 
