@@ -743,10 +743,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / “explicit call of destructor” in a complete C++ reference.
 # CH19P709EXERC9            / Re-implement vector::operator=() (§19.2.5) using an allocator (§19.3.7)
 #                           / for memory management.
+# CH19P709EXERC10           / Implement a simple unique_ptr supporting only a constructor, destructor,
+#                           / –>, *, and release(). In particular, don’t try to implement an assignment
+#                           / or a copy constructor.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC9")
+set(name_Example "CH19P709EXERC10")
 
 #[[------------------------------------
                     Example's hierarchy
