@@ -759,10 +759,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / get destroyed until after its last user has stopped using it. Write a set
 #                           / of test cases for counted_ptr using it as an argument in calls, container
 #                           / elements, etc.
+# CH19P709EXERC12           / Define a File_handle class with a constructor that takes a string argu-
+#                           / ment (the file name), opens the file in the constructor, and closes it in the
+#                           / destructor.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC11")
+set(name_Example "CH19P709EXERC12")
 
 #[[------------------------------------
                     Example's hierarchy
