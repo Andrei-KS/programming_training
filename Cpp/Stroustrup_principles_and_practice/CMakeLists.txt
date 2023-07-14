@@ -762,10 +762,16 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH19P709EXERC12           / Define a File_handle class with a constructor that takes a string argu-
 #                           / ment (the file name), opens the file in the constructor, and closes it in the
 #                           / destructor.
+# CH19P709EXERC13           / Write a Tracer class where its constructor prints a string and its destructor
+#                           / prints a string. Give the strings as constructor arguments. Use it to see
+#                           / where RAII management objects will do their job (i.e., experiment with
+#                           / Tracers as local objects, member objects, global objects, objects allocated
+#                           / by new, etc.). Then add a copy constructor and a copy assignment so that
+#                           / you can use Tracer objects to see when copying is done.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC12")
+set(name_Example "CH19P709EXERC13")
 
 #[[------------------------------------
                     Example's hierarchy
