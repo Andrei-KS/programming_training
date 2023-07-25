@@ -693,6 +693,8 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / In which direction does the stack grow: upward toward higher addresses
 #                           / or downward toward lower addresses? In an array on the free store, are
 #                           / elements with higher indices allocated at higher or lower addresses?
+# CH18P665EXERC11           / Look up (e.g., on the web) skip list and implement that kind of list. This is
+#                           / not an easy exercise.
 #-------------------------------------- Chapter_19
 #-------------------------------------- Vector, Templates, and Exceptions
 # CH19P707TRY               / Modify reserve to use unique_ptr. Remember to release before returning.
@@ -768,10 +770,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / Tracers as local objects, member objects, global objects, objects allocated
 #                           / by new, etc.). Then add a copy constructor and a copy assignment so that
 #                           / you can use Tracer objects to see when copying is done.
+# CH19P710EXERC14           / Provide a GUI interface and a bit of graphical output to the “Hunt the
+#                           / Wumpus” game from the exercises in Chapter 18. Take the input in an
+#                           / input box and display a map of the part of the cave currently known to
+#                           / the player in a window.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH19P709EXERC13")
+set(name_Example "CH18P665EXERC11")
 
 #[[------------------------------------
                     Example's hierarchy
