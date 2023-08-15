@@ -801,10 +801,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / Wumpus” game from the exercises in Chapter 18. Take the input in an
 #                           / input box and display a map of the part of the cave currently known to
 #                           / the player in a window.
+#-------------------------------------- Chapter_20
+#-------------------------------------- Containers and Iterators
+# CH20P714TRY               / If you were able to change Jill’s code, how would you redesign its interface
+#                           / to get rid of the ugliness?
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH18P665EXERC12")
+set(name_Example "CH20P714TRY")
 
 #[[------------------------------------
                     Example's hierarchy

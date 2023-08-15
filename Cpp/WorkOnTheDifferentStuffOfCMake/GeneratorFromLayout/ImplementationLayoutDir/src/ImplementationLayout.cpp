@@ -14,5 +14,6 @@ namespace {
 
 int ImplementationLayoutRunExmple::excute()
 {
+  error("The ImplementationLayoutRunExmple::excute() implementation doesn't existe");
 	return 0;
 }

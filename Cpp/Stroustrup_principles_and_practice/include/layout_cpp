@@ -15,5 +15,6 @@ namespace {
 
 int ${name_File}RunExmple::excute()
 {
+  error("The ${name_File}RunExmple::excute() implementation doesn't existe");
 	return 0;
 }
