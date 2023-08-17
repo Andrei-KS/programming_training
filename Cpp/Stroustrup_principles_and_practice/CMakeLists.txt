@@ -805,10 +805,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #-------------------------------------- Containers and Iterators
 # CH20P714TRY               / If you were able to change Jill’s code, how would you redesign its interface
 #                           / to get rid of the ugliness?
+# CH20P715TRY               / We left two potentially serious errors in this little program. One can cause a
+#                           / crash, and the other will give wrong answers if high() is used in many other
+#                           / programs where it might have been useful. The general techniques that we
+#                           / describe below will make them obvious and show how to systematically
+#                           / avoid them. For now, just find them and suggest remedies.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P714TRY")
+set(name_Example "CH20P715TRY")
 
 #[[------------------------------------
                     Example's hierarchy
