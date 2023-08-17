@@ -810,10 +810,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / programs where it might have been useful. The general techniques that we
 #                           / describe below will make them obvious and show how to systematically
 #                           / avoid them. For now, just find them and suggest remedies.
+# CH20P722TRY               / Write a function void copy(int* f1, int* e1, int* f2) that copies the elements
+#                           / of an array of ints defined by [f1:e1) into another [f2:f2+(e1–f1)). Use only
+#                           / the iterator operations mentioned above (not subscripting).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P715TRY")
+set(name_Example "CH20P722TRY")
 
 #[[------------------------------------
                     Example's hierarchy
