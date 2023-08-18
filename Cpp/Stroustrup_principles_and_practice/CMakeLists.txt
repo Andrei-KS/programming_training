@@ -817,10 +817,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / general remedy for that kind of problem.
 # CH20P728TRY               / The standard library vector doesn’t provide push_front(). Why not? Imple-
 #                           / ment push_front() for vector and compare it to push_back().
+# CH20P739TRY               / Rewrite advance() so that it will “go backward” when you give it a negative
+#                           / argument.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P728TRY")
+set(name_Example "CH20P739TRY")
 
 #[[------------------------------------
                     Example's hierarchy
