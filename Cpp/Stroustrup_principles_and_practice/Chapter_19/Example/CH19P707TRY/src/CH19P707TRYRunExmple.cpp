@@ -208,7 +208,8 @@ namespace {
     {
       alloc.destroy(&elem[i]);
     }
-
+    // deallocate old space
+    alloc.deallocate(elem, space);
     elem = p.release();
     space = newalloc;
   }
