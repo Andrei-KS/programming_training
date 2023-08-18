@@ -813,10 +813,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH20P722TRY               / Write a function void copy(int* f1, int* e1, int* f2) that copies the elements
 #                           / of an array of ints defined by [f1:e1) into another [f2:f2+(e1–f1)). Use only
 #                           / the iterator operations mentioned above (not subscripting).
+# CH20P724TRY               / We again left a serious error in that program. Find it, fix it, and suggest a
+#                           / general remedy for that kind of problem.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P722TRY")
+set(name_Example "CH20P724TRY")
 
 #[[------------------------------------
                     Example's hierarchy
