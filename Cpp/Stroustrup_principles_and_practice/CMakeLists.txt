@@ -841,10 +841,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           /    value 27 and print out its position if it does. The “position” of the first
 #                           /    element is 0, the position of the second element is 1, etc. Note that if find()
 #                           /    returns the end of the sequence, the value wasn’t found.
+# CH20P754EXERC2            / Get the Jack-and-Jill example from §20.1.2 to work. Use input from a
+#                           / couple of small files to test it.
+# CH20P754EXERC3            / Look at the palindrome examples (§18.7); redo the Jack-and-Jill example
+#                           / from §20.1.2 using that variety of techniques.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P753DRILL1_8")
+set(name_Example "CH20P754EXERC3")
 
 #[[------------------------------------
                     Example's hierarchy
