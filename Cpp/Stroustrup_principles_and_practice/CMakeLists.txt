@@ -13,7 +13,7 @@ enable_testing()
 set(CTEST_PROJECT_NAME "Stroustrup_principles_and_practice")
 set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 
-#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_BUILD")
 
 # connecting the necessary modules
 #list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/_cmake_lib")
@@ -815,10 +815,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / the iterator operations mentioned above (not subscripting).
 # CH20P724TRY               / We again left a serious error in that program. Find it, fix it, and suggest a
 #                           / general remedy for that kind of problem.
+# CH20P728TRY               / The standard library vector doesn’t provide push_front(). Why not? Imple-
+#                           / ment push_front() for vector and compare it to push_back().
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P724TRY")
+set(name_Example "CH20P728TRY")
 
 #[[------------------------------------
                     Example's hierarchy
