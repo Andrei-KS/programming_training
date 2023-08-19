@@ -845,10 +845,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / couple of small files to test it.
 # CH20P754EXERC3            / Look at the palindrome examples (§18.7); redo the Jack-and-Jill example
 #                           / from §20.1.2 using that variety of techniques.
+# CH20P754EXERC5            / Define an input and an output operator (>> and <<) for vector.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P754EXERC3")
+set(name_Example "CH20P754EXERC5")
 
 #[[------------------------------------
                     Example's hierarchy
