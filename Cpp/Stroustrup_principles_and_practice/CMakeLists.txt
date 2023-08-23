@@ -848,10 +848,11 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH20P754EXERC5            / Define an input and an output operator (>> and <<) for vector.
 # CH20P754EXERC6            / Write a find-and-replace operation for Documents based on §20.6.2.
 # CH20P754EXERC7            / Find the lexicographical last string in an unsorted vector<string>.
+# CH20P754EXERC8            / Define a function that counts the number of characters in a Document.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P754EXERC7")
+set(name_Example "CH20P754EXERC8")
 
 #[[------------------------------------
                     Example's hierarchy
