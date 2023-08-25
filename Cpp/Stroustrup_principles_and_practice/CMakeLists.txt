@@ -857,10 +857,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / are both two words.
 # CH20P755EXERC10           / Define a version of the word-counting program where the user can spec-
 #                           / ify the set of whitespace characters.
+# CH20P755EXERC11           / Given a list<int> as a (by-reference) parameter, make a vector<double>
+#                           / and copy the elements of the list into it. Verify that the copy was complete
+#                           / and correct. Then print the elements sorted in order of increasing value.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC10")
+set(name_Example "CH20P755EXERC11")
 
 #[[------------------------------------
                     Example's hierarchy
