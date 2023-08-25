@@ -849,10 +849,16 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH20P754EXERC6            / Write a find-and-replace operation for Documents based on §20.6.2.
 # CH20P754EXERC7            / Find the lexicographical last string in an unsorted vector<string>.
 # CH20P754EXERC8            / Define a function that counts the number of characters in a Document.
+# CH20P755EXERC9            / Define a program that counts the number of words in a Document. Provide
+#                           / two versions: one that defines word as “a whitespace-separated sequence of
+#                           / characters” and one that defines word as “a sequence of consecutive alpha-
+#                           / betic characters.” For example, with the former definition, alpha.numeric
+#                           / and as12b are both single words, whereas with the second definition they
+#                           / are both two words.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P754EXERC8")
+set(name_Example "CH20P755EXERC9")
 
 #[[------------------------------------
                     Example's hierarchy
