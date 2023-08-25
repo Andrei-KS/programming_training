@@ -855,10 +855,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / betic characters.” For example, with the former definition, alpha.numeric
 #                           / and as12b are both single words, whereas with the second definition they
 #                           / are both two words.
+# CH20P755EXERC10           / Define a version of the word-counting program where the user can spec-
+#                           / ify the set of whitespace characters.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC9")
+set(name_Example "CH20P755EXERC10")
 
 #[[------------------------------------
                     Example's hierarchy
