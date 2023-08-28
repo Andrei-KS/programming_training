@@ -860,10 +860,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH20P755EXERC11           / Given a list<int> as a (by-reference) parameter, make a vector<double>
 #                           / and copy the elements of the list into it. Verify that the copy was complete
 #                           / and correct. Then print the elements sorted in order of increasing value.
+# CH20P755EXERC12           / Complete the definition of list from §20.4.1–2 and get the high() example
+#                           / to run. Allocate a Link to represent one past the end.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC11")
+set(name_Example "CH20P755EXERC12")
 
 #[[------------------------------------
                     Example's hierarchy
