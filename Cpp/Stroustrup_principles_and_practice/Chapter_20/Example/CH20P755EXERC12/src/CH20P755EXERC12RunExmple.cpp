@@ -56,7 +56,7 @@ namespace {
     */
     myList()
       : mFirst{ nullptr }
-      , mLast{ new Link<Elem>(0) }
+      , mLast{ new Link<Elem>(Elem()) }
       , mSize{ 0 }
     {
       mFirst = mLast;
