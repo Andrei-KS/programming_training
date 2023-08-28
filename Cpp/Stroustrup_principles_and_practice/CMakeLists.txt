@@ -862,10 +862,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / and correct. Then print the elements sorted in order of increasing value.
 # CH20P755EXERC12           / Complete the definition of list from §20.4.1–2 and get the high() example
 #                           / to run. Allocate a Link to represent one past the end.
+# CH20P755EXERC13           / We don’t really need a “real” one-past-the-end Link for a list. Modify your
+#                           / solution to the previous exercise to use 0 to represent a pointer to the
+#                           / (nonexistent) one-past-the-end Link (list<Elem>::end()); that way, the size
+#                           / of an empty list can be equal to the size of a single pointer.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC12")
+set(name_Example "CH20P755EXERC13")
 
 #[[------------------------------------
                     Example's hierarchy
