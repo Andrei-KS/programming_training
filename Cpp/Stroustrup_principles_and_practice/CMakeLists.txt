@@ -866,10 +866,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / solution to the previous exercise to use 0 to represent a pointer to the
 #                           / (nonexistent) one-past-the-end Link (list<Elem>::end()); that way, the size
 #                           / of an empty list can be equal to the size of a single pointer.
+# CH20P755EXERC14           / Define a singly-linked list, slist, in the style of std::list. Which operations
+#                           / from list could you reasonably eliminate from slist because it doesn’t have
+#                           / back pointers?
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC13")
+set(name_Example "CH20P755EXERC14")
 
 #[[------------------------------------
                     Example's hierarchy
