@@ -869,10 +869,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH20P755EXERC14           / Define a singly-linked list, slist, in the style of std::list. Which operations
 #                           / from list could you reasonably eliminate from slist because it doesn’t have
 #                           / back pointers?
+# CH20P755EXERC15           / Define a pvector to be like a vector of pointers except that it contains
+#                           / pointers to objects and its destructor deletes each object.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC14")
+set(name_Example "CH20P755EXERC15")
 
 #[[------------------------------------
                     Example's hierarchy
