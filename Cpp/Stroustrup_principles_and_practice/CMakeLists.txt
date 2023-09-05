@@ -871,10 +871,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / back pointers?
 # CH20P755EXERC15           / Define a pvector to be like a vector of pointers except that it contains
 #                           / pointers to objects and its destructor deletes each object.
+# CH20P755EXERC16           / Define an ovector that is like pvector except that the [ ] and * operators
+#                           / return a reference to the object pointed to by an element rather than the
+#                           / pointer.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC15")
+set(name_Example "CH20P755EXERC16")
 
 #[[------------------------------------
                     Example's hierarchy
