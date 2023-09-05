@@ -874,10 +874,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH20P755EXERC16           / Define an ovector that is like pvector except that the [ ] and * operators
 #                           / return a reference to the object pointed to by an element rather than the
 #                           / pointer.
+# CH20P755EXERC17           / Define an ownership_vector that hold pointers to objects like pvector but
+#                           / provides a mechanism for the user to decide which objects are owned by
+#                           / the vector (i.e., which objects are deleted by the destructor). Hint: This
+#                           / exercise is simple if you were awake for Chapter 13.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC16")
+set(name_Example "CH20P755EXERC17")
 
 #[[------------------------------------
                     Example's hierarchy
