@@ -889,10 +889,18 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / larger than the new value. Now do the same experiment using a list<int> to
 #                           / hold the ints. For which N is the list faster than the vector? Try to explain
 #                           / your result. This experiment was first suggested by John Bentley
+#-------------------------------------- Chapter_21
+#-------------------------------------- Algorithms and Maps
+# CH21P761TRY               / Are you sure those two definitions are logically equivalent? How would
+#                           / you be sure? Try constructing an argument for their being equivalent. That
+#                           / done, try both on some data. A famous computer scientist (Don Knuth)
+#                           / once said, “I have only proven the algorithm correct, not tested it.” Even
+#                           / mathematical proofs can contain errors. To be confident, you need to both
+#                           / reason and test.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC20")
+set(name_Example "CH21P761TRY")
 
 #[[------------------------------------
                     Example's hierarchy
