@@ -880,10 +880,19 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / exercise is simple if you were awake for Chapter 13.
 # CH20P755EXERC18           / Define a range-checked iterator for vector (a random-access iterator).
 # CH20P755EXERC19           / Define a range-checked iterator for list (a bidirectional iterator).
+# CH20P755EXERC20           / Run a small timing experiment to compare the cost of using vector and list.
+#                           / You can find an explanation of how to time a program in §26.6.1. Generate
+#                           / N random int values in the range [0:N ). As each int is generated, insert
+#                           / it into a vector<int> (which grows by one element each time). Keep the
+#                           / vector sorted; that is, a value is inserted after every previous value that is
+#                           / less than or equal to the new value and before every previous value that is
+#                           / larger than the new value. Now do the same experiment using a list<int> to
+#                           / hold the ints. For which N is the list faster than the vector? Try to explain
+#                           / your result. This experiment was first suggested by John Bentley
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH20P755EXERC19")
+set(name_Example "CH20P755EXERC20")
 
 #[[------------------------------------
                     Example's hierarchy
