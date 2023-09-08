@@ -1,33 +1,32 @@
 /*
 	This file is generated from a layout that is in : {PROJECT_SOURCE_DIR}/include
-	date generate                                   : 09/08/2023 13:09:46
+	date generate                                   : 09/08/2023 13:43:51
 	author                                          : Andrei-KS
 */
-#include <map>
+
+#include <unordered_map>
 #include <numeric>
-#include "CH21P785TRYRunExmple.h"
+#include "CH21P787TRYRunExmple.h"
 #include "std_lib_facilities.h"
 
-RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH21P785TRYRunExmple();
+RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new CH21P787TRYRunExmple();
 
 namespace {
   // extract valuesand multiply
-  double weighted_value( const pair<string, double>& a, const pair<string, double>& b)
+  double weighted_value(const pair<string, double>& a, const pair<string, double>& b)
   {
     return a.second * b.second;
   }
-
 }
 
-int CH21P785TRYRunExmple::excute()
+int CH21P787TRYRunExmple::excute()
 {
-
   // Dow Jones Industrial index(symbol,price);
-  // for up - to - date quotes see
-  // www.djindexes.com
-  // and
-  // www.slickcharts.com
-  map<string, double> dow_price = {
+// for up - to - date quotes see
+// www.djindexes.com
+// and
+// www.slickcharts.com
+  unordered_map<string, double> dow_price = {
     {"MMM",81.86},
     {"AA",34.69},
     {"MO",54.45},
@@ -37,7 +36,7 @@ int CH21P785TRYRunExmple::excute()
   };
 
   // Dow(symbol,weight)
-  map<string, double> dow_weight = {
+  unordered_map<string, double> dow_weight = {
     {"MMM", 5.8549},
     {"AA",2.4808},
     {"MO",3.8940},
@@ -47,7 +46,7 @@ int CH21P785TRYRunExmple::excute()
   };
 
   // Dow(symbol,name)
-  map<string, string> dow_name = {
+  unordered_map<string, string> dow_name = {
     {"MMM","3M Co."},
     {"AA","Alcoa Inc."},
     {"MO","Altria Group Inc."},
@@ -64,7 +63,7 @@ int CH21P785TRYRunExmple::excute()
   {
     cout << "Intel is in the Dow\n";
   }
-  
+
   // write price for each company in the Dow index :
   for (const auto& p : dow_price)
   {
@@ -76,10 +75,11 @@ int CH21P785TRYRunExmple::excute()
   }
 
   double dji_index = inner_product(dow_price.begin(), dow_price.end(), //all companies
-      dow_weight.begin(), //their weights
-      0.0, //initial value
-      plus<double>(), //add(as usual)
-      weighted_value); //extract valuesand weightsand multiply
-  cout << "dji_index\t" << dji_index << "\n"; // 9302.28
+    dow_weight.begin(), //their weights
+    0.0, //initial value
+    plus<double>(), //add(as usual)
+    weighted_value); //extract valuesand weightsand multiply
+  cout << "dji_index\t" << dji_index << "\n";
+
 	return 0;
 }

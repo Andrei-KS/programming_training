@@ -904,10 +904,14 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / compute their total price using the functions above.
 # CH21P785TRY               / Get this little example to work. Then add a few companies of your own
 #                           / choice, with weights of your choice.
+# CH21P787TRY               / Write a small program using #include<unordered_map>. If that doesn’t
+#                           / work, unordered_map wasn’t shipped with your C++ implementation. If
+#                           / your C++ implementation doesn’t provide unordered_map, you have to
+#                           / download one of the available implementations (e.g., see www.boost.org).
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P785TRY")
+set(name_Example "CH21P787TRY")
 
 #[[------------------------------------
                     Example's hierarchy
