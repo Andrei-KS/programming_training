@@ -900,10 +900,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH21P765TRY               / Why are we so disgusted with that use of v? Give at least three ways this
 #                           / could lead to obscure errors. List three applications in which you’d particu-
 #                           / larly hate to find such code.
+# CH21P774TRY               / Define a vector<Record>, initialize it with four records of your choice, and
+#                           / compute their total price using the functions above.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P765TRY")
+set(name_Example "CH21P774TRY")
 
 #[[------------------------------------
                     Example's hierarchy
