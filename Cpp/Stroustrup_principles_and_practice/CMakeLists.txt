@@ -897,10 +897,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / once said, “I have only proven the algorithm correct, not tested it.” Even
 #                           / mathematical proofs can contain errors. To be confident, you need to both
 #                           / reason and test.
+# CH21P765TRY               / Why are we so disgusted with that use of v? Give at least three ways this
+#                           / could lead to obscure errors. List three applications in which you’d particu-
+#                           / larly hate to find such code.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P761TRY")
+set(name_Example "CH21P765TRY")
 
 #[[------------------------------------
                     Example's hierarchy
