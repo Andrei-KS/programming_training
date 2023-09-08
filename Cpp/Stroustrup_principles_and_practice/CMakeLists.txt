@@ -902,10 +902,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / larly hate to find such code.
 # CH21P774TRY               / Define a vector<Record>, initialize it with four records of your choice, and
 #                           / compute their total price using the functions above.
+# CH21P785TRY               / Get this little example to work. Then add a few companies of your own
+#                           / choice, with weights of your choice.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P774TRY")
+set(name_Example "CH21P785TRY")
 
 #[[------------------------------------
                     Example's hierarchy
