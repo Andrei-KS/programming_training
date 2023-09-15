@@ -908,10 +908,26 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / work, unordered_map wasn’t shipped with your C++ implementation. If
 #                           / your C++ implementation doesn’t provide unordered_map, you have to
 #                           / download one of the available implementations (e.g., see www.boost.org).
+# CH21P792TRY               / First get the program as written to work and test it with a small file of, say,
+#                           / a few hundred words. Then try the emphatically not recommended version that
+#                           / guesses about the size of input and see what happens when the input buffer b
+#                           / overflows. Note that the worst-case scenario is that the overflow led to noth-
+#                           / ing bad in your particular example, so that you would be tempted to ship it
+#                           / to users.
+# CH21P798DRILL1_8          / 1. Define a struct Item { string name; int iid; double value; /*. . . */ };, make
+#                           /    a vector<Item>, vi, and fill it with ten items from a file.
+#                           / 2. Sort vi by name.
+#                           / 3. Sort vi by iid.
+#                           / 4. Sort vi by value; print it in order of decreasing value (i.e., largest value
+#                           /    first).
+#                           / 5. Insert Item{"horse shoe",99,12.34} and Item{"Canon S400", 9988,499.95}.
+#                           / 6. Remove (erase) two Items identified by name from vi.
+#                           / 7. Remove (erase) two Items identified by iid from vi.
+#                           / 8. Repeat the exercise with a list<Item> rather than a vector<Item>.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P787TRY")
+set(name_Example "CH21P792TRY")
 
 #[[------------------------------------
                     Example's hierarchy
