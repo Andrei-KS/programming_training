@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "exception : " << e.what() << "\n";
+		std::cout << "\033[1;31m" << "exception : " << e.what() << "\033[0m\n" << "\n";
 	}
 	catch (...)
 	{

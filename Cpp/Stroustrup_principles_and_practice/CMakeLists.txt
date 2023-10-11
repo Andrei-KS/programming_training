@@ -914,7 +914,7 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / overflows. Note that the worst-case scenario is that the overflow led to noth-
 #                           / ing bad in your particular example, so that you would be tempted to ship it
 #                           / to users.
-# CH21P798DRILL1_8          / 1. Define a struct Item { string name; int iid; double value; /*. . . */ };, make
+# CH21P798DRILL1_8          / 1. Define a struct Item { string name; int iid; double value; / *. . . * / };, make
 #                           /    a vector<Item>, vi, and fill it with ten items from a file.
 #                           / 2. Sort vi by name.
 #                           / 3. Sort vi by iid.
@@ -927,7 +927,7 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P792TRY")
+set(name_Example "CH21P798DRILL1_8")
 
 #[[------------------------------------
                     Example's hierarchy
