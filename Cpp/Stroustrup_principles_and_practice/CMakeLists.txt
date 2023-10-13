@@ -924,10 +924,22 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 6. Remove (erase) two Items identified by name from vi.
 #                           / 7. Remove (erase) two Items identified by iid from vi.
 #                           / 8. Repeat the exercise with a list<Item> rather than a vector<Item>.
+# CH21P798DRILL1_11         / 1. Define a map<string,int> called msi.
+#                           / 2. Insert ten (name,value) pairs into it, e.g., msi["lecture"]=21.
+#                           / 3. Output the (name,value) pairs to cout in some format of your choice.
+#                           / 4. Erase the (name,value) pairs from msi.
+#                           / 5. Write a function that reads value pairs from cin and places them in msi.
+#                           / 6. Read ten pairs from input and enter them into msi.
+#                           / 7. Write the elements of msi to cout.
+#                           / 8. Output the sum of the (integer) values in msi.
+#                           / 9. Define a map<int,string> called mis.
+#                           / 10. Enter the values from msi into mis; that is, if msi has an element
+#                           / (" lecture",21), mis should have an element (21,"lecture").
+#                           / 11. Output the elements of mis to cout.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P798DRILL1_8")
+set(name_Example "CH21P798DRILL1_11")
 
 #[[------------------------------------
                     Example's hierarchy
