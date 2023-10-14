@@ -936,10 +936,25 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 10. Enter the values from msi into mis; that is, if msi has an element
 #                           / (" lecture",21), mis should have an element (21,"lecture").
 #                           / 11. Output the elements of mis to cout.
+# CH21P799DRILL1_10         / 1. Read some floating-point values (at least 16 values) from a file into a
+#                           /    vector<double> called vd.
+#                           / 2. Output vd to cout.
+#                           / 3. Make a vector vi of type vector<int> with the same number of elements
+#                           /    as vd; copy the elements from vd into vi.
+#                           / 4. Output the pairs of (vd[i],vi[i]) to cout, one pair per line.
+#                           / 5. Output the sum of the elements of vd.
+#                           / 6. Output the difference between the sum of the elements of vd and the sum
+#                           /    of the elements of vi.
+#                           / 7. There is a standard library algorithm called reverse that takes a sequence
+#                           /    (pair of iterators) as arguments; reverse vd, and output vd to cout.
+#                           / 8. Compute the mean value of the elements in vd; output it.
+#                           / 9. Make a new vector<double> called vd2 and copy all elements of vd with
+#                           /    values lower than (less than) the mean into vd2.
+#                           / 10. Sort vd; output it again.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P798DRILL1_11")
+set(name_Example "CH21P799DRILL1_10")
 
 #[[------------------------------------
                     Example's hierarchy
