@@ -951,11 +951,12 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 9. Make a new vector<double> called vd2 and copy all elements of vd with
 #                           /    values lower than (less than) the mean into vd2.
 #                           / 10. Sort vd; output it again.
-# CH21P800EXERC3            / Implement count() yourself. Test it
+# CH21P800EXERC3            / Implement count() yourself. Test it.
+# CH21P800EXERC4            / Implement count_if() yourself. Test it.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P800EXERC3")
+set(name_Example "CH21P800EXERC4")
 
 #[[------------------------------------
                     Example's hierarchy
