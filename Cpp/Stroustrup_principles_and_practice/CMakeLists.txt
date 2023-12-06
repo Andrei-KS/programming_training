@@ -956,10 +956,15 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH21P800EXERC5            / What would we have to do if we couldn’t return end() to indicate “not
 #                           / found”? Redesign and re-implement find() and count() to take iterators to
 #                           / the first and last elements. Compare the results to the standard versions.
+# CH21P800EXERC6            / In the Fruit example in §21.6.5, we copy Fruits into the set. What if
+#                           / we didn’t want to copy the Fruits? We could have a set<Fruit*> instead.
+#                           / However, to do that, we’d have to define a comparison operation for that
+#                           / set. Implement the Fruit example using a set<Fruit*, Fruit_comparison>.
+#                           / Discuss the differences between the two implementations.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P800EXERC5")
+set(name_Example "CH21P800EXERC6")
 
 #[[------------------------------------
                     Example's hierarchy
