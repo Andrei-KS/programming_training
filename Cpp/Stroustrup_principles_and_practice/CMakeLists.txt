@@ -953,10 +953,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / 10. Sort vd; output it again.
 # CH21P800EXERC3            / Implement count() yourself. Test it.
 # CH21P800EXERC4            / Implement count_if() yourself. Test it.
+# CH21P800EXERC5            / What would we have to do if we couldn’t return end() to indicate “not
+#                           / found”? Redesign and re-implement find() and count() to take iterators to
+#                           / the first and last elements. Compare the results to the standard versions.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P800EXERC4")
+set(name_Example "CH21P800EXERC5")
 
 #[[------------------------------------
                     Example's hierarchy
