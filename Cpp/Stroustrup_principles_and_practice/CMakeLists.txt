@@ -961,10 +961,16 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / However, to do that, we’d have to define a comparison operation for that
 #                           / set. Implement the Fruit example using a set<Fruit*, Fruit_comparison>.
 #                           / Discuss the differences between the two implementations.
+# CH21P800EXERC7            / Write a binary search function for a vector<int> (without using the stan-
+#                           / dard one). You can choose any interface you like. Test it. How confident
+#                           / are you that your binary search function is correct? Now write a binary
+#                           / search function for a list<string>. Test it. How much do the two binary
+#                           / search functions resemble each other? How much do you think they
+#                           / would have resembled each other if you had not known about the STL?
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P800EXERC6")
+set(name_Example "CH21P800EXERC7")
 
 #[[------------------------------------
                     Example's hierarchy
