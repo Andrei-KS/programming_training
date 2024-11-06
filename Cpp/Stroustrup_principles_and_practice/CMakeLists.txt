@@ -967,10 +967,13 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 #                           / search function for a list<string>. Test it. How much do the two binary
 #                           / search functions resemble each other? How much do you think they
 #                           / would have resembled each other if you had not known about the STL?
+# CH21P800EXERC8            / Take the word-frequency example from §21.6.1 and modify it to output
+#                           / its lines in order of frequency (rather than in lexicographical order). An
+#                           / example line would be 3: C++ rather than C++: 3.
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P800EXERC7")
+set(name_Example "CH21P800EXERC8")
 
 #[[------------------------------------
                     Example's hierarchy
@@ -1071,8 +1074,10 @@ if(NOT EXISTS "${dir_Example}")
 
   set(src_dir_Example "${dir_Example}/src")
   set(include_dir_Example "${dir_Example}/include")
+  set(data_dir_Example "${dir_Example}/data")
   make_directory(${src_dir_Example})
   make_directory(${include_dir_Example})
+  make_directory(${data_dir_Example})
    
   # get the number of items on the list
   list(LENGTH substitutions_list length_substitutions_list)
