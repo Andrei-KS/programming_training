@@ -970,10 +970,19 @@ add_executable (${PROJECT_NAME} ${list_Path_To_Src})
 # CH21P800EXERC8            / Take the word-frequency example from §21.6.1 and modify it to output
 #                           / its lines in order of frequency (rather than in lexicographical order). An
 #                           / example line would be 3: C++ rather than C++: 3.
+# CH21P800EXERC9            / Define an Order class with (customer) name, address, data, and
+#                           / vector<Purchase> members. Purchase is a class with a (product) name,
+#                           / unit_price, and count members. Define a mechanism for reading and
+#                           / writing Orders to and from a file. Define a mechanism for printing Or-
+#                           / ders. Create a file of at least ten Orders, read it into a vector<Order>, sort
+#                           / it by name (of customer), and write it back out to a file. Create another
+#                           / file of at least ten Orders of which about a third are the same as in the first
+#                           / file, read it into a list<Order>, sort it by address (of customer), and write
+#                           / it back out to a file. Merge the two files into a third using std::merge().
 #
 
 # if the example does not exist that new directory will be created for it by layout
-set(name_Example "CH21P800EXERC8")
+set(name_Example "CH21P800EXERC9")
 
 #[[------------------------------------
                     Example's hierarchy
