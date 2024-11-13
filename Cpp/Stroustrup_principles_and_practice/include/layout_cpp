@@ -10,11 +10,12 @@ ${include_Extra}
 
 RunCommandOfExample* RunCommandOfExample::runCommandOfExample = new ${name_File}RunExmple();
 
-namespace {
+namespace ${name_File}NS{
 }
 
 int ${name_File}RunExmple::excute()
 {
+  using namespace ${name_File}NS;
   error("The ${name_File}RunExmple::excute() implementation doesn't existe");
 	return 0;
 }
