@@ -13,8 +13,8 @@ enable_testing()
 
 # connecting the necessary modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/_cmake_lib")
-include(creat_lib_from_files)
-include(creat_test_for_lib)
+include(create_lib_from_files)
+include(create_test_for_lib)
 include(copy_folder)
 include(create_paths_list_to)
 

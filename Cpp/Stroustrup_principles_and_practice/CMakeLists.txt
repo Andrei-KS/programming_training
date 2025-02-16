@@ -1215,7 +1215,7 @@ if(is_FLTK)
   endif()
 endif()
 
-creat_lib_from_files(
+create_lib_from_files(
   SHOWE_INFO_MESSAGE
   NAME_LIB ${name_Lib}
   NAME_TARGET ${PROJECT_NAME}

@@ -10,7 +10,7 @@ include(create_paths_list_to)
 # This function creat a lib from files. Also, so that there are no problems during
 # the first assembly, instead of the created library, it creates a stub.
 # 
-# @name   : creat_lib_from_files
+# @name   : create_lib_from_files
 # @param  : SHOWE_INFO_MESSAGE    - option that allows showing of extra info of the paths making process
 # @param  : NAME_LIB              - will be title of the lib that will be made
 # @param  : NAME_TARGET           - will depend on target of this lib to ensure that it build before name_target does.
@@ -27,7 +27,7 @@ include(create_paths_list_to)
 # @requirement cmake_minimum_required 8.0 
 # @author Andrei-KS
 ]]#
-function(creat_lib_from_files)
+function(create_lib_from_files)
   set(options
     SHOWE_INFO_MESSAGE
   )
@@ -47,36 +47,36 @@ function(creat_lib_from_files)
   )
   cmake_parse_arguments(
     PARSE_ARGV 0
-    creat_lib_from_files
+    create_lib_from_files
     "${options}"
     "${args}"
     "${list_Args}"
   )
 
-  if(NOT DEFINED creat_lib_from_files_NAME_LIB)
+  if(NOT DEFINED create_lib_from_files_NAME_LIB)
     message(FATAL_ERROR "Error : NAME_LIB is not defined")
   endif()
 
-  if(creat_lib_from_files_UNPARSED_ARGUMENTS)
-    message(FATAL_ERROR "Error : Unparsed argument: ${creat_lib_from_files_UNPARSED_ARGUMENTS}")
+  if(create_lib_from_files_UNPARSED_ARGUMENTS)
+    message(FATAL_ERROR "Error : Unparsed argument: ${create_lib_from_files_UNPARSED_ARGUMENTS}")
   endif()
 
-  message(STATUS "Call creat_lib_from_files(NAME_LIB ${creat_lib_from_files_NAME_LIB} ...)")
+  message(STATUS "Call create_lib_from_files(NAME_LIB ${create_lib_from_files_NAME_LIB} ...)")
 
-  if(creat_lib_from_files_SHOWE_INFO_MESSAGE)
-    message(STATUS "Name lib will be ${creat_lib_from_files_NAME_LIB}")
-    message(STATUS "${creat_lib_from_files_NAME_TARGET} depend on ${creat_lib_from_files_NAME_LIB}")
+  if(create_lib_from_files_SHOWE_INFO_MESSAGE)
+    message(STATUS "Name lib will be ${create_lib_from_files_NAME_LIB}")
+    message(STATUS "${create_lib_from_files_NAME_TARGET} depend on ${create_lib_from_files_NAME_LIB}")
       
-    message("Directories List To Include: ${creat_lib_from_files_INCLUDES_DIRECTORIES}")
+    message("Directories List To Include: ${create_lib_from_files_INCLUDES_DIRECTORIES}")
 
-    message("Directories List To Src: ${creat_lib_from_files_SRC_DIRECTORIES}")
-    message("Ignore List To Src: ${creat_lib_from_files_SRC_IGNORE_NAMES}")
-    message("Extra Src Files: ${creat_lib_from_files_SRC_EXTRA_FILES}")
+    message("Directories List To Src: ${create_lib_from_files_SRC_DIRECTORIES}")
+    message("Ignore List To Src: ${create_lib_from_files_SRC_IGNORE_NAMES}")
+    message("Extra Src Files: ${create_lib_from_files_SRC_EXTRA_FILES}")
 
-    message("Directories List To Lib: ${creat_lib_from_files_LIB_DIRECTORIES}")
-    message("Ignore List To Lib: ${creat_lib_from_files_LIB_IGNORE_NAMES}")
-    message("Extra Libs: ${creat_lib_from_files_EXTRA_LIBS}")
-    message("Dependencies on: ${creat_lib_from_files_DEPENDENCIES_ON}")
+    message("Directories List To Lib: ${create_lib_from_files_LIB_DIRECTORIES}")
+    message("Ignore List To Lib: ${create_lib_from_files_LIB_IGNORE_NAMES}")
+    message("Extra Libs: ${create_lib_from_files_EXTRA_LIBS}")
+    message("Dependencies on: ${create_lib_from_files_DEPENDENCIES_ON}")
   endif()
 
 
@@ -85,9 +85,9 @@ function(creat_lib_from_files)
   # Get all paths of files for source of packege
   create_paths_list_to(
     paths_To_SRC
-    DIRECTORIES   ${creat_lib_from_files_SRC_DIRECTORIES}
-    IGNORE_NAMES  ${creat_lib_from_files_SRC_IGNORE_NAMES}
-    EXTRA_FILES   ${creat_lib_from_files_SRC_EXTRA_FILES}
+    DIRECTORIES   ${create_lib_from_files_SRC_DIRECTORIES}
+    IGNORE_NAMES  ${create_lib_from_files_SRC_IGNORE_NAMES}
+    EXTRA_FILES   ${create_lib_from_files_SRC_EXTRA_FILES}
     EXTENSION     "cpp" "c"
   )
 
@@ -96,13 +96,13 @@ function(creat_lib_from_files)
   # Get all paths of files for source of packege
   create_paths_list_to(
     paths_To_Lib
-    DIRECTORIES   ${creat_lib_from_files_LIB_DIRECTORIES}
-    IGNORE_NAMES  ${creat_lib_from_files_LIB_IGNORE_NAMES}
-    EXTRA_FILES   ${creat_lib_from_files_SRC_EXTRA_FILES}
+    DIRECTORIES   ${create_lib_from_files_LIB_DIRECTORIES}
+    IGNORE_NAMES  ${create_lib_from_files_LIB_IGNORE_NAMES}
+    EXTRA_FILES   ${create_lib_from_files_SRC_EXTRA_FILES}
     EXTENSION     "lib"
   )
 
-  if(creat_lib_from_files_SHOWE_INFO_MESSAGE)
+  if(create_lib_from_files_SHOWE_INFO_MESSAGE)
     message("paths_To_SRC: ${paths_To_SRC}")
     message("paths_To_Lib: ${paths_To_Lib}")
   endif()
@@ -110,7 +110,7 @@ function(creat_lib_from_files)
   # Creat lib
   if(paths_To_SRC)
     add_library(${name_Lib} STATIC ${paths_To_SRC})
-    foreach(include_Path IN LISTS creat_lib_from_files_INCLUDES_DIRECTORIES)
+    foreach(include_Path IN LISTS create_lib_from_files_INCLUDES_DIRECTORIES)
       target_include_directories(${name_Lib} PUBLIC "${include_Path}/")
     endforeach()
 
@@ -122,11 +122,11 @@ function(creat_lib_from_files)
   endif()
 
   # make dependence
-  if(creat_lib_from_files_NAME_TARGET)
-    add_dependencies(${creat_lib_from_files_NAME_TARGET} ${creat_lib_from_files_NAME_LIB})
+  if(create_lib_from_files_NAME_TARGET)
+    add_dependencies(${create_lib_from_files_NAME_TARGET} ${create_lib_from_files_NAME_LIB})
   endif()
-  if(creat_lib_from_files_DEPENDENCIES_ON)
-    add_dependencies(${creat_lib_from_files_NAME_LIB} ${creat_lib_from_files_DEPENDENCIES_ON})
+  if(create_lib_from_files_DEPENDENCIES_ON)
+    add_dependencies(${create_lib_from_files_NAME_LIB} ${create_lib_from_files_DEPENDENCIES_ON})
   endif()
 
 endfunction()

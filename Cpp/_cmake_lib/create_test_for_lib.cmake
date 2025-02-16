@@ -19,7 +19,7 @@ include(creat_list_path_to_src)
 #
 # @author Andrei-KS
 ]]#
-function(creat_test_for_lib nameTest)
+function(create_test_for_lib nameTest)
 	message(STATUS "Name test is ${nameTest}")
 	message("ListPathToInclude: ${EP_CTFL_Includes}")
 	message("ListPathToLibs: ${EP_CTFL_Libs}")
@@ -31,7 +31,7 @@ function(creat_test_for_lib nameTest)
     set(EP_CLP_Directories ${EP_CTFL_TestSrcDir})
     set(EP_CLP_FileNames ${EP_CTFL_NamesTestSRCfiles})
     # Get all paths of files for source of packege
-    creat_list_path_to_src(pathsToSRC)
+    create_list_path_to_src(pathsToSRC)
     message("pathsToSRC: ${pathsToSRC}")
 
 	#Creat Test
