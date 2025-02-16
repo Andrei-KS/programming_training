@@ -1,8 +1,11 @@
 1.Downloading fltk-1.3.8 from http://www.fltk.org/index.php
 2.Compiling and building fltk from source
-Note: for x64 on VS2022 you need follow next step:
-	N.1. tool->Options->build and run
-	N.2. change "maximum number of parallel project builds" to 1
+Note 1: for x64 on VS2022 you need follow next step:
+  N.1. tool->Options->build and run
+  N.2. change "maximum number of parallel project builds" to 1
+Note 2: alternative, you can use cmake
+  N.1. set cmake setting
+  N.2. use build -> install FLTK
 3.Check correct work fltk: you need try to run demo.exe in folder fltk-1.3.8/test
 4.Integrating fltk
 	4.1. copy the Fl folder into your include folder
@@ -184,4 +187,3 @@ x64
 
 reference:
   1. https://alf-p-steinbach.github.io/Install-FLTK-for-use-with-Visual-C-/#3-build-the-library-with-visual-studio-2019
-  2. https://bumpyroadtocode.com/2017/08/05/how-to-install-and-use-fltk-1-3-4-in-visual-studio-2017-complete-guide/

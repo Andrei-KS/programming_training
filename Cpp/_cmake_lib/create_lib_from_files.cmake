@@ -109,13 +109,13 @@ function(create_lib_from_files)
 
   # Creat lib
   if(paths_To_SRC)
-    add_library(${name_Lib} STATIC ${paths_To_SRC})
+    add_library(${create_lib_from_files_NAME_LIB} STATIC ${paths_To_SRC})
     foreach(include_Path IN LISTS create_lib_from_files_INCLUDES_DIRECTORIES)
-      target_include_directories(${name_Lib} PUBLIC "${include_Path}/")
+      target_include_directories(${create_lib_from_files_NAME_LIB} PUBLIC "${include_Path}/")
     endforeach()
 
     if(paths_To_Lib)
-      target_link_libraries(${name_Lib} PRIVATE ${paths_To_Lib})
+      target_link_libraries(${create_lib_from_files_NAME_LIB} PRIVATE ${paths_To_Lib})
     endif()
   else()
       message(WARNING "Warrning: paths_To_SRC does not constened anything")

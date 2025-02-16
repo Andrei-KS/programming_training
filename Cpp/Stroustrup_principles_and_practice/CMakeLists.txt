@@ -1180,8 +1180,9 @@ List(APPEND src_Directories
 
 if(is_FLTK)
   #for VS2022 Community
+  set(fltk_configuration x64-Debug)
   List(APPEND includes_Directories
-    "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/include"
+    "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/${fltk_configuration}/include"
     "${PROJECT_SOURCE_DIR}/lib/GUI/include"
     "${PROJECT_SOURCE_DIR}/lib/ExtantionGUI/include"
   )
@@ -1190,7 +1191,7 @@ if(is_FLTK)
     "${PROJECT_SOURCE_DIR}/lib/ExtantionGUI/src"
   )
   List(APPEND lib_Directories
-    "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/lib"
+    "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/${fltk_configuration}/lib"
   )
 
   # Local Paths to additional libs of current lib
@@ -1205,13 +1206,13 @@ if(is_FLTK)
     target_link_libraries(${PROJECT_NAME} PRIVATE ${paths_To_Lib})
   endif()
 
-  if(EXISTS "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluid.exe")
+  if(EXISTS "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/${fltk_configuration}/bin/fluid.exe")
     message("file fluid.exe exists")
-    file(COPY "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluid.exe" DESTINATION ${PROJECT_BINARY_DIR})
+    file(COPY "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/${fltk_configuration}/bin/fluid.exe" DESTINATION ${PROJECT_BINARY_DIR})
   endif()
-  if(EXISTS "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluidd.exe")
+  if(EXISTS "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/${fltk_configuration}/bin/fluidd.exe")
     message("file fluidd.exe exists")
-    file(COPY "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/x64/bin/fluidd.exe" DESTINATION ${PROJECT_BINARY_DIR})
+    file(COPY "${PROJECT_SOURCE_DIR}/lib/_fltk-1.3.8/${fltk_configuration}/bin/fluidd.exe" DESTINATION ${PROJECT_BINARY_DIR})
   endif()
 endif()
 
